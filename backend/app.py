@@ -282,13 +282,13 @@ def get_teams():
 
 @app.route('/api/import-historical', methods=['POST'])
 def import_historical():
-    """Import historical data from 2017-2024"""
+    """Import historical data from 2012-2024"""
     try:
         from import_historical import import_historical_data
         
         # This is a long-running operation, so we'll run it in the background
         # For now, just trigger it synchronously (could be improved with threading)
-        start_year = request.json.get('start_year', 2017) if request.json else 2017
+        start_year = request.json.get('start_year', 2012) if request.json else 2012
         end_year = request.json.get('end_year', 2024) if request.json else 2024
         
         import_historical_data(LEAGUE_ID, start_year, end_year)
@@ -349,7 +349,7 @@ def get_historical_stats():
             place = s['place']
             year = s['year']
             
-            # Only count 2017-2024 (exclude 2025 as season isn't over)
+            # Only count 2012-2024 (exclude 2025 as season isn't over)
             if year <= 2024:
                 if place == 1:
                     super_bowls[team_name]['count'] += 1
@@ -414,7 +414,7 @@ def get_team_stats_all_time():
             team_name = normalize_team_name(s['team_name'])
             year = s['year']
             
-            # Only count completed seasons (2017-2024)
+            # Only count completed seasons (2012-2024)
             if year <= 2024:
                 stats = team_stats[team_name]
                 stats['total_points_for'] += s.get('points_for', 0.0)
@@ -493,10 +493,10 @@ def get_scoring_titles():
         # Use regular season standings (has points_for data)
         standings = load_standings_from_csv(csv_file, 'regular')
         
-        # Find highest points_for for each year (2017-2024 only, exclude 2025)
+        # Find highest points_for for each year (2012-2024 only, exclude 2025)
         scoring_titles = defaultdict(lambda: {'count': 0, 'years': []})
         
-        for year in range(2017, 2025):  # 2017-2024 only
+        for year in range(2012, 2025):  # 2012-2024 only
             year_standings = [s for s in standings if s['year'] == year]
             if year_standings:
                 # Find team with highest points_for
@@ -554,7 +554,7 @@ def get_win_pct_by_year():
             team_name = normalize_team_name(s['team_name'])
             year = s['year']
             
-            # Only count completed seasons (2017-2024)
+            # Only count completed seasons (2012-2024)
             if year <= 2024:
                 wins = s.get('wins', 0)
                 losses = s.get('losses', 0)

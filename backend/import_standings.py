@@ -19,7 +19,7 @@ from standings_scraper import StandingsScraper, save_standings_to_csv, load_stan
 from team_mapper import normalize_team_name
 
 
-def import_standings(start_year: int = 2017, end_year: int = 2025, force: bool = False):
+def import_standings(start_year: int = 2012, end_year: int = 2025, force: bool = False):
     """Import historical standings"""
     csv_file = os.path.join(project_root, 'data', 'standings.csv')
     
@@ -97,7 +97,7 @@ if __name__ == '__main__':
     
     parser = argparse.ArgumentParser(description='Import historical standings')
     parser.add_argument('--force', action='store_true', help='Force re-scrape of all years')
-    parser.add_argument('--start-year', type=int, default=2017, help='Start year')
+    parser.add_argument('--start-year', type=int, default=2012, help='Start year')
     parser.add_argument('--end-year', type=int, default=2025, help='End year')
     
     args = parser.parse_args()

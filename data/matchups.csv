@@ -853,3 +853,449 @@ year,week,week_type,team1_name,team1_score,team2_name,team2_score,winner,scraped
 2025,16,playoff,Freshie Vice,0.0,cheeseheads,0.0,Tie,2025-12-13T17:03:29.157178
 2025,16,playoff,Maggi's Mighty Ducks,0.0,The Ratpack,0.0,Tie,2025-12-13T17:03:29.157612
 2025,16,playoff,Hood,0.0,DirtyBirds,0.0,Tie,2025-12-13T17:03:29.158043
+2012,1,unknown,Generous Brady,124.64,The Arian Brother Hood,89.58,Generous Brady,2025-12-13T19:53:31.335628
+2012,1,unknown,Maggi's Mighty Ducks,90.82,TeamBreezy,117.92,TeamBreezy,2025-12-13T19:53:31.336491
+2012,1,unknown,Cowboys Ware94,110.58,Part-Time Battlers,112.1,Part-Time Battlers,2025-12-13T19:53:31.336928
+2012,1,unknown,killer cam,113.36,DirtyBirds,104.92,killer cam,2025-12-13T19:53:31.337310
+2012,1,unknown,cheeseheads,120.6,Palm Beach Pelicans,124.72,Palm Beach Pelicans,2025-12-13T19:53:31.337683
+2012,2,unknown,Maggi's Mighty Ducks,105.34,Generous Brady,86.94,Maggi's Mighty Ducks,2025-12-13T19:53:31.780969
+2012,2,unknown,The Arian Brother Hood,116.66,Cowboys Ware94,103.14,The Arian Brother Hood,2025-12-13T19:53:31.781604
+2012,2,unknown,TeamBreezy,77.84,killer cam,114.6,killer cam,2025-12-13T19:53:31.782140
+2012,2,unknown,Part-Time Battlers,105.2,cheeseheads,140.94,cheeseheads,2025-12-13T19:53:31.782343
+2012,2,unknown,DirtyBirds,114.96,Palm Beach Pelicans,86.46,DirtyBirds,2025-12-13T19:53:31.782552
+2012,3,unknown,Generous Brady,80.1,Cowboys Ware94,91.72,Cowboys Ware94,2025-12-13T19:53:32.202436
+2012,3,unknown,killer cam,117.3,Maggi's Mighty Ducks,77.0,killer cam,2025-12-13T19:53:32.202826
+2012,3,unknown,cheeseheads,98.14,The Arian Brother Hood,76.38,cheeseheads,2025-12-13T19:53:32.203143
+2012,3,unknown,Palm Beach Pelicans,116.42,TeamBreezy,98.86,Palm Beach Pelicans,2025-12-13T19:53:32.203419
+2012,3,unknown,DirtyBirds,95.48,Part-Time Battlers,135.62,Part-Time Battlers,2025-12-13T19:53:32.204444
+2012,4,unknown,killer cam,125.94,Generous Brady,120.4,killer cam,2025-12-13T19:53:32.641805
+2012,4,unknown,Cowboys Ware94,142.18,cheeseheads,107.12,Cowboys Ware94,2025-12-13T19:53:32.642438
+2012,4,unknown,Maggi's Mighty Ducks,150.42,Palm Beach Pelicans,122.36,Maggi's Mighty Ducks,2025-12-13T19:53:32.643118
+2012,4,unknown,The Arian Brother Hood,116.54,DirtyBirds,118.06,DirtyBirds,2025-12-13T19:53:32.643481
+2012,4,unknown,TeamBreezy,91.3,Part-Time Battlers,165.68,Part-Time Battlers,2025-12-13T19:53:32.643871
+2012,5,unknown,Generous Brady,94.32,cheeseheads,108.64,cheeseheads,2025-12-13T19:53:33.111059
+2012,5,unknown,Palm Beach Pelicans,137.5,killer cam,119.9,Palm Beach Pelicans,2025-12-13T19:53:33.111917
+2012,5,unknown,DirtyBirds,115.7,Cowboys Ware94,121.06,Cowboys Ware94,2025-12-13T19:53:33.112213
+2012,5,unknown,Part-Time Battlers,108.26,Maggi's Mighty Ducks,107.98,Part-Time Battlers,2025-12-13T19:53:33.112625
+2012,5,unknown,TeamBreezy,86.04,The Arian Brother Hood,123.76,The Arian Brother Hood,2025-12-13T19:53:33.116589
+2012,6,unknown,Palm Beach Pelicans,119.62,Generous Brady,85.7,Palm Beach Pelicans,2025-12-13T19:53:33.544182
+2012,6,unknown,cheeseheads,162.98,DirtyBirds,88.36,cheeseheads,2025-12-13T19:53:33.544708
+2012,6,unknown,killer cam,102.48,Part-Time Battlers,80.32,killer cam,2025-12-13T19:53:33.544952
+2012,6,unknown,Cowboys Ware94,81.18,TeamBreezy,94.52,TeamBreezy,2025-12-13T19:53:33.545196
+2012,6,unknown,Maggi's Mighty Ducks,123.86,The Arian Brother Hood,106.04,Maggi's Mighty Ducks,2025-12-13T19:53:33.545441
+2012,7,unknown,Generous Brady,120.46,DirtyBirds,83.4,Generous Brady,2025-12-13T19:53:33.973109
+2012,7,unknown,Part-Time Battlers,100.38,Palm Beach Pelicans,112.38,Palm Beach Pelicans,2025-12-13T19:53:33.974065
+2012,7,unknown,TeamBreezy,82.7,cheeseheads,143.52,cheeseheads,2025-12-13T19:53:33.974497
+2012,7,unknown,The Arian Brother Hood,113.02,killer cam,106.28,The Arian Brother Hood,2025-12-13T19:53:33.974918
+2012,7,unknown,Maggi's Mighty Ducks,128.0,Cowboys Ware94,94.38,Maggi's Mighty Ducks,2025-12-13T19:53:33.975371
+2012,8,unknown,Part-Time Battlers,79.08,Generous Brady,113.26,Generous Brady,2025-12-13T19:53:34.400055
+2012,8,unknown,DirtyBirds,94.54,TeamBreezy,87.46,DirtyBirds,2025-12-13T19:53:34.400809
+2012,8,unknown,Palm Beach Pelicans,81.94,The Arian Brother Hood,92.26,The Arian Brother Hood,2025-12-13T19:53:34.401167
+2012,8,unknown,cheeseheads,116.08,Maggi's Mighty Ducks,110.9,cheeseheads,2025-12-13T19:53:34.401525
+2012,8,unknown,killer cam,112.82,Cowboys Ware94,100.88,killer cam,2025-12-13T19:53:34.401879
+2012,9,unknown,Generous Brady,105.28,TeamBreezy,144.38,TeamBreezy,2025-12-13T19:53:34.809026
+2012,9,unknown,The Arian Brother Hood,82.44,Part-Time Battlers,97.5,Part-Time Battlers,2025-12-13T19:53:34.810118
+2012,9,unknown,Maggi's Mighty Ducks,110.24,DirtyBirds,111.8,DirtyBirds,2025-12-13T19:53:34.810583
+2012,9,unknown,Cowboys Ware94,116.84,Palm Beach Pelicans,88.22,Cowboys Ware94,2025-12-13T19:53:34.811007
+2012,9,unknown,killer cam,105.46,cheeseheads,153.1,cheeseheads,2025-12-13T19:53:34.811428
+2012,10,unknown,The Arian Brother Hood,115.34,Generous Brady,113.48,The Arian Brother Hood,2025-12-13T19:53:35.243137
+2012,10,unknown,TeamBreezy,102.34,Maggi's Mighty Ducks,113.34,Maggi's Mighty Ducks,2025-12-13T19:53:35.244033
+2012,10,unknown,Part-Time Battlers,95.2,Cowboys Ware94,96.16,Cowboys Ware94,2025-12-13T19:53:35.244456
+2012,10,unknown,DirtyBirds,100.2,killer cam,118.92,killer cam,2025-12-13T19:53:35.244875
+2012,10,unknown,Palm Beach Pelicans,123.34,cheeseheads,112.38,Palm Beach Pelicans,2025-12-13T19:53:35.245297
+2012,11,unknown,Generous Brady,113.54,Maggi's Mighty Ducks,122.6,Maggi's Mighty Ducks,2025-12-13T19:53:35.653042
+2012,11,unknown,Cowboys Ware94,93.12,The Arian Brother Hood,88.94,Cowboys Ware94,2025-12-13T19:53:35.654376
+2012,11,unknown,killer cam,148.96,TeamBreezy,49.04,killer cam,2025-12-13T19:53:35.654985
+2012,11,unknown,cheeseheads,121.1,Part-Time Battlers,87.62,cheeseheads,2025-12-13T19:53:35.655499
+2012,11,unknown,Palm Beach Pelicans,111.34,DirtyBirds,117.32,DirtyBirds,2025-12-13T19:53:35.655937
+2012,12,unknown,Cowboys Ware94,153.84,Generous Brady,115.92,Cowboys Ware94,2025-12-13T19:53:36.079858
+2012,12,unknown,Maggi's Mighty Ducks,100.7,killer cam,121.48,killer cam,2025-12-13T19:53:36.080782
+2012,12,unknown,The Arian Brother Hood,137.34,cheeseheads,100.96,The Arian Brother Hood,2025-12-13T19:53:36.081489
+2012,12,unknown,TeamBreezy,79.12,Palm Beach Pelicans,109.36,Palm Beach Pelicans,2025-12-13T19:53:36.082065
+2012,12,unknown,Part-Time Battlers,79.96,DirtyBirds,113.06,DirtyBirds,2025-12-13T19:53:36.082513
+2012,13,unknown,Generous Brady,103.92,killer cam,98.64,Generous Brady,2025-12-13T19:53:36.517018
+2012,13,unknown,cheeseheads,115.02,Cowboys Ware94,94.92,cheeseheads,2025-12-13T19:53:36.518131
+2012,13,unknown,Palm Beach Pelicans,133.44,Maggi's Mighty Ducks,87.08,Palm Beach Pelicans,2025-12-13T19:53:36.518644
+2012,13,unknown,DirtyBirds,114.2,The Arian Brother Hood,112.58,DirtyBirds,2025-12-13T19:53:36.519185
+2012,13,unknown,Part-Time Battlers,99.98,TeamBreezy,77.1,Part-Time Battlers,2025-12-13T19:53:36.519864
+2012,14,unknown,cheeseheads,146.48,Generous Brady,155.54,Generous Brady,2025-12-13T19:53:36.931262
+2012,14,unknown,killer cam,95.36,Palm Beach Pelicans,89.82,killer cam,2025-12-13T19:53:36.932208
+2012,14,unknown,Cowboys Ware94,104.02,DirtyBirds,108.96,DirtyBirds,2025-12-13T19:53:36.932636
+2012,14,unknown,Maggi's Mighty Ducks,140.2,Part-Time Battlers,71.56,Maggi's Mighty Ducks,2025-12-13T19:53:36.933078
+2012,14,unknown,The Arian Brother Hood,137.68,TeamBreezy,109.18,The Arian Brother Hood,2025-12-13T19:53:36.933627
+2012,15,playoff,Maggi's Mighty Ducks,124.76,Part-Time Battlers,100.86,Maggi's Mighty Ducks,2025-12-13T19:53:37.349583
+2012,15,playoff,The Arian Brother Hood,88.74,Cowboys Ware94,87.24,The Arian Brother Hood,2025-12-13T19:53:37.349955
+2012,15,playoff,killer cam,139.18,Palm Beach Pelicans,144.84,Palm Beach Pelicans,2025-12-13T19:53:37.350129
+2012,15,playoff,cheeseheads,107.3,DirtyBirds,89.94,cheeseheads,2025-12-13T19:53:37.350303
+2012,16,playoff,Maggi's Mighty Ducks,115.86,The Arian Brother Hood,116.4,The Arian Brother Hood,2025-12-13T19:53:37.784600
+2012,16,playoff,Part-Time Battlers,77.88,Cowboys Ware94,119.94,Cowboys Ware94,2025-12-13T19:53:37.785685
+2012,16,playoff,Palm Beach Pelicans,143.88,cheeseheads,142.92,Palm Beach Pelicans,2025-12-13T19:53:37.786201
+2012,16,playoff,killer cam,170.84,DirtyBirds,98.8,killer cam,2025-12-13T19:53:37.787354
+2013,1,regular,Boston Tea Party,42.52,Smitten on Witten,81.18,Smitten on Witten,2025-12-13T19:53:38.708011
+2013,1,regular,Maggi's Mighty Ducks,121.38,Wolfpak,116.78,Maggi's Mighty Ducks,2025-12-13T19:53:38.708937
+2013,1,regular,Woody,106.62,Rats,139.32,Rats,2025-12-13T19:53:38.709359
+2013,1,regular,Killer Cam,131.88,Breezes' Transformers,72.66,Killer Cam,2025-12-13T19:53:38.709777
+2013,1,regular,cheeseheads,100.22,Scrubs,121.7,Scrubs,2025-12-13T19:53:38.710191
+2013,1,regular,Palm Beach Pelicans,111.7,DirtyBirds,105.42,Palm Beach Pelicans,2025-12-13T19:53:38.710630
+2013,2,regular,Maggi's Mighty Ducks,87.6,Boston Tea Party,91.6,Boston Tea Party,2025-12-13T19:53:39.184993
+2013,2,regular,Smitten on Witten,66.88,Woody,121.5,Woody,2025-12-13T19:53:39.185895
+2013,2,regular,Wolfpak,89.38,Killer Cam,83.28,Wolfpak,2025-12-13T19:53:39.186632
+2013,2,regular,Rats,102.14,cheeseheads,98.92,Rats,2025-12-13T19:53:39.188746
+2013,2,regular,Breezes' Transformers,113.74,Palm Beach Pelicans,124.06,Palm Beach Pelicans,2025-12-13T19:53:39.189424
+2013,2,regular,Scrubs,99.56,DirtyBirds,74.72,Scrubs,2025-12-13T19:53:39.189809
+2013,3,regular,Boston Tea Party,89.8,Woody,73.86,Boston Tea Party,2025-12-13T19:53:39.642073
+2013,3,regular,Killer Cam,95.6,Maggi's Mighty Ducks,49.74,Killer Cam,2025-12-13T19:53:39.642921
+2013,3,regular,cheeseheads,94.0,Smitten on Witten,113.48,Smitten on Witten,2025-12-13T19:53:39.643283
+2013,3,regular,Palm Beach Pelicans,80.02,Wolfpak,85.96,Wolfpak,2025-12-13T19:53:39.643710
+2013,3,regular,DirtyBirds,86.34,Rats,77.86,DirtyBirds,2025-12-13T19:53:39.644193
+2013,3,regular,Scrubs,90.1,Breezes' Transformers,90.14,Breezes' Transformers,2025-12-13T19:53:39.644688
+2013,4,regular,Killer Cam,130.78,Boston Tea Party,69.94,Killer Cam,2025-12-13T19:53:40.060531
+2013,4,regular,Woody,75.66,cheeseheads,129.94,cheeseheads,2025-12-13T19:53:40.061131
+2013,4,regular,Maggi's Mighty Ducks,54.88,Palm Beach Pelicans,127.32,Palm Beach Pelicans,2025-12-13T19:53:40.061410
+2013,4,regular,Smitten on Witten,103.32,DirtyBirds,119.62,DirtyBirds,2025-12-13T19:53:40.061686
+2013,4,regular,Wolfpak,103.18,Scrubs,132.44,Scrubs,2025-12-13T19:53:40.062001
+2013,4,regular,Rats,102.38,Breezes' Transformers,99.34,Rats,2025-12-13T19:53:40.062317
+2013,5,regular,Boston Tea Party,86.98,cheeseheads,155.84,cheeseheads,2025-12-13T19:53:40.493916
+2013,5,regular,Palm Beach Pelicans,85.92,Killer Cam,72.92,Palm Beach Pelicans,2025-12-13T19:53:40.494815
+2013,5,regular,DirtyBirds,66.9,Woody,81.46,Woody,2025-12-13T19:53:40.495238
+2013,5,regular,Scrubs,78.84,Maggi's Mighty Ducks,58.68,Scrubs,2025-12-13T19:53:40.495661
+2013,5,regular,Breezes' Transformers,73.16,Smitten on Witten,120.92,Smitten on Witten,2025-12-13T19:53:40.496087
+2013,5,regular,Rats,91.26,Wolfpak,114.26,Wolfpak,2025-12-13T19:53:40.496507
+2013,6,regular,Palm Beach Pelicans,113.98,Boston Tea Party,75.08,Palm Beach Pelicans,2025-12-13T19:53:40.913785
+2013,6,regular,cheeseheads,89.5,DirtyBirds,117.84,DirtyBirds,2025-12-13T19:53:40.914868
+2013,6,regular,Killer Cam,73.98,Scrubs,66.08,Killer Cam,2025-12-13T19:53:40.915379
+2013,6,regular,Woody,126.0,Breezes' Transformers,83.28,Woody,2025-12-13T19:53:40.915891
+2013,6,regular,Maggi's Mighty Ducks,53.04,Rats,81.38,Rats,2025-12-13T19:53:40.916572
+2013,6,regular,Smitten on Witten,91.94,Wolfpak,103.1,Wolfpak,2025-12-13T19:53:40.917114
+2013,7,regular,Boston Tea Party,64.52,DirtyBirds,81.6,DirtyBirds,2025-12-13T19:53:41.345868
+2013,7,regular,Scrubs,78.1,Palm Beach Pelicans,60.26,Scrubs,2025-12-13T19:53:41.346244
+2013,7,regular,Breezes' Transformers,103.52,cheeseheads,106.88,cheeseheads,2025-12-13T19:53:41.346422
+2013,7,regular,Rats,80.32,Killer Cam,67.86,Rats,2025-12-13T19:53:41.346597
+2013,7,regular,Wolfpak,66.74,Woody,120.8,Woody,2025-12-13T19:53:41.346770
+2013,7,regular,Smitten on Witten,89.36,Maggi's Mighty Ducks,89.28,Smitten on Witten,2025-12-13T19:53:41.346945
+2013,8,regular,Scrubs,72.54,Boston Tea Party,78.1,Boston Tea Party,2025-12-13T19:53:41.780556
+2013,8,regular,DirtyBirds,68.8,Breezes' Transformers,94.44,Breezes' Transformers,2025-12-13T19:53:41.780921
+2013,8,regular,Palm Beach Pelicans,131.24,Rats,104.72,Palm Beach Pelicans,2025-12-13T19:53:41.781101
+2013,8,regular,cheeseheads,56.24,Wolfpak,90.76,Wolfpak,2025-12-13T19:53:41.781276
+2013,8,regular,Killer Cam,79.96,Smitten on Witten,86.28,Smitten on Witten,2025-12-13T19:53:41.781445
+2013,8,regular,Woody,108.6,Maggi's Mighty Ducks,84.72,Woody,2025-12-13T19:53:41.781618
+2013,9,regular,Boston Tea Party,67.52,Breezes' Transformers,106.16,Breezes' Transformers,2025-12-13T19:53:42.215685
+2013,9,regular,Rats,105.94,Scrubs,115.24,Scrubs,2025-12-13T19:53:42.216052
+2013,9,regular,Wolfpak,101.3,DirtyBirds,90.58,Wolfpak,2025-12-13T19:53:42.216227
+2013,9,regular,Smitten on Witten,82.68,Palm Beach Pelicans,84.86,Palm Beach Pelicans,2025-12-13T19:53:42.216395
+2013,9,regular,Maggi's Mighty Ducks,100.24,cheeseheads,127.28,cheeseheads,2025-12-13T19:53:42.216560
+2013,9,regular,Woody,72.18,Killer Cam,111.5,Killer Cam,2025-12-13T19:53:42.216728
+2013,10,regular,Rats,61.72,Boston Tea Party,84.38,Boston Tea Party,2025-12-13T19:53:42.662852
+2013,10,regular,Breezes' Transformers,107.94,Wolfpak,66.74,Breezes' Transformers,2025-12-13T19:53:42.664127
+2013,10,regular,Scrubs,70.32,Smitten on Witten,107.38,Smitten on Witten,2025-12-13T19:53:42.664704
+2013,10,regular,DirtyBirds,105.62,Maggi's Mighty Ducks,85.76,DirtyBirds,2025-12-13T19:53:42.665220
+2013,10,regular,Palm Beach Pelicans,107.56,Woody,67.76,Palm Beach Pelicans,2025-12-13T19:53:42.665676
+2013,10,regular,cheeseheads,90.12,Killer Cam,67.0,cheeseheads,2025-12-13T19:53:42.666109
+2013,11,regular,Boston Tea Party,96.7,Wolfpak,91.42,Boston Tea Party,2025-12-13T19:53:43.102890
+2013,11,regular,Smitten on Witten,84.2,Rats,77.68,Smitten on Witten,2025-12-13T19:53:43.104120
+2013,11,regular,Maggi's Mighty Ducks,110.16,Breezes' Transformers,84.8,Maggi's Mighty Ducks,2025-12-13T19:53:43.104790
+2013,11,regular,Woody,89.58,Scrubs,112.02,Scrubs,2025-12-13T19:53:43.105337
+2013,11,regular,Killer Cam,63.12,DirtyBirds,83.12,DirtyBirds,2025-12-13T19:53:43.105805
+2013,11,regular,cheeseheads,105.86,Palm Beach Pelicans,107.36,Palm Beach Pelicans,2025-12-13T19:53:43.106240
+2013,12,regular,Smitten on Witten,101.52,Boston Tea Party,119.06,Boston Tea Party,2025-12-13T19:53:43.534000
+2013,12,regular,Wolfpak,92.7,Maggi's Mighty Ducks,66.68,Wolfpak,2025-12-13T19:53:43.534976
+2013,12,regular,Rats,104.52,Woody,75.7,Rats,2025-12-13T19:53:43.535411
+2013,12,regular,Breezes' Transformers,68.26,Killer Cam,71.4,Killer Cam,2025-12-13T19:53:43.535841
+2013,12,regular,Scrubs,86.96,cheeseheads,72.16,Scrubs,2025-12-13T19:53:43.536286
+2013,12,regular,DirtyBirds,62.92,Palm Beach Pelicans,80.76,Palm Beach Pelicans,2025-12-13T19:53:43.536680
+2013,13,regular,Boston Tea Party,86.1,Maggi's Mighty Ducks,92.6,Maggi's Mighty Ducks,2025-12-13T19:53:43.960911
+2013,13,regular,Woody,74.84,Smitten on Witten,125.58,Smitten on Witten,2025-12-13T19:53:43.961801
+2013,13,regular,Killer Cam,104.02,Wolfpak,82.6,Killer Cam,2025-12-13T19:53:43.962230
+2013,13,regular,cheeseheads,98.0,Rats,110.1,Rats,2025-12-13T19:53:43.962648
+2013,13,regular,Palm Beach Pelicans,157.92,Breezes' Transformers,103.14,Palm Beach Pelicans,2025-12-13T19:53:43.963076
+2013,13,regular,DirtyBirds,88.88,Scrubs,79.84,DirtyBirds,2025-12-13T19:53:43.963494
+2013,14,regular,Woody,67.26,Boston Tea Party,95.86,Boston Tea Party,2025-12-13T19:53:44.428155
+2013,14,regular,Maggi's Mighty Ducks,71.04,Killer Cam,82.18,Killer Cam,2025-12-13T19:53:44.429050
+2013,14,regular,Smitten on Witten,110.12,cheeseheads,138.16,cheeseheads,2025-12-13T19:53:44.429468
+2013,14,regular,Wolfpak,96.72,Palm Beach Pelicans,73.9,Wolfpak,2025-12-13T19:53:44.429885
+2013,14,regular,Rats,87.94,DirtyBirds,112.26,DirtyBirds,2025-12-13T19:53:44.430303
+2013,14,regular,Breezes' Transformers,66.44,Scrubs,149.62,Scrubs,2025-12-13T19:53:44.430721
+2013,15,playoff,Smitten on Witten,116.82,Rats,63.4,Smitten on Witten,2025-12-13T19:53:44.855180
+2013,15,playoff,Killer Cam,76.56,Boston Tea Party,103.24,Boston Tea Party,2025-12-13T19:53:44.856018
+2013,15,playoff,Palm Beach Pelicans,135.72,DirtyBirds,91.52,Palm Beach Pelicans,2025-12-13T19:53:44.856390
+2013,15,playoff,Scrubs,160.86,Wolfpak,104.82,Scrubs,2025-12-13T19:53:44.856758
+2013,16,playoff,Smitten on Witten,103.44,Boston Tea Party,97.92,Smitten on Witten,2025-12-13T19:53:45.268131
+2013,16,playoff,Rats,61.24,Killer Cam,107.0,Killer Cam,2025-12-13T19:53:45.269036
+2013,16,playoff,Palm Beach Pelicans,83.14,Scrubs,71.28,Palm Beach Pelicans,2025-12-13T19:53:45.269493
+2013,16,playoff,DirtyBirds,99.5,Wolfpak,79.58,DirtyBirds,2025-12-13T19:53:45.269916
+2014,1,regular,Generous Brady,136.42,The Brotherhood,123.46,Generous Brady,2025-12-13T19:53:46.158816
+2014,1,regular,Maggi's Mighty Ducks,123.8,Ball So Hard Wolfpak,97.76,Maggi's Mighty Ducks,2025-12-13T19:53:46.159710
+2014,1,regular,Woody,125.96,Rats,59.74,Woody,2025-12-13T19:53:46.160123
+2014,1,regular,Killer Cam,148.12,MEGATRON,142.86,Killer Cam,2025-12-13T19:53:46.160556
+2014,1,regular,cheeseheads,89.24,Captain Phillips,120.42,Captain Phillips,2025-12-13T19:53:46.160968
+2014,1,regular,Palm Beach Pelicans,152.04,DirtyBirds,121.18,Palm Beach Pelicans,2025-12-13T19:53:46.161382
+2014,2,regular,Maggi's Mighty Ducks,145.18,Generous Brady,126.48,Maggi's Mighty Ducks,2025-12-13T19:53:46.603897
+2014,2,regular,The Brotherhood,97.14,Woody,119.48,Woody,2025-12-13T19:53:46.606329
+2014,2,regular,Ball So Hard Wolfpak,88.96,Killer Cam,61.54,Ball So Hard Wolfpak,2025-12-13T19:53:46.606771
+2014,2,regular,Rats,126.24,cheeseheads,101.22,Rats,2025-12-13T19:53:46.607207
+2014,2,regular,MEGATRON,112.8,Palm Beach Pelicans,111.84,MEGATRON,2025-12-13T19:53:46.607641
+2014,2,regular,Captain Phillips,111.56,DirtyBirds,95.94,Captain Phillips,2025-12-13T19:53:46.608078
+2014,3,regular,Generous Brady,104.12,Woody,96.92,Generous Brady,2025-12-13T19:53:47.019964
+2014,3,regular,Killer Cam,115.84,Maggi's Mighty Ducks,165.9,Maggi's Mighty Ducks,2025-12-13T19:53:47.021287
+2014,3,regular,cheeseheads,122.7,The Brotherhood,87.68,cheeseheads,2025-12-13T19:53:47.022428
+2014,3,regular,Palm Beach Pelicans,141.44,Ball So Hard Wolfpak,92.16,Palm Beach Pelicans,2025-12-13T19:53:47.022890
+2014,3,regular,DirtyBirds,108.0,Rats,113.96,Rats,2025-12-13T19:53:47.023316
+2014,3,regular,Captain Phillips,61.24,MEGATRON,120.7,MEGATRON,2025-12-13T19:53:47.023753
+2014,4,regular,Killer Cam,123.82,Generous Brady,78.7,Killer Cam,2025-12-13T19:53:47.460809
+2014,4,regular,Woody,135.98,cheeseheads,92.72,Woody,2025-12-13T19:53:47.461709
+2014,4,regular,Maggi's Mighty Ducks,142.62,Palm Beach Pelicans,141.12,Maggi's Mighty Ducks,2025-12-13T19:53:47.462133
+2014,4,regular,The Brotherhood,141.58,DirtyBirds,123.5,The Brotherhood,2025-12-13T19:53:47.462555
+2014,4,regular,Ball So Hard Wolfpak,117.96,Captain Phillips,112.98,Ball So Hard Wolfpak,2025-12-13T19:53:47.462980
+2014,4,regular,Rats,108.58,MEGATRON,133.32,MEGATRON,2025-12-13T19:53:47.463402
+2014,5,regular,Generous Brady,136.74,cheeseheads,105.44,Generous Brady,2025-12-13T19:53:47.894322
+2014,5,regular,Palm Beach Pelicans,105.44,Killer Cam,114.54,Killer Cam,2025-12-13T19:53:47.895156
+2014,5,regular,DirtyBirds,111.18,Woody,116.86,Woody,2025-12-13T19:53:47.895524
+2014,5,regular,Captain Phillips,113.42,Maggi's Mighty Ducks,123.48,Maggi's Mighty Ducks,2025-12-13T19:53:47.895888
+2014,5,regular,MEGATRON,149.46,The Brotherhood,101.24,MEGATRON,2025-12-13T19:53:47.896256
+2014,5,regular,Rats,80.86,Ball So Hard Wolfpak,108.52,Ball So Hard Wolfpak,2025-12-13T19:53:47.896683
+2014,6,regular,Palm Beach Pelicans,83.1,Generous Brady,152.44,Generous Brady,2025-12-13T19:53:48.316819
+2014,6,regular,cheeseheads,96.04,DirtyBirds,132.52,DirtyBirds,2025-12-13T19:53:48.317620
+2014,6,regular,Killer Cam,132.14,Captain Phillips,91.12,Killer Cam,2025-12-13T19:53:48.317992
+2014,6,regular,Woody,94.68,MEGATRON,140.94,MEGATRON,2025-12-13T19:53:48.318357
+2014,6,regular,Maggi's Mighty Ducks,118.8,Rats,74.5,Maggi's Mighty Ducks,2025-12-13T19:53:48.318747
+2014,6,regular,The Brotherhood,100.36,Ball So Hard Wolfpak,126.62,Ball So Hard Wolfpak,2025-12-13T19:53:48.319113
+2014,7,regular,Generous Brady,92.54,DirtyBirds,112.12,DirtyBirds,2025-12-13T19:53:48.757092
+2014,7,regular,Captain Phillips,97.2,Palm Beach Pelicans,106.5,Palm Beach Pelicans,2025-12-13T19:53:48.758185
+2014,7,regular,MEGATRON,168.62,cheeseheads,126.82,MEGATRON,2025-12-13T19:53:48.758615
+2014,7,regular,Rats,92.66,Killer Cam,122.82,Killer Cam,2025-12-13T19:53:48.758996
+2014,7,regular,Ball So Hard Wolfpak,96.02,Woody,113.22,Woody,2025-12-13T19:53:48.759388
+2014,7,regular,The Brotherhood,112.2,Maggi's Mighty Ducks,94.46,The Brotherhood,2025-12-13T19:53:48.759776
+2014,8,regular,Captain Phillips,143.58,Generous Brady,163.96,Generous Brady,2025-12-13T19:53:49.197964
+2014,8,regular,DirtyBirds,178.94,MEGATRON,149.14,DirtyBirds,2025-12-13T19:53:49.199162
+2014,8,regular,Palm Beach Pelicans,55.54,Rats,111.26,Rats,2025-12-13T19:53:49.199698
+2014,8,regular,cheeseheads,97.76,Ball So Hard Wolfpak,122.96,Ball So Hard Wolfpak,2025-12-13T19:53:49.200212
+2014,8,regular,Killer Cam,172.42,The Brotherhood,116.32,Killer Cam,2025-12-13T19:53:49.200827
+2014,8,regular,Woody,143.74,Maggi's Mighty Ducks,101.3,Woody,2025-12-13T19:53:49.201298
+2014,9,regular,Generous Brady,138.68,MEGATRON,111.14,Generous Brady,2025-12-13T19:53:49.610427
+2014,9,regular,Rats,103.6,Captain Phillips,107.6,Captain Phillips,2025-12-13T19:53:49.611193
+2014,9,regular,Ball So Hard Wolfpak,101.56,DirtyBirds,108.46,DirtyBirds,2025-12-13T19:53:49.611555
+2014,9,regular,The Brotherhood,105.92,Palm Beach Pelicans,125.54,Palm Beach Pelicans,2025-12-13T19:53:49.611916
+2014,9,regular,Maggi's Mighty Ducks,120.16,cheeseheads,82.36,Maggi's Mighty Ducks,2025-12-13T19:53:49.612273
+2014,9,regular,Woody,98.62,Killer Cam,163.2,Killer Cam,2025-12-13T19:53:49.612632
+2014,10,regular,Rats,107.14,Generous Brady,170.3,Generous Brady,2025-12-13T19:53:50.043804
+2014,10,regular,MEGATRON,102.38,Ball So Hard Wolfpak,100.34,MEGATRON,2025-12-13T19:53:50.044882
+2014,10,regular,Captain Phillips,127.88,The Brotherhood,139.88,The Brotherhood,2025-12-13T19:53:50.045398
+2014,10,regular,DirtyBirds,126.38,Maggi's Mighty Ducks,112.88,DirtyBirds,2025-12-13T19:53:50.045917
+2014,10,regular,Palm Beach Pelicans,107.74,Woody,96.7,Palm Beach Pelicans,2025-12-13T19:53:50.046439
+2014,10,regular,cheeseheads,127.9,Killer Cam,117.82,cheeseheads,2025-12-13T19:53:50.046903
+2014,11,regular,Generous Brady,117.88,Ball So Hard Wolfpak,65.84,Generous Brady,2025-12-13T19:53:50.474128
+2014,11,regular,The Brotherhood,123.82,Rats,81.82,The Brotherhood,2025-12-13T19:53:50.474921
+2014,11,regular,Maggi's Mighty Ducks,110.22,MEGATRON,147.3,MEGATRON,2025-12-13T19:53:50.475304
+2014,11,regular,Woody,112.36,Captain Phillips,129.72,Captain Phillips,2025-12-13T19:53:50.475670
+2014,11,regular,Killer Cam,114.92,DirtyBirds,83.92,Killer Cam,2025-12-13T19:53:50.476033
+2014,11,regular,cheeseheads,76.92,Palm Beach Pelicans,136.24,Palm Beach Pelicans,2025-12-13T19:53:50.476393
+2014,12,regular,The Brotherhood,151.84,Generous Brady,104.96,The Brotherhood,2025-12-13T19:53:50.989999
+2014,12,regular,Ball So Hard Wolfpak,101.56,Maggi's Mighty Ducks,137.62,Maggi's Mighty Ducks,2025-12-13T19:53:50.990975
+2014,12,regular,Rats,67.66,Woody,137.38,Woody,2025-12-13T19:53:50.991400
+2014,12,regular,MEGATRON,149.7,Killer Cam,124.02,MEGATRON,2025-12-13T19:53:50.991858
+2014,12,regular,Captain Phillips,129.54,cheeseheads,91.04,Captain Phillips,2025-12-13T19:53:50.992279
+2014,12,regular,DirtyBirds,118.24,Palm Beach Pelicans,116.86,DirtyBirds,2025-12-13T19:53:50.992702
+2014,13,regular,Generous Brady,105.4,Maggi's Mighty Ducks,174.8,Maggi's Mighty Ducks,2025-12-13T19:53:51.430673
+2014,13,regular,Woody,118.46,The Brotherhood,96.84,Woody,2025-12-13T19:53:51.431476
+2014,13,regular,Killer Cam,108.34,Ball So Hard Wolfpak,75.9,Killer Cam,2025-12-13T19:53:51.431845
+2014,13,regular,cheeseheads,200.4,Rats,97.96,cheeseheads,2025-12-13T19:53:51.432209
+2014,13,regular,Palm Beach Pelicans,135.72,MEGATRON,140.68,MEGATRON,2025-12-13T19:53:51.432583
+2014,13,regular,DirtyBirds,127.54,Captain Phillips,131.28,Captain Phillips,2025-12-13T19:53:51.432945
+2014,14,regular,Woody,84.12,Generous Brady,135.18,Generous Brady,2025-12-13T19:53:51.879109
+2014,14,regular,Maggi's Mighty Ducks,173.26,Killer Cam,127.1,Maggi's Mighty Ducks,2025-12-13T19:53:51.880020
+2014,14,regular,The Brotherhood,150.82,cheeseheads,103.16,The Brotherhood,2025-12-13T19:53:51.880448
+2014,14,regular,Ball So Hard Wolfpak,105.16,Palm Beach Pelicans,168.48,Palm Beach Pelicans,2025-12-13T19:53:51.880871
+2014,14,regular,Rats,102.5,DirtyBirds,122.4,DirtyBirds,2025-12-13T19:53:51.881291
+2014,14,regular,MEGATRON,141.3,Captain Phillips,117.44,MEGATRON,2025-12-13T19:53:51.881713
+2014,15,playoff,Woody,118.02,The Brotherhood,95.12,Woody,2025-12-13T19:53:52.310894
+2014,15,playoff,Palm Beach Pelicans,138.5,DirtyBirds,136.88,Palm Beach Pelicans,2025-12-13T19:53:52.311791
+2014,15,playoff,MEGATRON,157.7,Generous Brady,133.78,MEGATRON,2025-12-13T19:53:52.312213
+2014,15,playoff,Maggi's Mighty Ducks,100.98,Killer Cam,107.2,Killer Cam,2025-12-13T19:53:52.312635
+2014,16,playoff,Woody,129.24,Palm Beach Pelicans,137.82,Palm Beach Pelicans,2025-12-13T19:53:52.739087
+2014,16,playoff,The Brotherhood,126.76,DirtyBirds,103.14,The Brotherhood,2025-12-13T19:53:52.739747
+2014,16,playoff,MEGATRON,104.22,Killer Cam,129.58,Killer Cam,2025-12-13T19:53:52.740033
+2014,16,playoff,Generous Brady,127.78,Maggi's Mighty Ducks,76.16,Generous Brady,2025-12-13T19:53:52.740312
+2015,1,regular,Generous Brady,159.72,The Brotherhood,132.94,Generous Brady,2025-12-13T19:53:53.589528
+2015,1,regular,DirtyBirds,115.8,PMQ Scrubs,138.6,PMQ Scrubs,2025-12-13T19:53:53.590564
+2015,1,regular,Woody,118.42,Maggi's Mighty Ducks,111.4,Woody,2025-12-13T19:53:53.591104
+2015,1,regular,Killer Cam,133.32,MegatroN,113.24,Killer Cam,2025-12-13T19:53:53.591543
+2015,1,regular,cheeseheads,99.12,Ball So Hard Wolfpak,103.56,Ball So Hard Wolfpak,2025-12-13T19:53:53.591936
+2015,1,regular,Palm Beach Pelicans,94.34,Rats,85.64,Palm Beach Pelicans,2025-12-13T19:53:53.592309
+2015,2,regular,MegatroN,134.64,Woody,113.5,MegatroN,2025-12-13T19:53:54.007493
+2015,2,regular,Maggi's Mighty Ducks,117.54,Killer Cam,109.02,Maggi's Mighty Ducks,2025-12-13T19:53:54.008304
+2015,2,regular,Ball So Hard Wolfpak,88.86,Generous Brady,118.64,Generous Brady,2025-12-13T19:53:54.008670
+2015,2,regular,cheeseheads,114.2,The Brotherhood,108.06,cheeseheads,2025-12-13T19:53:54.009037
+2015,2,regular,Palm Beach Pelicans,90.86,DirtyBirds,111.4,DirtyBirds,2025-12-13T19:53:54.009399
+2015,2,regular,PMQ Scrubs,116.8,Rats,140.34,Rats,2025-12-13T19:53:54.009770
+2015,3,regular,Killer Cam,162.0,Woody,129.0,Killer Cam,2025-12-13T19:53:54.422560
+2015,3,regular,MegatroN,97.36,Maggi's Mighty Ducks,102.86,Maggi's Mighty Ducks,2025-12-13T19:53:54.423554
+2015,3,regular,The Brotherhood,125.28,Ball So Hard Wolfpak,111.82,The Brotherhood,2025-12-13T19:53:54.423990
+2015,3,regular,cheeseheads,130.34,Generous Brady,121.02,cheeseheads,2025-12-13T19:53:54.424419
+2015,3,regular,DirtyBirds,180.4,Rats,116.1,DirtyBirds,2025-12-13T19:53:54.424843
+2015,3,regular,Palm Beach Pelicans,79.68,PMQ Scrubs,173.18,PMQ Scrubs,2025-12-13T19:53:54.425271
+2015,4,regular,Killer Cam,67.64,The Brotherhood,108.32,The Brotherhood,2025-12-13T19:53:54.872505
+2015,4,regular,Maggi's Mighty Ducks,113.72,PMQ Scrubs,99.84,Maggi's Mighty Ducks,2025-12-13T19:53:54.873048
+2015,4,regular,Generous Brady,105.52,MegatroN,116.98,MegatroN,2025-12-13T19:53:54.873277
+2015,4,regular,Ball So Hard Wolfpak,112.46,Palm Beach Pelicans,109.06,Ball So Hard Wolfpak,2025-12-13T19:53:54.873514
+2015,4,regular,Rats,126.98,cheeseheads,152.28,cheeseheads,2025-12-13T19:53:54.873748
+2015,4,regular,DirtyBirds,106.96,Woody,92.2,DirtyBirds,2025-12-13T19:53:54.873990
+2015,5,regular,Killer Cam,89.26,Ball So Hard Wolfpak,80.54,Killer Cam,2025-12-13T19:53:55.289708
+2015,5,regular,Rats,132.52,Maggi's Mighty Ducks,67.34,Rats,2025-12-13T19:53:55.290701
+2015,5,regular,Generous Brady,127.8,DirtyBirds,122.44,Generous Brady,2025-12-13T19:53:55.291128
+2015,5,regular,The Brotherhood,150.58,MegatroN,140.64,The Brotherhood,2025-12-13T19:53:55.291556
+2015,5,regular,cheeseheads,137.74,PMQ Scrubs,111.8,cheeseheads,2025-12-13T19:53:55.291995
+2015,5,regular,Palm Beach Pelicans,159.36,Woody,91.74,Palm Beach Pelicans,2025-12-13T19:53:55.292447
+2015,6,regular,Palm Beach Pelicans,150.32,Generous Brady,120.08,Palm Beach Pelicans,2025-12-13T19:53:55.698577
+2015,6,regular,DirtyBirds,91.16,Killer Cam,147.1,Killer Cam,2025-12-13T19:53:55.699394
+2015,6,regular,Ball So Hard Wolfpak,88.9,Rats,120.94,Rats,2025-12-13T19:53:55.699760
+2015,6,regular,The Brotherhood,138.78,Maggi's Mighty Ducks,80.9,The Brotherhood,2025-12-13T19:53:55.700119
+2015,6,regular,Woody,109.92,cheeseheads,115.64,cheeseheads,2025-12-13T19:53:55.700477
+2015,6,regular,MegatroN,128.66,PMQ Scrubs,141.82,PMQ Scrubs,2025-12-13T19:53:55.700840
+2015,7,regular,MegatroN,125.6,DirtyBirds,113.68,MegatroN,2025-12-13T19:53:56.142309
+2015,7,regular,Woody,132.92,The Brotherhood,114.5,Woody,2025-12-13T19:53:56.143566
+2015,7,regular,Maggi's Mighty Ducks,111.28,Generous Brady,113.9,Generous Brady,2025-12-13T19:53:56.143934
+2015,7,regular,Rats,112.6,Killer Cam,77.04,Rats,2025-12-13T19:53:56.144141
+2015,7,regular,PMQ Scrubs,138.54,Ball So Hard Wolfpak,148.44,Ball So Hard Wolfpak,2025-12-13T19:53:56.144325
+2015,7,regular,Palm Beach Pelicans,153.68,cheeseheads,148.3,Palm Beach Pelicans,2025-12-13T19:53:56.144504
+2015,8,regular,PMQ Scrubs,151.94,Woody,94.84,PMQ Scrubs,2025-12-13T19:53:56.567123
+2015,8,regular,Ball So Hard Wolfpak,107.68,MegatroN,123.4,MegatroN,2025-12-13T19:53:56.567899
+2015,8,regular,Palm Beach Pelicans,107.08,Maggi's Mighty Ducks,67.6,Palm Beach Pelicans,2025-12-13T19:53:56.568268
+2015,8,regular,cheeseheads,89.96,Killer Cam,131.18,Killer Cam,2025-12-13T19:53:56.568638
+2015,8,regular,DirtyBirds,104.32,The Brotherhood,155.64,The Brotherhood,2025-12-13T19:53:56.569005
+2015,8,regular,Rats,127.9,Generous Brady,133.04,Generous Brady,2025-12-13T19:53:56.569368
+2015,9,regular,cheeseheads,139.9,MegatroN,136.52,cheeseheads,2025-12-13T19:53:57.010812
+2015,9,regular,PMQ Scrubs,132.5,Generous Brady,119.26,PMQ Scrubs,2025-12-13T19:53:57.011577
+2015,9,regular,Ball So Hard Wolfpak,126.06,Woody,89.56,Ball So Hard Wolfpak,2025-12-13T19:53:57.011938
+2015,9,regular,The Brotherhood,101.68,Rats,84.54,The Brotherhood,2025-12-13T19:53:57.012303
+2015,9,regular,DirtyBirds,136.44,Maggi's Mighty Ducks,188.64,Maggi's Mighty Ducks,2025-12-13T19:53:57.012665
+2015,9,regular,Killer Cam,122.32,Palm Beach Pelicans,156.36,Palm Beach Pelicans,2025-12-13T19:53:57.013281
+2015,10,regular,Rats,103.48,MegatroN,104.62,MegatroN,2025-12-13T19:53:57.541857
+2015,10,regular,Generous Brady,82.46,Woody,108.98,Woody,2025-12-13T19:53:57.542963
+2015,10,regular,The Brotherhood,70.26,Palm Beach Pelicans,90.02,Palm Beach Pelicans,2025-12-13T19:53:57.543481
+2015,10,regular,Killer Cam,121.34,PMQ Scrubs,123.94,PMQ Scrubs,2025-12-13T19:53:57.544005
+2015,10,regular,Maggi's Mighty Ducks,135.42,Ball So Hard Wolfpak,122.92,Maggi's Mighty Ducks,2025-12-13T19:53:57.544513
+2015,10,regular,DirtyBirds,112.58,cheeseheads,110.26,DirtyBirds,2025-12-13T19:53:57.545011
+2015,11,regular,Generous Brady,105.18,Killer Cam,94.8,Generous Brady,2025-12-13T19:53:57.844934
+2015,11,regular,The Brotherhood,93.0,PMQ Scrubs,52.22,The Brotherhood,2025-12-13T19:53:57.845816
+2015,11,regular,Maggi's Mighty Ducks,102.78,cheeseheads,114.08,cheeseheads,2025-12-13T19:53:57.846232
+2015,11,regular,Woody,87.94,Rats,89.86,Rats,2025-12-13T19:53:57.846651
+2015,11,regular,Ball So Hard Wolfpak,102.28,DirtyBirds,126.54,DirtyBirds,2025-12-13T19:53:57.847073
+2015,11,regular,MegatroN,85.22,Palm Beach Pelicans,110.78,Palm Beach Pelicans,2025-12-13T19:53:57.847494
+2015,12,regular,The Brotherhood,135.7,Generous Brady,121.6,The Brotherhood,2025-12-13T19:53:58.249240
+2015,12,regular,Palm Beach Pelicans,121.74,Rats,139.2,Rats,2025-12-13T19:53:58.250318
+2015,12,regular,Maggi's Mighty Ducks,117.86,Woody,95.92,Maggi's Mighty Ducks,2025-12-13T19:53:58.250832
+2015,12,regular,MegatroN,155.84,Killer Cam,109.0,MegatroN,2025-12-13T19:53:58.251333
+2015,12,regular,Ball So Hard Wolfpak,112.38,cheeseheads,158.64,cheeseheads,2025-12-13T19:53:58.251759
+2015,12,regular,DirtyBirds,114.72,PMQ Scrubs,124.0,PMQ Scrubs,2025-12-13T19:53:58.252175
+2015,13,regular,Killer Cam,126.16,Maggi's Mighty Ducks,159.18,Maggi's Mighty Ducks,2025-12-13T19:53:58.762715
+2015,13,regular,Palm Beach Pelicans,117.86,DirtyBirds,104.24,Palm Beach Pelicans,2025-12-13T19:53:58.763621
+2015,13,regular,Generous Brady,112.52,Ball So Hard Wolfpak,147.52,Ball So Hard Wolfpak,2025-12-13T19:53:58.764044
+2015,13,regular,The Brotherhood,141.56,cheeseheads,165.24,cheeseheads,2025-12-13T19:53:58.764463
+2015,13,regular,Woody,136.42,MegatroN,107.28,Woody,2025-12-13T19:53:58.764882
+2015,13,regular,Rats,100.42,PMQ Scrubs,101.7,PMQ Scrubs,2025-12-13T19:53:58.765305
+2015,14,regular,Woody,133.76,Killer Cam,89.46,Woody,2025-12-13T19:53:59.164543
+2015,14,regular,Maggi's Mighty Ducks,93.04,MegatroN,112.72,MegatroN,2025-12-13T19:53:59.165483
+2015,14,regular,Generous Brady,90.84,cheeseheads,108.0,cheeseheads,2025-12-13T19:53:59.165904
+2015,14,regular,Ball So Hard Wolfpak,113.12,The Brotherhood,103.18,Ball So Hard Wolfpak,2025-12-13T19:53:59.166326
+2015,14,regular,Rats,135.38,DirtyBirds,144.1,DirtyBirds,2025-12-13T19:53:59.166743
+2015,14,regular,Palm Beach Pelicans,114.78,PMQ Scrubs,115.32,PMQ Scrubs,2025-12-13T19:53:59.167160
+2015,15,playoff,MegatroN,158.8,Generous Brady,91.48,MegatroN,2025-12-13T19:53:59.607272
+2015,15,playoff,Maggi's Mighty Ducks,142.78,DirtyBirds,147.9,DirtyBirds,2025-12-13T19:53:59.608300
+2015,15,playoff,cheeseheads,114.96,The Brotherhood,155.26,The Brotherhood,2025-12-13T19:53:59.608726
+2015,15,playoff,PMQ Scrubs,132.56,Palm Beach Pelicans,146.6,Palm Beach Pelicans,2025-12-13T19:53:59.609155
+2015,16,playoff,MegatroN,118.06,DirtyBirds,122.98,DirtyBirds,2025-12-13T19:54:00.043537
+2015,16,playoff,Generous Brady,66.74,Maggi's Mighty Ducks,79.92,Maggi's Mighty Ducks,2025-12-13T19:54:00.044302
+2015,16,playoff,The Brotherhood,118.46,Palm Beach Pelicans,92.9,The Brotherhood,2025-12-13T19:54:00.044666
+2015,16,playoff,cheeseheads,159.6,PMQ Scrubs,138.4,cheeseheads,2025-12-13T19:54:00.044995
+2016,1,regular,Unidentifiable Wolfpack,84.0,The Brotherhood,124.9,The Brotherhood,2025-12-13T19:54:01.010536
+2016,1,regular,Rats,127.62,Woody,143.06,Woody,2025-12-13T19:54:01.011426
+2016,1,regular,Maggi's Mighty Ducks,118.44,Killer Cam,137.06,Killer Cam,2025-12-13T19:54:01.011845
+2016,1,regular,cheeseheads,112.66,Palm Beach Pelicans,171.0,Palm Beach Pelicans,2025-12-13T19:54:01.012260
+2016,1,regular,Generous Brady,117.82,DirtyBirds,128.36,DirtyBirds,2025-12-13T19:54:01.012675
+2016,1,regular,Handycuffs,129.48,MegatroN,118.82,Handycuffs,2025-12-13T19:54:01.013100
+2016,2,regular,cheeseheads,85.36,The Brotherhood,100.6,The Brotherhood,2025-12-13T19:54:01.306985
+2016,2,regular,DirtyBirds,110.74,Killer Cam,150.72,Killer Cam,2025-12-13T19:54:01.307880
+2016,2,regular,Handycuffs,95.92,Palm Beach Pelicans,106.68,Palm Beach Pelicans,2025-12-13T19:54:01.308242
+2016,2,regular,MegatroN,104.06,Rats,126.82,Rats,2025-12-13T19:54:01.308607
+2016,2,regular,Maggi's Mighty Ducks,132.56,Woody,119.82,Maggi's Mighty Ducks,2025-12-13T19:54:01.308970
+2016,2,regular,Unidentifiable Wolfpack,137.26,Generous Brady,147.3,Generous Brady,2025-12-13T19:54:01.309333
+2016,3,regular,Killer Cam,100.5,MegatroN,184.1,MegatroN,2025-12-13T19:54:01.742564
+2016,3,regular,Palm Beach Pelicans,127.04,The Brotherhood,105.92,Palm Beach Pelicans,2025-12-13T19:54:01.743478
+2016,3,regular,Generous Brady,93.44,cheeseheads,113.76,cheeseheads,2025-12-13T19:54:01.743974
+2016,3,regular,Handycuffs,92.9,Rats,127.14,Rats,2025-12-13T19:54:01.744393
+2016,3,regular,Woody,114.08,DirtyBirds,101.2,Woody,2025-12-13T19:54:01.744778
+2016,3,regular,Unidentifiable Wolfpack,99.28,Maggi's Mighty Ducks,143.28,Maggi's Mighty Ducks,2025-12-13T19:54:01.745152
+2016,4,regular,Unidentifiable Wolfpack,107.82,Woody,98.9,Unidentifiable Wolfpack,2025-12-13T19:54:02.188026
+2016,4,regular,Generous Brady,101.74,Maggi's Mighty Ducks,119.52,Maggi's Mighty Ducks,2025-12-13T19:54:02.189099
+2016,4,regular,MegatroN,76.42,cheeseheads,104.5,cheeseheads,2025-12-13T19:54:02.189535
+2016,4,regular,DirtyBirds,119.92,Handycuffs,110.62,DirtyBirds,2025-12-13T19:54:02.189969
+2016,4,regular,The Brotherhood,121.16,Rats,99.18,The Brotherhood,2025-12-13T19:54:02.190417
+2016,4,regular,Palm Beach Pelicans,141.06,Killer Cam,167.42,Killer Cam,2025-12-13T19:54:02.190844
+2016,5,regular,Handycuffs,152.68,Woody,111.5,Handycuffs,2025-12-13T19:54:02.594463
+2016,5,regular,Palm Beach Pelicans,136.58,Generous Brady,135.84,Palm Beach Pelicans,2025-12-13T19:54:02.595353
+2016,5,regular,Maggi's Mighty Ducks,75.04,Rats,132.46,Rats,2025-12-13T19:54:02.595769
+2016,5,regular,cheeseheads,84.82,Unidentifiable Wolfpack,76.2,cheeseheads,2025-12-13T19:54:02.596130
+2016,5,regular,Killer Cam,118.56,The Brotherhood,114.66,Killer Cam,2025-12-13T19:54:02.596495
+2016,5,regular,MegatroN,106.3,DirtyBirds,112.58,DirtyBirds,2025-12-13T19:54:02.596854
+2016,6,regular,Maggi's Mighty Ducks,113.52,DirtyBirds,112.7,Maggi's Mighty Ducks,2025-12-13T19:54:03.003029
+2016,6,regular,cheeseheads,125.94,Killer Cam,137.26,Killer Cam,2025-12-13T19:54:03.004886
+2016,6,regular,Woody,134.18,Generous Brady,102.54,Woody,2025-12-13T19:54:03.005377
+2016,6,regular,Palm Beach Pelicans,114.98,MegatroN,82.9,Palm Beach Pelicans,2025-12-13T19:54:03.005825
+2016,6,regular,The Brotherhood,111.6,Handycuffs,123.4,Handycuffs,2025-12-13T19:54:03.006270
+2016,6,regular,Unidentifiable Wolfpack,62.36,Rats,108.7,Rats,2025-12-13T19:54:03.006705
+2016,7,regular,Killer Cam,145.64,Generous Brady,87.58,Killer Cam,2025-12-13T19:54:03.473364
+2016,7,regular,Woody,87.48,MegatroN,111.74,MegatroN,2025-12-13T19:54:03.474353
+2016,7,regular,Palm Beach Pelicans,158.22,Rats,133.88,Palm Beach Pelicans,2025-12-13T19:54:03.474804
+2016,7,regular,Unidentifiable Wolfpack,128.22,Handycuffs,117.24,Unidentifiable Wolfpack,2025-12-13T19:54:03.475233
+2016,7,regular,Maggi's Mighty Ducks,98.48,cheeseheads,101.14,cheeseheads,2025-12-13T19:54:03.475656
+2016,7,regular,DirtyBirds,133.12,The Brotherhood,101.1,DirtyBirds,2025-12-13T19:54:03.476078
+2016,8,regular,Generous Brady,120.5,The Brotherhood,98.32,Generous Brady,2025-12-13T19:54:03.750746
+2016,8,regular,Handycuffs,138.62,Killer Cam,153.94,Killer Cam,2025-12-13T19:54:03.751648
+2016,8,regular,DirtyBirds,124.02,Rats,127.3,Rats,2025-12-13T19:54:03.752075
+2016,8,regular,Unidentifiable Wolfpack,118.66,Palm Beach Pelicans,109.1,Unidentifiable Wolfpack,2025-12-13T19:54:03.752497
+2016,8,regular,MegatroN,105.8,Maggi's Mighty Ducks,120.42,Maggi's Mighty Ducks,2025-12-13T19:54:03.753174
+2016,8,regular,Woody,85.58,cheeseheads,143.32,cheeseheads,2025-12-13T19:54:03.754400
+2016,9,regular,Killer Cam,185.58,Woody,81.8,Killer Cam,2025-12-13T19:54:04.192478
+2016,9,regular,The Brotherhood,93.84,MegatroN,115.76,MegatroN,2025-12-13T19:54:04.193103
+2016,9,regular,Maggi's Mighty Ducks,111.02,Palm Beach Pelicans,102.04,Maggi's Mighty Ducks,2025-12-13T19:54:04.193385
+2016,9,regular,Rats,114.22,Generous Brady,142.2,Generous Brady,2025-12-13T19:54:04.193660
+2016,9,regular,Handycuffs,166.28,cheeseheads,74.66,Handycuffs,2025-12-13T19:54:04.193933
+2016,9,regular,DirtyBirds,123.06,Unidentifiable Wolfpack,88.06,DirtyBirds,2025-12-13T19:54:04.194205
+2016,10,regular,Woody,99.44,Palm Beach Pelicans,121.78,Palm Beach Pelicans,2025-12-13T19:54:04.587720
+2016,10,regular,Rats,164.12,Killer Cam,190.74,Killer Cam,2025-12-13T19:54:04.588706
+2016,10,regular,Generous Brady,92.64,Handycuffs,108.56,Handycuffs,2025-12-13T19:54:04.589133
+2016,10,regular,Maggi's Mighty Ducks,160.1,The Brotherhood,128.62,Maggi's Mighty Ducks,2025-12-13T19:54:04.589559
+2016,10,regular,MegatroN,113.9,Unidentifiable Wolfpack,122.22,Unidentifiable Wolfpack,2025-12-13T19:54:04.589988
+2016,10,regular,cheeseheads,70.24,DirtyBirds,100.18,DirtyBirds,2025-12-13T19:54:04.590416
+2016,11,regular,Palm Beach Pelicans,144.68,DirtyBirds,82.44,Palm Beach Pelicans,2025-12-13T19:54:05.001571
+2016,11,regular,Unidentifiable Wolfpack,69.38,Killer Cam,119.54,Killer Cam,2025-12-13T19:54:05.003168
+2016,11,regular,Handycuffs,120.04,Maggi's Mighty Ducks,142.88,Maggi's Mighty Ducks,2025-12-13T19:54:05.004088
+2016,11,regular,Generous Brady,105.6,MegatroN,114.62,MegatroN,2025-12-13T19:54:05.004933
+2016,11,regular,cheeseheads,135.5,Rats,98.1,cheeseheads,2025-12-13T19:54:05.005517
+2016,11,regular,Woody,101.08,The Brotherhood,104.3,The Brotherhood,2025-12-13T19:54:05.005990
+2016,12,regular,Generous Brady,100.84,Handycuffs,130.56,Handycuffs,2025-12-13T19:54:05.425672
+2016,12,regular,cheeseheads,120.5,Rats,119.6,cheeseheads,2025-12-13T19:54:05.426563
+2016,12,regular,MegatroN,105.88,The Brotherhood,139.64,The Brotherhood,2025-12-13T19:54:05.427001
+2016,12,regular,Maggi's Mighty Ducks,104.84,Woody,112.14,Woody,2025-12-13T19:54:05.427423
+2016,12,regular,Unidentifiable Wolfpack,132.84,DirtyBirds,130.36,Unidentifiable Wolfpack,2025-12-13T19:54:05.427842
+2016,12,regular,Palm Beach Pelicans,138.44,Killer Cam,118.12,Palm Beach Pelicans,2025-12-13T19:54:05.428258
+2016,13,regular,Handycuffs,168.2,Woody,93.88,Handycuffs,2025-12-13T19:54:05.935199
+2016,13,regular,Palm Beach Pelicans,141.02,Rats,102.84,Palm Beach Pelicans,2025-12-13T19:54:05.936616
+2016,13,regular,Generous Brady,123.96,cheeseheads,83.2,Generous Brady,2025-12-13T19:54:05.938301
+2016,13,regular,Killer Cam,131.86,The Brotherhood,129.14,Killer Cam,2025-12-13T19:54:05.939313
+2016,13,regular,MegatroN,91.34,Unidentifiable Wolfpack,91.26,MegatroN,2025-12-13T19:54:05.939817
+2016,13,regular,Maggi's Mighty Ducks,130.58,DirtyBirds,108.88,Maggi's Mighty Ducks,2025-12-13T19:54:05.940260
+2016,14,regular,Unidentifiable Wolfpack,132.6,Generous Brady,109.84,Unidentifiable Wolfpack,2025-12-13T19:54:06.338995
+2016,14,regular,MegatroN,64.12,Rats,81.98,Rats,2025-12-13T19:54:06.340017
+2016,14,regular,DirtyBirds,100.18,cheeseheads,128.66,cheeseheads,2025-12-13T19:54:06.340452
+2016,14,regular,Handycuffs,111.4,Palm Beach Pelicans,150.64,Palm Beach Pelicans,2025-12-13T19:54:06.340877
+2016,14,regular,The Brotherhood,73.46,Woody,99.3,Woody,2025-12-13T19:54:06.341298
+2016,14,regular,Maggi's Mighty Ducks,70.0,Killer Cam,70.74,Killer Cam,2025-12-13T19:54:06.341720
+2016,15,playoff,Handycuffs,144.36,Unidentifiable Wolfpack,79.34,Handycuffs,2025-12-13T19:54:06.745047
+2016,15,playoff,Rats,122.66,DirtyBirds,112.74,Rats,2025-12-13T19:54:06.746129
+2016,15,playoff,Killer Cam,91.18,cheeseheads,83.7,Killer Cam,2025-12-13T19:54:06.746573
+2016,15,playoff,Palm Beach Pelicans,141.5,Maggi's Mighty Ducks,132.56,Palm Beach Pelicans,2025-12-13T19:54:06.747004
+2016,16,playoff,Handycuffs,158.56,Rats,118.76,Handycuffs,2025-12-13T19:54:07.152244
+2016,16,playoff,Unidentifiable Wolfpack,98.36,DirtyBirds,100.28,DirtyBirds,2025-12-13T19:54:07.153321
+2016,16,playoff,Killer Cam,140.58,Palm Beach Pelicans,110.82,Killer Cam,2025-12-13T19:54:07.153739
+2016,16,playoff,cheeseheads,117.98,Maggi's Mighty Ducks,141.1,Maggi's Mighty Ducks,2025-12-13T19:54:07.154418

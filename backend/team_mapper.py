@@ -11,18 +11,41 @@ TEAM_NAME_MAPPINGS = {
     'Covid Caged Wolfpack': 'Wolfpack',
     'Neutered Wolfpack': 'Wolfpack',
     'Impeached Wolfpack': 'Wolfpack',
+    'Unidentifiable Wolfpack': 'Wolfpack',
     
-    # Generous variations
+    # Scrubs variations
+    'Handycuffs': 'Scrubs',
+    'PMQ Scrubs': 'Scrubs',
+    'Captain Phillips': 'Scrubs',
+    'Part-Time Battlers': 'Scrubs',
+    
+    # The Brotherhood variations
+    'Hood': 'The Brotherhood',
+    'Smitten on Witten': 'The Brotherhood',
+    'The Arian Brother Hood': 'The Brotherhood',
+    
+    # Killer Cam variations (case normalization)
+    'killer cam': 'Killer Cam',
+    
+    # Woody variations
+    'Cowboys Ware94': 'Woody',
+    
+    # MEGATRON variations
+    'TeamBreezy': 'MEGATRON',
+    "Breezes' Transformers": 'MEGATRON',
+    'MegatroN': 'MEGATRON',
+    
+    # The Generous variations
     'Generous Brady': 'The Generous',
+    'Ball So Hard Wolfpak': 'The Generous',
+    'Wolfpak': 'The Generous',
+    'Boston Tea Party': 'The Generous',
     
     # Pelicans variations
     'Palm Beach Pelicans': 'Pels',
     
     # Mebs Militia variations
     'Mebs Militia owns the Hood': 'Mebs Militia',
-    
-    # The Brotherhood variations
-    'Hood': 'The Brotherhood',
     
     # Rats variations
     'Rats': 'The Ratpack',
@@ -36,6 +59,7 @@ TEAM_NAME_MAPPINGS = {
     # 'Woody': 'Woody',
     # 'cheeseheads': 'cheeseheads',
     # 'Freshie Vice': 'Freshie Vice',
+    # 'MEGATRON': 'MEGATRON',
 }
 
 # Reverse mapping for display (canonical -> most recent name)

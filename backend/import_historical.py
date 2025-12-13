@@ -26,7 +26,7 @@ from historical_scraper import (
 from data_manager import DataManager
 
 
-def import_historical_data(league_id: str = "987449", start_year: int = 2017, end_year: int = 2024, force: bool = False):
+def import_historical_data(league_id: str = "987449", start_year: int = 2012, end_year: int = 2024, force: bool = False):
     """Scrape and import historical data to CSV"""
     csv_file = os.path.join(project_root, 'data', 'matchups.csv')
     
@@ -165,17 +165,19 @@ if __name__ == '__main__':
     import argparse
     
     parser = argparse.ArgumentParser(description='Import NFL Fantasy historical data')
-    parser.add_argument('--historical', action='store_true', help='Import historical data (2017-2024)')
+    parser.add_argument('--historical', action='store_true', help='Import historical data (2012-2024)')
     parser.add_argument('--current', action='store_true', help='Import current season (2025)')
     parser.add_argument('--sync', action='store_true', help='Sync CSV to data manager')
     parser.add_argument('--force', action='store_true', help='Force re-scrape of all weeks')
     parser.add_argument('--year', type=int, default=2025, help='Year for current season (default: 2025)')
     parser.add_argument('--max-week', type=int, default=17, help='Max week to scrape (default: 17)')
+    parser.add_argument('--start-year', type=int, default=2012, help='Start year for historical import (default: 2012)')
+    parser.add_argument('--end-year', type=int, default=2024, help='End year for historical import (default: 2024)')
     
     args = parser.parse_args()
     
     if args.historical:
-        import_historical_data(force=args.force)
+        import_historical_data(start_year=args.start_year, end_year=args.end_year, force=args.force)
     elif args.current:
         import_current_season(year=args.year, max_week=args.max_week, force=args.force)
     elif args.sync:
@@ -183,6 +185,6 @@ if __name__ == '__main__':
     else:
         # Default: do both historical and current, then sync
         print("Running full import (historical + current season)...")
-        import_historical_data(force=args.force)
+        import_historical_data(start_year=args.start_year, end_year=args.end_year, force=args.force)
         import_current_season(year=args.year, max_week=args.max_week, force=args.force)
         sync_csv_to_data_manager()

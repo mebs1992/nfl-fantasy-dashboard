@@ -10,22 +10,32 @@ def load_team_logos(data_dir: str = 'data') -> Dict[str, str]:
     """
     Load team logos from standings CSV files.
     Returns a dictionary mapping normalized team names to logo URLs.
-    Uses the most recent logo URL for each team.
+    Uses the most recent logo URL for each team (prioritizes by year).
     """
     from team_mapper import normalize_team_name
     
-    logos = {}
-    csv_file = os.path.join(data_dir, 'standings.csv')
+    logos = {}  # {team_name: {'year': year, 'logo': url}}
+    logo_data = {}  # Store year and logo for each team
     
-    if os.path.exists(csv_file):
-        with open(csv_file, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                team_name = normalize_team_name(row.get('team_name', ''))
-                logo_url = row.get('team_logo', '')
-                if team_name and logo_url:
-                    # Use the most recent logo (later years override earlier ones)
-                    logos[team_name] = logo_url
+    # Check both regular and final standings files
+    for csv_file in [os.path.join(data_dir, 'standings.csv'), 
+                     os.path.join(data_dir, 'standings_final.csv')]:
+        if os.path.exists(csv_file):
+            with open(csv_file, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    team_name = normalize_team_name(row.get('team_name', ''))
+                    logo_url = row.get('team_logo', '')
+                    year = int(row.get('year', 0)) if row.get('year', '').isdigit() else 0
+                    
+                    if team_name and logo_url:
+                        # Keep the logo from the most recent year
+                        if team_name not in logo_data or year > logo_data[team_name]['year']:
+                            logo_data[team_name] = {'year': year, 'logo': logo_url}
+    
+    # Convert to simple dict format
+    for team_name, data in logo_data.items():
+        logos[team_name] = data['logo']
     
     return logos
 
