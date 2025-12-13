@@ -24,6 +24,7 @@ const VIEW_OPTIONS = [
   { id: 'scoring-titles', label: '🔥 Scoring Titles' },
   { id: 'spoons', label: '🥄 Spoons' },
   { id: 'playoffs', label: '🎯 Playoff Appearances' },
+  { id: 'all-time-wins', label: '🏅 All-Time Wins' },
   { id: 'points-for', label: '📊 All-Time Points For' },
   { id: 'points-against', label: '📉 All-Time Points Against' },
   { id: 'win-pct', label: '📈 Win % Trend' }
@@ -34,6 +35,7 @@ function Almanac() {
   const [historicalStats, setHistoricalStats] = useState(null)
   const [scoringTitles, setScoringTitles] = useState(null)
   const [winPctByYear, setWinPctByYear] = useState(null)
+  const [allTimeWins, setAllTimeWins] = useState(null)
   const [selectedView, setSelectedView] = useState('championships')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -43,6 +45,7 @@ function Almanac() {
     fetchHistoricalStats()
     fetchScoringTitles()
     fetchWinPctByYear()
+    fetchAllTimeWins()
   }, [])
 
   const fetchAllTimeStats = async () => {
@@ -89,6 +92,17 @@ function Almanac() {
       console.error('Error fetching win pct by year:', err)
     } finally {
       setLoading(false)
+    }
+  }
+
+  const fetchAllTimeWins = async () => {
+    try {
+      const response = await axios.get(`${API_BASE}/all-time-wins`)
+      if (response.data.success) {
+        setAllTimeWins(response.data.data)
+      }
+    } catch (err) {
+      console.error('Error fetching all-time wins:', err)
     }
   }
 
@@ -336,6 +350,61 @@ function Almanac() {
                   })}
                 </div>
               </div>
+            </div>
+          </div>
+        )
+
+      case 'all-time-wins':
+        return (
+          <div className="card points-table-card">
+            <h2>🏅 All-Time Wins</h2>
+            <p className="section-description">Total wins across all completed seasons (2012-2024)</p>
+            <div className="almanac-table-wrapper">
+              <table className="almanac-table">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Ties</th>
+                    <th>Total Games</th>
+                    <th>Years Active</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allTimeWins && allTimeWins.map((item) => {
+                    const teamColors = getTeamColors(item.team)
+                    return (
+                      <tr 
+                        key={item.team}
+                        className="almanac-table-row"
+                        style={{ '--team-color': teamColors.primary }}
+                      >
+                        <td className="rank-cell">#{item.rank}</td>
+                        <td className="team-cell">
+                          <div className="team-info">
+                            <img 
+                              src={getTeamImageUrl(item.team, item.logo)} 
+                              alt={item.team}
+                              className="team-avatar-small"
+                              onError={(e) => {
+                                e.target.src = getTeamImageUrl(item.team)
+                              }}
+                            />
+                            <span className="team-name">{item.team}</span>
+                          </div>
+                        </td>
+                        <td className="wins-cell">{item.total_wins}</td>
+                        <td className="losses-cell">{item.total_losses}</td>
+                        <td className="ties-cell">{item.total_ties}</td>
+                        <td className="games-cell">{item.total_games}</td>
+                        <td className="seasons-cell">{item.years_active}</td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
             </div>
           </div>
         )

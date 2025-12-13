@@ -701,6 +701,63 @@ def get_hall_of_shame():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 
+@app.route('/api/all-time-wins', methods=['GET'])
+def get_all_time_wins():
+    """Get all-time total wins for each team - uses regular season data"""
+    try:
+        from standings_scraper import load_standings_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        from collections import defaultdict
+        
+        # Get data directory path
+        data_dir = data_manager.data_dir
+        csv_file = os.path.join(data_dir, 'standings.csv')
+        # Use regular season standings
+        standings = load_standings_from_csv(csv_file, 'regular')
+        
+        # Aggregate wins by team (2012-2024 only)
+        team_wins = defaultdict(lambda: {'total_wins': 0, 'total_losses': 0, 'total_ties': 0, 'years': set()})
+        
+        for s in standings:
+            team_name = normalize_team_name(s['team_name'])
+            year = s['year']
+            
+            # Only count completed seasons (2012-2024)
+            if year <= 2024:
+                team_wins[team_name]['total_wins'] += s.get('wins', 0)
+                team_wins[team_name]['total_losses'] += s.get('losses', 0)
+                team_wins[team_name]['total_ties'] += s.get('ties', 0)
+                team_wins[team_name]['years'].add(year)
+        
+        # Convert to list and add logos
+        result = []
+        for team_name, data in team_wins.items():
+            result.append({
+                'team': team_name,
+                'total_wins': data['total_wins'],
+                'total_losses': data['total_losses'],
+                'total_ties': data['total_ties'],
+                'total_games': data['total_wins'] + data['total_losses'] + data['total_ties'],
+                'years_active': len(data['years']),
+                'logo': get_team_logo_url(team_name, data_dir)
+            })
+        
+        # Sort by total wins (descending)
+        result.sort(key=lambda x: x['total_wins'], reverse=True)
+        
+        # Add rank
+        for i, team in enumerate(result, 1):
+            team['rank'] = i
+        
+        return jsonify({
+            'success': True,
+            'data': result
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     # Ensure data directory exists
     os.makedirs('data', exist_ok=True)

@@ -487,6 +487,38 @@
   font-weight: 500;
 }
 
+.wins-cell {
+  font-family: 'Courier New', monospace;
+  text-align: right;
+  font-weight: 700;
+  color: #10b981;
+  font-size: 1rem;
+}
+
+.losses-cell {
+  font-family: 'Courier New', monospace;
+  text-align: right;
+  font-weight: 600;
+  color: #ef4444;
+  font-size: 1rem;
+}
+
+.ties-cell {
+  font-family: 'Courier New', monospace;
+  text-align: right;
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.games-cell {
+  font-family: 'Courier New', monospace;
+  text-align: right;
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
