@@ -28,7 +28,12 @@ app = Flask(__name__)
 frontend_url = os.getenv('FRONTEND_URL', 'http://localhost:3010')
 CORS(app, resources={
     r"/api/*": {
-        "origins": [frontend_url, "http://localhost:3010", "http://localhost:3000"],
+        "origins": [
+            frontend_url,
+            "http://localhost:3010",
+            "http://localhost:3000",
+            "https://nfl-fantasy-dashboard-one.vercel.app"  # Vercel frontend
+        ],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type"]
     }
