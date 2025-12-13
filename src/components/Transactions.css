@@ -1,0 +1,65 @@
+.transactions-list {
+  margin-top: 1rem;
+}
+
+.transaction-item {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #ddd;
+}
+
+.transaction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.transaction-team {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.transaction-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.transaction-details {
+  margin-top: 0.5rem;
+}
+
+.transaction-action {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.transaction-action.add {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.transaction-action.drop {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.transaction-action.trade {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.no-data {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+  font-style: italic;
+}
+

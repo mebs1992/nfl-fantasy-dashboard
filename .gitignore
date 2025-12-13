@@ -1,0 +1,21 @@
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv
+dist/
+build/
+*.log
+.DS_Store
+*.db
+*.sqlite
+
+# Data files - we need CSV files for deployment, but ignore JSON and sample files
+data/*.json
+data/*.html
+data/sample_*
+

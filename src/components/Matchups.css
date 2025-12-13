@@ -1,0 +1,86 @@
+.week-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.week-selector label {
+  font-weight: 600;
+  color: #333;
+}
+
+.week-selector select {
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  min-width: 150px;
+}
+
+.week-section {
+  margin-bottom: 2rem;
+}
+
+.week-section h3 {
+  margin-bottom: 1rem;
+  color: #667eea;
+  font-size: 1.2rem;
+}
+
+.matchups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.matchup-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.matchup-team {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 6px;
+  background: white;
+}
+
+.matchup-team.winner {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+}
+
+.team-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.team-score {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  font-family: 'Courier New', monospace;
+}
+
+.matchup-vs {
+  font-weight: 600;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+  font-style: italic;
+}
+

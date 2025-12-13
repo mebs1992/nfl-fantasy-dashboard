@@ -1,0 +1,855 @@
+year,week,week_type,team1_name,team1_score,team2_name,team2_score,winner,scraped_at
+2017,1,regular,Palm Beach Pelicans,128.62,Mebs Militia,120.58,Palm Beach Pelicans,2025-12-13T17:02:21.088683
+2017,1,regular,Killer Cam,106.7,The Brotherhood,94.52,Killer Cam,2025-12-13T17:02:21.089481
+2017,1,regular,Maggi's Mighty Ducks,79.34,cheeseheads,108.94,cheeseheads,2025-12-13T17:02:21.089933
+2017,1,regular,Scrubs,87.54,Woody,117.42,Woody,2025-12-13T17:02:21.090407
+2017,1,regular,DirtyBirds,148.34,Make Wolfpack Great Again,88.48,DirtyBirds,2025-12-13T17:02:21.090783
+2017,1,regular,Rats,113.0,Generous Brady,92.84,Rats,2025-12-13T17:02:21.091150
+2017,2,regular,Generous Brady,141.82,Make Wolfpack Great Again,143.08,Make Wolfpack Great Again,2025-12-13T17:02:21.534211
+2017,2,regular,cheeseheads,90.82,Woody,100.22,Woody,2025-12-13T17:02:21.535086
+2017,2,regular,Killer Cam,79.06,DirtyBirds,111.38,DirtyBirds,2025-12-13T17:02:21.535456
+2017,2,regular,Maggi's Mighty Ducks,113.54,Palm Beach Pelicans,110.5,Maggi's Mighty Ducks,2025-12-13T17:02:21.535816
+2017,2,regular,Rats,93.68,Scrubs,85.8,Rats,2025-12-13T17:02:21.536177
+2017,2,regular,The Brotherhood,115.82,Mebs Militia,119.16,Mebs Militia,2025-12-13T17:02:21.536542
+2017,3,regular,Make Wolfpack Great Again,117.42,Woody,114.2,Make Wolfpack Great Again,2025-12-13T17:02:21.985662
+2017,3,regular,Killer Cam,129.1,Mebs Militia,138.76,Mebs Militia,2025-12-13T17:02:21.986433
+2017,3,regular,Palm Beach Pelicans,122.32,cheeseheads,103.22,Palm Beach Pelicans,2025-12-13T17:02:21.986797
+2017,3,regular,Scrubs,81.84,Maggi's Mighty Ducks,125.4,Maggi's Mighty Ducks,2025-12-13T17:02:21.987189
+2017,3,regular,Generous Brady,96.48,The Brotherhood,104.0,The Brotherhood,2025-12-13T17:02:21.987549
+2017,3,regular,DirtyBirds,97.46,Rats,146.88,Rats,2025-12-13T17:02:21.987924
+2017,4,regular,Mebs Militia,97.08,Maggi's Mighty Ducks,125.42,Maggi's Mighty Ducks,2025-12-13T17:02:22.380626
+2017,4,regular,DirtyBirds,104.18,Palm Beach Pelicans,133.28,Palm Beach Pelicans,2025-12-13T17:02:22.381713
+2017,4,regular,Scrubs,113.78,cheeseheads,106.76,Scrubs,2025-12-13T17:02:22.382228
+2017,4,regular,Killer Cam,89.9,Generous Brady,119.54,Generous Brady,2025-12-13T17:02:22.382742
+2017,4,regular,Rats,76.28,Make Wolfpack Great Again,96.68,Make Wolfpack Great Again,2025-12-13T17:02:22.383260
+2017,4,regular,Woody,118.68,The Brotherhood,114.9,Woody,2025-12-13T17:02:22.383781
+2017,5,regular,Killer Cam,112.12,Maggi's Mighty Ducks,93.96,Killer Cam,2025-12-13T17:02:22.806473
+2017,5,regular,Rats,74.5,Mebs Militia,93.56,Mebs Militia,2025-12-13T17:02:22.807439
+2017,5,regular,Make Wolfpack Great Again,89.72,Palm Beach Pelicans,78.94,Make Wolfpack Great Again,2025-12-13T17:02:22.807870
+2017,5,regular,cheeseheads,140.04,Generous Brady,128.66,cheeseheads,2025-12-13T17:02:22.808299
+2017,5,regular,The Brotherhood,115.62,Scrubs,118.56,Scrubs,2025-12-13T17:02:22.808738
+2017,5,regular,DirtyBirds,106.72,Woody,118.44,Woody,2025-12-13T17:02:22.809170
+2017,6,regular,DirtyBirds,129.02,Scrubs,116.62,DirtyBirds,2025-12-13T17:02:23.254444
+2017,6,regular,Generous Brady,113.06,Maggi's Mighty Ducks,106.74,Generous Brady,2025-12-13T17:02:23.255335
+2017,6,regular,Mebs Militia,98.94,cheeseheads,108.72,cheeseheads,2025-12-13T17:02:23.255770
+2017,6,regular,Killer Cam,85.8,Woody,103.32,Woody,2025-12-13T17:02:23.256240
+2017,6,regular,Make Wolfpack Great Again,134.18,The Brotherhood,126.28,Make Wolfpack Great Again,2025-12-13T17:02:23.256726
+2017,6,regular,Palm Beach Pelicans,117.44,Rats,100.88,Palm Beach Pelicans,2025-12-13T17:02:23.257169
+2017,7,regular,The Brotherhood,106.86,Maggi's Mighty Ducks,177.24,Maggi's Mighty Ducks,2025-12-13T17:02:23.671077
+2017,7,regular,Woody,127.46,Rats,119.06,Woody,2025-12-13T17:02:23.671962
+2017,7,regular,Killer Cam,116.72,Make Wolfpack Great Again,101.26,Killer Cam,2025-12-13T17:02:23.672380
+2017,7,regular,DirtyBirds,104.22,cheeseheads,109.62,cheeseheads,2025-12-13T17:02:23.672883
+2017,7,regular,Mebs Militia,107.46,Scrubs,99.08,Mebs Militia,2025-12-13T17:02:23.673376
+2017,7,regular,Generous Brady,84.34,Palm Beach Pelicans,107.28,Palm Beach Pelicans,2025-12-13T17:02:23.673805
+2017,8,regular,Make Wolfpack Great Again,169.82,Mebs Militia,99.8,Make Wolfpack Great Again,2025-12-13T17:02:24.111102
+2017,8,regular,Palm Beach Pelicans,138.08,Scrubs,88.38,Palm Beach Pelicans,2025-12-13T17:02:24.112194
+2017,8,regular,The Brotherhood,113.58,cheeseheads,106.92,The Brotherhood,2025-12-13T17:02:24.112700
+2017,8,regular,Killer Cam,99.22,Rats,110.58,Rats,2025-12-13T17:02:24.113203
+2017,8,regular,Maggi's Mighty Ducks,108.66,Woody,92.92,Maggi's Mighty Ducks,2025-12-13T17:02:24.113724
+2017,8,regular,DirtyBirds,85.86,Generous Brady,126.34,Generous Brady,2025-12-13T17:02:24.114236
+2017,9,regular,Maggi's Mighty Ducks,127.52,Rats,105.74,Maggi's Mighty Ducks,2025-12-13T17:02:24.561654
+2017,9,regular,The Brotherhood,99.28,Palm Beach Pelicans,84.32,The Brotherhood,2025-12-13T17:02:24.562735
+2017,9,regular,cheeseheads,114.1,Make Wolfpack Great Again,115.74,Make Wolfpack Great Again,2025-12-13T17:02:24.563215
+2017,9,regular,Woody,153.66,Generous Brady,70.96,Woody,2025-12-13T17:02:24.563657
+2017,9,regular,Mebs Militia,99.08,DirtyBirds,90.22,Mebs Militia,2025-12-13T17:02:24.564077
+2017,9,regular,Killer Cam,103.78,Scrubs,88.1,Killer Cam,2025-12-13T17:02:24.564497
+2017,10,regular,Mebs Militia,63.44,Woody,118.84,Woody,2025-12-13T17:02:25.017444
+2017,10,regular,DirtyBirds,112.0,The Brotherhood,169.12,The Brotherhood,2025-12-13T17:02:25.018336
+2017,10,regular,Generous Brady,115.86,Scrubs,118.68,Scrubs,2025-12-13T17:02:25.018760
+2017,10,regular,Rats,111.06,cheeseheads,75.14,Rats,2025-12-13T17:02:25.019200
+2017,10,regular,Palm Beach Pelicans,81.18,Killer Cam,116.18,Killer Cam,2025-12-13T17:02:25.019635
+2017,10,regular,Make Wolfpack Great Again,138.54,Maggi's Mighty Ducks,110.36,Make Wolfpack Great Again,2025-12-13T17:02:25.020082
+2017,11,regular,DirtyBirds,73.0,Maggi's Mighty Ducks,124.8,Maggi's Mighty Ducks,2025-12-13T17:02:25.443770
+2017,11,regular,Woody,85.2,Palm Beach Pelicans,101.9,Palm Beach Pelicans,2025-12-13T17:02:25.444899
+2017,11,regular,Make Wolfpack Great Again,128.1,Scrubs,78.52,Make Wolfpack Great Again,2025-12-13T17:02:25.445435
+2017,11,regular,Generous Brady,74.92,Mebs Militia,119.76,Mebs Militia,2025-12-13T17:02:25.445992
+2017,11,regular,The Brotherhood,147.92,Rats,104.56,The Brotherhood,2025-12-13T17:02:25.446533
+2017,11,regular,cheeseheads,130.6,Killer Cam,148.08,Killer Cam,2025-12-13T17:02:25.447087
+2017,12,regular,Palm Beach Pelicans,91.36,Make Wolfpack Great Again,106.88,Make Wolfpack Great Again,2025-12-13T17:02:25.966194
+2017,12,regular,DirtyBirds,117.88,Rats,90.1,DirtyBirds,2025-12-13T17:02:25.967286
+2017,12,regular,Maggi's Mighty Ducks,126.74,cheeseheads,166.86,cheeseheads,2025-12-13T17:02:25.967809
+2017,12,regular,Generous Brady,108.38,The Brotherhood,127.52,The Brotherhood,2025-12-13T17:02:25.968353
+2017,12,regular,Scrubs,120.52,Killer Cam,147.08,Killer Cam,2025-12-13T17:02:25.968878
+2017,12,regular,Mebs Militia,127.28,Woody,75.16,Mebs Militia,2025-12-13T17:02:25.969396
+2017,13,regular,DirtyBirds,81.72,Make Wolfpack Great Again,137.02,Make Wolfpack Great Again,2025-12-13T17:02:26.387205
+2017,13,regular,Killer Cam,117.14,cheeseheads,168.06,cheeseheads,2025-12-13T17:02:26.388300
+2017,13,regular,Woody,113.08,Generous Brady,142.92,Generous Brady,2025-12-13T17:02:26.388814
+2017,13,regular,The Brotherhood,94.28,Scrubs,72.5,The Brotherhood,2025-12-13T17:02:26.389410
+2017,13,regular,Mebs Militia,95.5,Rats,79.18,Mebs Militia,2025-12-13T17:02:26.389993
+2017,13,regular,Palm Beach Pelicans,136.64,Maggi's Mighty Ducks,119.56,Palm Beach Pelicans,2025-12-13T17:02:26.390524
+2017,14,regular,Killer Cam,93.94,Mebs Militia,138.64,Mebs Militia,2025-12-13T17:02:26.827478
+2017,14,regular,Scrubs,105.44,Make Wolfpack Great Again,94.72,Scrubs,2025-12-13T17:02:26.828385
+2017,14,regular,Palm Beach Pelicans,91.74,Generous Brady,145.64,Generous Brady,2025-12-13T17:02:26.828814
+2017,14,regular,DirtyBirds,107.64,cheeseheads,144.96,cheeseheads,2025-12-13T17:02:26.829240
+2017,14,regular,Maggi's Mighty Ducks,128.54,Rats,122.72,Maggi's Mighty Ducks,2025-12-13T17:02:26.829665
+2017,14,regular,Woody,132.48,The Brotherhood,80.14,Woody,2025-12-13T17:02:26.830097
+2017,15,playoff,Palm Beach Pelicans,102.9,Killer Cam,113.64,Killer Cam,2025-12-13T17:02:27.261909
+2017,15,playoff,cheeseheads,81.58,The Brotherhood,91.68,The Brotherhood,2025-12-13T17:02:27.262823
+2017,15,playoff,Make Wolfpack Great Again,140.02,Maggi's Mighty Ducks,143.24,Maggi's Mighty Ducks,2025-12-13T17:02:27.263257
+2017,15,playoff,Woody,121.08,Mebs Militia,137.54,Mebs Militia,2025-12-13T17:02:27.263697
+2017,16,playoff,Killer Cam,75.56,The Brotherhood,90.42,The Brotherhood,2025-12-13T17:02:27.696645
+2017,16,playoff,Palm Beach Pelicans,113.82,cheeseheads,103.3,Palm Beach Pelicans,2025-12-13T17:02:27.697537
+2017,16,playoff,Maggi's Mighty Ducks,178.66,Mebs Militia,94.94,Maggi's Mighty Ducks,2025-12-13T17:02:27.697957
+2017,16,playoff,Make Wolfpack Great Again,90.06,Woody,98.24,Woody,2025-12-13T17:02:27.698374
+2018,1,regular,The Brotherhood,114.84,DirtyBirds,65.94,The Brotherhood,2025-12-13T17:02:28.637832
+2018,1,regular,Palm Beach Pelicans,114.2,Woody,91.64,Palm Beach Pelicans,2025-12-13T17:02:28.638738
+2018,1,regular,Generous Brady,119.08,Rats,133.16,Rats,2025-12-13T17:02:28.639222
+2018,1,regular,Mebs Militia,150.12,Killer Cam,122.26,Mebs Militia,2025-12-13T17:02:28.639773
+2018,1,regular,Scrubs,132.02,Make Wolfpack Great Again,149.56,Make Wolfpack Great Again,2025-12-13T17:02:28.640241
+2018,1,regular,cheeseheads,161.44,Maggi's Mighty Ducks,124.44,cheeseheads,2025-12-13T17:02:28.640681
+2018,2,regular,Mebs Militia,123.96,Generous Brady,141.36,Generous Brady,2025-12-13T17:02:29.065752
+2018,2,regular,The Brotherhood,134.04,Scrubs,132.64,The Brotherhood,2025-12-13T17:02:29.066696
+2018,2,regular,Palm Beach Pelicans,190.58,Make Wolfpack Great Again,104.82,Palm Beach Pelicans,2025-12-13T17:02:29.067134
+2018,2,regular,Woody,98.36,Killer Cam,114.46,Killer Cam,2025-12-13T17:02:29.067565
+2018,2,regular,Rats,132.4,cheeseheads,138.3,cheeseheads,2025-12-13T17:02:29.067992
+2018,2,regular,Maggi's Mighty Ducks,117.9,DirtyBirds,109.08,Maggi's Mighty Ducks,2025-12-13T17:02:29.068419
+2018,3,regular,Rats,91.64,Mebs Militia,164.02,Mebs Militia,2025-12-13T17:02:29.476380
+2018,3,regular,Generous Brady,110.42,Palm Beach Pelicans,104.96,Generous Brady,2025-12-13T17:02:29.477307
+2018,3,regular,cheeseheads,144.3,Woody,110.38,cheeseheads,2025-12-13T17:02:29.477736
+2018,3,regular,The Brotherhood,149.3,Make Wolfpack Great Again,113.34,The Brotherhood,2025-12-13T17:02:29.478162
+2018,3,regular,DirtyBirds,157.16,Scrubs,128.54,DirtyBirds,2025-12-13T17:02:29.478588
+2018,3,regular,Maggi's Mighty Ducks,101.3,Killer Cam,104.34,Killer Cam,2025-12-13T17:02:29.479014
+2018,4,regular,Killer Cam,142.36,cheeseheads,162.1,cheeseheads,2025-12-13T17:02:29.901421
+2018,4,regular,Scrubs,97.4,Palm Beach Pelicans,139.16,Palm Beach Pelicans,2025-12-13T17:02:29.902355
+2018,4,regular,DirtyBirds,107.26,Make Wolfpack Great Again,104.58,DirtyBirds,2025-12-13T17:02:29.902786
+2018,4,regular,Woody,150.2,Mebs Militia,132.96,Woody,2025-12-13T17:02:29.903230
+2018,4,regular,Maggi's Mighty Ducks,117.58,Rats,113.32,Maggi's Mighty Ducks,2025-12-13T17:02:29.903656
+2018,4,regular,Generous Brady,147.46,The Brotherhood,165.62,The Brotherhood,2025-12-13T17:02:29.904076
+2018,5,regular,cheeseheads,117.2,Mebs Militia,156.98,Mebs Militia,2025-12-13T17:02:30.339300
+2018,5,regular,Rats,128.54,DirtyBirds,100.0,Rats,2025-12-13T17:02:30.340594
+2018,5,regular,Make Wolfpack Great Again,124.22,Maggi's Mighty Ducks,101.44,Make Wolfpack Great Again,2025-12-13T17:02:30.341036
+2018,5,regular,Scrubs,128.98,Woody,106.16,Scrubs,2025-12-13T17:02:30.341469
+2018,5,regular,The Brotherhood,146.38,Palm Beach Pelicans,134.92,The Brotherhood,2025-12-13T17:02:30.341899
+2018,5,regular,Killer Cam,135.2,Generous Brady,107.84,Killer Cam,2025-12-13T17:02:30.342323
+2018,6,regular,Make Wolfpack Great Again,115.86,Generous Brady,110.9,Make Wolfpack Great Again,2025-12-13T17:02:30.747014
+2018,6,regular,The Brotherhood,152.0,Maggi's Mighty Ducks,109.84,The Brotherhood,2025-12-13T17:02:30.747900
+2018,6,regular,Scrubs,101.7,Killer Cam,128.94,Killer Cam,2025-12-13T17:02:30.748325
+2018,6,regular,DirtyBirds,101.9,cheeseheads,112.08,cheeseheads,2025-12-13T17:02:30.748749
+2018,6,regular,Woody,110.18,Rats,150.82,Rats,2025-12-13T17:02:30.749169
+2018,6,regular,Mebs Militia,156.16,Palm Beach Pelicans,171.88,Palm Beach Pelicans,2025-12-13T17:02:30.749594
+2018,7,regular,cheeseheads,127.9,Make Wolfpack Great Again,106.38,cheeseheads,2025-12-13T17:02:31.294881
+2018,7,regular,Maggi's Mighty Ducks,94.98,Palm Beach Pelicans,133.82,Palm Beach Pelicans,2025-12-13T17:02:31.295774
+2018,7,regular,Scrubs,141.06,Mebs Militia,159.84,Mebs Militia,2025-12-13T17:02:31.296199
+2018,7,regular,Rats,108.8,The Brotherhood,99.5,Rats,2025-12-13T17:02:31.296628
+2018,7,regular,Woody,106.24,Generous Brady,159.78,Generous Brady,2025-12-13T17:02:31.297069
+2018,7,regular,DirtyBirds,104.26,Killer Cam,119.94,Killer Cam,2025-12-13T17:02:31.297495
+2018,8,regular,Palm Beach Pelicans,133.62,Rats,148.96,Rats,2025-12-13T17:02:31.726011
+2018,8,regular,The Brotherhood,110.04,cheeseheads,134.86,cheeseheads,2025-12-13T17:02:31.726914
+2018,8,regular,Killer Cam,99.66,Make Wolfpack Great Again,129.5,Make Wolfpack Great Again,2025-12-13T17:02:31.727358
+2018,8,regular,Woody,124.6,DirtyBirds,94.84,Woody,2025-12-13T17:02:31.727777
+2018,8,regular,Scrubs,104.66,Generous Brady,159.16,Generous Brady,2025-12-13T17:02:31.728204
+2018,8,regular,Mebs Militia,107.08,Maggi's Mighty Ducks,137.12,Maggi's Mighty Ducks,2025-12-13T17:02:31.728625
+2018,9,regular,The Brotherhood,134.76,Mebs Militia,102.4,The Brotherhood,2025-12-13T17:02:32.218738
+2018,9,regular,Maggi's Mighty Ducks,144.52,Scrubs,145.68,Scrubs,2025-12-13T17:02:32.219688
+2018,9,regular,DirtyBirds,113.3,Palm Beach Pelicans,147.2,Palm Beach Pelicans,2025-12-13T17:02:32.220130
+2018,9,regular,Generous Brady,155.26,cheeseheads,168.42,cheeseheads,2025-12-13T17:02:32.220551
+2018,9,regular,Woody,76.3,Make Wolfpack Great Again,106.74,Make Wolfpack Great Again,2025-12-13T17:02:32.220975
+2018,9,regular,Rats,102.06,Killer Cam,89.22,Rats,2025-12-13T17:02:32.221399
+2018,10,regular,Scrubs,96.12,Rats,138.8,Rats,2025-12-13T17:02:32.654520
+2018,10,regular,Make Wolfpack Great Again,103.0,Mebs Militia,155.92,Mebs Militia,2025-12-13T17:02:32.655571
+2018,10,regular,cheeseheads,149.02,Palm Beach Pelicans,110.46,cheeseheads,2025-12-13T17:02:32.656123
+2018,10,regular,DirtyBirds,91.0,Generous Brady,98.06,Generous Brady,2025-12-13T17:02:32.656617
+2018,10,regular,Maggi's Mighty Ducks,138.36,Woody,127.02,Maggi's Mighty Ducks,2025-12-13T17:02:32.657068
+2018,10,regular,The Brotherhood,157.86,Killer Cam,148.1,The Brotherhood,2025-12-13T17:02:32.657501
+2018,11,regular,Woody,118.04,The Brotherhood,142.78,The Brotherhood,2025-12-13T17:02:33.072815
+2018,11,regular,Rats,86.24,Make Wolfpack Great Again,93.92,Make Wolfpack Great Again,2025-12-13T17:02:33.074074
+2018,11,regular,cheeseheads,102.8,Scrubs,134.48,Scrubs,2025-12-13T17:02:33.074638
+2018,11,regular,DirtyBirds,73.44,Mebs Militia,121.06,Mebs Militia,2025-12-13T17:02:33.075086
+2018,11,regular,Palm Beach Pelicans,178.02,Killer Cam,142.18,Palm Beach Pelicans,2025-12-13T17:02:33.075523
+2018,11,regular,Maggi's Mighty Ducks,113.02,Generous Brady,148.6,Generous Brady,2025-12-13T17:02:33.075955
+2018,12,regular,The Brotherhood,179.32,Maggi's Mighty Ducks,133.26,The Brotherhood,2025-12-13T17:02:33.553999
+2018,12,regular,Palm Beach Pelicans,114.12,Rats,95.54,Palm Beach Pelicans,2025-12-13T17:02:33.554905
+2018,12,regular,DirtyBirds,89.58,Woody,162.42,Woody,2025-12-13T17:02:33.555345
+2018,12,regular,Make Wolfpack Great Again,128.56,cheeseheads,114.98,Make Wolfpack Great Again,2025-12-13T17:02:33.555811
+2018,12,regular,Mebs Militia,150.98,Generous Brady,84.92,Mebs Militia,2025-12-13T17:02:33.556341
+2018,12,regular,Killer Cam,150.52,Scrubs,134.84,Killer Cam,2025-12-13T17:02:33.556783
+2018,13,regular,Woody,135.1,Scrubs,97.2,Woody,2025-12-13T17:02:33.955276
+2018,13,regular,The Brotherhood,109.32,cheeseheads,155.96,cheeseheads,2025-12-13T17:02:33.956479
+2018,13,regular,Generous Brady,111.94,Make Wolfpack Great Again,99.18,Generous Brady,2025-12-13T17:02:33.956976
+2018,13,regular,Killer Cam,72.72,Palm Beach Pelicans,110.9,Palm Beach Pelicans,2025-12-13T17:02:33.957399
+2018,13,regular,DirtyBirds,79.44,Rats,117.44,Rats,2025-12-13T17:02:33.957823
+2018,13,regular,Maggi's Mighty Ducks,109.48,Mebs Militia,124.4,Mebs Militia,2025-12-13T17:02:33.958246
+2018,14,regular,Mebs Militia,103.18,cheeseheads,132.98,cheeseheads,2025-12-13T17:02:34.467162
+2018,14,regular,Woody,175.4,Make Wolfpack Great Again,103.14,Woody,2025-12-13T17:02:34.468298
+2018,14,regular,DirtyBirds,57.58,Generous Brady,95.42,Generous Brady,2025-12-13T17:02:34.468821
+2018,14,regular,Scrubs,78.9,The Brotherhood,119.44,The Brotherhood,2025-12-13T17:02:34.469336
+2018,14,regular,Palm Beach Pelicans,106.68,Maggi's Mighty Ducks,138.1,Maggi's Mighty Ducks,2025-12-13T17:02:34.469856
+2018,14,regular,Rats,92.62,Killer Cam,139.56,Killer Cam,2025-12-13T17:02:34.470382
+2018,15,playoff,Generous Brady,122.96,Make Wolfpack Great Again,97.72,Generous Brady,2025-12-13T17:02:34.982940
+2018,15,playoff,Rats,143.5,Killer Cam,83.48,Rats,2025-12-13T17:02:34.983710
+2018,15,playoff,cheeseheads,71.66,Mebs Militia,82.8,Mebs Militia,2025-12-13T17:02:34.984079
+2018,15,playoff,The Brotherhood,114.72,Palm Beach Pelicans,100.72,The Brotherhood,2025-12-13T17:02:34.984441
+2018,16,playoff,Generous Brady,88.54,Rats,151.72,Rats,2025-12-13T17:02:35.407032
+2018,16,playoff,Make Wolfpack Great Again,90.84,Killer Cam,72.28,Make Wolfpack Great Again,2025-12-13T17:02:35.407988
+2018,16,playoff,Mebs Militia,200.7,The Brotherhood,183.08,Mebs Militia,2025-12-13T17:02:35.408425
+2018,16,playoff,cheeseheads,141.14,Palm Beach Pelicans,101.72,cheeseheads,2025-12-13T17:02:35.408847
+2019,1,regular,The Brotherhood,148.22,DirtyBirds,100.66,The Brotherhood,2025-12-13T17:02:36.330443
+2019,1,regular,Woody,117.6,Rats,129.12,Rats,2025-12-13T17:02:36.331531
+2019,1,regular,Generous Brady,119.94,Wolfpack is Problematic,143.6,Wolfpack is Problematic,2025-12-13T17:02:36.332056
+2019,1,regular,Palm Beach Pelicans,157.52,Killer Cam,131.06,Palm Beach Pelicans,2025-12-13T17:02:36.332575
+2019,1,regular,Scrubs,152.9,Maggi's Mighty Ducks,122.2,Scrubs,2025-12-13T17:02:36.333086
+2019,1,regular,Mebs Militia,106.26,cheeseheads,123.26,cheeseheads,2025-12-13T17:02:36.333567
+2019,2,regular,DirtyBirds,109.52,cheeseheads,117.72,cheeseheads,2025-12-13T17:02:36.849238
+2019,2,regular,Killer Cam,111.4,Maggi's Mighty Ducks,79.72,Killer Cam,2025-12-13T17:02:36.850330
+2019,2,regular,Generous Brady,139.66,Woody,111.9,Generous Brady,2025-12-13T17:02:36.850845
+2019,2,regular,Scrubs,127.8,Wolfpack is Problematic,118.56,Scrubs,2025-12-13T17:02:36.851360
+2019,2,regular,The Brotherhood,93.04,Palm Beach Pelicans,101.66,Palm Beach Pelicans,2025-12-13T17:02:36.851877
+2019,2,regular,Rats,143.02,Mebs Militia,128.88,Rats,2025-12-13T17:02:36.852405
+2019,3,regular,Rats,103.66,Killer Cam,103.46,Rats,2025-12-13T17:02:37.287697
+2019,3,regular,DirtyBirds,165.32,Maggi's Mighty Ducks,120.62,DirtyBirds,2025-12-13T17:02:37.288599
+2019,3,regular,Mebs Militia,97.98,The Brotherhood,151.66,The Brotherhood,2025-12-13T17:02:37.289152
+2019,3,regular,cheeseheads,121.84,Palm Beach Pelicans,148.14,Palm Beach Pelicans,2025-12-13T17:02:37.289625
+2019,3,regular,Generous Brady,97.94,Scrubs,174.24,Scrubs,2025-12-13T17:02:37.290114
+2019,3,regular,Woody,120.0,Wolfpack is Problematic,133.04,Wolfpack is Problematic,2025-12-13T17:02:37.290568
+2019,4,regular,DirtyBirds,133.82,Palm Beach Pelicans,131.8,DirtyBirds,2025-12-13T17:02:37.717716
+2019,4,regular,Scrubs,126.8,Mebs Militia,146.28,Mebs Militia,2025-12-13T17:02:37.718618
+2019,4,regular,Woody,89.6,Maggi's Mighty Ducks,130.5,Maggi's Mighty Ducks,2025-12-13T17:02:37.719057
+2019,4,regular,cheeseheads,140.74,The Brotherhood,121.8,cheeseheads,2025-12-13T17:02:37.719499
+2019,4,regular,Killer Cam,115.78,Generous Brady,127.9,Generous Brady,2025-12-13T17:02:37.719922
+2019,4,regular,Rats,91.7,Wolfpack is Problematic,101.52,Wolfpack is Problematic,2025-12-13T17:02:37.720386
+2019,5,regular,Rats,113.44,Maggi's Mighty Ducks,115.94,Maggi's Mighty Ducks,2025-12-13T17:02:38.141926
+2019,5,regular,Woody,98.4,The Brotherhood,92.48,Woody,2025-12-13T17:02:38.142874
+2019,5,regular,cheeseheads,167.92,Killer Cam,110.1,cheeseheads,2025-12-13T17:02:38.143310
+2019,5,regular,Scrubs,195.22,Palm Beach Pelicans,194.44,Scrubs,2025-12-13T17:02:38.143738
+2019,5,regular,Wolfpack is Problematic,144.52,DirtyBirds,101.76,Wolfpack is Problematic,2025-12-13T17:02:38.144188
+2019,5,regular,Mebs Militia,109.14,Generous Brady,163.32,Generous Brady,2025-12-13T17:02:38.144610
+2019,6,regular,Scrubs,98.0,Woody,58.02,Scrubs,2025-12-13T17:02:38.575912
+2019,6,regular,Killer Cam,158.24,DirtyBirds,129.9,Killer Cam,2025-12-13T17:02:38.576854
+2019,6,regular,Mebs Militia,149.04,Maggi's Mighty Ducks,71.02,Mebs Militia,2025-12-13T17:02:38.577288
+2019,6,regular,Generous Brady,131.86,The Brotherhood,99.34,Generous Brady,2025-12-13T17:02:38.577725
+2019,6,regular,Wolfpack is Problematic,134.72,Palm Beach Pelicans,119.0,Wolfpack is Problematic,2025-12-13T17:02:38.578158
+2019,6,regular,cheeseheads,151.1,Rats,92.42,cheeseheads,2025-12-13T17:02:38.578593
+2019,7,regular,Wolfpack is Problematic,113.06,cheeseheads,81.56,Wolfpack is Problematic,2025-12-13T17:02:39.027298
+2019,7,regular,Mebs Militia,114.22,DirtyBirds,104.54,Mebs Militia,2025-12-13T17:02:39.028190
+2019,7,regular,Woody,97.42,Palm Beach Pelicans,95.02,Woody,2025-12-13T17:02:39.028616
+2019,7,regular,Generous Brady,100.56,Rats,119.44,Rats,2025-12-13T17:02:39.029043
+2019,7,regular,Scrubs,96.84,Killer Cam,88.36,Scrubs,2025-12-13T17:02:39.029464
+2019,7,regular,Maggi's Mighty Ducks,127.88,The Brotherhood,80.94,Maggi's Mighty Ducks,2025-12-13T17:02:39.029885
+2019,8,regular,Killer Cam,155.16,Wolfpack is Problematic,145.8,Killer Cam,2025-12-13T17:02:39.493787
+2019,8,regular,cheeseheads,121.8,Woody,113.18,cheeseheads,2025-12-13T17:02:39.494713
+2019,8,regular,Palm Beach Pelicans,136.06,Mebs Militia,114.08,Palm Beach Pelicans,2025-12-13T17:02:39.495142
+2019,8,regular,Scrubs,91.98,DirtyBirds,149.54,DirtyBirds,2025-12-13T17:02:39.495564
+2019,8,regular,The Brotherhood,111.5,Rats,130.72,Rats,2025-12-13T17:02:39.495983
+2019,8,regular,Generous Brady,107.16,Maggi's Mighty Ducks,136.16,Maggi's Mighty Ducks,2025-12-13T17:02:39.496402
+2019,9,regular,Killer Cam,103.46,The Brotherhood,95.6,Killer Cam,2025-12-13T17:02:39.974889
+2019,9,regular,Rats,120.88,DirtyBirds,134.2,DirtyBirds,2025-12-13T17:02:39.975855
+2019,9,regular,Scrubs,130.42,cheeseheads,119.66,Scrubs,2025-12-13T17:02:39.976291
+2019,9,regular,Woody,120.44,Mebs Militia,132.62,Mebs Militia,2025-12-13T17:02:39.976722
+2019,9,regular,Maggi's Mighty Ducks,136.0,Wolfpack is Problematic,107.84,Maggi's Mighty Ducks,2025-12-13T17:02:39.977156
+2019,9,regular,Generous Brady,99.0,Palm Beach Pelicans,154.84,Palm Beach Pelicans,2025-12-13T17:02:39.977597
+2019,10,regular,Wolfpack is Problematic,91.32,Mebs Militia,197.82,Mebs Militia,2025-12-13T17:02:40.421637
+2019,10,regular,Maggi's Mighty Ducks,120.98,cheeseheads,117.56,Maggi's Mighty Ducks,2025-12-13T17:02:40.422628
+2019,10,regular,Killer Cam,86.48,Woody,68.42,Killer Cam,2025-12-13T17:02:40.423155
+2019,10,regular,Palm Beach Pelicans,107.98,Rats,95.04,Palm Beach Pelicans,2025-12-13T17:02:40.423605
+2019,10,regular,Generous Brady,110.96,DirtyBirds,115.22,DirtyBirds,2025-12-13T17:02:40.424047
+2019,10,regular,The Brotherhood,127.54,Scrubs,134.58,Scrubs,2025-12-13T17:02:40.424485
+2019,11,regular,Rats,87.8,Scrubs,112.34,Scrubs,2025-12-13T17:02:40.922215
+2019,11,regular,Killer Cam,113.34,Mebs Militia,117.38,Mebs Militia,2025-12-13T17:02:40.923379
+2019,11,regular,Woody,142.16,DirtyBirds,93.32,Woody,2025-12-13T17:02:40.923957
+2019,11,regular,Maggi's Mighty Ducks,105.02,Palm Beach Pelicans,122.16,Palm Beach Pelicans,2025-12-13T17:02:40.924428
+2019,11,regular,Wolfpack is Problematic,158.06,The Brotherhood,105.14,Wolfpack is Problematic,2025-12-13T17:02:40.924872
+2019,11,regular,Generous Brady,85.44,cheeseheads,127.48,cheeseheads,2025-12-13T17:02:40.925303
+2019,12,regular,Wolfpack is Problematic,102.46,Maggi's Mighty Ducks,127.84,Maggi's Mighty Ducks,2025-12-13T17:02:41.711342
+2019,12,regular,Rats,85.22,The Brotherhood,83.44,Rats,2025-12-13T17:02:41.712470
+2019,12,regular,cheeseheads,154.88,Scrubs,78.8,cheeseheads,2025-12-13T17:02:41.712992
+2019,12,regular,Killer Cam,64.94,Palm Beach Pelicans,158.72,Palm Beach Pelicans,2025-12-13T17:02:41.713524
+2019,12,regular,Woody,98.86,DirtyBirds,105.72,DirtyBirds,2025-12-13T17:02:41.714000
+2019,12,regular,Generous Brady,98.9,Mebs Militia,129.36,Mebs Militia,2025-12-13T17:02:41.714425
+2019,13,regular,Maggi's Mighty Ducks,117.36,Woody,81.38,Maggi's Mighty Ducks,2025-12-13T17:02:42.160366
+2019,13,regular,Mebs Militia,89.3,Killer Cam,107.38,Killer Cam,2025-12-13T17:02:42.161506
+2019,13,regular,The Brotherhood,159.6,DirtyBirds,111.86,The Brotherhood,2025-12-13T17:02:42.162025
+2019,13,regular,cheeseheads,111.62,Palm Beach Pelicans,112.56,Palm Beach Pelicans,2025-12-13T17:02:42.162541
+2019,13,regular,Wolfpack is Problematic,130.32,Scrubs,90.0,Wolfpack is Problematic,2025-12-13T17:02:42.163056
+2019,13,regular,Generous Brady,89.34,Rats,105.7,Rats,2025-12-13T17:02:42.163585
+2019,14,regular,Mebs Militia,95.4,Woody,150.84,Woody,2025-12-13T17:02:42.663613
+2019,14,regular,Rats,142.52,Palm Beach Pelicans,144.28,Palm Beach Pelicans,2025-12-13T17:02:42.664515
+2019,14,regular,Generous Brady,95.96,Maggi's Mighty Ducks,133.36,Maggi's Mighty Ducks,2025-12-13T17:02:42.664943
+2019,14,regular,Scrubs,143.1,DirtyBirds,133.74,Scrubs,2025-12-13T17:02:42.665370
+2019,14,regular,The Brotherhood,124.3,cheeseheads,122.44,The Brotherhood,2025-12-13T17:02:42.665789
+2019,14,regular,Killer Cam,90.42,Wolfpack is Problematic,110.8,Wolfpack is Problematic,2025-12-13T17:02:42.666212
+2019,15,playoff,cheeseheads,132.26,DirtyBirds,183.82,DirtyBirds,2025-12-13T17:02:43.103273
+2019,15,playoff,Mebs Militia,129.08,Rats,115.9,Mebs Militia,2025-12-13T17:02:43.104187
+2019,15,playoff,Palm Beach Pelicans,168.22,Maggi's Mighty Ducks,147.58,Palm Beach Pelicans,2025-12-13T17:02:43.104615
+2019,15,playoff,Scrubs,171.14,Wolfpack is Problematic,116.58,Scrubs,2025-12-13T17:02:43.105041
+2019,16,playoff,DirtyBirds,92.0,Mebs Militia,114.02,Mebs Militia,2025-12-13T17:02:43.530003
+2019,16,playoff,cheeseheads,102.28,Rats,148.84,Rats,2025-12-13T17:02:43.530760
+2019,16,playoff,Palm Beach Pelicans,128.46,Scrubs,155.96,Scrubs,2025-12-13T17:02:43.531123
+2019,16,playoff,Maggi's Mighty Ducks,135.16,Wolfpack is Problematic,91.5,Maggi's Mighty Ducks,2025-12-13T17:02:43.531485
+2020,1,regular,Rats,99.54,Covid Caged Wolfpack,142.16,Covid Caged Wolfpack,2025-12-13T17:02:44.362210
+2020,1,regular,The Brotherhood,85.6,Maggi's Mighty Ducks,131.9,Maggi's Mighty Ducks,2025-12-13T17:02:44.363099
+2020,1,regular,cheeseheads,97.14,The Generous,106.4,The Generous,2025-12-13T17:02:44.363537
+2020,1,regular,Scrubs,110.06,Mebs Militia,155.58,Mebs Militia,2025-12-13T17:02:44.363959
+2020,1,regular,Killer Cam,123.32,Palm Beach Pelicans,123.0,Killer Cam,2025-12-13T17:02:44.364380
+2020,1,regular,Woody,110.7,DirtyBirds,111.8,DirtyBirds,2025-12-13T17:02:44.364799
+2020,2,regular,Maggi's Mighty Ducks,105.54,Palm Beach Pelicans,71.62,Maggi's Mighty Ducks,2025-12-13T17:02:44.800097
+2020,2,regular,cheeseheads,126.5,Rats,104.88,cheeseheads,2025-12-13T17:02:44.801230
+2020,2,regular,The Generous,136.86,Woody,141.08,Woody,2025-12-13T17:02:44.801779
+2020,2,regular,Covid Caged Wolfpack,135.98,Scrubs,90.8,Covid Caged Wolfpack,2025-12-13T17:02:44.802297
+2020,2,regular,Killer Cam,97.9,The Brotherhood,141.34,The Brotherhood,2025-12-13T17:02:44.802820
+2020,2,regular,Mebs Militia,148.0,DirtyBirds,154.02,DirtyBirds,2025-12-13T17:02:44.803334
+2020,3,regular,DirtyBirds,107.82,cheeseheads,133.88,cheeseheads,2025-12-13T17:02:45.235618
+2020,3,regular,Scrubs,144.22,Maggi's Mighty Ducks,80.1,Scrubs,2025-12-13T17:02:45.236526
+2020,3,regular,The Generous,112.48,Covid Caged Wolfpack,146.68,Covid Caged Wolfpack,2025-12-13T17:02:45.236973
+2020,3,regular,Rats,116.9,Woody,97.78,Rats,2025-12-13T17:02:45.237424
+2020,3,regular,Killer Cam,127.66,Mebs Militia,88.14,Killer Cam,2025-12-13T17:02:45.237871
+2020,3,regular,Palm Beach Pelicans,105.1,The Brotherhood,124.98,The Brotherhood,2025-12-13T17:02:45.238296
+2020,4,regular,Covid Caged Wolfpack,149.56,Palm Beach Pelicans,104.3,Covid Caged Wolfpack,2025-12-13T17:02:45.666829
+2020,4,regular,Maggi's Mighty Ducks,145.12,DirtyBirds,75.8,Maggi's Mighty Ducks,2025-12-13T17:02:45.667938
+2020,4,regular,Woody,157.14,The Brotherhood,118.1,Woody,2025-12-13T17:02:45.668475
+2020,4,regular,Mebs Militia,107.92,The Generous,103.58,Mebs Militia,2025-12-13T17:02:45.669033
+2020,4,regular,Rats,112.14,Killer Cam,98.7,Rats,2025-12-13T17:02:45.669552
+2020,4,regular,Scrubs,78.48,cheeseheads,183.18,cheeseheads,2025-12-13T17:02:45.670074
+2020,5,regular,Mebs Militia,126.84,Woody,116.9,Mebs Militia,2025-12-13T17:02:46.143369
+2020,5,regular,DirtyBirds,71.74,The Generous,111.4,The Generous,2025-12-13T17:02:46.144313
+2020,5,regular,Killer Cam,103.96,Maggi's Mighty Ducks,128.7,Maggi's Mighty Ducks,2025-12-13T17:02:46.144762
+2020,5,regular,Palm Beach Pelicans,126.7,Scrubs,127.26,Scrubs,2025-12-13T17:02:46.145188
+2020,5,regular,Covid Caged Wolfpack,123.32,cheeseheads,78.84,Covid Caged Wolfpack,2025-12-13T17:02:46.145612
+2020,5,regular,Rats,139.8,The Brotherhood,93.94,Rats,2025-12-13T17:02:46.146037
+2020,6,regular,Palm Beach Pelicans,111.94,The Generous,96.36,Palm Beach Pelicans,2025-12-13T17:02:46.584735
+2020,6,regular,cheeseheads,157.54,Killer Cam,103.8,cheeseheads,2025-12-13T17:02:46.585656
+2020,6,regular,Rats,106.6,Scrubs,110.6,Scrubs,2025-12-13T17:02:46.586097
+2020,6,regular,Covid Caged Wolfpack,96.24,Mebs Militia,84.18,Covid Caged Wolfpack,2025-12-13T17:02:46.586538
+2020,6,regular,The Brotherhood,95.08,DirtyBirds,91.84,The Brotherhood,2025-12-13T17:02:46.586979
+2020,6,regular,Maggi's Mighty Ducks,97.42,Woody,92.28,Maggi's Mighty Ducks,2025-12-13T17:02:46.587405
+2020,7,regular,Woody,86.52,Covid Caged Wolfpack,155.3,Covid Caged Wolfpack,2025-12-13T17:02:47.013953
+2020,7,regular,Killer Cam,138.16,DirtyBirds,148.92,DirtyBirds,2025-12-13T17:02:47.015061
+2020,7,regular,Palm Beach Pelicans,107.6,cheeseheads,106.56,Palm Beach Pelicans,2025-12-13T17:02:47.015591
+2020,7,regular,Mebs Militia,84.08,The Brotherhood,126.22,The Brotherhood,2025-12-13T17:02:47.016078
+2020,7,regular,Maggi's Mighty Ducks,137.5,Rats,77.6,Maggi's Mighty Ducks,2025-12-13T17:02:47.016506
+2020,7,regular,The Generous,116.42,Scrubs,164.58,Scrubs,2025-12-13T17:02:47.016936
+2020,8,regular,DirtyBirds,92.24,Palm Beach Pelicans,123.44,Palm Beach Pelicans,2025-12-13T17:02:47.417238
+2020,8,regular,The Generous,91.72,Maggi's Mighty Ducks,89.56,The Generous,2025-12-13T17:02:47.418184
+2020,8,regular,Covid Caged Wolfpack,99.22,Killer Cam,85.34,Covid Caged Wolfpack,2025-12-13T17:02:47.418645
+2020,8,regular,cheeseheads,101.32,Woody,103.14,Woody,2025-12-13T17:02:47.419072
+2020,8,regular,The Brotherhood,131.44,Scrubs,81.42,The Brotherhood,2025-12-13T17:02:47.419500
+2020,8,regular,Mebs Militia,99.96,Rats,157.24,Rats,2025-12-13T17:02:47.419933
+2020,9,regular,Covid Caged Wolfpack,56.26,DirtyBirds,132.26,DirtyBirds,2025-12-13T17:02:47.846727
+2020,9,regular,Killer Cam,81.74,The Generous,98.2,The Generous,2025-12-13T17:02:47.847816
+2020,9,regular,Palm Beach Pelicans,84.5,Rats,153.78,Rats,2025-12-13T17:02:47.848329
+2020,9,regular,Scrubs,116.44,Woody,125.96,Woody,2025-12-13T17:02:47.848836
+2020,9,regular,The Brotherhood,127.1,cheeseheads,101.4,The Brotherhood,2025-12-13T17:02:47.849341
+2020,9,regular,Mebs Militia,88.9,Maggi's Mighty Ducks,153.52,Maggi's Mighty Ducks,2025-12-13T17:02:47.849845
+2020,10,regular,The Generous,80.24,The Brotherhood,98.56,The Brotherhood,2025-12-13T17:02:48.270592
+2020,10,regular,Woody,82.72,Palm Beach Pelicans,106.32,Palm Beach Pelicans,2025-12-13T17:02:48.271499
+2020,10,regular,Rats,70.06,DirtyBirds,106.68,DirtyBirds,2025-12-13T17:02:48.271927
+2020,10,regular,Killer Cam,75.32,Scrubs,108.88,Scrubs,2025-12-13T17:02:48.272426
+2020,10,regular,Maggi's Mighty Ducks,113.6,Covid Caged Wolfpack,134.74,Covid Caged Wolfpack,2025-12-13T17:02:48.272984
+2020,10,regular,Mebs Militia,102.96,cheeseheads,74.36,Mebs Militia,2025-12-13T17:02:48.273571
+2020,11,regular,The Generous,140.54,Rats,119.48,The Generous,2025-12-13T17:02:48.715726
+2020,11,regular,Scrubs,141.94,DirtyBirds,72.98,Scrubs,2025-12-13T17:02:48.716498
+2020,11,regular,Maggi's Mighty Ducks,114.96,cheeseheads,111.82,Maggi's Mighty Ducks,2025-12-13T17:02:48.716864
+2020,11,regular,Palm Beach Pelicans,79.18,Mebs Militia,110.36,Mebs Militia,2025-12-13T17:02:48.717225
+2020,11,regular,The Brotherhood,129.54,Covid Caged Wolfpack,104.58,The Brotherhood,2025-12-13T17:02:48.717587
+2020,11,regular,Woody,135.42,Killer Cam,127.16,Woody,2025-12-13T17:02:48.717948
+2020,12,regular,Woody,94.42,Palm Beach Pelicans,66.5,Woody,2025-12-13T17:02:49.144704
+2020,12,regular,Covid Caged Wolfpack,70.2,Killer Cam,150.92,Killer Cam,2025-12-13T17:02:49.145809
+2020,12,regular,Rats,128.18,cheeseheads,143.82,cheeseheads,2025-12-13T17:02:49.146328
+2020,12,regular,Scrubs,136.44,The Brotherhood,145.34,The Brotherhood,2025-12-13T17:02:49.146860
+2020,12,regular,Mebs Militia,125.08,The Generous,95.18,Mebs Militia,2025-12-13T17:02:49.147378
+2020,12,regular,DirtyBirds,118.1,Maggi's Mighty Ducks,102.9,DirtyBirds,2025-12-13T17:02:49.147893
+2020,13,regular,The Brotherhood,111.0,Mebs Militia,114.7,Mebs Militia,2025-12-13T17:02:49.427000
+2020,13,regular,Maggi's Mighty Ducks,101.12,Woody,143.48,Woody,2025-12-13T17:02:49.427898
+2020,13,regular,Palm Beach Pelicans,86.32,cheeseheads,88.88,cheeseheads,2025-12-13T17:02:49.428320
+2020,13,regular,The Generous,134.44,Scrubs,117.46,The Generous,2025-12-13T17:02:49.428742
+2020,13,regular,Covid Caged Wolfpack,122.8,Rats,93.92,Covid Caged Wolfpack,2025-12-13T17:02:49.429167
+2020,13,regular,DirtyBirds,94.82,Killer Cam,79.74,DirtyBirds,2025-12-13T17:02:49.429590
+2020,14,regular,Killer Cam,116.46,Palm Beach Pelicans,141.84,Palm Beach Pelicans,2025-12-13T17:02:49.930002
+2020,14,regular,DirtyBirds,103.16,The Generous,121.52,The Generous,2025-12-13T17:02:49.930903
+2020,14,regular,Scrubs,119.02,Covid Caged Wolfpack,104.74,Scrubs,2025-12-13T17:02:49.931336
+2020,14,regular,cheeseheads,133.38,Maggi's Mighty Ducks,79.96,cheeseheads,2025-12-13T17:02:49.931768
+2020,14,regular,Woody,113.74,Mebs Militia,111.02,Woody,2025-12-13T17:02:49.932193
+2020,14,regular,Rats,120.12,The Brotherhood,116.3,Rats,2025-12-13T17:02:49.932625
+2020,15,playoff,Scrubs,107.86,The Generous,116.92,The Generous,2025-12-13T17:02:50.360389
+2020,15,playoff,cheeseheads,149.12,Mebs Militia,142.66,cheeseheads,2025-12-13T17:02:50.361306
+2020,15,playoff,Covid Caged Wolfpack,143.8,Maggi's Mighty Ducks,96.64,Covid Caged Wolfpack,2025-12-13T17:02:50.361751
+2020,15,playoff,The Brotherhood,123.32,Woody,130.92,Woody,2025-12-13T17:02:50.362181
+2020,16,playoff,The Generous,116.72,cheeseheads,90.18,The Generous,2025-12-13T17:02:50.861440
+2020,16,playoff,Scrubs,109.72,Mebs Militia,93.4,Scrubs,2025-12-13T17:02:50.862336
+2020,16,playoff,Covid Caged Wolfpack,139.72,Woody,126.34,Covid Caged Wolfpack,2025-12-13T17:02:50.862760
+2020,16,playoff,Maggi's Mighty Ducks,99.78,The Brotherhood,114.44,The Brotherhood,2025-12-13T17:02:50.863206
+2021,1,regular,The Generous,176.06,The Brotherhood,58.1,The Generous,2025-12-13T17:02:51.706532
+2021,1,regular,cheeseheads,122.86,Killer Cam,202.36,Killer Cam,2025-12-13T17:02:51.707806
+2021,1,regular,Rats,139.76,Woody,161.22,Woody,2025-12-13T17:02:51.708341
+2021,1,regular,Mebs Militia,158.2,DirtyBirds,141.2,Mebs Militia,2025-12-13T17:02:51.708871
+2021,1,regular,Scrubs,116.48,Maggi's Mighty Ducks,154.88,Maggi's Mighty Ducks,2025-12-13T17:02:51.709394
+2021,1,regular,Neutered Wolfpack,83.72,Palm Beach Pelicans,158.64,Palm Beach Pelicans,2025-12-13T17:02:51.709850
+2021,2,regular,Maggi's Mighty Ducks,138.52,cheeseheads,108.98,Maggi's Mighty Ducks,2025-12-13T17:02:52.191115
+2021,2,regular,Killer Cam,143.0,Scrubs,112.52,Killer Cam,2025-12-13T17:02:52.192081
+2021,2,regular,Woody,181.88,The Generous,147.94,Woody,2025-12-13T17:02:52.192514
+2021,2,regular,The Brotherhood,103.66,Rats,152.5,Rats,2025-12-13T17:02:52.192956
+2021,2,regular,Neutered Wolfpack,150.7,Mebs Militia,188.86,Mebs Militia,2025-12-13T17:02:52.193396
+2021,2,regular,Palm Beach Pelicans,115.92,DirtyBirds,129.22,DirtyBirds,2025-12-13T17:02:52.193834
+2021,3,regular,Maggi's Mighty Ducks,149.4,Mebs Militia,167.78,Mebs Militia,2025-12-13T17:02:52.625225
+2021,3,regular,Killer Cam,128.94,The Generous,121.48,Killer Cam,2025-12-13T17:02:52.626165
+2021,3,regular,Rats,130.64,cheeseheads,100.02,Rats,2025-12-13T17:02:52.626609
+2021,3,regular,Neutered Wolfpack,119.34,The Brotherhood,160.72,The Brotherhood,2025-12-13T17:02:52.627033
+2021,3,regular,DirtyBirds,119.82,Scrubs,146.84,Scrubs,2025-12-13T17:02:52.627474
+2021,3,regular,Woody,151.92,Palm Beach Pelicans,134.52,Woody,2025-12-13T17:02:52.627895
+2021,4,regular,DirtyBirds,171.56,Maggi's Mighty Ducks,106.22,DirtyBirds,2025-12-13T17:02:53.053378
+2021,4,regular,The Generous,127.66,Rats,124.98,The Generous,2025-12-13T17:02:53.054278
+2021,4,regular,Woody,151.92,cheeseheads,93.22,Woody,2025-12-13T17:02:53.054706
+2021,4,regular,Neutered Wolfpack,131.22,Scrubs,124.08,Neutered Wolfpack,2025-12-13T17:02:53.055190
+2021,4,regular,Mebs Militia,155.84,Killer Cam,104.22,Mebs Militia,2025-12-13T17:02:53.055713
+2021,4,regular,Palm Beach Pelicans,177.1,The Brotherhood,154.72,Palm Beach Pelicans,2025-12-13T17:02:53.056200
+2021,5,regular,The Generous,156.44,Maggi's Mighty Ducks,109.18,The Generous,2025-12-13T17:02:53.493315
+2021,5,regular,DirtyBirds,141.38,The Brotherhood,148.9,The Brotherhood,2025-12-13T17:02:53.494264
+2021,5,regular,Woody,174.48,Neutered Wolfpack,161.16,Woody,2025-12-13T17:02:53.494706
+2021,5,regular,Killer Cam,157.06,Rats,148.22,Killer Cam,2025-12-13T17:02:53.495137
+2021,5,regular,Mebs Militia,216.58,Scrubs,153.72,Mebs Militia,2025-12-13T17:02:53.495561
+2021,5,regular,cheeseheads,103.64,Palm Beach Pelicans,172.4,Palm Beach Pelicans,2025-12-13T17:02:53.495980
+2021,6,regular,Scrubs,150.6,The Brotherhood,166.52,The Brotherhood,2025-12-13T17:02:53.929533
+2021,6,regular,Neutered Wolfpack,122.2,The Generous,137.08,The Generous,2025-12-13T17:02:53.930438
+2021,6,regular,Mebs Militia,161.18,Woody,206.9,Woody,2025-12-13T17:02:53.930861
+2021,6,regular,Maggi's Mighty Ducks,149.18,Rats,70.0,Maggi's Mighty Ducks,2025-12-13T17:02:53.931289
+2021,6,regular,cheeseheads,134.54,DirtyBirds,77.98,cheeseheads,2025-12-13T17:02:53.931712
+2021,6,regular,Killer Cam,140.66,Palm Beach Pelicans,151.34,Palm Beach Pelicans,2025-12-13T17:02:53.932136
+2021,7,regular,Scrubs,131.7,Woody,163.22,Woody,2025-12-13T17:02:54.357429
+2021,7,regular,Rats,136.84,DirtyBirds,106.58,Rats,2025-12-13T17:02:54.358357
+2021,7,regular,The Generous,140.54,Palm Beach Pelicans,152.66,Palm Beach Pelicans,2025-12-13T17:02:54.358786
+2021,7,regular,Mebs Militia,137.88,The Brotherhood,103.54,Mebs Militia,2025-12-13T17:02:54.359212
+2021,7,regular,cheeseheads,97.44,Neutered Wolfpack,150.96,Neutered Wolfpack,2025-12-13T17:02:54.359637
+2021,7,regular,Maggi's Mighty Ducks,106.44,Killer Cam,118.54,Killer Cam,2025-12-13T17:02:54.360075
+2021,8,regular,Killer Cam,120.96,Woody,129.18,Woody,2025-12-13T17:02:54.807924
+2021,8,regular,Mebs Militia,111.96,Rats,80.22,Mebs Militia,2025-12-13T17:02:54.808595
+2021,8,regular,Maggi's Mighty Ducks,104.2,Neutered Wolfpack,126.46,Neutered Wolfpack,2025-12-13T17:02:54.808905
+2021,8,regular,The Brotherhood,129.56,cheeseheads,96.86,The Brotherhood,2025-12-13T17:02:54.809216
+2021,8,regular,Palm Beach Pelicans,123.3,Scrubs,77.22,Palm Beach Pelicans,2025-12-13T17:02:54.809524
+2021,8,regular,DirtyBirds,142.64,The Generous,186.0,The Generous,2025-12-13T17:02:54.809834
+2021,9,regular,Rats,53.68,Neutered Wolfpack,111.8,Neutered Wolfpack,2025-12-13T17:02:55.214180
+2021,9,regular,DirtyBirds,132.02,Killer Cam,120.5,DirtyBirds,2025-12-13T17:02:55.215337
+2021,9,regular,Palm Beach Pelicans,108.86,Maggi's Mighty Ducks,119.44,Maggi's Mighty Ducks,2025-12-13T17:02:55.215882
+2021,9,regular,Woody,129.88,The Brotherhood,109.86,Woody,2025-12-13T17:02:55.216410
+2021,9,regular,The Generous,92.94,Mebs Militia,133.56,Mebs Militia,2025-12-13T17:02:55.216921
+2021,9,regular,cheeseheads,125.08,Scrubs,119.84,cheeseheads,2025-12-13T17:02:55.217421
+2021,10,regular,Neutered Wolfpack,123.24,DirtyBirds,89.98,Neutered Wolfpack,2025-12-13T17:02:55.634091
+2021,10,regular,Scrubs,78.1,The Generous,120.8,The Generous,2025-12-13T17:02:55.635153
+2021,10,regular,The Brotherhood,129.54,Killer Cam,80.0,The Brotherhood,2025-12-13T17:02:55.635590
+2021,10,regular,Mebs Militia,105.62,cheeseheads,138.64,cheeseheads,2025-12-13T17:02:55.636021
+2021,10,regular,Rats,139.82,Palm Beach Pelicans,133.12,Rats,2025-12-13T17:02:55.636477
+2021,10,regular,Woody,140.6,Maggi's Mighty Ducks,162.54,Maggi's Mighty Ducks,2025-12-13T17:02:55.636901
+2021,11,regular,Neutered Wolfpack,149.9,Killer Cam,144.14,Neutered Wolfpack,2025-12-13T17:02:56.079916
+2021,11,regular,cheeseheads,106.72,The Generous,183.68,The Generous,2025-12-13T17:02:56.080799
+2021,11,regular,Scrubs,102.28,Rats,127.08,Rats,2025-12-13T17:02:56.081219
+2021,11,regular,Maggi's Mighty Ducks,118.9,The Brotherhood,103.46,Maggi's Mighty Ducks,2025-12-13T17:02:56.081637
+2021,11,regular,Woody,109.84,DirtyBirds,82.58,Woody,2025-12-13T17:02:56.082053
+2021,11,regular,Palm Beach Pelicans,152.92,Mebs Militia,150.12,Palm Beach Pelicans,2025-12-13T17:02:56.082473
+2021,12,regular,Woody,138.9,The Generous,103.54,Woody,2025-12-13T17:02:56.516186
+2021,12,regular,cheeseheads,102.9,DirtyBirds,103.54,DirtyBirds,2025-12-13T17:02:56.517265
+2021,12,regular,Maggi's Mighty Ducks,149.68,Scrubs,106.92,Maggi's Mighty Ducks,2025-12-13T17:02:56.517777
+2021,12,regular,The Brotherhood,154.9,Rats,119.06,The Brotherhood,2025-12-13T17:02:56.518292
+2021,12,regular,Killer Cam,118.72,Mebs Militia,147.9,Mebs Militia,2025-12-13T17:02:56.518731
+2021,12,regular,Palm Beach Pelicans,144.18,Neutered Wolfpack,92.88,Palm Beach Pelicans,2025-12-13T17:02:56.519168
+2021,13,regular,Maggi's Mighty Ducks,130.86,cheeseheads,103.2,Maggi's Mighty Ducks,2025-12-13T17:02:56.963563
+2021,13,regular,Rats,131.02,Palm Beach Pelicans,153.2,Palm Beach Pelicans,2025-12-13T17:02:56.964450
+2021,13,regular,Mebs Militia,145.42,The Brotherhood,90.5,Mebs Militia,2025-12-13T17:02:56.964878
+2021,13,regular,Scrubs,118.48,Neutered Wolfpack,127.56,Neutered Wolfpack,2025-12-13T17:02:56.965300
+2021,13,regular,Woody,132.72,Killer Cam,152.3,Killer Cam,2025-12-13T17:02:56.965722
+2021,13,regular,DirtyBirds,133.84,The Generous,160.92,The Generous,2025-12-13T17:02:56.966142
+2021,14,regular,Scrubs,100.7,Palm Beach Pelicans,125.98,Palm Beach Pelicans,2025-12-13T17:02:57.409347
+2021,14,regular,Killer Cam,81.62,cheeseheads,136.72,cheeseheads,2025-12-13T17:02:57.410253
+2021,14,regular,Woody,125.54,Neutered Wolfpack,167.94,Neutered Wolfpack,2025-12-13T17:02:57.410695
+2021,14,regular,Maggi's Mighty Ducks,142.32,The Generous,153.92,The Generous,2025-12-13T17:02:57.411117
+2021,14,regular,Mebs Militia,65.98,Rats,149.44,Rats,2025-12-13T17:02:57.411542
+2021,14,regular,The Brotherhood,226.32,DirtyBirds,148.4,The Brotherhood,2025-12-13T17:02:57.411966
+2021,15,regular,Neutered Wolfpack,125.62,Maggi's Mighty Ducks,147.2,Maggi's Mighty Ducks,2025-12-13T17:02:57.824181
+2021,15,regular,cheeseheads,74.68,Woody,120.48,Woody,2025-12-13T17:02:57.825328
+2021,15,regular,Killer Cam,96.28,Palm Beach Pelicans,163.56,Palm Beach Pelicans,2025-12-13T17:02:57.825872
+2021,15,regular,The Brotherhood,117.4,Scrubs,85.94,The Brotherhood,2025-12-13T17:02:57.826389
+2021,15,regular,DirtyBirds,101.34,Rats,146.04,Rats,2025-12-13T17:02:57.826923
+2021,15,regular,Mebs Militia,74.32,The Generous,94.76,The Generous,2025-12-13T17:02:57.827394
+2021,16,playoff,Maggi's Mighty Ducks,136.52,Rats,148.26,Rats,2025-12-13T17:02:58.264479
+2021,16,playoff,The Brotherhood,163.56,Neutered Wolfpack,175.08,Neutered Wolfpack,2025-12-13T17:02:58.265355
+2021,16,playoff,Woody,159.5,The Generous,106.28,Woody,2025-12-13T17:02:58.265780
+2021,16,playoff,Palm Beach Pelicans,142.58,Mebs Militia,134.52,Palm Beach Pelicans,2025-12-13T17:02:58.266198
+2021,17,playoff,Rats,113.56,Neutered Wolfpack,115.02,Neutered Wolfpack,2025-12-13T17:02:58.745704
+2021,17,playoff,Maggi's Mighty Ducks,145.76,The Brotherhood,105.0,Maggi's Mighty Ducks,2025-12-13T17:02:58.746611
+2021,17,playoff,Woody,135.74,Palm Beach Pelicans,158.86,Palm Beach Pelicans,2025-12-13T17:02:58.747031
+2021,17,playoff,The Generous,126.6,Mebs Militia,135.48,Mebs Militia,2025-12-13T17:02:58.747448
+2022,1,regular,The Generous,124.7,The Brotherhood,138.8,The Brotherhood,2025-12-13T17:02:59.164172
+2022,1,regular,Maggi's Mighty Ducks,143.62,Mebs Militia,89.36,Maggi's Mighty Ducks,2025-12-13T17:02:59.165263
+2022,1,regular,Woody,75.92,Wolfpack,114.38,Wolfpack,2025-12-13T17:02:59.165785
+2022,1,regular,Killer Cam,86.06,Rats,158.6,Rats,2025-12-13T17:02:59.166265
+2022,1,regular,cheeseheads,141.52,Scrubs,53.16,cheeseheads,2025-12-13T17:02:59.166688
+2022,1,regular,Palm Beach Pelicans,99.62,DirtyBirds,124.5,DirtyBirds,2025-12-13T17:02:59.167109
+2022,2,regular,Maggi's Mighty Ducks,195.26,The Generous,80.18,Maggi's Mighty Ducks,2025-12-13T17:02:59.661094
+2022,2,regular,The Brotherhood,117.56,Woody,132.22,Woody,2025-12-13T17:02:59.662008
+2022,2,regular,Mebs Militia,99.7,Killer Cam,149.86,Killer Cam,2025-12-13T17:02:59.662440
+2022,2,regular,Wolfpack,99.48,cheeseheads,163.18,cheeseheads,2025-12-13T17:02:59.662864
+2022,2,regular,Rats,85.0,Palm Beach Pelicans,116.72,Palm Beach Pelicans,2025-12-13T17:02:59.663309
+2022,2,regular,Scrubs,106.74,DirtyBirds,119.2,DirtyBirds,2025-12-13T17:02:59.663736
+2022,3,regular,The Generous,103.26,Woody,148.12,Woody,2025-12-13T17:03:00.081873
+2022,3,regular,Killer Cam,144.28,Maggi's Mighty Ducks,113.9,Killer Cam,2025-12-13T17:03:00.082770
+2022,3,regular,cheeseheads,82.26,The Brotherhood,111.68,The Brotherhood,2025-12-13T17:03:00.083196
+2022,3,regular,Palm Beach Pelicans,108.9,Mebs Militia,73.84,Palm Beach Pelicans,2025-12-13T17:03:00.083624
+2022,3,regular,DirtyBirds,115.2,Wolfpack,110.3,DirtyBirds,2025-12-13T17:03:00.084049
+2022,3,regular,Scrubs,98.1,Rats,94.98,Scrubs,2025-12-13T17:03:00.084483
+2022,4,regular,Killer Cam,108.5,The Generous,146.24,The Generous,2025-12-13T17:03:00.536228
+2022,4,regular,Woody,155.66,cheeseheads,94.38,Woody,2025-12-13T17:03:00.537324
+2022,4,regular,Maggi's Mighty Ducks,97.78,Palm Beach Pelicans,108.86,Palm Beach Pelicans,2025-12-13T17:03:00.537847
+2022,4,regular,The Brotherhood,108.68,DirtyBirds,115.84,DirtyBirds,2025-12-13T17:03:00.538364
+2022,4,regular,Mebs Militia,85.4,Scrubs,53.56,Mebs Militia,2025-12-13T17:03:00.538792
+2022,4,regular,Wolfpack,151.02,Rats,160.66,Rats,2025-12-13T17:03:00.539219
+2022,5,regular,The Generous,162.56,cheeseheads,132.2,The Generous,2025-12-13T17:03:01.117577
+2022,5,regular,Palm Beach Pelicans,78.26,Killer Cam,146.22,Killer Cam,2025-12-13T17:03:01.118682
+2022,5,regular,DirtyBirds,125.44,Woody,110.56,DirtyBirds,2025-12-13T17:03:01.119202
+2022,5,regular,Scrubs,129.14,Maggi's Mighty Ducks,104.78,Scrubs,2025-12-13T17:03:01.119640
+2022,5,regular,Rats,118.28,The Brotherhood,71.96,Rats,2025-12-13T17:03:01.120066
+2022,5,regular,Wolfpack,155.86,Mebs Militia,77.06,Wolfpack,2025-12-13T17:03:01.120488
+2022,6,regular,Palm Beach Pelicans,88.7,The Generous,130.24,The Generous,2025-12-13T17:03:01.580664
+2022,6,regular,cheeseheads,85.58,DirtyBirds,81.04,cheeseheads,2025-12-13T17:03:01.581563
+2022,6,regular,Killer Cam,114.02,Scrubs,72.92,Killer Cam,2025-12-13T17:03:01.581993
+2022,6,regular,Woody,75.9,Rats,114.42,Rats,2025-12-13T17:03:01.582421
+2022,6,regular,Maggi's Mighty Ducks,149.7,Wolfpack,103.86,Maggi's Mighty Ducks,2025-12-13T17:03:01.582850
+2022,6,regular,The Brotherhood,144.98,Mebs Militia,122.62,The Brotherhood,2025-12-13T17:03:01.583276
+2022,7,regular,The Generous,74.32,DirtyBirds,115.26,DirtyBirds,2025-12-13T17:03:02.032129
+2022,7,regular,Scrubs,131.4,Palm Beach Pelicans,144.54,Palm Beach Pelicans,2025-12-13T17:03:02.033074
+2022,7,regular,Rats,141.72,cheeseheads,92.56,Rats,2025-12-13T17:03:02.033503
+2022,7,regular,Wolfpack,128.84,Killer Cam,108.62,Wolfpack,2025-12-13T17:03:02.033931
+2022,7,regular,Mebs Militia,109.94,Woody,102.6,Mebs Militia,2025-12-13T17:03:02.034355
+2022,7,regular,The Brotherhood,111.28,Maggi's Mighty Ducks,101.62,The Brotherhood,2025-12-13T17:03:02.034780
+2022,8,regular,Scrubs,212.44,The Generous,139.96,Scrubs,2025-12-13T17:03:02.534987
+2022,8,regular,DirtyBirds,133.12,Rats,120.14,DirtyBirds,2025-12-13T17:03:02.535760
+2022,8,regular,Palm Beach Pelicans,122.28,Wolfpack,79.68,Palm Beach Pelicans,2025-12-13T17:03:02.536123
+2022,8,regular,cheeseheads,78.74,Mebs Militia,139.58,Mebs Militia,2025-12-13T17:03:02.536481
+2022,8,regular,Killer Cam,95.72,The Brotherhood,129.7,The Brotherhood,2025-12-13T17:03:02.536838
+2022,8,regular,Woody,150.22,Maggi's Mighty Ducks,162.9,Maggi's Mighty Ducks,2025-12-13T17:03:02.537196
+2022,9,regular,The Generous,106.0,Rats,135.44,Rats,2025-12-13T17:03:02.994035
+2022,9,regular,Wolfpack,103.1,Scrubs,106.72,Scrubs,2025-12-13T17:03:02.995052
+2022,9,regular,Mebs Militia,163.98,DirtyBirds,145.14,Mebs Militia,2025-12-13T17:03:02.995475
+2022,9,regular,The Brotherhood,104.8,Palm Beach Pelicans,82.44,The Brotherhood,2025-12-13T17:03:02.995897
+2022,9,regular,Maggi's Mighty Ducks,118.52,cheeseheads,129.8,cheeseheads,2025-12-13T17:03:02.996342
+2022,9,regular,Woody,117.82,Killer Cam,76.6,Woody,2025-12-13T17:03:02.996767
+2022,10,regular,Wolfpack,110.5,The Generous,119.58,The Generous,2025-12-13T17:03:03.427431
+2022,10,regular,Rats,106.84,Mebs Militia,102.9,Rats,2025-12-13T17:03:03.427962
+2022,10,regular,Scrubs,144.38,The Brotherhood,78.0,Scrubs,2025-12-13T17:03:03.428214
+2022,10,regular,DirtyBirds,114.3,Maggi's Mighty Ducks,90.9,DirtyBirds,2025-12-13T17:03:03.428464
+2022,10,regular,Palm Beach Pelicans,143.3,Woody,161.02,Woody,2025-12-13T17:03:03.428715
+2022,10,regular,cheeseheads,142.58,Killer Cam,93.44,cheeseheads,2025-12-13T17:03:03.428968
+2022,11,regular,The Generous,74.6,Mebs Militia,88.28,Mebs Militia,2025-12-13T17:03:03.894532
+2022,11,regular,The Brotherhood,110.04,Wolfpack,149.88,Wolfpack,2025-12-13T17:03:03.895469
+2022,11,regular,Maggi's Mighty Ducks,107.3,Rats,108.26,Rats,2025-12-13T17:03:03.895904
+2022,11,regular,Woody,98.12,Scrubs,89.52,Woody,2025-12-13T17:03:03.896358
+2022,11,regular,Killer Cam,103.9,DirtyBirds,82.92,Killer Cam,2025-12-13T17:03:03.896797
+2022,11,regular,cheeseheads,113.04,Palm Beach Pelicans,161.1,Palm Beach Pelicans,2025-12-13T17:03:03.897226
+2022,12,regular,The Brotherhood,112.94,The Generous,105.98,The Brotherhood,2025-12-13T17:03:04.346350
+2022,12,regular,Mebs Militia,95.56,Maggi's Mighty Ducks,115.72,Maggi's Mighty Ducks,2025-12-13T17:03:04.347457
+2022,12,regular,Wolfpack,165.52,Woody,130.66,Wolfpack,2025-12-13T17:03:04.347978
+2022,12,regular,Rats,71.3,Killer Cam,139.36,Killer Cam,2025-12-13T17:03:04.348498
+2022,12,regular,Scrubs,112.54,cheeseheads,125.04,cheeseheads,2025-12-13T17:03:04.349021
+2022,12,regular,DirtyBirds,83.92,Palm Beach Pelicans,136.2,Palm Beach Pelicans,2025-12-13T17:03:04.349527
+2022,13,regular,The Generous,87.82,Maggi's Mighty Ducks,151.4,Maggi's Mighty Ducks,2025-12-13T17:03:04.782888
+2022,13,regular,Woody,115.94,The Brotherhood,96.1,Woody,2025-12-13T17:03:04.783989
+2022,13,regular,Killer Cam,101.0,Mebs Militia,97.8,Killer Cam,2025-12-13T17:03:04.784531
+2022,13,regular,cheeseheads,155.48,Wolfpack,125.72,cheeseheads,2025-12-13T17:03:04.785088
+2022,13,regular,Palm Beach Pelicans,135.34,Rats,85.72,Palm Beach Pelicans,2025-12-13T17:03:04.785606
+2022,13,regular,DirtyBirds,110.18,Scrubs,118.26,Scrubs,2025-12-13T17:03:04.786121
+2022,14,regular,Woody,109.3,The Generous,122.7,The Generous,2025-12-13T17:03:05.223379
+2022,14,regular,Maggi's Mighty Ducks,116.48,Killer Cam,109.28,Maggi's Mighty Ducks,2025-12-13T17:03:05.224615
+2022,14,regular,The Brotherhood,159.76,cheeseheads,54.86,The Brotherhood,2025-12-13T17:03:05.225054
+2022,14,regular,Mebs Militia,81.1,Palm Beach Pelicans,103.56,Palm Beach Pelicans,2025-12-13T17:03:05.225497
+2022,14,regular,Wolfpack,125.58,DirtyBirds,122.86,Wolfpack,2025-12-13T17:03:05.225925
+2022,14,regular,Rats,125.18,Scrubs,138.12,Scrubs,2025-12-13T17:03:05.226352
+2022,15,regular,The Generous,108.0,Killer Cam,128.42,Killer Cam,2025-12-13T17:03:05.659259
+2022,15,regular,cheeseheads,120.24,Woody,134.58,Woody,2025-12-13T17:03:05.659948
+2022,15,regular,Palm Beach Pelicans,118.5,Maggi's Mighty Ducks,179.2,Maggi's Mighty Ducks,2025-12-13T17:03:05.660273
+2022,15,regular,DirtyBirds,103.52,The Brotherhood,123.44,The Brotherhood,2025-12-13T17:03:05.660591
+2022,15,regular,Scrubs,125.08,Mebs Militia,105.16,Scrubs,2025-12-13T17:03:05.660909
+2022,15,regular,Rats,153.04,Wolfpack,109.86,Rats,2025-12-13T17:03:05.661230
+2022,16,playoff,Woody,177.6,Scrubs,78.16,Woody,2025-12-13T17:03:06.100918
+2022,16,playoff,Killer Cam,96.9,DirtyBirds,99.6,DirtyBirds,2025-12-13T17:03:06.101809
+2022,16,playoff,Rats,116.66,Maggi's Mighty Ducks,128.2,Maggi's Mighty Ducks,2025-12-13T17:03:06.102229
+2022,16,playoff,Palm Beach Pelicans,148.4,The Brotherhood,86.56,Palm Beach Pelicans,2025-12-13T17:03:06.102680
+2022,17,playoff,Woody,99.2,DirtyBirds,93.02,Woody,2025-12-13T17:03:06.520234
+2022,17,playoff,Scrubs,92.4,Killer Cam,133.28,Killer Cam,2025-12-13T17:03:06.521282
+2022,17,playoff,Maggi's Mighty Ducks,98.06,Palm Beach Pelicans,69.6,Maggi's Mighty Ducks,2025-12-13T17:03:06.521707
+2022,17,playoff,Rats,171.92,The Brotherhood,110.58,Rats,2025-12-13T17:03:06.522167
+2023,1,regular,Maggi's Mighty Ducks,90.26,Rats,77.04,Maggi's Mighty Ducks,2025-12-13T17:03:06.950473
+2023,1,regular,Killer Cam,115.94,Scrubs,123.24,Scrubs,2025-12-13T17:03:06.951629
+2023,1,regular,DirtyBirds,79.0,Woody,115.24,Woody,2025-12-13T17:03:06.952144
+2023,1,regular,cheeseheads,90.5,Palm Beach Pelicans,84.52,cheeseheads,2025-12-13T17:03:06.952659
+2023,1,regular,Impeached Wolfpack,120.34,The Brotherhood,99.18,Impeached Wolfpack,2025-12-13T17:03:06.953092
+2023,1,regular,The Generous,103.66,Mebs Militia,102.76,The Generous,2025-12-13T17:03:06.953515
+2023,2,regular,Killer Cam,122.36,Rats,130.26,Rats,2025-12-13T17:03:07.375464
+2023,2,regular,Impeached Wolfpack,108.9,Scrubs,129.04,Scrubs,2025-12-13T17:03:07.376397
+2023,2,regular,DirtyBirds,95.14,Maggi's Mighty Ducks,93.28,DirtyBirds,2025-12-13T17:03:07.376824
+2023,2,regular,Palm Beach Pelicans,118.64,The Brotherhood,131.68,The Brotherhood,2025-12-13T17:03:07.377265
+2023,2,regular,The Generous,118.5,Woody,116.24,The Generous,2025-12-13T17:03:07.377691
+2023,2,regular,Mebs Militia,102.0,cheeseheads,153.52,cheeseheads,2025-12-13T17:03:07.378119
+2023,3,regular,Rats,143.72,DirtyBirds,136.76,Rats,2025-12-13T17:03:07.810470
+2023,3,regular,cheeseheads,133.18,The Brotherhood,118.16,cheeseheads,2025-12-13T17:03:07.811509
+2023,3,regular,Palm Beach Pelicans,102.24,Woody,136.32,Woody,2025-12-13T17:03:07.811935
+2023,3,regular,Killer Cam,120.16,Maggi's Mighty Ducks,116.78,Killer Cam,2025-12-13T17:03:07.812354
+2023,3,regular,Impeached Wolfpack,116.78,Mebs Militia,83.68,Impeached Wolfpack,2025-12-13T17:03:07.812776
+2023,3,regular,Scrubs,96.56,The Generous,132.2,The Generous,2025-12-13T17:03:07.813217
+2023,4,regular,The Generous,122.98,Maggi's Mighty Ducks,110.94,The Generous,2025-12-13T17:03:08.235513
+2023,4,regular,The Brotherhood,122.2,Rats,113.0,The Brotherhood,2025-12-13T17:03:08.236623
+2023,4,regular,DirtyBirds,98.32,cheeseheads,132.86,cheeseheads,2025-12-13T17:03:08.237099
+2023,4,regular,Woody,102.58,Mebs Militia,126.96,Mebs Militia,2025-12-13T17:03:08.237525
+2023,4,regular,Killer Cam,133.28,Impeached Wolfpack,119.92,Killer Cam,2025-12-13T17:03:08.237952
+2023,4,regular,Scrubs,96.7,Palm Beach Pelicans,122.7,Palm Beach Pelicans,2025-12-13T17:03:08.238375
+2023,5,regular,Woody,143.2,Maggi's Mighty Ducks,99.24,Woody,2025-12-13T17:03:08.673055
+2023,5,regular,The Generous,103.94,Rats,91.16,The Generous,2025-12-13T17:03:08.674223
+2023,5,regular,Palm Beach Pelicans,150.72,Impeached Wolfpack,118.64,Palm Beach Pelicans,2025-12-13T17:03:08.674701
+2023,5,regular,Mebs Militia,130.86,DirtyBirds,130.58,Mebs Militia,2025-12-13T17:03:08.675128
+2023,5,regular,Killer Cam,119.62,The Brotherhood,159.88,The Brotherhood,2025-12-13T17:03:08.675551
+2023,5,regular,Scrubs,108.88,cheeseheads,102.82,Scrubs,2025-12-13T17:03:08.675974
+2023,6,regular,Woody,124.04,Rats,95.26,Woody,2025-12-13T17:03:09.187964
+2023,6,regular,DirtyBirds,100.3,Scrubs,106.14,Scrubs,2025-12-13T17:03:09.188866
+2023,6,regular,The Generous,103.58,Impeached Wolfpack,92.04,The Generous,2025-12-13T17:03:09.189355
+2023,6,regular,The Brotherhood,86.12,Maggi's Mighty Ducks,104.92,Maggi's Mighty Ducks,2025-12-13T17:03:09.189915
+2023,6,regular,Mebs Militia,155.34,Palm Beach Pelicans,127.58,Mebs Militia,2025-12-13T17:03:09.190417
+2023,6,regular,cheeseheads,108.4,Killer Cam,115.18,Killer Cam,2025-12-13T17:03:09.190868
+2023,7,regular,Impeached Wolfpack,174.16,Maggi's Mighty Ducks,144.38,Impeached Wolfpack,2025-12-13T17:03:09.620205
+2023,7,regular,The Generous,64.36,cheeseheads,111.06,cheeseheads,2025-12-13T17:03:09.621113
+2023,7,regular,Scrubs,75.2,The Brotherhood,121.24,The Brotherhood,2025-12-13T17:03:09.621542
+2023,7,regular,Palm Beach Pelicans,120.5,DirtyBirds,76.38,Palm Beach Pelicans,2025-12-13T17:03:09.621965
+2023,7,regular,Woody,116.46,Killer Cam,118.04,Killer Cam,2025-12-13T17:03:09.622480
+2023,7,regular,Rats,151.4,Mebs Militia,98.82,Rats,2025-12-13T17:03:09.622952
+2023,8,regular,Impeached Wolfpack,103.2,cheeseheads,127.16,cheeseheads,2025-12-13T17:03:09.923656
+2023,8,regular,The Generous,87.42,DirtyBirds,142.9,DirtyBirds,2025-12-13T17:03:09.924676
+2023,8,regular,Maggi's Mighty Ducks,125.28,Mebs Militia,134.46,Mebs Militia,2025-12-13T17:03:09.925114
+2023,8,regular,The Brotherhood,104.66,Woody,160.48,Woody,2025-12-13T17:03:09.925539
+2023,8,regular,Killer Cam,129.36,Palm Beach Pelicans,146.9,Palm Beach Pelicans,2025-12-13T17:03:09.925962
+2023,8,regular,Scrubs,101.38,Rats,101.56,Rats,2025-12-13T17:03:09.926389
+2023,9,regular,cheeseheads,123.98,Rats,78.02,cheeseheads,2025-12-13T17:03:10.354440
+2023,9,regular,DirtyBirds,79.88,The Brotherhood,109.86,The Brotherhood,2025-12-13T17:03:10.355551
+2023,9,regular,Scrubs,103.72,Maggi's Mighty Ducks,86.48,Scrubs,2025-12-13T17:03:10.356064
+2023,9,regular,Woody,133.04,Impeached Wolfpack,78.7,Woody,2025-12-13T17:03:10.356618
+2023,9,regular,The Generous,102.24,Palm Beach Pelicans,145.42,Palm Beach Pelicans,2025-12-13T17:03:10.357068
+2023,9,regular,Mebs Militia,88.3,Killer Cam,133.82,Killer Cam,2025-12-13T17:03:10.357524
+2023,10,regular,Mebs Militia,145.04,The Brotherhood,148.46,The Brotherhood,2025-12-13T17:03:10.804381
+2023,10,regular,The Generous,88.82,Killer Cam,87.72,The Generous,2025-12-13T17:03:10.805466
+2023,10,regular,Rats,102.28,Palm Beach Pelicans,131.84,Palm Beach Pelicans,2025-12-13T17:03:10.806036
+2023,10,regular,DirtyBirds,104.26,Impeached Wolfpack,88.32,DirtyBirds,2025-12-13T17:03:10.806655
+2023,10,regular,Maggi's Mighty Ducks,90.62,cheeseheads,159.96,cheeseheads,2025-12-13T17:03:10.807268
+2023,10,regular,Scrubs,97.08,Woody,156.3,Woody,2025-12-13T17:03:10.807726
+2023,11,regular,Impeached Wolfpack,112.38,Rats,90.0,Impeached Wolfpack,2025-12-13T17:03:11.237222
+2023,11,regular,Mebs Militia,110.02,Scrubs,108.54,Mebs Militia,2025-12-13T17:03:11.238127
+2023,11,regular,Woody,126.48,cheeseheads,111.7,Woody,2025-12-13T17:03:11.238606
+2023,11,regular,Maggi's Mighty Ducks,103.36,Palm Beach Pelicans,113.04,Palm Beach Pelicans,2025-12-13T17:03:11.239232
+2023,11,regular,The Brotherhood,101.56,The Generous,73.4,The Brotherhood,2025-12-13T17:03:11.239763
+2023,11,regular,DirtyBirds,101.64,Killer Cam,99.04,DirtyBirds,2025-12-13T17:03:11.240219
+2023,12,regular,Scrubs,100.8,The Generous,111.08,The Generous,2025-12-13T17:03:11.650420
+2023,12,regular,Woody,142.86,Rats,111.06,Woody,2025-12-13T17:03:11.651496
+2023,12,regular,Palm Beach Pelicans,126.94,cheeseheads,145.3,cheeseheads,2025-12-13T17:03:11.652021
+2023,12,regular,The Brotherhood,136.44,Killer Cam,93.92,The Brotherhood,2025-12-13T17:03:11.652534
+2023,12,regular,Impeached Wolfpack,114.62,Mebs Militia,121.26,Mebs Militia,2025-12-13T17:03:11.653049
+2023,12,regular,Maggi's Mighty Ducks,111.68,DirtyBirds,139.2,DirtyBirds,2025-12-13T17:03:11.653522
+2023,13,regular,Killer Cam,113.3,Impeached Wolfpack,76.8,Killer Cam,2025-12-13T17:03:12.071712
+2023,13,regular,Maggi's Mighty Ducks,109.04,Palm Beach Pelicans,178.78,Palm Beach Pelicans,2025-12-13T17:03:12.072911
+2023,13,regular,cheeseheads,134.12,The Brotherhood,151.56,The Brotherhood,2025-12-13T17:03:12.073524
+2023,13,regular,Scrubs,64.94,Mebs Militia,120.76,Mebs Militia,2025-12-13T17:03:12.074062
+2023,13,regular,DirtyBirds,144.88,Woody,149.02,Woody,2025-12-13T17:03:12.074590
+2023,13,regular,The Generous,89.58,Rats,106.18,Rats,2025-12-13T17:03:12.075122
+2023,14,regular,Woody,107.32,Mebs Militia,132.02,Mebs Militia,2025-12-13T17:03:12.496983
+2023,14,regular,The Generous,102.54,Impeached Wolfpack,71.44,The Generous,2025-12-13T17:03:12.497873
+2023,14,regular,The Brotherhood,113.74,Maggi's Mighty Ducks,139.74,Maggi's Mighty Ducks,2025-12-13T17:03:12.498300
+2023,14,regular,Scrubs,100.86,Rats,123.82,Rats,2025-12-13T17:03:12.498734
+2023,14,regular,cheeseheads,149.68,DirtyBirds,155.32,DirtyBirds,2025-12-13T17:03:12.499106
+2023,14,regular,Killer Cam,89.7,Palm Beach Pelicans,64.14,Killer Cam,2025-12-13T17:03:12.499476
+2023,15,regular,Mebs Militia,132.98,DirtyBirds,65.48,Mebs Militia,2025-12-13T17:03:12.939519
+2023,15,regular,The Brotherhood,77.36,Woody,119.9,Woody,2025-12-13T17:03:12.940490
+2023,15,regular,Impeached Wolfpack,139.1,Maggi's Mighty Ducks,111.74,Impeached Wolfpack,2025-12-13T17:03:12.941026
+2023,15,regular,Scrubs,86.22,Palm Beach Pelicans,111.64,Palm Beach Pelicans,2025-12-13T17:03:12.941756
+2023,15,regular,The Generous,137.66,Killer Cam,135.46,The Generous,2025-12-13T17:03:12.942212
+2023,15,regular,Rats,90.06,cheeseheads,140.32,cheeseheads,2025-12-13T17:03:12.942635
+2023,16,playoff,Mebs Militia,76.6,DirtyBirds,93.32,DirtyBirds,2025-12-13T17:03:13.366114
+2023,16,playoff,The Brotherhood,149.42,Killer Cam,127.52,The Brotherhood,2025-12-13T17:03:13.367005
+2023,16,playoff,Woody,125.88,Palm Beach Pelicans,92.78,Woody,2025-12-13T17:03:13.367425
+2023,16,playoff,cheeseheads,123.04,The Generous,126.74,The Generous,2025-12-13T17:03:13.367847
+2023,17,playoff,DirtyBirds,71.56,The Brotherhood,115.6,The Brotherhood,2025-12-13T17:03:13.794041
+2023,17,playoff,Mebs Militia,160.1,Killer Cam,98.78,Mebs Militia,2025-12-13T17:03:13.794953
+2023,17,playoff,Woody,119.54,The Generous,99.68,Woody,2025-12-13T17:03:13.795384
+2023,17,playoff,Palm Beach Pelicans,97.52,cheeseheads,105.98,cheeseheads,2025-12-13T17:03:13.795804
+2024,1,regular,Woody,118.02,Killer Cam,109.7,Woody,2025-12-13T17:03:14.228694
+2024,1,regular,Hood,90.26,Maggi's Mighty Ducks,135.38,Maggi's Mighty Ducks,2025-12-13T17:03:14.229604
+2024,1,regular,Palm Beach Pelicans,122.66,Freshie Vice,164.04,Freshie Vice,2025-12-13T17:03:14.230030
+2024,1,regular,The Ratpack,112.58,DirtyBirds,101.02,The Ratpack,2025-12-13T17:03:14.230452
+2024,1,regular,Mebs Militia owns the Hood,48.36,The Generous,120.42,The Generous,2025-12-13T17:03:14.230874
+2024,1,regular,Scrubs,109.88,cheeseheads,106.86,Scrubs,2025-12-13T17:03:14.231296
+2024,2,regular,Killer Cam,148.38,Mebs Militia owns the Hood,82.02,Killer Cam,2025-12-13T17:03:14.658924
+2024,2,regular,Scrubs,134.74,The Ratpack,90.06,Scrubs,2025-12-13T17:03:14.659839
+2024,2,regular,DirtyBirds,89.1,The Generous,88.58,DirtyBirds,2025-12-13T17:03:14.660272
+2024,2,regular,Maggi's Mighty Ducks,105.36,Palm Beach Pelicans,156.3,Palm Beach Pelicans,2025-12-13T17:03:14.660697
+2024,2,regular,Freshie Vice,86.64,Hood,130.92,Hood,2025-12-13T17:03:14.661135
+2024,2,regular,Woody,81.72,cheeseheads,154.74,cheeseheads,2025-12-13T17:03:14.661559
+2024,3,regular,Scrubs,68.48,Hood,143.86,Hood,2025-12-13T17:03:15.092710
+2024,3,regular,Maggi's Mighty Ducks,86.08,cheeseheads,94.16,cheeseheads,2025-12-13T17:03:15.093646
+2024,3,regular,DirtyBirds,137.38,Palm Beach Pelicans,111.3,DirtyBirds,2025-12-13T17:03:15.094079
+2024,3,regular,Mebs Militia owns the Hood,153.06,The Ratpack,154.42,The Ratpack,2025-12-13T17:03:15.094522
+2024,3,regular,The Generous,106.9,Killer Cam,93.02,The Generous,2025-12-13T17:03:15.094943
+2024,3,regular,Freshie Vice,83.88,Woody,132.04,Woody,2025-12-13T17:03:15.095363
+2024,4,regular,The Generous,109.54,Woody,140.82,Woody,2025-12-13T17:03:15.513276
+2024,4,regular,Killer Cam,134.76,Scrubs,124.96,Killer Cam,2025-12-13T17:03:15.514158
+2024,4,regular,Hood,100.98,cheeseheads,111.72,cheeseheads,2025-12-13T17:03:15.514584
+2024,4,regular,Maggi's Mighty Ducks,92.24,DirtyBirds,89.82,Maggi's Mighty Ducks,2025-12-13T17:03:15.515009
+2024,4,regular,Mebs Militia owns the Hood,118.04,Freshie Vice,130.7,Freshie Vice,2025-12-13T17:03:15.515438
+2024,4,regular,The Ratpack,121.5,Palm Beach Pelicans,83.0,The Ratpack,2025-12-13T17:03:15.515860
+2024,5,regular,DirtyBirds,106.16,Hood,124.18,Hood,2025-12-13T17:03:15.947039
+2024,5,regular,Maggi's Mighty Ducks,122.96,Mebs Militia owns the Hood,119.68,Maggi's Mighty Ducks,2025-12-13T17:03:15.948130
+2024,5,regular,Freshie Vice,122.44,Scrubs,138.3,Scrubs,2025-12-13T17:03:15.948649
+2024,5,regular,The Ratpack,98.54,Woody,109.0,Woody,2025-12-13T17:03:15.949166
+2024,5,regular,Killer Cam,103.36,Palm Beach Pelicans,110.04,Palm Beach Pelicans,2025-12-13T17:03:15.949678
+2024,5,regular,cheeseheads,128.22,The Generous,112.42,cheeseheads,2025-12-13T17:03:15.950188
+2024,6,regular,The Ratpack,127.2,Maggi's Mighty Ducks,88.78,The Ratpack,2025-12-13T17:03:16.390384
+2024,6,regular,The Generous,123.92,Scrubs,69.36,The Generous,2025-12-13T17:03:16.391322
+2024,6,regular,Mebs Militia owns the Hood,77.62,Palm Beach Pelicans,139.18,Palm Beach Pelicans,2025-12-13T17:03:16.391749
+2024,6,regular,Woody,96.46,Hood,96.42,Woody,2025-12-13T17:03:16.392184
+2024,6,regular,DirtyBirds,127.7,Freshie Vice,104.34,DirtyBirds,2025-12-13T17:03:16.392619
+2024,6,regular,Killer Cam,145.02,cheeseheads,136.96,Killer Cam,2025-12-13T17:03:16.393038
+2024,7,regular,Freshie Vice,94.16,cheeseheads,95.44,cheeseheads,2025-12-13T17:03:16.826513
+2024,7,regular,Maggi's Mighty Ducks,132.36,Woody,115.56,Maggi's Mighty Ducks,2025-12-13T17:03:16.827411
+2024,7,regular,The Generous,100.34,The Ratpack,133.32,The Ratpack,2025-12-13T17:03:16.827836
+2024,7,regular,Palm Beach Pelicans,62.34,Scrubs,107.84,Scrubs,2025-12-13T17:03:16.828259
+2024,7,regular,Hood,92.44,Mebs Militia owns the Hood,114.3,Mebs Militia owns the Hood,2025-12-13T17:03:16.828680
+2024,7,regular,Killer Cam,118.5,DirtyBirds,91.58,Killer Cam,2025-12-13T17:03:16.829102
+2024,8,regular,Hood,135.46,The Generous,151.76,The Generous,2025-12-13T17:03:17.257184
+2024,8,regular,DirtyBirds,153.6,cheeseheads,148.94,DirtyBirds,2025-12-13T17:03:17.258293
+2024,8,regular,The Ratpack,108.34,Killer Cam,95.74,The Ratpack,2025-12-13T17:03:17.258813
+2024,8,regular,Freshie Vice,91.74,Maggi's Mighty Ducks,134.18,Maggi's Mighty Ducks,2025-12-13T17:03:17.259332
+2024,8,regular,Palm Beach Pelicans,122.9,Woody,125.04,Woody,2025-12-13T17:03:17.259787
+2024,8,regular,Scrubs,123.48,Mebs Militia owns the Hood,116.62,Scrubs,2025-12-13T17:03:17.260225
+2024,9,regular,DirtyBirds,124.16,Scrubs,87.36,DirtyBirds,2025-12-13T17:03:17.675508
+2024,9,regular,The Generous,119.9,Freshie Vice,122.7,Freshie Vice,2025-12-13T17:03:17.676639
+2024,9,regular,cheeseheads,104.86,The Ratpack,120.88,The Ratpack,2025-12-13T17:03:17.677180
+2024,9,regular,Palm Beach Pelicans,147.52,Hood,174.44,Hood,2025-12-13T17:03:17.677678
+2024,9,regular,Mebs Militia owns the Hood,79.72,Woody,116.28,Woody,2025-12-13T17:03:17.678124
+2024,9,regular,Killer Cam,81.68,Maggi's Mighty Ducks,167.64,Maggi's Mighty Ducks,2025-12-13T17:03:17.678552
+2024,10,regular,Woody,104.98,Scrubs,123.5,Scrubs,2025-12-13T17:03:18.116741
+2024,10,regular,Mebs Militia owns the Hood,78.24,DirtyBirds,140.52,DirtyBirds,2025-12-13T17:03:18.117840
+2024,10,regular,cheeseheads,105.78,Palm Beach Pelicans,81.48,cheeseheads,2025-12-13T17:03:18.118401
+2024,10,regular,The Ratpack,79.0,Freshie Vice,79.74,Freshie Vice,2025-12-13T17:03:18.118937
+2024,10,regular,Hood,180.22,Killer Cam,83.64,Hood,2025-12-13T17:03:18.119479
+2024,10,regular,The Generous,118.3,Maggi's Mighty Ducks,78.94,The Generous,2025-12-13T17:03:18.120009
+2024,11,regular,Maggi's Mighty Ducks,176.74,Scrubs,110.48,Maggi's Mighty Ducks,2025-12-13T17:03:18.547630
+2024,11,regular,Palm Beach Pelicans,103.28,The Generous,108.28,The Generous,2025-12-13T17:03:18.548113
+2024,11,regular,Freshie Vice,100.58,Killer Cam,98.34,Freshie Vice,2025-12-13T17:03:18.548343
+2024,11,regular,DirtyBirds,128.06,Woody,101.64,DirtyBirds,2025-12-13T17:03:18.548570
+2024,11,regular,cheeseheads,130.74,Mebs Militia owns the Hood,116.9,cheeseheads,2025-12-13T17:03:18.548798
+2024,11,regular,Hood,103.44,The Ratpack,118.58,The Ratpack,2025-12-13T17:03:18.549028
+2024,12,regular,Freshie Vice,80.62,DirtyBirds,98.76,DirtyBirds,2025-12-13T17:03:18.968704
+2024,12,regular,Maggi's Mighty Ducks,189.76,The Ratpack,76.66,Maggi's Mighty Ducks,2025-12-13T17:03:18.969606
+2024,12,regular,Killer Cam,96.12,The Generous,119.08,The Generous,2025-12-13T17:03:18.970032
+2024,12,regular,Palm Beach Pelicans,106.48,Scrubs,100.8,Palm Beach Pelicans,2025-12-13T17:03:18.970460
+2024,12,regular,Woody,131.26,cheeseheads,160.1,cheeseheads,2025-12-13T17:03:18.970886
+2024,12,regular,Mebs Militia owns the Hood,115.96,Hood,94.42,Mebs Militia owns the Hood,2025-12-13T17:03:18.971313
+2024,13,regular,cheeseheads,127.94,Freshie Vice,83.06,cheeseheads,2025-12-13T17:03:19.388459
+2024,13,regular,The Ratpack,137.62,Scrubs,84.8,The Ratpack,2025-12-13T17:03:19.390068
+2024,13,regular,The Generous,86.28,Mebs Militia owns the Hood,116.2,Mebs Militia owns the Hood,2025-12-13T17:03:19.390673
+2024,13,regular,Killer Cam,131.06,Maggi's Mighty Ducks,161.84,Maggi's Mighty Ducks,2025-12-13T17:03:19.391224
+2024,13,regular,DirtyBirds,154.96,Hood,100.18,DirtyBirds,2025-12-13T17:03:19.391748
+2024,13,regular,Palm Beach Pelicans,139.66,Woody,110.82,Palm Beach Pelicans,2025-12-13T17:03:19.392273
+2024,14,regular,Scrubs,82.96,Maggi's Mighty Ducks,129.3,Maggi's Mighty Ducks,2025-12-13T17:03:19.870832
+2024,14,regular,Freshie Vice,128.38,Mebs Militia owns the Hood,168.8,Mebs Militia owns the Hood,2025-12-13T17:03:19.871729
+2024,14,regular,cheeseheads,155.18,The Generous,142.62,cheeseheads,2025-12-13T17:03:19.872230
+2024,14,regular,Hood,151.24,Woody,123.12,Hood,2025-12-13T17:03:19.872743
+2024,14,regular,The Ratpack,154.38,DirtyBirds,103.5,The Ratpack,2025-12-13T17:03:19.873206
+2024,14,regular,Killer Cam,75.64,Palm Beach Pelicans,139.86,Palm Beach Pelicans,2025-12-13T17:03:19.873633
+2024,15,regular,Hood,127.24,Scrubs,70.36,Hood,2025-12-13T17:03:20.304586
+2024,15,regular,cheeseheads,137.74,DirtyBirds,151.08,DirtyBirds,2025-12-13T17:03:20.305630
+2024,15,regular,Killer Cam,112.06,The Ratpack,116.68,The Ratpack,2025-12-13T17:03:20.306143
+2024,15,regular,Maggi's Mighty Ducks,151.46,Woody,120.4,Maggi's Mighty Ducks,2025-12-13T17:03:20.306664
+2024,15,regular,The Generous,143.6,Freshie Vice,92.9,The Generous,2025-12-13T17:03:20.307142
+2024,15,regular,Palm Beach Pelicans,92.74,Mebs Militia owns the Hood,142.32,Mebs Militia owns the Hood,2025-12-13T17:03:20.307586
+2024,16,playoff,The Generous,100.68,Palm Beach Pelicans,142.88,Palm Beach Pelicans,2025-12-13T17:03:20.741574
+2024,16,playoff,Hood,86.08,Woody,109.44,Woody,2025-12-13T17:03:20.742478
+2024,16,playoff,Maggi's Mighty Ducks,174.3,DirtyBirds,90.84,Maggi's Mighty Ducks,2025-12-13T17:03:20.742917
+2024,16,playoff,The Ratpack,116.36,cheeseheads,159.12,cheeseheads,2025-12-13T17:03:20.743359
+2024,17,playoff,Palm Beach Pelicans,124.38,Woody,116.46,Palm Beach Pelicans,2025-12-13T17:03:21.186653
+2024,17,playoff,The Generous,111.12,Hood,133.02,Hood,2025-12-13T17:03:21.187628
+2024,17,playoff,Maggi's Mighty Ducks,187.6,cheeseheads,137.28,Maggi's Mighty Ducks,2025-12-13T17:03:21.188052
+2024,17,playoff,DirtyBirds,107.48,The Ratpack,125.38,The Ratpack,2025-12-13T17:03:21.188476
+2025,1,regular,Woody,117.42,Freshie Vice,104.72,Woody,2025-12-13T17:03:22.812182
+2025,1,regular,Hood,137.56,DirtyBirds,111.88,Hood,2025-12-13T17:03:22.813089
+2025,1,regular,Mebs Militia,83.94,The Generous,104.86,The Generous,2025-12-13T17:03:22.813515
+2025,1,regular,Killer Cam,110.12,Scrubs,116.72,Scrubs,2025-12-13T17:03:22.813936
+2025,1,regular,Maggi's Mighty Ducks,80.38,cheeseheads,97.22,cheeseheads,2025-12-13T17:03:22.814358
+2025,1,regular,The Ratpack,119.38,Pels,114.02,The Ratpack,2025-12-13T17:03:22.814782
+2025,2,regular,Maggi's Mighty Ducks,162.88,Hood,103.52,Maggi's Mighty Ducks,2025-12-13T17:03:23.099917
+2025,2,regular,Killer Cam,137.94,Mebs Militia,117.34,Killer Cam,2025-12-13T17:03:23.100816
+2025,2,regular,The Generous,109.0,Freshie Vice,89.7,The Generous,2025-12-13T17:03:23.101239
+2025,2,regular,cheeseheads,133.18,The Ratpack,101.24,cheeseheads,2025-12-13T17:03:23.101663
+2025,2,regular,Pels,95.6,Scrubs,115.84,Scrubs,2025-12-13T17:03:23.102084
+2025,2,regular,DirtyBirds,115.1,Woody,83.12,DirtyBirds,2025-12-13T17:03:23.102511
+2025,3,regular,Killer Cam,151.06,The Generous,108.62,Killer Cam,2025-12-13T17:03:23.550171
+2025,3,regular,The Ratpack,114.84,Freshie Vice,135.62,Freshie Vice,2025-12-13T17:03:23.551081
+2025,3,regular,Mebs Militia,115.52,Hood,127.62,Hood,2025-12-13T17:03:23.551510
+2025,3,regular,Maggi's Mighty Ducks,121.92,Scrubs,114.64,Maggi's Mighty Ducks,2025-12-13T17:03:23.551937
+2025,3,regular,DirtyBirds,74.22,Pels,114.16,Pels,2025-12-13T17:03:23.552323
+2025,3,regular,Woody,96.92,cheeseheads,69.36,Woody,2025-12-13T17:03:23.552692
+2025,4,regular,Mebs Militia,110.82,Freshie Vice,91.78,Mebs Militia,2025-12-13T17:03:23.959906
+2025,4,regular,Scrubs,148.26,Hood,125.46,Scrubs,2025-12-13T17:03:23.961033
+2025,4,regular,Pels,136.38,Woody,117.78,Pels,2025-12-13T17:03:23.961558
+2025,4,regular,The Generous,90.18,The Ratpack,121.9,The Ratpack,2025-12-13T17:03:23.962081
+2025,4,regular,Maggi's Mighty Ducks,102.62,DirtyBirds,131.26,DirtyBirds,2025-12-13T17:03:23.962532
+2025,4,regular,cheeseheads,121.3,Killer Cam,136.64,Killer Cam,2025-12-13T17:03:23.962971
+2025,5,regular,Scrubs,150.42,Mebs Militia,136.12,Scrubs,2025-12-13T17:03:24.404918
+2025,5,regular,Freshie Vice,123.7,DirtyBirds,156.66,DirtyBirds,2025-12-13T17:03:24.406155
+2025,5,regular,Pels,100.44,Hood,131.52,Hood,2025-12-13T17:03:24.406811
+2025,5,regular,The Generous,107.78,cheeseheads,120.12,cheeseheads,2025-12-13T17:03:24.407365
+2025,5,regular,Killer Cam,154.82,Woody,98.08,Killer Cam,2025-12-13T17:03:24.407919
+2025,5,regular,Maggi's Mighty Ducks,141.44,The Ratpack,109.0,Maggi's Mighty Ducks,2025-12-13T17:03:24.408463
+2025,6,regular,DirtyBirds,142.84,The Ratpack,101.72,DirtyBirds,2025-12-13T17:03:24.820748
+2025,6,regular,Maggi's Mighty Ducks,84.06,Freshie Vice,113.68,Freshie Vice,2025-12-13T17:03:24.821653
+2025,6,regular,Mebs Militia,136.12,Woody,90.66,Mebs Militia,2025-12-13T17:03:24.822160
+2025,6,regular,cheeseheads,155.78,Scrubs,107.14,cheeseheads,2025-12-13T17:03:24.822712
+2025,6,regular,Killer Cam,83.4,Pels,110.36,Pels,2025-12-13T17:03:24.823280
+2025,6,regular,The Generous,117.16,Hood,97.0,The Generous,2025-12-13T17:03:24.823771
+2025,7,regular,Freshie Vice,121.58,Pels,72.64,Freshie Vice,2025-12-13T17:03:25.238205
+2025,7,regular,Woody,92.26,Maggi's Mighty Ducks,145.78,Maggi's Mighty Ducks,2025-12-13T17:03:25.239628
+2025,7,regular,DirtyBirds,123.62,Mebs Militia,110.64,DirtyBirds,2025-12-13T17:03:25.240310
+2025,7,regular,Scrubs,131.56,The Generous,141.06,The Generous,2025-12-13T17:03:25.240782
+2025,7,regular,Killer Cam,87.54,The Ratpack,118.64,The Ratpack,2025-12-13T17:03:25.241220
+2025,7,regular,cheeseheads,115.64,Hood,114.42,cheeseheads,2025-12-13T17:03:25.241649
+2025,8,regular,Pels,83.28,Maggi's Mighty Ducks,122.98,Maggi's Mighty Ducks,2025-12-13T17:03:25.676720
+2025,8,regular,Mebs Militia,132.18,cheeseheads,95.06,Mebs Militia,2025-12-13T17:03:25.677824
+2025,8,regular,The Generous,89.7,Woody,173.88,Woody,2025-12-13T17:03:25.678346
+2025,8,regular,DirtyBirds,69.08,Killer Cam,127.42,Killer Cam,2025-12-13T17:03:25.678810
+2025,8,regular,Hood,119.12,The Ratpack,101.96,Hood,2025-12-13T17:03:25.679236
+2025,8,regular,Scrubs,93.82,Freshie Vice,135.26,Freshie Vice,2025-12-13T17:03:25.679686
+2025,9,regular,Woody,135.0,Scrubs,110.98,Woody,2025-12-13T17:03:26.090548
+2025,9,regular,The Generous,122.16,DirtyBirds,128.82,DirtyBirds,2025-12-13T17:03:26.091509
+2025,9,regular,Pels,139.92,cheeseheads,116.2,Pels,2025-12-13T17:03:26.091941
+2025,9,regular,Mebs Militia,124.48,The Ratpack,137.34,The Ratpack,2025-12-13T17:03:26.092377
+2025,9,regular,Maggi's Mighty Ducks,99.96,Killer Cam,90.14,Maggi's Mighty Ducks,2025-12-13T17:03:26.092806
+2025,9,regular,Freshie Vice,97.44,Hood,120.82,Hood,2025-12-13T17:03:26.093251
+2025,10,regular,DirtyBirds,104.22,cheeseheads,103.02,DirtyBirds,2025-12-13T17:03:26.516681
+2025,10,regular,Hood,121.14,Woody,108.8,Hood,2025-12-13T17:03:26.517587
+2025,10,regular,Freshie Vice,154.0,Killer Cam,140.78,Freshie Vice,2025-12-13T17:03:26.518036
+2025,10,regular,Maggi's Mighty Ducks,104.1,The Generous,95.84,Maggi's Mighty Ducks,2025-12-13T17:03:26.518467
+2025,10,regular,Pels,79.32,Mebs Militia,167.8,Mebs Militia,2025-12-13T17:03:26.518918
+2025,10,regular,The Ratpack,113.02,Scrubs,101.5,The Ratpack,2025-12-13T17:03:26.519369
+2025,11,regular,The Generous,133.32,Pels,72.64,The Generous,2025-12-13T17:03:26.943352
+2025,11,regular,Mebs Militia,124.6,Maggi's Mighty Ducks,97.52,Mebs Militia,2025-12-13T17:03:26.944328
+2025,11,regular,Freshie Vice,90.06,cheeseheads,133.34,cheeseheads,2025-12-13T17:03:26.944760
+2025,11,regular,Killer Cam,75.9,Hood,156.68,Hood,2025-12-13T17:03:26.945188
+2025,11,regular,Woody,112.74,The Ratpack,119.4,The Ratpack,2025-12-13T17:03:26.945624
+2025,11,regular,DirtyBirds,74.82,Scrubs,88.44,Scrubs,2025-12-13T17:03:26.946059
+2025,12,regular,Woody,125.56,Killer Cam,57.92,Woody,2025-12-13T17:03:27.357035
+2025,12,regular,Pels,71.96,Mebs Militia,142.56,Mebs Militia,2025-12-13T17:03:27.358069
+2025,12,regular,Freshie Vice,156.38,The Generous,134.42,Freshie Vice,2025-12-13T17:03:27.358510
+2025,12,regular,Maggi's Mighty Ducks,141.46,The Ratpack,132.76,Maggi's Mighty Ducks,2025-12-13T17:03:27.358943
+2025,12,regular,DirtyBirds,79.64,Hood,72.32,DirtyBirds,2025-12-13T17:03:27.359377
+2025,12,regular,Scrubs,97.46,cheeseheads,111.08,cheeseheads,2025-12-13T17:03:27.359810
+2025,13,regular,cheeseheads,103.24,DirtyBirds,113.16,DirtyBirds,2025-12-13T17:03:27.761970
+2025,13,regular,The Ratpack,143.0,Killer Cam,66.92,The Ratpack,2025-12-13T17:03:27.763067
+2025,13,regular,Maggi's Mighty Ducks,140.0,Scrubs,145.18,Scrubs,2025-12-13T17:03:27.763499
+2025,13,regular,Pels,85.84,Hood,114.62,Hood,2025-12-13T17:03:27.763924
+2025,13,regular,Mebs Militia,134.24,Freshie Vice,118.34,Mebs Militia,2025-12-13T17:03:27.764348
+2025,13,regular,The Generous,72.84,Woody,96.24,Woody,2025-12-13T17:03:27.764772
+2025,14,regular,Killer Cam,108.0,Maggi's Mighty Ducks,117.24,Maggi's Mighty Ducks,2025-12-13T17:03:28.193507
+2025,14,regular,Scrubs,103.66,Hood,115.04,Hood,2025-12-13T17:03:28.194440
+2025,14,regular,cheeseheads,58.6,The Ratpack,116.3,The Ratpack,2025-12-13T17:03:28.194872
+2025,14,regular,Mebs Militia,97.66,The Generous,138.36,The Generous,2025-12-13T17:03:28.195295
+2025,14,regular,DirtyBirds,81.78,Pels,117.96,Pels,2025-12-13T17:03:28.195713
+2025,14,regular,Woody,117.56,Freshie Vice,136.64,Freshie Vice,2025-12-13T17:03:28.196114
+2025,15,regular,Maggi's Mighty Ducks,0.0,Mebs Militia,23.2,Mebs Militia,2025-12-13T17:03:28.621892
+2025,15,regular,Woody,0.0,cheeseheads,6.5,cheeseheads,2025-12-13T17:03:28.623206
+2025,15,regular,Freshie Vice,0.0,Killer Cam,0.0,Tie,2025-12-13T17:03:28.623824
+2025,15,regular,Hood,14.0,The Ratpack,0.0,Hood,2025-12-13T17:03:28.624355
+2025,15,regular,The Generous,29.5,Pels,0.0,The Generous,2025-12-13T17:03:28.624786
+2025,15,regular,Scrubs,18.5,DirtyBirds,68.78,DirtyBirds,2025-12-13T17:03:28.625214
+2025,16,playoff,Mebs Militia,0.0,Scrubs,0.0,Tie,2025-12-13T17:03:29.156210
+2025,16,playoff,Freshie Vice,0.0,cheeseheads,0.0,Tie,2025-12-13T17:03:29.157178
+2025,16,playoff,Maggi's Mighty Ducks,0.0,The Ratpack,0.0,Tie,2025-12-13T17:03:29.157612
+2025,16,playoff,Hood,0.0,DirtyBirds,0.0,Tie,2025-12-13T17:03:29.158043

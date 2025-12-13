@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: nfl-fantasy-backend
+    env: python
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && python3 app.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: PORT
+        value: 5000
+

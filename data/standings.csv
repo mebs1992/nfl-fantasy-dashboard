@@ -1,0 +1,109 @@
+year,place,team_name,wins,losses,ties,win_pct,points_for,points_against,team_logo,standings_type,scraped_at
+2017,1,Wolfpack,11,3,0,0.786,1661.64,1483.88,https://fantasy.nfl.com/image/65b68b08272902af43219004f33e84c1.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.315584
+2017,2,Woody,9,5,0,0.643,1571.08,1417.56,https://fantasy.nfl.com/image/8656f89c1c02aa21a094b1f1eee4297b.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.315743
+2017,3,Mebs Militia,9,5,0,0.643,1519.04,1483.34,https://fantasy.nfl.com/image/3baa273cd5e673bd6b37d3ee69f0bef5.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.315881
+2017,4,Maggi's Mighty Ducks,8,6,0,0.571,1667.82,1566.82,https://fantasy.nfl.com/image/6e3bfac6843ea7b02ba1fff4012c6dd0.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.316009
+2017,5,Pels,8,6,0,0.571,1523.6,1477.58,https://fantasy.nfl.com/image/d1eab0977fdc7c0a43ffbe8d6d6af36d.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.316132
+2017,6,cheeseheads,7,7,0,0.5,1674.76,1587.46,https://fantasy.nfl.com/image/08c5227f8396ae564193f8dcbc4c0731.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.316253
+2017,7,The Brotherhood,7,7,0,0.5,1609.84,1592.16,https://fantasy.nfl.com/image/a23a5e5a5093295aea855a78e2229b1a.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.316374
+2017,8,Killer Cam,7,7,0,0.5,1544.82,1600.42,https://fantasy.nfl.com/image/1df50805c744bb5b016ad6c8e552454d.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.316494
+2017,9,The Generous,5,9,0,0.357,1561.76,1614.34,https://static.www.nfl.com/league/apps/fantasy/logos/avatar/240x240/NE_1.png,regular,2025-12-13T18:10:25.316614
+2017,10,The Ratpack,5,9,0,0.357,1448.22,1502.96,https://fantasy.nfl.com/image/cc4338d8ac0e59a673659c4fe064d51c.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.316741
+2017,11,DirtyBirds,4,10,0,0.286,1469.64,1683.8,https://fantasy.nfl.com/image/106169ebd5009ffa830e2043557786a5.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.316848
+2017,12,Scrubs,4,10,0,0.286,1375.36,1617.26,https://fantasy.nfl.com/image/577412e5729f463c4e44f6ca745ca2fa.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.316955
+2018,1,cheeseheads,11,3,0,0.786,1922.34,1726.14,https://fantasy.nfl.com/image/08c5227f8396ae564193f8dcbc4c0731.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.853898
+2018,2,The Brotherhood,11,3,0,0.786,1915.2,1684.46,https://fantasy.nfl.com/image/a23a5e5a5093295aea855a78e2229b1a.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.854122
+2018,3,Pels,9,5,0,0.643,1890.52,1661.62,https://fantasy.nfl.com/image/d1eab0977fdc7c0a43ffbe8d6d6af36d.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.854296
+2018,4,Mebs Militia,8,6,0,0.571,1909.06,1711.3,https://fantasy.nfl.com/image/3baa273cd5e673bd6b37d3ee69f0bef5.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.854467
+2018,5,The Generous,8,6,0,0.571,1750.2,1669.84,https://static.www.nfl.com/league/apps/fantasy/logos/avatar/240x240/NE_1.png,regular,2025-12-13T18:10:25.854641
+2018,6,The Ratpack,8,6,0,0.571,1640.34,1594.66,https://fantasy.nfl.com/image/cc4338d8ac0e59a673659c4fe064d51c.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.854793
+2018,7,Killer Cam,7,7,0,0.5,1709.46,1731.48,https://fantasy.nfl.com/image/1df50805c744bb5b016ad6c8e552454d.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.854944
+2018,8,Wolfpack,7,7,0,0.5,1582.8,1739.84,https://fantasy.nfl.com/image/65b68b08272902af43219004f33e84c1.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.855091
+2018,9,Woody,5,9,0,0.357,1692.04,1718.14,https://fantasy.nfl.com/image/8656f89c1c02aa21a094b1f1eee4297b.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.855243
+2018,10,Maggi's Mighty Ducks,5,9,0,0.357,1681.34,1837.0,https://fantasy.nfl.com/image/6e3bfac6843ea7b02ba1fff4012c6dd0.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.855403
+2018,11,Scrubs,3,11,0,0.214,1654.22,1925.2,https://fantasy.nfl.com/image/6fdae78b843cbeab366947d25783a2c7.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.855541
+2018,12,DirtyBirds,2,12,0,0.143,1344.78,1692.62,https://fantasy.nfl.com/image/106169ebd5009ffa830e2043557786a5.jpg?&x=40&y=40,regular,2025-12-13T18:10:25.855673
+2019,1,Pels,10,4,0,0.714,1884.18,1639.34,https://fantasy.nfl.com/image/d1eab0977fdc7c0a43ffbe8d6d6af36d.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.387138
+2019,2,Scrubs,10,4,0,0.714,1753.02,1729.28,https://fantasy.nfl.com/image/1d3519947353eac03b94fe545235dc4e.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.387300
+2019,3,Wolfpack,9,5,0,0.643,1735.62,1664.14,https://fantasy.nfl.com/image/65b68b08272902af43219004f33e84c1.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.387459
+2019,4,Maggi's Mighty Ducks,9,5,0,0.643,1644.6,1597.16,https://fantasy.nfl.com/image/6e3bfac6843ea7b02ba1fff4012c6dd0.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.387611
+2019,5,cheeseheads,8,6,0,0.571,1779.58,1566.98,https://fantasy.nfl.com/image/08c5227f8396ae564193f8dcbc4c0731.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.387760
+2019,6,Mebs Militia,7,7,0,0.5,1727.76,1701.9,https://fantasy.nfl.com/image/3baa273cd5e673bd6b37d3ee69f0bef5.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.387893
+2019,7,The Ratpack,7,7,0,0.5,1560.68,1602.14,https://fantasy.nfl.com/image/cc4338d8ac0e59a673659c4fe064d51c.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.388029
+2019,8,DirtyBirds,6,8,0,0.429,1689.12,1802.88,https://fantasy.nfl.com/image/54e145c9a634a201a63c9cd3d146fbe9.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.388161
+2019,9,Killer Cam,6,8,0,0.429,1539.58,1649.48,https://fantasy.nfl.com/image/1df50805c744bb5b016ad6c8e552454d.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.388293
+2019,10,The Brotherhood,4,10,0,0.286,1594.6,1645.52,https://fantasy.nfl.com/image/483ab3f684e3597968525b888fef36a8.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.388445
+2019,11,The Generous,4,10,0,0.286,1567.94,1775.56,https://fantasy.nfl.com/image/68ebc82dbbc3ddb92523f46f776ea70f.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.388596
+2019,12,Woody,4,10,0,0.286,1468.22,1570.52,https://fantasy.nfl.com/image/8656f89c1c02aa21a094b1f1eee4297b.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.388730
+2020,1,Wolfpack,10,4,0,0.714,1641.78,1481.26,https://fantasy.nfl.com/image/65b68b08272902af43219004f33e84c1.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.940893
+2020,2,The Brotherhood,9,5,0,0.643,1644.54,1546.66,https://fantasy.nfl.com/image/483ab3f684e3597968525b888fef36a8.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.941060
+2020,3,Woody,8,6,0,0.571,1601.28,1593.1,https://fantasy.nfl.com/image/8656f89c1c02aa21a094b1f1eee4297b.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.941219
+2020,4,Maggi's Mighty Ducks,8,6,0,0.571,1581.9,1473.22,https://fantasy.nfl.com/image/6e3bfac6843ea7b02ba1fff4012c6dd0.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.941374
+2020,5,Scrubs,7,7,0,0.5,1647.6,1694.78,https://fantasy.nfl.com/image/1d3519947353eac03b94fe545235dc4e.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.941527
+2020,6,cheeseheads,7,7,0,0.5,1638.62,1474.92,https://fantasy.nfl.com/image/08c5227f8396ae564193f8dcbc4c0731.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.941679
+2020,7,Mebs Militia,7,7,0,0.5,1547.72,1618.9,https://fantasy.nfl.com/image/3baa273cd5e673bd6b37d3ee69f0bef5.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.941828
+2020,8,The Generous,7,7,0,0.5,1545.34,1576.12,https://fantasy.nfl.com/image/e9f667ece49785343dabe9c1acfac8d8.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.941978
+2020,9,DirtyBirds,7,7,0,0.5,1482.18,1578.2,https://fantasy.nfl.com/image/54e145c9a634a201a63c9cd3d146fbe9.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.942125
+2020,10,The Ratpack,6,8,0,0.429,1600.24,1621.78,https://fantasy.nfl.com/image/cc4338d8ac0e59a673659c4fe064d51c.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.942279
+2020,11,Pels,5,9,0,0.357,1438.36,1572.44,https://fantasy.nfl.com/image/d1eab0977fdc7c0a43ffbe8d6d6af36d.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.942416
+2020,12,Killer Cam,3,11,0,0.214,1510.18,1648.36,https://fantasy.nfl.com/image/1df50805c744bb5b016ad6c8e552454d.jpg?&x=40&y=40,regular,2025-12-13T18:10:26.942571
+2021,1,Woody,12,3,0,0.8,2218.68,1943.88,https://fantasy.nfl.com/image/8656f89c1c02aa21a094b1f1eee4297b.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.494143
+2021,2,Pels,11,4,0,0.733,2167.7,1811.9,https://fantasy.nfl.com/image/d1eab0977fdc7c0a43ffbe8d6d6af36d.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.494321
+2021,3,Mebs Militia,10,5,0,0.667,2121.2,1927.82,https://fantasy.nfl.com/image/3baa273cd5e673bd6b37d3ee69f0bef5.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.494475
+2021,4,The Generous,10,5,0,0.667,2103.76,1828.34,https://fantasy.nfl.com/image/ddf169a13690ee7d2b5a62aeaae46174.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.494609
+2021,5,Maggi's Mighty Ducks,9,6,0,0.6,1988.96,1878.82,https://fantasy.nfl.com/image/6e3bfac6843ea7b02ba1fff4012c6dd0.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.494742
+2021,6,The Brotherhood,8,7,0,0.533,1957.7,1979.32,https://fantasy.nfl.com/image/483ab3f684e3597968525b888fef36a8.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.494889
+2021,7,Wolfpack,8,7,0,0.533,1944.7,1968.7,https://fantasy.nfl.com/image/65b68b08272902af43219004f33e84c1.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.495034
+2021,8,The Ratpack,7,8,0,0.467,1849.3,1839.96,https://fantasy.nfl.com/image/cc4338d8ac0e59a673659c4fe064d51c.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.495180
+2021,9,Killer Cam,6,9,0,0.4,1909.3,2040.24,https://fantasy.nfl.com/image/1df50805c744bb5b016ad6c8e552454d.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.495330
+2021,10,DirtyBirds,4,11,0,0.267,1822.08,2123.22,https://fantasy.nfl.com/image/54e145c9a634a201a63c9cd3d146fbe9.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.495465
+2021,11,cheeseheads,4,11,0,0.267,1645.5,1999.98,https://fantasy.nfl.com/image/08c5227f8396ae564193f8dcbc4c0731.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.495595
+2021,12,Scrubs,1,14,0,0.067,1725.42,2112.12,https://fantasy.nfl.com/image/1d3519947353eac03b94fe545235dc4e.jpg?&x=40&y=40,regular,2025-12-13T18:10:27.495727
+2022,1,The Ratpack,9,6,0,0.6,1779.58,1664.32,https://fantasy.nfl.com/image/cc4338d8ac0e59a673659c4fe064d51c.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.057528
+2022,2,Pels,9,6,0,0.6,1748.32,1677.46,https://fantasy.nfl.com/image/d1eab0977fdc7c0a43ffbe8d6d6af36d.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.057673
+2022,3,The Brotherhood,9,6,0,0.6,1719.72,1650.26,https://fantasy.nfl.com/image/483ab3f684e3597968525b888fef36a8.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.057786
+2022,4,Maggi's Mighty Ducks,8,7,0,0.533,1949.08,1680.7,https://fantasy.nfl.com/image/6e3bfac6843ea7b02ba1fff4012c6dd0.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.057910
+2022,5,Woody,8,7,0,0.533,1818.64,1756.26,https://fantasy.nfl.com/image/8656f89c1c02aa21a094b1f1eee4297b.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.058034
+2022,6,Killer Cam,8,7,0,0.533,1705.28,1665.06,https://fantasy.nfl.com/image/1df50805c744bb5b016ad6c8e552454d.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.058157
+2022,7,DirtyBirds,8,7,0,0.533,1692.44,1678.2,https://fantasy.nfl.com/image/54e145c9a634a201a63c9cd3d146fbe9.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.058280
+2022,8,Scrubs,8,7,0,0.533,1692.08,1689.18,https://fantasy.nfl.com/image/1d3519947353eac03b94fe545235dc4e.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.058402
+2022,9,cheeseheads,7,8,0,0.467,1711.46,1850.54,https://fantasy.nfl.com/image/08c5227f8396ae564193f8dcbc4c0731.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.058523
+2022,10,Wolfpack,6,9,0,0.4,1833.58,1871.0,https://fantasy.nfl.com/image/65b68b08272902af43219004f33e84c1.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.058631
+2022,11,The Generous,5,10,0,0.333,1686.14,1975.56,https://fantasy.nfl.com/image/af23f3aef4f1d0fd243574ed78b24ab0.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.058742
+2022,12,Mebs Militia,5,10,0,0.333,1532.28,1710.06,https://fantasy.nfl.com/image/3baa273cd5e673bd6b37d3ee69f0bef5.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.058850
+2023,1,Woody,11,4,0,0.733,1949.48,1596.7,https://fantasy.nfl.com/image/8656f89c1c02aa21a094b1f1eee4297b.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.607799
+2023,2,cheeseheads,10,5,0,0.667,1924.56,1613.62,https://fantasy.nfl.com/image/08c5227f8396ae564193f8dcbc4c0731.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.607962
+2023,3,The Generous,10,5,0,0.667,1541.96,1612.24,https://fantasy.nfl.com/image/af23f3aef4f1d0fd243574ed78b24ab0.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.608115
+2023,4,Pels,9,6,0,0.6,1845.6,1673.06,https://fantasy.nfl.com/image/d1eab0977fdc7c0a43ffbe8d6d6af36d.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.608266
+2023,5,Mebs Militia,9,6,0,0.6,1785.26,1754.56,https://fantasy.nfl.com/image/3baa273cd5e673bd6b37d3ee69f0bef5.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.608411
+2023,6,The Brotherhood,9,6,0,0.6,1782.1,1731.38,https://fantasy.nfl.com/image/483ab3f684e3597968525b888fef36a8.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.608557
+2023,7,Killer Cam,7,8,0,0.467,1726.9,1715.64,https://fantasy.nfl.com/image/1df50805c744bb5b016ad6c8e552454d.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.608687
+2023,8,DirtyBirds,6,9,0,0.4,1650.04,1770.6,https://fantasy.nfl.com/image/54e145c9a634a201a63c9cd3d146fbe9.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.608816
+2023,9,The Ratpack,6,9,0,0.4,1604.82,1741.58,https://fantasy.nfl.com/image/cc4338d8ac0e59a673659c4fe064d51c.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.608946
+2023,10,Wolfpack,5,10,0,0.333,1635.34,1747.16,https://fantasy.nfl.com/image/65b68b08272902af43219004f33e84c1.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.609095
+2023,11,Scrubs,5,10,0,0.333,1499.3,1725.76,https://fantasy.nfl.com/image/1d3519947353eac03b94fe545235dc4e.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.609262
+2023,12,Maggi's Mighty Ducks,3,12,0,0.2,1637.74,1900.8,https://fantasy.nfl.com/image/6e3bfac6843ea7b02ba1fff4012c6dd0.jpg?&x=40&y=40,regular,2025-12-13T18:10:28.609393
+2024,1,Maggi's Mighty Ducks,11,4,0,0.733,1953.02,1606.26,https://fantasy.nfl.com/image/3848c1e265bc05ffc480d3f74dd5c905.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.164955
+2024,2,The Ratpack,11,4,0,0.733,1749.76,1643.84,https://fantasy.nfl.com/image/619cdee4567a5d247f770e90fe607141.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.165139
+2024,3,cheeseheads,10,5,0,0.667,1899.38,1711.14,https://fantasy.nfl.com/image/08c5227f8396ae564193f8dcbc4c0731.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.165293
+2024,4,DirtyBirds,10,5,0,0.667,1797.4,1640.82,https://fantasy.nfl.com/image/54e145c9a634a201a63c9cd3d146fbe9.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.165427
+2024,5,The Generous,8,7,0,0.533,1751.94,1602.98,https://fantasy.nfl.com/image/37fb6bf94dc8e1a757bdd1e19c906a80.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.165559
+2024,6,The Brotherhood,7,8,0,0.467,1845.7,1685.04,https://fantasy.nfl.com/image/2a37e9caaa77c7b12e2c6c85e6a38e2a.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.165725
+2024,7,Woody,7,8,0,0.467,1727.16,1841.82,https://fantasy.nfl.com/image/2c3e78c8478c0a0a3c538cff10a96f03.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.165873
+2024,8,Pels,6,9,0,0.4,1718.74,1760.22,https://fantasy.nfl.com/image/d1eab0977fdc7c0a43ffbe8d6d6af36d.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.166024
+2024,9,Scrubs,6,9,0,0.4,1537.3,1807.38,https://fantasy.nfl.com/image/0e31b643751318781b68efa81d646b09.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.166177
+2024,10,Mebs Militia,5,10,0,0.333,1647.84,1821.34,https://fantasy.nfl.com/image/3baa273cd5e673bd6b37d3ee69f0bef5.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.166329
+2024,11,Freshie Vice,5,10,0,0.333,1565.92,1835.62,https://fantasy.nfl.com/image/bb9a678b5b3f6353932d7d62fe79389a.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.166475
+2024,12,Killer Cam,4,11,0,0.267,1627.02,1864.72,https://fantasy.nfl.com/image/1fca812cd313078ede2b727e8519abeb.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.166623
+2025,1,Maggi's Mighty Ducks,9,5,0,0.643,1662.34,1541.38,https://fantasy.nfl.com/image/3848c1e265bc05ffc480d3f74dd5c905.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.841662
+2025,2,The Brotherhood,9,5,0,0.643,1656.84,1525.02,https://fantasy.nfl.com/image/2a37e9caaa77c7b12e2c6c85e6a38e2a.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.841842
+2025,3,DirtyBirds,9,5,0,0.643,1507.1,1508.08,https://fantasy.nfl.com/image/54e145c9a634a201a63c9cd3d146fbe9.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.841997
+2025,4,The Ratpack,8,6,0,0.571,1650.5,1569.64,https://fantasy.nfl.com/image/619cdee4567a5d247f770e90fe607141.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.842147
+2025,5,Mebs Militia,7,7,0,0.5,1734.02,1564.8,https://fantasy.nfl.com/image/3baa273cd5e673bd6b37d3ee69f0bef5.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.842297
+2025,6,Freshie Vice,7,7,0,0.5,1668.9,1640.42,https://fantasy.nfl.com/image/bb9a678b5b3f6353932d7d62fe79389a.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.842443
+2025,7,cheeseheads,7,7,0,0.5,1533.14,1537.82,https://fantasy.nfl.com/image/08c5227f8396ae564193f8dcbc4c0731.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.842589
+2025,8,Scrubs,6,8,0,0.429,1625.62,1710.28,https://fantasy.nfl.com/image/0e31b643751318781b68efa81d646b09.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.842722
+2025,9,Woody,6,8,0,0.429,1566.02,1570.9,https://fantasy.nfl.com/image/2c3e78c8478c0a0a3c538cff10a96f03.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.842854
+2025,10,The Generous,6,8,0,0.429,1565.3,1625.0,https://fantasy.nfl.com/image/37fb6bf94dc8e1a757bdd1e19c906a80.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.842986
+2025,11,Killer Cam,5,9,0,0.357,1528.6,1656.58,https://fantasy.nfl.com/image/1fca812cd313078ede2b727e8519abeb.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.843117
+2025,12,Pels,5,9,0,0.357,1394.52,1642.98,https://fantasy.nfl.com/image/d1eab0977fdc7c0a43ffbe8d6d6af36d.jpg?&x=40&y=40,regular,2025-12-13T18:10:29.843254
