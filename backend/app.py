@@ -25,19 +25,34 @@ else:
 app = Flask(__name__)
 
 # Configure CORS - allow requests from frontend
+# For production, allow all origins (since we don't know the exact Vercel URL)
+# In production, we'll allow the Vercel domain
 frontend_url = os.getenv('FRONTEND_URL', 'http://localhost:3010')
-CORS(app, resources={
-    r"/api/*": {
-        "origins": [
-            frontend_url,
-            "http://localhost:3010",
-            "http://localhost:3000",
-            "https://nfl-fantasy-dashboard-one.vercel.app"  # Vercel frontend
-        ],
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type"]
-    }
-})
+is_production = os.getenv('FLASK_ENV') == 'production'
+
+if is_production:
+    # In production, allow Vercel and common origins
+    CORS(app, resources={
+        r"/api/*": {
+            "origins": [
+                "https://nfl-fantasy-dashboard-one.vercel.app",
+                "https://*.vercel.app",  # Allow all Vercel preview deployments
+                frontend_url
+            ],
+            "methods": ["GET", "POST", "OPTIONS"],
+            "allow_headers": ["Content-Type"],
+            "supports_credentials": False
+        }
+    })
+else:
+    # In development, allow localhost
+    CORS(app, resources={
+        r"/api/*": {
+            "origins": [frontend_url, "http://localhost:3010", "http://localhost:3000"],
+            "methods": ["GET", "POST", "OPTIONS"],
+            "allow_headers": ["Content-Type"]
+        }
+    })
 
 # Initialize data manager with project root path
 data_manager = DataManager(data_dir=os.path.join(project_root, 'data'))
