@@ -4,6 +4,8 @@ import Standings from './components/Standings'
 import PlayoffTracker from './components/PlayoffTracker'
 import HeadToHead from './components/HeadToHead'
 import Almanac from './components/Almanac'
+import HallOfFame from './components/HallOfFame'
+import HallOfShame from './components/HallOfShame'
 import { API_BASE } from './config'
 import './App.css'
 
@@ -48,7 +50,9 @@ function App() {
     { id: 'standings', label: 'Standings' },
     { id: 'playoff-tracker', label: 'Playoff Tracker' },
     { id: 'almanac', label: 'The Almanac' },
-    { id: 'head-to-head', label: 'Head-to-Head' }
+    { id: 'head-to-head', label: 'Head-to-Head' },
+    { id: 'hall-of-fame', label: 'Hall of Fame' },
+    { id: 'hall-of-shame', label: 'Hall of Shame' }
   ]
 
   if (loading && !leagueInfo) {
@@ -95,6 +99,8 @@ function App() {
         {activeTab === 'playoff-tracker' && <PlayoffTracker />}
         {activeTab === 'almanac' && <Almanac />}
         {activeTab === 'head-to-head' && <HeadToHead />}
+        {activeTab === 'hall-of-fame' && <HallOfFame />}
+        {activeTab === 'hall-of-shame' && <HallOfShame />}
       </main>
     </div>
   )

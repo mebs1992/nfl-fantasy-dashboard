@@ -589,6 +589,118 @@ def get_win_pct_by_year():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 
+@app.route('/api/hall-of-fame', methods=['GET'])
+def get_hall_of_fame():
+    """Get Hall of Fame inductees"""
+    try:
+        from team_logos import get_team_logo_url
+        from collections import defaultdict
+        
+        data_dir = data_manager.data_dir
+        
+        # Hardcoded Hall of Fame inductees with blurbs
+        hall_of_fame = [
+            {
+                'team': 'Pels',
+                'logo': get_team_logo_url('Pels', data_dir),
+                'blurb': 'The Palm Beach Pelicans have established themselves as a dynasty in The Greatest League. With multiple championships and consistent excellence, Pels has proven that beach vibes and fantasy dominance go hand in hand. Their strategic brilliance and unwavering consistency have earned them a permanent place among the league\'s elite.'
+            },
+            {
+                'team': "Maggi's Mighty Ducks",
+                'logo': get_team_logo_url("Maggi's Mighty Ducks", data_dir),
+                'blurb': 'Quack, quack, champions! Maggi\'s Mighty Ducks have soared to incredible heights, capturing multiple Super Bowl titles and establishing themselves as one of the most successful franchises in league history. Their fearless approach and clutch performances in the biggest moments have cemented their legacy as true legends of The Greatest League.'
+            },
+            {
+                'team': 'Killer Cam',
+                'logo': get_team_logo_url('Killer Cam', data_dir),
+                'blurb': 'The Killer Cam franchise has been a force to be reckoned with since day one. With championship pedigree and a reputation for making bold moves, Killer Cam has consistently been at the top of the league standings. Their killer instinct and championship DNA have rightfully earned them a spot in the Hall of Fame.'
+            }
+        ]
+        
+        return jsonify({
+            'success': True,
+            'data': hall_of_fame
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/hall-of-shame', methods=['GET'])
+def get_hall_of_shame():
+    """Get Hall of Shame teams (3+ years in league, no championships)"""
+    try:
+        from standings_scraper import load_standings_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        from collections import defaultdict
+        
+        data_dir = data_manager.data_dir
+        csv_file = os.path.join(data_dir, 'standings.csv')
+        
+        # Load final standings to check championships
+        final_standings = load_standings_from_csv(csv_file, 'final')
+        
+        # Track teams: years active and championships
+        team_data = defaultdict(lambda: {'years': set(), 'championships': 0, 'first_year': 9999, 'last_year': 0})
+        
+        for s in final_standings:
+            team_name = normalize_team_name(s['team_name'])
+            year = s['year']
+            place = s['place']
+            
+            # Only count 2012-2024 (exclude 2025)
+            if year <= 2024:
+                team_data[team_name]['years'].add(year)
+                team_data[team_name]['first_year'] = min(team_data[team_name]['first_year'], year)
+                team_data[team_name]['last_year'] = max(team_data[team_name]['last_year'], year)
+                if place == 1:  # Championship
+                    team_data[team_name]['championships'] += 1
+        
+        # Find teams with 3+ years and 0 championships
+        hall_of_shame = []
+        for team_name, data in team_data.items():
+            years_active = len(data['years'])
+            if years_active >= 3 and data['championships'] == 0:
+                # Generate funny blurb based on team stats
+                years_str = f"{data['first_year']}-{data['last_year']}"
+                total_years = years_active
+                
+                # Get some stats for the blurb
+                regular_standings = load_standings_from_csv(csv_file, 'regular')
+                team_regular = [s for s in regular_standings if normalize_team_name(s['team_name']) == team_name and s['year'] <= 2024]
+                
+                avg_win_pct = 0
+                if team_regular:
+                    total_win_pct = sum(float(s.get('win_pct', 0)) for s in team_regular)
+                    avg_win_pct = total_win_pct / len(team_regular)
+                
+                # Generate blurb based on performance
+                if avg_win_pct < 0.4:
+                    blurb = f"After {total_years} long seasons ({years_str}), {team_name} has somehow managed to avoid the ultimate prize. With a win percentage that would make a participation trophy blush, they've perfected the art of 'almost, but not quite.' The championship trophy remains as elusive as their playoff hopes - always in sight, never in hand."
+                elif avg_win_pct < 0.5:
+                    blurb = f"Despite {total_years} years of service ({years_str}), {team_name} has yet to taste championship glory. They've been the definition of 'consistently average,' showing up every year with hope and leaving with... well, more hope for next year. The Super Bowl ring continues to be the one that got away."
+                else:
+                    blurb = f"After {total_years} seasons of competitive play ({years_str}), {team_name} has built a solid foundation but has yet to break through to the promised land. They've been so close, yet so far - the perennial 'almost champions' who keep knocking on the door but can't quite turn the handle. The championship banner remains unfurled, waiting for that magical season."
+                
+                hall_of_shame.append({
+                    'team': team_name,
+                    'logo': get_team_logo_url(team_name, data_dir),
+                    'years_active': total_years,
+                    'years_range': years_str,
+                    'blurb': blurb
+                })
+        
+        # Sort by years active (most to least)
+        hall_of_shame.sort(key=lambda x: x['years_active'], reverse=True)
+        
+        return jsonify({
+            'success': True,
+            'data': hall_of_shame
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     # Ensure data directory exists
     os.makedirs('data', exist_ok=True)

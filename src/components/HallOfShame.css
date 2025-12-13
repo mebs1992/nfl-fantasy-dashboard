@@ -1,0 +1,341 @@
+.hall-of-shame {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 100%);
+  min-height: 100vh;
+}
+
+.shame-loading,
+.shame-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.shame-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.shame-title {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #8B0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  text-shadow: 0 0 30px rgba(220, 20, 60, 0.5);
+  letter-spacing: 0.1em;
+}
+
+.shame-subtitle {
+  font-size: 1.5rem;
+  color: #999;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.shame-divider {
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #DC143C, transparent);
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+.shame-description {
+  max-width: 800px;
+  margin: 2rem auto 0;
+  color: #bbb;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.shame-teams {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.shame-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(0, 100, 0, 0.2);
+  border-radius: 20px;
+  border: 2px solid rgba(0, 200, 0, 0.3);
+}
+
+.shame-empty p {
+  font-size: 1.5rem;
+  color: #90EE90;
+  margin: 0.5rem 0;
+}
+
+.shame-card {
+  position: relative;
+  background: linear-gradient(135deg, #2a1a1a 0%, #1e1e1e 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(139, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+  overflow: hidden;
+}
+
+.shame-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #DC143C, transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.shame-card:hover::before {
+  opacity: 1;
+}
+
+.shame-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.shame-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.shame-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.shame-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.shame-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shame-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(220, 20, 60, 0.3);
+  border-color: rgba(220, 20, 60, 0.6);
+}
+
+.shame-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.shame-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.shame-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid rgba(139, 0, 0, 0.5);
+  object-fit: cover;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  filter: grayscale(0.3);
+  flex-shrink: 0;
+}
+
+.shame-team-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.shame-team-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #DC143C;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 10px rgba(220, 20, 60, 0.3);
+}
+
+.shame-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.shame-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.shame-stat-label {
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.shame-stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.shame-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #2a1a1a 0%, #1a0a0a 100%);
+  border-radius: 50%;
+  border: 3px solid rgba(139, 0, 0, 0.6);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.shame-badge-text {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #DC143C;
+  line-height: 1;
+}
+
+.shame-badge-label {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
+
+.shame-blurb {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #DC143C;
+  position: relative;
+}
+
+.shame-blurb::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 4rem;
+  color: rgba(220, 20, 60, 0.2);
+  font-family: serif;
+}
+
+.shame-blurb p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #ddd;
+  margin: 0;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.shame-footer {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  border: 1px solid rgba(139, 0, 0, 0.3);
+}
+
+.shame-footer-text {
+  font-size: 1.2rem;
+  color: #999;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hall-of-shame {
+    padding: 1rem;
+  }
+
+  .shame-title {
+    font-size: 2.5rem;
+  }
+
+  .shame-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .shame-description {
+    font-size: 1rem;
+  }
+
+  .shame-teams {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .shame-card {
+    padding: 1.5rem;
+  }
+
+  .shame-team-name {
+    font-size: 1.5rem;
+  }
+
+  .shame-blurb p {
+    font-size: 1rem;
+  }
+
+  .shame-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .shame-badge {
+    align-self: flex-end;
+  }
+}
+
