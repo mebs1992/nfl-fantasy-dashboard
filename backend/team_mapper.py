@@ -13,6 +13,7 @@ TEAM_NAME_MAPPINGS = {
     'Impeached Wolfpack': 'Wolfpack',
     'Unidentifiable Wolfpack': 'Wolfpack',
     'Wolfpak': 'Wolfpack',
+    'Ball So Hard Wolfpak': 'Wolfpack',
     
     # Scrubs variations
     'Handycuffs': 'Scrubs',
@@ -38,7 +39,6 @@ TEAM_NAME_MAPPINGS = {
     
     # The Generous variations
     'Generous Brady': 'The Generous',
-    'Ball So Hard Wolfpak': 'The Generous',
     'Boston Tea Party': 'The Generous',
     
     # Pelicans variations
