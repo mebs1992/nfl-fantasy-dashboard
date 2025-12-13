@@ -613,15 +613,40 @@
 
 @media (max-width: 768px) {
   .almanac-header h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+  }
+
+  .almanac-subtitle {
+    font-size: 0.95rem;
   }
 
   .championships-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .championship-item {
+    padding: 1.25rem;
   }
 
   .tables-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .almanac-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .almanac-table {
+    min-width: 500px;
+    font-size: 0.85rem;
+  }
+
+  .almanac-table th,
+  .almanac-table td {
+    padding: 0.75rem 0.5rem;
   }
 
   .stats-grid {
@@ -629,12 +654,12 @@
   }
 
   .stat-card {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    padding: 1.25rem;
   }
 
   .stat-rank {
-    order: -1;
+    order: 0;
   }
 
   .achievements-grid {
@@ -643,10 +668,44 @@
 
   .sidebar-menu {
     flex-direction: column;
+    gap: 0.4rem;
   }
 
   .sidebar-menu-item {
     min-width: auto;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .chart-wrapper {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .almanac-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .championship-item {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .championship-content {
+    align-items: center;
+  }
+
+  .almanac-table {
+    min-width: 450px;
+    font-size: 0.8rem;
+  }
+
+  .sidebar-menu-item {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.85rem;
   }
 }
 

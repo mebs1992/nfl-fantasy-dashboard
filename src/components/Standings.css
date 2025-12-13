@@ -421,14 +421,96 @@
 }
 
 @media (max-width: 768px) {
+  .standings-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .standings-subtitle {
+    font-size: 0.95rem;
+  }
+
   .fun-stats-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .fun-stat-card {
+    padding: 1.25rem;
+  }
+
+  .standings-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .standings-table table {
+    min-width: 600px;
+    font-size: 0.85rem;
+  }
+
+  .standings-table th,
+  .standings-table td {
+    padding: 0.75rem 0.5rem;
   }
 
   .team-info {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .team-avatar {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+  }
+
+  .team-name {
+    font-size: 0.9rem;
+  }
+
+  .team-tagline {
+    font-size: 0.7rem;
+  }
+
+  .winpct-container {
+    flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
+  }
+
+  .winpct-value {
+    min-width: 45px;
+    font-size: 0.85rem;
+  }
+
+  .winpct-bar {
+    flex: 1;
+    min-width: 60px;
+  }
+
+  .rank-number {
+    font-size: 1rem;
+  }
+
+  .medal-icon {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .standings-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .standings-table table {
+    min-width: 550px;
+    font-size: 0.8rem;
+  }
+
+  .standings-table th,
+  .standings-table td {
+    padding: 0.6rem 0.4rem;
   }
 
   .team-avatar {
@@ -436,15 +518,9 @@
     height: 40px;
   }
 
-  .winpct-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+  .points-for,
+  .points-against {
+    font-size: 0.85rem;
   }
-
-  .winpct-bar {
-    width: 100%;
-  }
-
 }
 
