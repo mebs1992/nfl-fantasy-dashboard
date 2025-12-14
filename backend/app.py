@@ -876,6 +876,22 @@ def get_league_stats():
         point_differentials = [s.get('points_for', 0) - s.get('points_against', 0) for s in historical_standings]
         avg_point_differential = sum(point_differentials) / len(point_differentials) if point_differentials else 0
         
+        # Calculate team-specific winning scores from matchups (for current season)
+        team_winning_scores = defaultdict(list)
+        for matchup in all_matchups:
+            if matchup.get('year', 0) == 2025:  # Current season only
+                team1_name = normalize_team_name(matchup.get('team1', ''))
+                team2_name = normalize_team_name(matchup.get('team2', ''))
+                team1_score = matchup.get('team1_score', 0)
+                team2_score = matchup.get('team2_score', 0)
+                
+                # Determine winner and add their score
+                if team1_score > team2_score:
+                    team_winning_scores[team1_name].append(team1_score)
+                elif team2_score > team1_score:
+                    team_winning_scores[team2_name].append(team2_score)
+                # Ties don't count as wins, so we skip them
+        
         # Get team-specific stats for current season
         team_stats = {}
         for s in current_standings:
@@ -886,6 +902,13 @@ def get_league_stats():
             total_games = wins + losses + ties
             win_pct = ((wins + ties * 0.5) / total_games * 100) if total_games > 0 else 0
             
+            # Calculate team's average winning score
+            team_wins = team_winning_scores.get(team_name, [])
+            avg_team_winning_score = sum(team_wins) / len(team_wins) if team_wins else 0
+            
+            # Calculate points per game
+            points_per_game = (s.get('points_for', 0.0) / total_games) if total_games > 0 else 0
+            
             team_stats[team_name] = {
                 'name': team_name,
                 'wins': wins,
@@ -895,6 +918,8 @@ def get_league_stats():
                 'points_against': s.get('points_against', 0.0),
                 'win_pct': win_pct,
                 'point_differential': s.get('points_for', 0.0) - s.get('points_against', 0.0),
+                'avg_winning_score': round(avg_team_winning_score, 2),
+                'points_per_game': round(points_per_game, 2),
                 'logo': s.get('team_logo') or get_team_logo_url(team_name, data_dir)
             }
         

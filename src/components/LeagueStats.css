@@ -53,8 +53,11 @@
   transition: all 0.3s ease;
   position: relative;
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
 }
 
 .stat-card:hover {
@@ -104,8 +107,9 @@
   padding-right: 1rem;
   padding-bottom: 1rem;
   border-radius: 8px;
-  width: 100%;
+  width: calc(100% + 0rem);
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .team-comparison-label {
@@ -144,9 +148,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 
 .comparison-badge.above {

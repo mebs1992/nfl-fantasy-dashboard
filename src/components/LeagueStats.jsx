@@ -93,7 +93,7 @@ function LeagueStats() {
             title="Average Winning Score" 
             value={league_averages.avg_winning_score}
             unit=" pts"
-            teamValue={selectedTeamData ? selectedTeamData.points_for : null}
+            teamValue={selectedTeamData ? selectedTeamData.avg_winning_score : null}
             isHigherBetter={true}
           />
           <StatCard 
@@ -128,7 +128,7 @@ function LeagueStats() {
             title="Average Points Per Game" 
             value={league_averages.avg_points_per_game}
             unit=" pts"
-            teamValue={selectedTeamData ? (selectedTeamData.points_for / (selectedTeamData.wins + selectedTeamData.losses + selectedTeamData.ties)) : null}
+            teamValue={selectedTeamData ? selectedTeamData.points_per_game : null}
             isHigherBetter={true}
           />
           <StatCard 
