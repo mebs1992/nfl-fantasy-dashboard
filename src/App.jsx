@@ -7,6 +7,7 @@ import Almanac from './components/Almanac'
 import HallOfFame from './components/HallOfFame'
 import HallOfShame from './components/HallOfShame'
 import LeagueStats from './components/LeagueStats'
+import AdvancedStats from './components/AdvancedStats'
 import { API_BASE } from './config'
 import './App.css'
 
@@ -51,6 +52,7 @@ function App() {
     { id: 'standings', label: 'Standings' },
     { id: 'playoff-tracker', label: 'Playoff Tracker' },
     { id: 'league-stats', label: 'League Stats' },
+    { id: 'advanced-stats', label: 'Advanced Stats' },
     { id: 'almanac', label: 'The Almanac' },
     { id: 'head-to-head', label: 'Head-to-Head' },
     { id: 'hall-of-fame', label: 'Hall of Fame' },
@@ -107,15 +109,16 @@ function App() {
         ))}
       </nav>
 
-      <main className="app-main">
-        {activeTab === 'standings' && <Standings />}
-        {activeTab === 'playoff-tracker' && <PlayoffTracker />}
-        {activeTab === 'league-stats' && <LeagueStats />}
-        {activeTab === 'almanac' && <Almanac />}
-        {activeTab === 'head-to-head' && <HeadToHead />}
-        {activeTab === 'hall-of-fame' && <HallOfFame />}
-        {activeTab === 'hall-of-shame' && <HallOfShame />}
-      </main>
+             <main className="app-main">
+               {activeTab === 'standings' && <Standings />}
+               {activeTab === 'playoff-tracker' && <PlayoffTracker />}
+               {activeTab === 'league-stats' && <LeagueStats />}
+               {activeTab === 'advanced-stats' && <AdvancedStats />}
+               {activeTab === 'almanac' && <Almanac />}
+               {activeTab === 'head-to-head' && <HeadToHead />}
+               {activeTab === 'hall-of-fame' && <HallOfFame />}
+               {activeTab === 'hall-of-shame' && <HallOfShame />}
+             </main>
     </div>
   )
 }

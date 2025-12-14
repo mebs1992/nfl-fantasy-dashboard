@@ -977,6 +977,384 @@ def get_league_stats():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 
+@app.route('/api/rivalries', methods=['GET'])
+def get_rivalries():
+    """Get top rivalries"""
+    try:
+        from fun_stats import calculate_rivalries, generate_trash_talk
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        rivalries = calculate_rivalries(all_matchups, normalize_team_name)
+        
+        # Add logos
+        for r in rivalries:
+            r['team1_logo'] = get_team_logo_url(r['team1'], data_dir)
+            r['team2_logo'] = get_team_logo_url(r['team2'], data_dir)
+        
+        return jsonify({'success': True, 'data': rivalries})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/trash-talk', methods=['GET'])
+def get_trash_talk():
+    """Generate trash talk for two teams"""
+    try:
+        from fun_stats import calculate_rivalries, generate_trash_talk
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        
+        team1 = request.args.get('team1', '')
+        team2 = request.args.get('team2', '')
+        
+        if not team1 or not team2:
+            return jsonify({'success': False, 'error': 'Both team1 and team2 parameters required'}), 400
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        rivalries = calculate_rivalries(all_matchups, normalize_team_name)
+        trash_talk = generate_trash_talk(team1, team2, rivalries, normalize_team_name)
+        
+        return jsonify({'success': True, 'data': trash_talk})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/streaks', methods=['GET'])
+def get_streaks():
+    """Get current and all-time streaks"""
+    try:
+        from fun_stats import calculate_streaks
+        from historical_scraper import load_from_csv
+        from standings_scraper import load_standings_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        standings_file = os.path.join(data_dir, 'standings.csv')
+        
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        all_standings = load_standings_from_csv(standings_file, 'regular')
+        
+        streaks = calculate_streaks(all_matchups, all_standings, normalize_team_name)
+        
+        # Add logos
+        for s in streaks['current']:
+            s['logo'] = get_team_logo_url(s['team'], data_dir)
+        for s in streaks['all_time']:
+            s['logo'] = get_team_logo_url(s['team'], data_dir)
+        
+        return jsonify({'success': True, 'data': streaks})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/blowouts', methods=['GET'])
+def get_blowouts():
+    """Get biggest blowouts"""
+    try:
+        from fun_stats import calculate_blowouts
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        blowouts = calculate_blowouts(all_matchups, normalize_team_name)
+        
+        # Add logos
+        for b in blowouts:
+            b['winner_logo'] = get_team_logo_url(b['winner'], data_dir)
+            b['loser_logo'] = get_team_logo_url(b['loser'], data_dir)
+        
+        return jsonify({'success': True, 'data': blowouts})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/bad-beats', methods=['GET'])
+def get_bad_beats():
+    """Get bad beats (high score losses, low score wins)"""
+    try:
+        from fun_stats import calculate_bad_beats
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        bad_beats = calculate_bad_beats(all_matchups, normalize_team_name)
+        
+        # Add logos
+        for b in bad_beats['high_score_losses']:
+            b['team_logo'] = get_team_logo_url(b['team'], data_dir)
+            b['opponent_logo'] = get_team_logo_url(b['opponent'], data_dir)
+        for b in bad_beats['low_score_wins']:
+            b['team_logo'] = get_team_logo_url(b['team'], data_dir)
+            b['opponent_logo'] = get_team_logo_url(b['opponent'], data_dir)
+        
+        return jsonify({'success': True, 'data': bad_beats})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/weekly-awards', methods=['GET'])
+def get_weekly_awards():
+    """Get weekly awards (highest scores, lowest winning scores, biggest margins)"""
+    try:
+        from fun_stats import calculate_weekly_awards
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        awards = calculate_weekly_awards(all_matchups, normalize_team_name)
+        
+        # Add logos
+        for a in awards['highest_scores']:
+            a['team_logo'] = get_team_logo_url(a['team'], data_dir)
+            a['opponent_logo'] = get_team_logo_url(a['opponent'], data_dir)
+        for a in awards['lowest_winning_scores']:
+            a['team_logo'] = get_team_logo_url(a['team'], data_dir)
+            a['opponent_logo'] = get_team_logo_url(a['opponent'], data_dir)
+        for a in awards['biggest_margins']:
+            a['winner_logo'] = get_team_logo_url(a['winner'], data_dir)
+            a['loser_logo'] = get_team_logo_url(a['loser'], data_dir)
+        
+        return jsonify({'success': True, 'data': awards})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/consistency', methods=['GET'])
+def get_consistency():
+    """Get consistency scores for all teams"""
+    try:
+        from fun_stats import calculate_consistency
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        consistency = calculate_consistency(all_matchups, normalize_team_name)
+        
+        # Add logos
+        for c in consistency:
+            c['logo'] = get_team_logo_url(c['team'], data_dir)
+        
+        return jsonify({'success': True, 'data': consistency})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/clutch', methods=['GET'])
+def get_clutch():
+    """Get clutch performance stats"""
+    try:
+        from fun_stats import calculate_clutch_performance
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        clutch = calculate_clutch_performance(all_matchups, normalize_team_name)
+        
+        # Add logos
+        for c in clutch:
+            c['logo'] = get_team_logo_url(c['team'], data_dir)
+        
+        return jsonify({'success': True, 'data': clutch})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/team-dna', methods=['GET'])
+def get_team_dna():
+    """Get team DNA/personality profiles"""
+    try:
+        from fun_stats import calculate_team_dna
+        from historical_scraper import load_from_csv
+        from standings_scraper import load_standings_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        standings_file = os.path.join(data_dir, 'standings.csv')
+        
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        all_standings = load_standings_from_csv(standings_file, 'regular')
+        
+        team_dna = calculate_team_dna(all_matchups, all_standings, normalize_team_name)
+        
+        # Add logos
+        for dna in team_dna:
+            dna['logo'] = get_team_logo_url(dna['team'], data_dir)
+        
+        return jsonify({'success': True, 'data': team_dna})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/trophy-case', methods=['GET'])
+def get_trophy_case():
+    """Get trophy case achievements for all teams"""
+    try:
+        from fun_stats import calculate_trophy_case
+        from historical_scraper import load_from_csv
+        from standings_scraper import load_standings_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        standings_file = os.path.join(data_dir, 'standings.csv')
+        
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        all_standings = load_standings_from_csv(standings_file, 'regular')
+        
+        trophies = calculate_trophy_case(all_matchups, all_standings, normalize_team_name)
+        
+        # Add logos and format
+        formatted_trophies = []
+        for team, data in trophies.items():
+            formatted_trophies.append({
+                'team': team,
+                'logo': get_team_logo_url(team, data_dir),
+                **data
+            })
+        
+        return jsonify({'success': True, 'data': formatted_trophies})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/points-trends', methods=['GET'])
+def get_points_trends():
+    """Get points trends over time for all teams"""
+    try:
+        from fun_stats import calculate_points_trends
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        trends = calculate_points_trends(all_matchups, normalize_team_name)
+        
+        # Add logos
+        for team, data in trends.items():
+            data['team'] = team
+            data['logo'] = get_team_logo_url(team, data_dir)
+        
+        return jsonify({'success': True, 'data': list(trends.values())})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/matchup-difficulty', methods=['GET'])
+def get_matchup_difficulty():
+    """Get matchup difficulty / strength of schedule for current season"""
+    try:
+        from fun_stats import calculate_matchup_difficulty
+        from standings_scraper import load_standings_from_csv
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        standings_file = os.path.join(data_dir, 'standings.csv')
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        
+        all_standings = load_standings_from_csv(standings_file, 'regular')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        difficulty = calculate_matchup_difficulty(all_standings, all_matchups, normalize_team_name, 2025)
+        
+        # Add logos
+        for d in difficulty:
+            d['logo'] = get_team_logo_url(d['team'], data_dir)
+        
+        return jsonify({'success': True, 'data': difficulty})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/weekly-recap', methods=['GET'])
+def get_weekly_recap():
+    """Generate weekly recap for a specific week"""
+    try:
+        from fun_stats import generate_weekly_recap
+        from historical_scraper import load_from_csv
+        from standings_scraper import load_standings_from_csv
+        from team_mapper import normalize_team_name
+        
+        year = int(request.args.get('year', 2025))
+        week = int(request.args.get('week', 1))
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        standings_file = os.path.join(data_dir, 'standings.csv')
+        
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        all_standings = load_standings_from_csv(standings_file, 'regular')
+        
+        recap = generate_weekly_recap(all_matchups, all_standings, year, week, normalize_team_name)
+        
+        return jsonify({'success': True, 'data': recap})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/what-if', methods=['POST'])
+def get_what_if():
+    """Calculate what-if scenarios"""
+    try:
+        from historical_scraper import load_from_csv
+        from standings_scraper import load_standings_from_csv
+        from team_mapper import normalize_team_name
+        from collections import defaultdict
+        
+        data = request.get_json()
+        scenario = data.get('scenario', {})
+        
+        # This is a placeholder - full implementation would require more complex logic
+        # For now, return a message explaining the feature
+        return jsonify({
+            'success': True,
+            'data': {
+                'message': 'What-If scenarios require complex playoff calculation logic. This feature is coming soon!',
+                'scenario': scenario
+            }
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     # Ensure data directory exists
     os.makedirs('data', exist_ok=True)
