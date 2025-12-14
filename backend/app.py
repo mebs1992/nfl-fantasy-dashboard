@@ -876,10 +876,10 @@ def get_league_stats():
         point_differentials = [s.get('points_for', 0) - s.get('points_against', 0) for s in historical_standings]
         avg_point_differential = sum(point_differentials) / len(point_differentials) if point_differentials else 0
         
-        # Calculate team-specific winning scores from matchups (for current season)
+        # Calculate team-specific winning scores from matchups (historical 2012-2024)
         team_winning_scores = defaultdict(list)
         for matchup in all_matchups:
-            if matchup.get('year', 0) == 2025:  # Current season only
+            if matchup.get('year', 0) <= 2024:  # Historical data only
                 team1_name = normalize_team_name(matchup.get('team1_name', ''))
                 team2_name = normalize_team_name(matchup.get('team2_name', ''))
                 team1_score = matchup.get('team1_score', 0)
@@ -892,35 +892,67 @@ def get_league_stats():
                     team_winning_scores[team2_name].append(team2_score)
                 # Ties don't count as wins, so we skip them
         
-        # Get team-specific stats for current season
-        team_stats = {}
+        # Calculate team-specific historical stats (2012-2024) for comparison
+        team_historical_stats = defaultdict(lambda: {
+            'total_points_for': 0.0,
+            'total_points_against': 0.0,
+            'total_wins': 0,
+            'total_losses': 0,
+            'total_ties': 0,
+            'seasons': 0,
+            'points_for_list': [],
+            'points_against_list': []
+        })
+        
+        for s in historical_standings:
+            team_name = normalize_team_name(s['team_name'])
+            stats = team_historical_stats[team_name]
+            stats['total_points_for'] += s.get('points_for', 0.0)
+            stats['total_points_against'] += s.get('points_against', 0.0)
+            stats['total_wins'] += s.get('wins', 0)
+            stats['total_losses'] += s.get('losses', 0)
+            stats['total_ties'] += s.get('ties', 0)
+            stats['seasons'] += 1
+            stats['points_for_list'].append(s.get('points_for', 0.0))
+            stats['points_against_list'].append(s.get('points_against', 0.0))
+        
+        # Get team logos from current standings
+        team_logos = {}
         for s in current_standings:
             team_name = normalize_team_name(s['team_name'])
-            wins = s.get('wins', 0)
-            losses = s.get('losses', 0)
-            ties = s.get('ties', 0)
-            total_games = wins + losses + ties
-            win_pct = ((wins + ties * 0.5) / total_games * 100) if total_games > 0 else 0
+            team_logos[team_name] = s.get('team_logo') or get_team_logo_url(team_name, data_dir)
+        
+        # Calculate averages for each team (2012-2024)
+        team_stats = {}
+        for team_name, stats in team_historical_stats.items():
+            total_games = stats['total_wins'] + stats['total_losses'] + stats['total_ties']
             
-            # Calculate team's average winning score
+            # Calculate averages
+            avg_points_for = stats['total_points_for'] / stats['seasons'] if stats['seasons'] > 0 else 0
+            avg_points_against = stats['total_points_against'] / stats['seasons'] if stats['seasons'] > 0 else 0
+            avg_win_pct = ((stats['total_wins'] + stats['total_ties'] * 0.5) / total_games * 100) if total_games > 0 else 0
+            avg_point_differential = avg_points_for - avg_points_against
+            points_per_game = (stats['total_points_for'] / total_games) if total_games > 0 else 0
+            
+            # Calculate team's average winning score from historical matchups
             team_wins = team_winning_scores.get(team_name, [])
             avg_team_winning_score = sum(team_wins) / len(team_wins) if team_wins else 0
             
-            # Calculate points per game
-            points_per_game = (s.get('points_for', 0.0) / total_games) if total_games > 0 else 0
+            # Calculate average wins per season (for playoff comparison)
+            avg_wins_per_season = stats['total_wins'] / stats['seasons'] if stats['seasons'] > 0 else 0
             
             team_stats[team_name] = {
                 'name': team_name,
-                'wins': wins,
-                'losses': losses,
-                'ties': ties,
-                'points_for': s.get('points_for', 0.0),
-                'points_against': s.get('points_against', 0.0),
-                'win_pct': win_pct,
-                'point_differential': s.get('points_for', 0.0) - s.get('points_against', 0.0),
+                'wins': round(avg_wins_per_season, 1),  # Average wins per season
+                'losses': round(stats['total_losses'] / stats['seasons'], 1) if stats['seasons'] > 0 else 0,
+                'ties': round(stats['total_ties'] / stats['seasons'], 1) if stats['seasons'] > 0 else 0,
+                'points_for': round(avg_points_for, 2),
+                'points_against': round(avg_points_against, 2),
+                'win_pct': round(avg_win_pct, 2),
+                'point_differential': round(avg_point_differential, 2),
                 'avg_winning_score': round(avg_team_winning_score, 2),
                 'points_per_game': round(points_per_game, 2),
-                'logo': s.get('team_logo') or get_team_logo_url(team_name, data_dir)
+                'logo': team_logos.get(team_name) or get_team_logo_url(team_name, data_dir)
             }
         
         # League averages
