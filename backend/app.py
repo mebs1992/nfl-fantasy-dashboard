@@ -744,39 +744,36 @@ def get_all_time_wins():
                 team_wins[team_name]['regular_ties'] += s.get('ties', 0)
                 team_wins[team_name]['years'].add(year)
         
-        # Get playoff teams for each year (top 4 teams make playoffs)
-        # Use regular season standings to determine top 4
-        playoff_teams_by_year = defaultdict(set)
-        for s in standings:
-            year = s.get('year', 0)
-            place = s.get('place', 0)
-            if year <= 2024 and place <= 4:
-                team_name = normalize_team_name(s.get('team_name', ''))
-                playoff_teams_by_year[year].add(team_name)
-        
         # Count playoff wins from matchups (2012-2024 only)
-        # Logic: In weeks where only 4 or 2 teams play (playoff/superbowl weeks),
-        # only give teams a win if they won their matchup AND made the playoffs (top 4)
-        # Superbowl week (2 matchups) is included in playoff wins
+        # Logic: A playoff win is when there are only 4 or 2 matchups for the week and the team wins in that week
+        # Use schedule data to count matchups per week, not week_type
+        
+        # First, count matchups per week to identify playoff weeks (4 or 2 matchups)
+        week_matchup_counts = defaultdict(lambda: defaultdict(int))
         for matchup in all_matchups:
             year = matchup.get('year', 0)
-            week_type = matchup.get('week_type', '')
+            week = matchup.get('week', 0)
+            if 2012 <= year <= 2024:
+                week_matchup_counts[year][week] += 1
+        
+        # Now count playoff wins - only in weeks with 4 or 2 matchups
+        for matchup in all_matchups:
+            year = matchup.get('year', 0)
+            week = matchup.get('week', 0)
             
-            # Only count completed seasons (2012-2024) and playoff/superbowl games
-            # These are weeks with 4 matchups (playoff) or 2 matchups (superbowl)
-            if year <= 2024 and week_type in ['playoff', 'superbowl']:
-                team1 = normalize_team_name(matchup.get('team1_name', ''))
-                team2 = normalize_team_name(matchup.get('team2_name', ''))
-                winner = normalize_team_name(matchup.get('winner', ''))
+            # Only count completed seasons (2012-2024)
+            if year <= 2024:
+                # Check if this week has 4 or 2 matchups (playoff/superbowl week)
+                matchup_count = week_matchup_counts.get(year, {}).get(week, 0)
                 
-                if team1 and team2:
-                    playoff_teams = playoff_teams_by_year.get(year, set())
+                if matchup_count == 4 or matchup_count == 2:
+                    team1 = normalize_team_name(matchup.get('team1_name', ''))
+                    team2 = normalize_team_name(matchup.get('team2_name', ''))
+                    winner = normalize_team_name(matchup.get('winner', ''))
                     
-                    # Only count if both teams made the playoffs (top 4)
-                    # This ensures we don't count wins for teams that didn't qualify
-                    if playoff_teams and team1 in playoff_teams and team2 in playoff_teams:
+                    if team1 and team2:
                         # Only count wins for teams that actually won their matchup
-                        # Both playoff and superbowl wins count as playoff wins
+                        # Both playoff (4 matchups) and superbowl (2 matchups) wins count as playoff wins
                         if winner == team1:
                             team_wins[team1]['playoff_wins'] += 1
                             team_wins[team2]['playoff_losses'] += 1
