@@ -744,44 +744,34 @@ def get_all_time_wins():
                 team_wins[team_name]['regular_ties'] += s.get('ties', 0)
                 team_wins[team_name]['years'].add(year)
         
-        # Get playoff teams for each year (top 4 teams make playoffs)
-        playoff_teams_by_year = defaultdict(set)
-        for s in standings:
-            year = s.get('year', 0)
-            place = s.get('place', 0)
-            if year <= 2024 and place <= 4:
-                team_name = normalize_team_name(s.get('team_name', ''))
-                playoff_teams_by_year[year].add(team_name)
-        
         # Count playoff wins from matchups (2012-2024 only)
-        # Only count wins for teams that actually made the playoffs (top 4)
+        # Logic: In weeks where only 4 or 2 teams play (playoff/superbowl weeks),
+        # only give teams a win if they won their matchup
+        # Superbowl week (2 matchups) is included in playoff wins
         for matchup in all_matchups:
             year = matchup.get('year', 0)
             week_type = matchup.get('week_type', '')
             
             # Only count completed seasons (2012-2024) and playoff/superbowl games
+            # These are weeks with 4 matchups (playoff) or 2 matchups (superbowl)
             if year <= 2024 and week_type in ['playoff', 'superbowl']:
                 team1 = normalize_team_name(matchup.get('team1_name', ''))
                 team2 = normalize_team_name(matchup.get('team2_name', ''))
                 winner = normalize_team_name(matchup.get('winner', ''))
                 
                 if team1 and team2:
-                    playoff_teams = playoff_teams_by_year.get(year, set())
-                    
-                    # Only count if both teams made the playoffs (or if we don't have standings data, count all)
-                    # If we have standings data, verify both teams were in top 4
-                    if not playoff_teams or (team1 in playoff_teams and team2 in playoff_teams):
-                        # Count wins and losses for both teams
-                        if winner == team1:
-                            team_wins[team1]['playoff_wins'] += 1
-                            team_wins[team2]['playoff_losses'] += 1
-                        elif winner == team2:
-                            team_wins[team2]['playoff_wins'] += 1
-                            team_wins[team1]['playoff_losses'] += 1
-                        # Ties are rare in playoffs, but handle if needed
-                        elif winner == 'Tie' or winner == 'tie':
-                            # For ties, we could count as 0.5 wins each, but typically playoffs don't have ties
-                            pass
+                    # Only count wins for teams that actually won their matchup
+                    # Both playoff and superbowl wins count as playoff wins
+                    if winner == team1:
+                        team_wins[team1]['playoff_wins'] += 1
+                        team_wins[team2]['playoff_losses'] += 1
+                    elif winner == team2:
+                        team_wins[team2]['playoff_wins'] += 1
+                        team_wins[team1]['playoff_losses'] += 1
+                    # Ties are rare in playoffs, but handle if needed
+                    elif winner == 'Tie' or winner == 'tie':
+                        # For ties, we could count as 0.5 wins each, but typically playoffs don't have ties
+                        pass
         
         # Convert to list and add logos
         result = []
