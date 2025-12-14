@@ -15,6 +15,7 @@ const VIEW_OPTIONS = [
   { id: 'blowouts', label: '💥 Blowouts' },
   { id: 'bad-beats', label: '😱 Bad Beats' },
   { id: 'weekly-awards', label: '🏆 Weekly Awards' },
+  { id: 'lowest-scoring-weeks', label: '📉 Lowest Scoring Weeks' },
   { id: 'clutch', label: '⚡ Clutch Performance' },
   { id: 'team-dna', label: '🧬 Team DNA' },
   { id: 'trophy-case', label: '🏅 Trophy Case' },
@@ -43,6 +44,7 @@ function AdvancedStats() {
   const [clutch, setClutch] = useState([])
   const [teamDNA, setTeamDNA] = useState([])
   const [trophyCase, setTrophyCase] = useState([])
+  const [lowestScoringWeeks, setLowestScoringWeeks] = useState([])
   const [teams, setTeams] = useState([])
   const [trashTalk, setTrashTalk] = useState([])
   const [selectedTeam1, setSelectedTeam1] = useState('')
@@ -69,6 +71,7 @@ function AdvancedStats() {
         fetchBlowouts(),
         fetchBadBeats(),
         fetchWeeklyAwards(),
+        fetchLowestScoringWeeks(),
         fetchClutch(),
         fetchTeamDNA(),
         fetchTrophyCase()
@@ -230,6 +233,20 @@ function AdvancedStats() {
     } catch (error) {
       console.error('Error fetching trophy case:', error)
       setTrophyCase([])
+    }
+  }
+
+  const fetchLowestScoringWeeks = async () => {
+    try {
+      const response = await axios.get(`${API_BASE}/lowest-scoring-weeks`)
+      if (response.data.success) {
+        setLowestScoringWeeks(response.data.data || [])
+      } else {
+        console.error('Lowest scoring weeks API returned success=false:', response.data.error)
+      }
+    } catch (error) {
+      console.error('Error fetching lowest scoring weeks:', error)
+      setLowestScoringWeeks([])
     }
   }
 
@@ -620,6 +637,54 @@ function AdvancedStats() {
     </div>
   )
 
+  const renderLowestScoringWeeks = () => {
+    if (!lowestScoringWeeks || lowestScoringWeeks.length === 0) {
+      return <div className="no-data">No lowest scoring weeks data available</div>
+    }
+    return (
+      <div className="table-container">
+        <table className="data-table">
+          <colgroup>
+            <col className="col-rank" />
+            <col className="col-team" />
+            <col className="col-num" />
+            <col className="col-team" />
+            <col className="col-num" />
+            <col className="col-num" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th className="rank-header">Rank</th>
+              <th className="team-header">Team</th>
+              <th className="num-header">Score</th>
+              <th className="team-header">Opponent</th>
+              <th className="num-header">Opponent Score</th>
+              <th className="num-header">Year/Week</th>
+            </tr>
+          </thead>
+          <tbody>
+            {lowestScoringWeeks.map((week, index) => (
+              <tr key={index}>
+                <td className="rank-data">{index + 1}</td>
+                <td className="team-data">
+                  {week.team_logo && <img src={getTeamImageUrl(week.team, week.team_logo)} alt={week.team} className="team-logo-small" onError={(e) => e.target.style.display = 'none'} />}
+                  {week.team}
+                </td>
+                <td className="num-data num-red num-bold">{week.score?.toFixed(1)}</td>
+                <td className="team-data">
+                  {week.opponent_logo && <img src={getTeamImageUrl(week.opponent, week.opponent_logo)} alt={week.opponent} className="team-logo-small" onError={(e) => e.target.style.display = 'none'} />}
+                  {week.opponent}
+                </td>
+                <td className="num-data">{week.opponent_score?.toFixed(1)}</td>
+                <td className="num-data">{week.year} W{week.week}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
   const renderClutch = () => {
     if (!clutch || clutch.length === 0) {
       return <div className="no-data">No clutch data available</div>
@@ -808,6 +873,7 @@ function AdvancedStats() {
           {selectedView === 'blowouts' && renderBlowouts()}
           {selectedView === 'bad-beats' && renderBadBeats()}
           {selectedView === 'weekly-awards' && renderWeeklyAwards()}
+          {selectedView === 'lowest-scoring-weeks' && renderLowestScoringWeeks()}
           {selectedView === 'clutch' && renderClutch()}
           {selectedView === 'team-dna' && renderTeamDNA()}
           {selectedView === 'trophy-case' && renderTrophyCase()}

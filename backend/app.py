@@ -1330,6 +1330,31 @@ def get_weekly_recap():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 
+@app.route('/api/lowest-scoring-weeks', methods=['GET'])
+def get_lowest_scoring_weeks():
+    """Get top 10 lowest scoring weeks (2012-2024)"""
+    try:
+        from fun_stats import calculate_lowest_scoring_weeks
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        
+        data_dir = data_manager.data_dir
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        lowest_weeks = calculate_lowest_scoring_weeks(all_matchups, normalize_team_name)
+        
+        # Add logos
+        for week in lowest_weeks:
+            week['team_logo'] = get_team_logo_url(week['team'], data_dir)
+            week['opponent_logo'] = get_team_logo_url(week['opponent'], data_dir)
+        
+        return jsonify({'success': True, 'data': lowest_weeks})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
 @app.route('/api/what-if', methods=['POST'])
 def get_what_if():
     """Calculate what-if scenarios"""

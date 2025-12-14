@@ -955,6 +955,53 @@ def calculate_matchup_difficulty(standings: List[Dict], matchups: List[Dict], no
     return difficulty_scores
 
 
+def calculate_lowest_scoring_weeks(matchups: List[Dict], normalize_team_name) -> List[Dict]:
+    """Calculate top 10 lowest scoring weeks by any team (2012-2024 only)"""
+    lowest_scores = []
+    
+    for matchup in matchups:
+        year = matchup.get('year', 0)
+        # Only include 2012-2024
+        if year < 2012 or year > 2024:
+            continue
+        
+        t1 = normalize_team_name(matchup.get('team1_name', ''))
+        t2 = normalize_team_name(matchup.get('team2_name', ''))
+        score1 = matchup.get('team1_score', 0)
+        score2 = matchup.get('team2_score', 0)
+        week = matchup.get('week', 0)
+        week_type = matchup.get('week_type', 'regular')
+        
+        if not t1 or not t2:
+            continue
+        
+        # Add team1 score
+        lowest_scores.append({
+            'year': year,
+            'week': week,
+            'week_type': week_type,
+            'team': t1,
+            'score': score1,
+            'opponent': t2,
+            'opponent_score': score2
+        })
+        
+        # Add team2 score
+        lowest_scores.append({
+            'year': year,
+            'week': week,
+            'week_type': week_type,
+            'team': t2,
+            'score': score2,
+            'opponent': t1,
+            'opponent_score': score1
+        })
+    
+    # Sort by score (lowest first) and take top 10
+    lowest_scores.sort(key=lambda x: x['score'])
+    return lowest_scores[:10]
+
+
 def generate_weekly_recap(matchups: List[Dict], standings: List[Dict], year: int, week: int, normalize_team_name) -> Dict:
     """Generate automated weekly recap"""
     week_matchups = [m for m in matchups if m.get('year') == year and m.get('week') == week]
