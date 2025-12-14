@@ -880,8 +880,8 @@ def get_league_stats():
         team_winning_scores = defaultdict(list)
         for matchup in all_matchups:
             if matchup.get('year', 0) == 2025:  # Current season only
-                team1_name = normalize_team_name(matchup.get('team1', ''))
-                team2_name = normalize_team_name(matchup.get('team2', ''))
+                team1_name = normalize_team_name(matchup.get('team1_name', ''))
+                team2_name = normalize_team_name(matchup.get('team2_name', ''))
                 team1_score = matchup.get('team1_score', 0)
                 team2_score = matchup.get('team2_score', 0)
                 
