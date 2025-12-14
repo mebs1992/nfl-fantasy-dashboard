@@ -3,6 +3,7 @@ import axios from 'axios'
 import { getTeamImageUrl, getTeamColors, getTeamTagline } from '../utils/teamImages'
 import { API_BASE } from '../config'
 import './Standings.css'
+import './EnterpriseTables.css'
 
 function Standings() {
   const [standings, setStandings] = useState([])
@@ -93,26 +94,33 @@ function Standings() {
 
       <div className="card standings-card">
         <h2>League Standings</h2>
-        <div className="standings-table">
-          <table>
+        <div className="table-container">
+          <table className="data-table">
+            <colgroup>
+              <col style={{ width: '80px' }} />
+              <col style={{ width: 'auto' }} />
+              <col style={{ width: '100px' }} />
+              <col style={{ width: '180px' }} />
+              <col style={{ width: '130px' }} />
+              <col style={{ width: '130px' }} />
+            </colgroup>
             <thead>
               <tr>
-                <th className="th-rank">Rank</th>
-                <th className="th-team">Team</th>
-                <th className="th-record">W-L-T</th>
-                <th className="th-winpct">Win %</th>
-                <th className="th-points">Points For</th>
-                <th className="th-points">Points Against</th>
+                <th>Rank</th>
+                <th>Team</th>
+                <th>W-L-T</th>
+                <th>Win %</th>
+                <th>Points For</th>
+                <th>Points Against</th>
               </tr>
             </thead>
             <tbody>
-              {standings.map((team, index) => {
+              {standings.map((team) => {
                 const totalGames = team.wins + team.losses + team.ties
                 const winPct = totalGames > 0
                   ? ((team.wins + team.ties * 0.5) / totalGames * 100).toFixed(1)
                   : '0.0'
                 
-                // Determine playoff position class
                 let playoffClass = ''
                 let medalIcon = ''
                 if (team.place === 1) {
@@ -133,37 +141,32 @@ function Standings() {
                 const teamTagline = getTeamTagline(team.name)
                 
                 return (
-                  <tr 
-                    key={team.id} 
-                    className={`${playoffClass} team-row`}
-                    style={{ '--team-color': teamColors.primary }}
-                  >
-                    <td className="rank">
-                      <span className="rank-number">{team.place}</span>
-                      {medalIcon && <span className="medal-icon">{medalIcon}</span>}
+                  <tr key={team.id} className={`data-row ${playoffClass}`}>
+                    <td className="rank-cell">
+                      {team.place} {medalIcon}
                     </td>
                     <td className="team-cell">
-                      <div className="team-info">
+                      <div className="team-display">
                         <img 
                           src={getTeamImageUrl(team.name, team.logo)} 
                           alt={team.name}
-                          className="team-avatar"
+                          className="team-img"
                           onError={(e) => {
                             e.target.src = getTeamImageUrl(team.name)
                           }}
                         />
-                        <div className="team-details">
+                        <div>
                           <div className="team-name">{team.name}</div>
                           <div className="team-tagline">{teamTagline}</div>
                         </div>
                       </div>
                     </td>
                     <td className="record-cell">
-                      <span className="record-badge">{team.wins}-{team.losses}-{team.ties || 0}</span>
+                      {team.wins}-{team.losses}-{team.ties || 0}
                     </td>
                     <td className="winpct-cell">
-                      <div className="winpct-container">
-                        <span className="winpct-value">{winPct}%</span>
+                      <div className="winpct-wrapper">
+                        <span>{winPct}%</span>
                         <div className="winpct-bar">
                           <div 
                             className="winpct-fill" 
@@ -172,8 +175,8 @@ function Standings() {
                         </div>
                       </div>
                     </td>
-                    <td className="points points-for">{team.points_for?.toFixed(2) || '0.00'}</td>
-                    <td className="points points-against">{team.points_against?.toFixed(2) || '0.00'}</td>
+                    <td className="points-cell points-for">{team.points_for?.toFixed(2) || '0.00'}</td>
+                    <td className="points-cell points-against">{team.points_against?.toFixed(2) || '0.00'}</td>
                   </tr>
                 )
               })}

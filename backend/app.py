@@ -703,9 +703,10 @@ def get_hall_of_shame():
 
 @app.route('/api/all-time-wins', methods=['GET'])
 def get_all_time_wins():
-    """Get all-time total wins for each team - uses regular season data"""
+    """Get all-time total wins for each team - includes regular season and playoff wins"""
     try:
         from standings_scraper import load_standings_from_csv
+        from historical_scraper import load_from_csv
         from team_mapper import normalize_team_name
         from team_logos import get_team_logo_url
         from collections import defaultdict
@@ -713,32 +714,78 @@ def get_all_time_wins():
         # Get data directory path
         data_dir = data_manager.data_dir
         csv_file = os.path.join(data_dir, 'standings.csv')
-        # Use regular season standings
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        
+        # Use regular season standings for regular season wins
         standings = load_standings_from_csv(csv_file, 'regular')
         
-        # Aggregate wins by team (2012-2024 only)
-        team_wins = defaultdict(lambda: {'total_wins': 0, 'total_losses': 0, 'total_ties': 0, 'years': set()})
+        # Load matchups for playoff wins
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
         
+        # Aggregate regular season wins by team (2012-2024 only)
+        team_wins = defaultdict(lambda: {
+            'regular_wins': 0, 
+            'regular_losses': 0, 
+            'regular_ties': 0,
+            'playoff_wins': 0,
+            'playoff_losses': 0,
+            'years': set()
+        })
+        
+        # Count regular season wins from standings
         for s in standings:
             team_name = normalize_team_name(s['team_name'])
             year = s['year']
             
             # Only count completed seasons (2012-2024)
             if year <= 2024:
-                team_wins[team_name]['total_wins'] += s.get('wins', 0)
-                team_wins[team_name]['total_losses'] += s.get('losses', 0)
-                team_wins[team_name]['total_ties'] += s.get('ties', 0)
+                team_wins[team_name]['regular_wins'] += s.get('wins', 0)
+                team_wins[team_name]['regular_losses'] += s.get('losses', 0)
+                team_wins[team_name]['regular_ties'] += s.get('ties', 0)
                 team_wins[team_name]['years'].add(year)
+        
+        # Count playoff wins from matchups (2012-2024 only)
+        for matchup in all_matchups:
+            year = matchup.get('year', 0)
+            week_type = matchup.get('week_type', '')
+            
+            # Only count completed seasons (2012-2024) and playoff/superbowl games
+            if year <= 2024 and week_type in ['playoff', 'superbowl']:
+                team1 = normalize_team_name(matchup.get('team1_name', ''))
+                team2 = normalize_team_name(matchup.get('team2_name', ''))
+                winner = normalize_team_name(matchup.get('winner', ''))
+                
+                if team1 and team2:
+                    # Count wins and losses for both teams
+                    if winner == team1:
+                        team_wins[team1]['playoff_wins'] += 1
+                        team_wins[team2]['playoff_losses'] += 1
+                    elif winner == team2:
+                        team_wins[team2]['playoff_wins'] += 1
+                        team_wins[team1]['playoff_losses'] += 1
+                    # Ties are rare in playoffs, but handle if needed
+                    elif winner == 'Tie' or winner == 'tie':
+                        # For ties, we could count as 0.5 wins each, but typically playoffs don't have ties
+                        pass
         
         # Convert to list and add logos
         result = []
         for team_name, data in team_wins.items():
+            total_wins = data['regular_wins'] + data['playoff_wins']
+            total_losses = data['regular_losses'] + data['playoff_losses']
+            total_ties = data['regular_ties']
+            total_games = total_wins + total_losses + total_ties
+            
             result.append({
                 'team': team_name,
-                'total_wins': data['total_wins'],
-                'total_losses': data['total_losses'],
-                'total_ties': data['total_ties'],
-                'total_games': data['total_wins'] + data['total_losses'] + data['total_ties'],
+                'regular_wins': data['regular_wins'],
+                'playoff_wins': data['playoff_wins'],
+                'total_wins': total_wins,
+                'regular_losses': data['regular_losses'],
+                'playoff_losses': data['playoff_losses'],
+                'total_losses': total_losses,
+                'total_ties': total_ties,
+                'total_games': total_games,
                 'years_active': len(data['years']),
                 'logo': get_team_logo_url(team_name, data_dir)
             })

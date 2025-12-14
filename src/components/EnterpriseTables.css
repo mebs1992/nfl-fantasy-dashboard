@@ -1,0 +1,241 @@
+/* Completely Rebuilt Table Styles - Simple and Reliable */
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: white;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 0.95rem;
+}
+
+.data-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.data-table thead th {
+  padding: 1.25rem 1rem;
+  font-weight: 600;
+  color: white;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.data-table tbody td {
+  padding: 1.25rem 1rem;
+  vertical-align: middle;
+}
+
+/* Rank column - CENTER */
+.data-table thead th:first-child,
+.data-table tbody td.rank-cell {
+  text-align: center;
+}
+
+.data-table tbody td.rank-cell {
+  font-weight: 700;
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+/* Team column - LEFT */
+.data-table thead th:nth-child(2),
+.data-table tbody td.team-cell {
+  text-align: left;
+}
+
+/* Record column - CENTER */
+.data-table thead th:nth-child(3),
+.data-table tbody td.record-cell {
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Win % column - LEFT */
+.data-table thead th:nth-child(4),
+.data-table tbody td.winpct-cell {
+  text-align: left;
+}
+
+/* Points columns - RIGHT */
+.data-table thead th:nth-child(5),
+.data-table thead th:nth-child(6),
+.data-table tbody td.points-cell {
+  text-align: right;
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Number columns - RIGHT */
+.data-table thead th:nth-child(n+3),
+.data-table tbody td.num-cell {
+  text-align: right;
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.data-table tbody td.num-cell.num-center {
+  text-align: center;
+}
+
+/* Color variants */
+.points-for {
+  color: #059669;
+}
+
+.points-against {
+  color: #dc2626;
+}
+
+.num-green {
+  color: #10b981;
+}
+
+.num-orange {
+  color: #f59e0b;
+}
+
+.num-red {
+  color: #ef4444;
+}
+
+.num-gray {
+  color: #6b7280;
+}
+
+.num-dark {
+  color: #374151;
+}
+
+.num-bold {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Team display */
+.team-display {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.team-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.team-name {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1rem;
+}
+
+.team-tagline {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Win % bar */
+.winpct-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.winpct-bar {
+  flex: 1;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.winpct-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Playoff highlighting */
+.data-row.playoff-gold {
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+  border-left: 4px solid #FFD700;
+}
+
+.data-row.playoff-silver {
+  background: linear-gradient(90deg, rgba(192, 192, 192, 0.1) 0%, transparent 100%);
+  border-left: 4px solid #C0C0C0;
+}
+
+.data-row.playoff-bronze {
+  background: linear-gradient(90deg, rgba(205, 127, 50, 0.1) 0%, transparent 100%);
+  border-left: 4px solid #CD7F32;
+}
+
+.data-row.playoff-fourth {
+  background: linear-gradient(90deg, rgba(139, 69, 19, 0.1) 0%, transparent 100%);
+  border-left: 4px solid #8B4513;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .table-container {
+    margin-top: 1rem;
+  }
+
+  .data-table {
+    font-size: 0.85rem;
+  }
+
+  .data-table thead th,
+  .data-table tbody td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .data-table thead th {
+    font-size: 0.8rem;
+  }
+
+  .team-img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .team-name {
+    font-size: 0.9rem;
+  }
+
+  .team-tagline {
+    font-size: 0.75rem;
+  }
+}

@@ -4,6 +4,7 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 import { getTeamImageUrl, getTeamColors } from '../utils/teamImages'
 import { API_BASE } from '../config'
 import './Almanac.css'
+import './EnterpriseTables.css'
 
 // Enterprise-grade color scheme
 const CHART_COLORS = {
@@ -358,14 +359,27 @@ function Almanac() {
         return (
           <div className="card points-table-card">
             <h2>🏅 All-Time Wins</h2>
-            <p className="section-description">Total wins across all completed seasons (2012-2024)</p>
-            <div className="almanac-table-wrapper">
-              <table className="almanac-table">
+            <p className="section-description">Total wins across all completed seasons (2012-2024) - Regular Season + Playoffs</p>
+            <div className="table-container">
+              <table className="data-table">
+                <colgroup>
+                  <col style={{ width: '80px' }} />
+                  <col style={{ width: 'auto' }} />
+                  <col style={{ width: '100px' }} />
+                  <col style={{ width: '100px' }} />
+                  <col style={{ width: '100px' }} />
+                  <col style={{ width: '100px' }} />
+                  <col style={{ width: '80px' }} />
+                  <col style={{ width: '100px' }} />
+                  <col style={{ width: '100px' }} />
+                </colgroup>
                 <thead>
                   <tr>
                     <th>Rank</th>
                     <th>Team</th>
-                    <th>Wins</th>
+                    <th>Regular Wins</th>
+                    <th>Playoff Wins</th>
+                    <th>Total Wins</th>
                     <th>Losses</th>
                     <th>Ties</th>
                     <th>Total Games</th>
@@ -376,18 +390,14 @@ function Almanac() {
                   {allTimeWins && allTimeWins.map((item) => {
                     const teamColors = getTeamColors(item.team)
                     return (
-                      <tr 
-                        key={item.team}
-                        className="almanac-table-row"
-                        style={{ '--team-color': teamColors.primary }}
-                      >
+                      <tr key={item.team} className="data-row">
                         <td className="rank-cell">#{item.rank}</td>
                         <td className="team-cell">
-                          <div className="team-info">
+                          <div className="team-display">
                             <img 
                               src={getTeamImageUrl(item.team, item.logo)} 
                               alt={item.team}
-                              className="team-avatar-small"
+                              className="team-img"
                               onError={(e) => {
                                 e.target.src = getTeamImageUrl(item.team)
                               }}
@@ -395,11 +405,13 @@ function Almanac() {
                             <span className="team-name">{item.team}</span>
                           </div>
                         </td>
-                        <td className="wins-cell">{item.total_wins}</td>
-                        <td className="losses-cell">{item.total_losses}</td>
-                        <td className="ties-cell">{item.total_ties}</td>
-                        <td className="games-cell">{item.total_games}</td>
-                        <td className="seasons-cell">{item.years_active}</td>
+                        <td className="num-cell num-green">{item.regular_wins}</td>
+                        <td className="num-cell num-orange">{item.playoff_wins}</td>
+                        <td className="num-cell num-green num-bold">{item.total_wins}</td>
+                        <td className="num-cell num-red">{item.total_losses}</td>
+                        <td className="num-cell num-gray">{item.total_ties}</td>
+                        <td className="num-cell num-dark">{item.total_games}</td>
+                        <td className="num-cell num-center">{item.years_active}</td>
                       </tr>
                     )
                   })}
@@ -414,8 +426,14 @@ function Almanac() {
           <div className="card points-table-card">
             <h2>📊 All-Time Points For</h2>
             <p className="section-description">Total points scored across all completed seasons</p>
-            <div className="almanac-table-wrapper">
-              <table className="almanac-table">
+            <div className="table-container">
+              <table className="data-table">
+                <colgroup>
+                  <col style={{ width: '80px' }} />
+                  <col style={{ width: 'auto' }} />
+                  <col style={{ width: '150px' }} />
+                  <col style={{ width: '100px' }} />
+                </colgroup>
                 <thead>
                   <tr>
                     <th>Rank</th>
@@ -428,18 +446,14 @@ function Almanac() {
                   {allTimeStats && allTimeStats.most_points_scored.map((item, index) => {
                     const teamColors = getTeamColors(item.team)
                     return (
-                      <tr 
-                        key={item.team}
-                        className="almanac-table-row"
-                        style={{ '--team-color': teamColors.primary }}
-                      >
+                      <tr key={item.team} className="data-row">
                         <td className="rank-cell">#{index + 1}</td>
                         <td className="team-cell">
-                          <div className="team-info">
+                          <div className="team-display">
                             <img 
                               src={getTeamImageUrl(item.team, item.logo)} 
                               alt={item.team}
-                              className="team-avatar-small"
+                              className="team-img"
                               onError={(e) => {
                                 e.target.src = getTeamImageUrl(item.team)
                               }}
@@ -447,8 +461,8 @@ function Almanac() {
                             <span className="team-name">{item.team}</span>
                           </div>
                         </td>
-                        <td className="points-cell points-for">{item.points.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
-                        <td className="seasons-cell">{item.seasons}</td>
+                        <td className="num-cell num-green">{item.points.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
+                        <td className="num-cell num-center">{item.seasons}</td>
                       </tr>
                     )
                   })}
@@ -463,8 +477,14 @@ function Almanac() {
           <div className="card points-table-card">
             <h2>📉 All-Time Points Against</h2>
             <p className="section-description">Total points allowed across all completed seasons</p>
-            <div className="almanac-table-wrapper">
-              <table className="almanac-table">
+            <div className="table-container">
+              <table className="data-table">
+                <colgroup>
+                  <col style={{ width: '80px' }} />
+                  <col style={{ width: 'auto' }} />
+                  <col style={{ width: '150px' }} />
+                  <col style={{ width: '100px' }} />
+                </colgroup>
                 <thead>
                   <tr>
                     <th>Rank</th>
@@ -477,18 +497,14 @@ function Almanac() {
                   {allTimeStats && allTimeStats.most_points_against.map((item, index) => {
                     const teamColors = getTeamColors(item.team)
                     return (
-                      <tr 
-                        key={item.team}
-                        className="almanac-table-row"
-                        style={{ '--team-color': teamColors.primary }}
-                      >
+                      <tr key={item.team} className="data-row">
                         <td className="rank-cell">#{index + 1}</td>
                         <td className="team-cell">
-                          <div className="team-info">
+                          <div className="team-display">
                             <img 
                               src={getTeamImageUrl(item.team, item.logo)} 
                               alt={item.team}
-                              className="team-avatar-small"
+                              className="team-img"
                               onError={(e) => {
                                 e.target.src = getTeamImageUrl(item.team)
                               }}
@@ -496,8 +512,8 @@ function Almanac() {
                             <span className="team-name">{item.team}</span>
                           </div>
                         </td>
-                        <td className="points-cell points-against">{item.points.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
-                        <td className="seasons-cell">{item.seasons}</td>
+                        <td className="num-cell num-red">{item.points.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
+                        <td className="num-cell num-center">{item.seasons}</td>
                       </tr>
                     )
                   })}
