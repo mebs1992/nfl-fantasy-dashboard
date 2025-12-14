@@ -4,19 +4,21 @@
   overflow-x: auto;
   margin-top: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
 }
 
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
+  background: #ffffff;
   font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .data-table thead {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #003087;
 }
 
 .data-table thead th {
@@ -28,15 +30,16 @@
   letter-spacing: 0.05em;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   text-align: left;
+  font-family: 'Inter', sans-serif;
 }
 
 .data-table tbody tr {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e0e0e0;
   transition: background-color 0.2s ease;
 }
 
 .data-table tbody tr:hover {
-  background-color: #f8f9fa;
+  background-color: #f5f5f5;
 }
 
 .data-table tbody tr:last-child {
@@ -56,7 +59,7 @@
 
 .data-table tbody td.rank-cell {
   font-weight: 700;
-  color: #667eea;
+  color: #C8102E;
   font-size: 1.1rem;
 }
 
@@ -105,31 +108,31 @@
 
 /* Color variants */
 .points-for {
-  color: #059669;
+  color: #34d399;
 }
 
 .points-against {
-  color: #dc2626;
+  color: #f87171;
 }
 
 .num-green {
-  color: #10b981;
+  color: #34d399;
 }
 
 .num-orange {
-  color: #f59e0b;
+  color: #fbbf24;
 }
 
 .num-red {
-  color: #ef4444;
+  color: #f87171;
 }
 
 .num-gray {
-  color: #6b7280;
+  color: #94a3b8;
 }
 
 .num-dark {
-  color: #374151;
+  color: #cbd5e1;
 }
 
 .num-bold {
@@ -148,21 +151,23 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #e0e0e0;
   object-fit: cover;
   flex-shrink: 0;
 }
 
 .team-name {
   font-weight: 600;
-  color: #1f2937;
+  color: #003087;
   font-size: 1rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .team-tagline {
   font-size: 0.85rem;
-  color: #6b7280;
+  color: #666666;
   font-style: italic;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Win % bar */
@@ -175,7 +180,7 @@
 .winpct-bar {
   flex: 1;
   height: 8px;
-  background: #e5e7eb;
+  background: #e0e0e0;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -188,8 +193,8 @@
 
 /* Playoff highlighting */
 .data-row.playoff-gold {
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
-  border-left: 4px solid #FFD700;
+  background: linear-gradient(90deg, rgba(200, 16, 46, 0.1) 0%, transparent 100%);
+  border-left: 4px solid #C8102E;
 }
 
 .data-row.playoff-silver {
@@ -203,8 +208,8 @@
 }
 
 .data-row.playoff-fourth {
-  background: linear-gradient(90deg, rgba(139, 69, 19, 0.1) 0%, transparent 100%);
-  border-left: 4px solid #8B4513;
+  background: linear-gradient(90deg, rgba(0, 48, 135, 0.1) 0%, transparent 100%);
+  border-left: 4px solid #003087;
 }
 
 /* Mobile Responsive */

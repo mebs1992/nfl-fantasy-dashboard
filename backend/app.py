@@ -805,6 +805,121 @@ def get_all_time_wins():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 
+@app.route('/api/league-stats', methods=['GET'])
+def get_league_stats():
+    """Get league-wide statistics and averages, plus individual team stats"""
+    try:
+        from standings_scraper import load_standings_from_csv
+        from historical_scraper import load_from_csv
+        from team_mapper import normalize_team_name
+        from team_logos import get_team_logo_url
+        from collections import defaultdict
+        
+        # Get data directory path
+        data_dir = data_manager.data_dir
+        standings_file = os.path.join(data_dir, 'standings.csv')
+        matchups_file = os.path.join(data_dir, 'matchups.csv')
+        
+        # Load regular season standings (2012-2024 for historical, 2025 for current)
+        all_standings = load_standings_from_csv(standings_file, 'regular')
+        
+        # Load matchups for winning scores
+        all_matchups = load_from_csv(matchups_file) if os.path.exists(matchups_file) else []
+        
+        # Calculate league averages from historical data (2012-2024)
+        historical_standings = [s for s in all_standings if s['year'] <= 2024]
+        current_standings = [s for s in all_standings if s['year'] == 2025]
+        
+        # Calculate average winning score (from matchups)
+        winning_scores = []
+        for matchup in all_matchups:
+            if matchup.get('year', 0) <= 2024:  # Historical data only
+                winner_score = max(matchup.get('team1_score', 0), matchup.get('team2_score', 0))
+                if winner_score > 0:
+                    winning_scores.append(winner_score)
+        
+        avg_winning_score = sum(winning_scores) / len(winning_scores) if winning_scores else 0
+        
+        # Calculate average wins to make playoffs (teams in top 4)
+        playoff_wins = []
+        for s in historical_standings:
+            if s['place'] <= 4:
+                playoff_wins.append(s.get('wins', 0))
+        
+        avg_wins_for_playoffs = sum(playoff_wins) / len(playoff_wins) if playoff_wins else 0
+        
+        # Calculate other averages
+        all_points_for = [s.get('points_for', 0) for s in historical_standings if s.get('points_for', 0) > 0]
+        avg_points_for = sum(all_points_for) / len(all_points_for) if all_points_for else 0
+        
+        all_points_against = [s.get('points_against', 0) for s in historical_standings if s.get('points_against', 0) > 0]
+        avg_points_against = sum(all_points_against) / len(all_points_against) if all_points_against else 0
+        
+        # Calculate win percentages
+        win_pcts = []
+        for s in historical_standings:
+            wins = s.get('wins', 0)
+            losses = s.get('losses', 0)
+            ties = s.get('ties', 0)
+            total_games = wins + losses + ties
+            if total_games > 0:
+                win_pct = ((wins + ties * 0.5) / total_games) * 100
+                win_pcts.append(win_pct)
+        
+        avg_win_pct = sum(win_pcts) / len(win_pcts) if win_pcts else 0
+        
+        # Calculate average points per game
+        total_games = sum([s.get('wins', 0) + s.get('losses', 0) + s.get('ties', 0) for s in historical_standings])
+        avg_points_per_game = (sum(all_points_for) / total_games) if total_games > 0 else 0
+        
+        # Calculate average points differential
+        point_differentials = [s.get('points_for', 0) - s.get('points_against', 0) for s in historical_standings]
+        avg_point_differential = sum(point_differentials) / len(point_differentials) if point_differentials else 0
+        
+        # Get team-specific stats for current season
+        team_stats = {}
+        for s in current_standings:
+            team_name = normalize_team_name(s['team_name'])
+            wins = s.get('wins', 0)
+            losses = s.get('losses', 0)
+            ties = s.get('ties', 0)
+            total_games = wins + losses + ties
+            win_pct = ((wins + ties * 0.5) / total_games * 100) if total_games > 0 else 0
+            
+            team_stats[team_name] = {
+                'name': team_name,
+                'wins': wins,
+                'losses': losses,
+                'ties': ties,
+                'points_for': s.get('points_for', 0.0),
+                'points_against': s.get('points_against', 0.0),
+                'win_pct': win_pct,
+                'point_differential': s.get('points_for', 0.0) - s.get('points_against', 0.0),
+                'logo': s.get('team_logo') or get_team_logo_url(team_name, data_dir)
+            }
+        
+        # League averages
+        league_averages = {
+            'avg_winning_score': round(avg_winning_score, 2),
+            'avg_wins_for_playoffs': round(avg_wins_for_playoffs, 2),
+            'avg_points_for': round(avg_points_for, 2),
+            'avg_points_against': round(avg_points_against, 2),
+            'avg_win_pct': round(avg_win_pct, 2),
+            'avg_points_per_game': round(avg_points_per_game, 2),
+            'avg_point_differential': round(avg_point_differential, 2)
+        }
+        
+        return jsonify({
+            'success': True,
+            'data': {
+                'league_averages': league_averages,
+                'team_stats': team_stats
+            }
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     # Ensure data directory exists
     os.makedirs('data', exist_ok=True)

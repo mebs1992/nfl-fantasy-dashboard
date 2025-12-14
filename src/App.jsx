@@ -6,6 +6,7 @@ import HeadToHead from './components/HeadToHead'
 import Almanac from './components/Almanac'
 import HallOfFame from './components/HallOfFame'
 import HallOfShame from './components/HallOfShame'
+import LeagueStats from './components/LeagueStats'
 import { API_BASE } from './config'
 import './App.css'
 
@@ -49,6 +50,7 @@ function App() {
   const tabs = [
     { id: 'standings', label: 'Standings' },
     { id: 'playoff-tracker', label: 'Playoff Tracker' },
+    { id: 'league-stats', label: 'League Stats' },
     { id: 'almanac', label: 'The Almanac' },
     { id: 'head-to-head', label: 'Head-to-Head' },
     { id: 'hall-of-fame', label: 'Hall of Fame' },
@@ -68,7 +70,18 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <h1>🏈 The Greatest League</h1>
+          <div className="header-logo-section">
+            <img 
+              src="/tgl-logo.png" 
+              alt="TGL Logo" 
+              className="tgl-logo"
+              onError={(e) => {
+                // Hide logo if not found, but keep the space for when it's added
+                e.target.style.display = 'none';
+              }}
+            />
+            <h1>The Greatest League</h1>
+          </div>
           <div className="header-actions">
             {lastUpdate && (
               <span className="last-update">
@@ -97,6 +110,7 @@ function App() {
       <main className="app-main">
         {activeTab === 'standings' && <Standings />}
         {activeTab === 'playoff-tracker' && <PlayoffTracker />}
+        {activeTab === 'league-stats' && <LeagueStats />}
         {activeTab === 'almanac' && <Almanac />}
         {activeTab === 'head-to-head' && <HeadToHead />}
         {activeTab === 'hall-of-fame' && <HallOfFame />}

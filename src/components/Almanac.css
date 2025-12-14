@@ -11,11 +11,11 @@
 }
 
 .almanac-sidebar {
-  background: white;
+  background: #ffffff;
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid #e0e0e0;
   height: fit-content;
   position: sticky;
   top: 2rem;
@@ -24,10 +24,11 @@
 .sidebar-header {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #333;
+  color: #003087;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid #e5e7eb;
+  border-bottom: 2px solid #C8102E;
+  font-family: 'Inter', sans-serif;
 }
 
 .sidebar-menu {
@@ -42,29 +43,30 @@
   gap: 0.75rem;
   padding: 0.875rem 1rem;
   border: none;
-  background: #f9fafb;
+  background: #f5f5f5;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: left;
   font-size: 0.95rem;
-  color: #374151;
+  color: #666666;
   font-weight: 500;
   border: 2px solid transparent;
+  font-family: 'Inter', sans-serif;
 }
 
 .sidebar-menu-item:hover {
-  background: #f3f4f6;
+  background: #e0e0e0;
   transform: translateX(4px);
-  border-color: #e5e7eb;
+  border-color: #e0e0e0;
 }
 
 .sidebar-menu-item.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #003087;
   color: white;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-  border-color: #5568d3;
+  box-shadow: 0 4px 12px rgba(0, 48, 135, 0.3);
+  border-color: #003087;
 }
 
 .sidebar-menu-item.active:hover {
@@ -150,10 +152,11 @@
 .badge:nth-child(3) { animation-delay: 0.3s; }
 
 .section-description {
-  color: #6b7280;
+  color: #666666;
   font-size: 0.95rem;
   margin-bottom: 2rem;
   font-style: italic;
+  font-family: 'Inter', sans-serif;
 }
 
 .chart-wrapper {
