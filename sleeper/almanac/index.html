@@ -1,0 +1,362 @@
+<title>The Almanac</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Libre+Franklin:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a club almanac. Yellow cover band, then chapters down a single column,
+   with the honours board as the one dark, gilded moment. */
+:root{
+  --paper:#F4F5F1; --card:#FFFFFF; --ink:#16203A; --muted:#5D6579; --rule:#D9DCE3;
+  --almanac:#F0BE2A; --almanac-ink:#16203A;
+  --board:#1A2440; --gilt:#E3B54A; --board-ink:#F3EBD3;
+  --win:#1F7A4D; --loss:#B23A3A; --win-soft:#D7EDE1; --loss-soft:#F3DADA;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0F1424; --card:#171E33; --ink:#E9ECF4; --muted:#9AA3B8; --rule:#2A3350;
+  --almanac:#F0BE2A; --almanac-ink:#16203A;
+  --board:#0A0F1D; --gilt:#E8BE5C; --board-ink:#F3EBD3;
+  --win:#5CC28D; --loss:#E27272; --win-soft:#173A2A; --loss-soft:#3E1E22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F1424; --card:#171E33; --ink:#E9ECF4; --muted:#9AA3B8; --rule:#2A3350;
+  --almanac:#F0BE2A; --almanac-ink:#16203A;
+  --board:#0A0F1D; --gilt:#E8BE5C; --board-ink:#F3EBD3;
+  --win:#5CC28D; --loss:#E27272; --win-soft:#173A2A; --loss-soft:#3E1E22; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--almanac);outline-offset:2px}
+
+/* cover */
+.cover{background:var(--almanac);color:var(--almanac-ink)}
+.cover .wrap{padding-block:40px 28px;display:grid;gap:18px}
+.edition{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;display:flex;flex-wrap:wrap;gap:6px 18px}
+.cover h1{font-size:clamp(64px,13vw,148px);font-weight:900;letter-spacing:-.01em;text-transform:uppercase}
+.cover h1 small{display:block;font-size:.26em;font-weight:800;letter-spacing:.08em;margin-bottom:6px}
+.lede{max-width:60ch;font-size:16px}
+.facts{display:flex;flex-wrap:wrap;gap:6px 26px;border-top:2px solid var(--almanac-ink);padding-top:12px}
+.facts div{display:flex;align-items:baseline;gap:8px}
+.facts b{font-family:var(--display);font-size:30px;font-weight:800}
+.facts span{font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+
+/* nav */
+nav.chapters{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ink);color:var(--paper)}
+nav.chapters .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.chapters a{font-family:var(--display);font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;padding:10px 10px;white-space:nowrap;opacity:.8}
+nav.chapters a:hover{opacity:1;color:var(--almanac)}
+
+section{padding-block:44px 8px}
+.chap{display:flex;align-items:baseline;gap:14px;border-bottom:3px solid var(--ink);padding-bottom:8px;margin-bottom:20px}
+.chap h2{font-size:clamp(34px,6vw,52px);font-weight:900;text-transform:uppercase}
+.chap .no{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.1em}
+.intro{color:var(--muted);max-width:66ch;margin:-8px 0 20px}
+h3{font-size:24px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:28px}
+.grid2>*{min-width:0}
+.panel{background:var(--card);border:1px solid var(--rule);padding:18px}
+.kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:2px solid var(--ink);white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+td.r,th.r{text-align:right}
+td.num,td .num{white-space:nowrap}
+ul.results{list-style:none;margin:0;padding:0}
+ul.results li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule)}
+ul.results .big{font-family:var(--mono);font-weight:600;white-space:nowrap}
+tr.cut td{color:var(--muted)}
+.sub{display:block;font-size:12px;color:var(--muted)}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;padding:1px 6px;border-radius:3px}
+.pill.w{background:var(--win-soft);color:var(--win)} .pill.l{background:var(--loss-soft);color:var(--loss)}
+.pill.y{background:var(--almanac);color:var(--almanac-ink)}
+
+/* honours board */
+.board{background:var(--board);color:var(--board-ink);padding:26px 22px;border:6px double var(--gilt)}
+.board h3{color:var(--gilt);text-align:center;font-size:30px;letter-spacing:.12em}
+.board .rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0 36px;margin-top:14px}
+.board .row{display:grid;grid-template-columns:56px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid rgba(227,181,74,.25)}
+.board .yr{font-family:var(--display);font-weight:800;font-size:22px;color:var(--gilt)}
+.board .ch{font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:.03em;line-height:1.05}
+.board .ru{display:block;font-size:12px;opacity:.75;margin-top:2px}
+.tally{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;margin-top:18px;font-size:13px}
+.tally b{color:var(--gilt);font-family:var(--display);font-size:20px}
+
+/* rivalry cards */
+.rivals{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr));gap:16px}
+.rival{background:var(--card);border:1px solid var(--rule);padding:16px;display:grid;gap:10px;min-width:0}
+.rival .vs span{min-width:0;overflow-wrap:anywhere}
+.rival .vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:8px;font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;line-height:1}
+.rival .vs span:last-child{text-align:right}
+.rival .vs em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.split{display:flex;height:10px;background:var(--rule)}
+.split i{display:block;height:100%}
+.split i:first-child{background:var(--ink)} .split i:last-child{background:var(--almanac)}
+.rival .meta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.rival .score{display:flex;justify-content:space-between;font-family:var(--mono);font-size:20px;font-weight:600}
+
+/* lists of games */
+ol.games{list-style:none;margin:0;padding:0;counter-reset:g}
+ol.games li{display:grid;grid-template-columns:28px 1fr auto;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule);counter-increment:g;align-items:baseline}
+ol.games li::before{content:counter(g);font-family:var(--mono);font-size:12px;color:var(--muted)}
+ol.games .big{font-family:var(--mono);font-weight:600;font-size:16px;text-align:right}
+ol.games .when{font-size:12px;color:var(--muted);display:block}
+
+/* bars */
+.bars{display:grid;gap:6px}
+.bar{display:grid;grid-template-columns:minmax(110px,170px) 1fr 52px;gap:10px;align-items:center;font-size:13px}
+.bar .t{height:14px;background:var(--rule);position:relative}
+.bar .t i{position:absolute;top:0;bottom:0;background:var(--ink)}
+.bar .t i.pos{background:var(--win)} .bar .t i.neg{background:var(--loss)}
+.bar .t .mid{position:absolute;top:-3px;bottom:-3px;left:50%;width:1px;background:var(--muted)}
+.bar .v{text-align:right}
+.bar .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* tools */
+.pickers{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px}
+select{font:inherit;font-weight:600;padding:8px 10px;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:0;max-width:100%}
+.h2hhead{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;text-align:center;margin-bottom:16px}
+.h2hhead .big{font-family:var(--display);font-weight:900;font-size:clamp(48px,10vw,84px);line-height:1}
+.h2hhead .nm{font-family:var(--display);font-weight:800;font-size:20px;text-transform:uppercase}
+.statline{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:center;font-size:13px;color:var(--muted);margin-bottom:16px}
+.statline b{color:var(--ink);font-family:var(--mono)}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:14px}
+.profile .panel h4{margin:4px 0 2px;font-family:var(--display);font-size:24px;font-weight:800;text-transform:uppercase;line-height:1.05}
+.profile .panel p{margin:0;font-size:13px;color:var(--muted)}
+
+/* guillotine */
+.blade{display:grid;gap:4px}
+.blade .cutrow{display:grid;grid-template-columns:52px 1fr auto;gap:10px;padding:6px 0;border-bottom:1px dashed var(--rule);align-items:baseline}
+.blade .wk{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.blade .gone{text-decoration:line-through;text-decoration-color:var(--loss);text-decoration-thickness:2px}
+.alive{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.alive span{background:var(--almanac);color:var(--almanac-ink);font-family:var(--display);font-weight:800;font-size:18px;text-transform:uppercase;padding:4px 10px}
+
+footer{padding-block:40px 60px;color:var(--muted);font-size:12px}
+.err{padding:40px 0;font-size:16px}
+@media (prefers-reduced-motion:no-preference){.split i{transition:width .4s ease}}
+@media (max-width:520px){.bar{grid-template-columns:96px 1fr 46px}.board{padding:20px 14px}}
+</style>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="edition"><span>Sunday Club</span><span id="ed">Est. 2012</span><span id="upd"></span></div>
+    <h1><small>Sunday Club</small>The Almanac</h1>
+    <p class="lede" id="lede">Every game the league has played since 2012: NFL.com, then ESPN, now Sleeper. Records follow the franchise, whatever the team was called that year.</p>
+    <div class="facts" id="facts"></div>
+  </div>
+</header>
+
+<nav class="chapters" aria-label="Chapters"><div class="wrap">
+  <a href="#season">This season</a><a href="#honours">Honours</a><a href="#rivals">Rivals</a>
+  <a href="#franchise">Franchises</a><a href="#h2h">Head to head</a><a href="#records">Records</a>
+  <a href="#luck">Luck</a><a href="#guillotine">Guillotine</a><a href="#table">All-time table</a>
+</div></nav>
+
+<main class="wrap" id="main"><p class="err">Loading the Almanac…</p></main>
+
+<footer class="wrap" id="foot"></footer>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const f2=x=>x==null?"–":(+x).toFixed(2);
+const pct=x=>x==null?"–":((+x)*100).toFixed(1)+"%";
+const sgn=x=>(x>0?"+":"")+(+x).toFixed(2);
+const wk=(s,w,st)=>`${s} · Wk ${w}${st&&st!=="R"&&st!=="Regular"?" · Playoff":""}`;
+
+fetch("almanac.json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(render).catch(e=>{
+  $("#main").innerHTML=`<p class="err">The Almanac data didn't load (${esc(e.message)}). Refresh the page to try again.</p>`;
+});
+
+function render(d){
+  const F=d.fun, cur=F.current, names=(cur&&cur.names)||{};
+  const champs=d.champions.filter(c=>c.champion&&!String(c.champion).startsWith("—"));
+  const seasons=[...new Set(d.standings.map(s=>s.season))];
+  const label=fr=>names[fr]&&names[fr]!==fr?`${esc(fr)}<span class="sub">now “${esc(names[fr])}”</span>`:esc(fr);
+
+  $("#upd").textContent=`Updated ${d.generated}`;
+  $("#ed").textContent=`Edition ${seasons.length}`;
+  const reigning=champs[0];
+  $("#facts").innerHTML=[
+    [seasons.length,"seasons"],[d.games.length.toLocaleString(),"games"],[champs.length,"champions"],
+    [d.franchises.length,"franchises"],[reigning?esc(reigning.champion):"–","reigning champ"]
+  ].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join("");
+
+  let h="";
+
+  /* ---------- this season */
+  if(cur){
+    const st=d.standings.filter(s=>s.season===cur.season).sort((a,b)=>a.seed-b.seed);
+    const g=F.guillotine.find(x=>x.s===cur.season);
+    const last=d.games.filter(x=>x.s===cur.season&&x.w===cur.through_week);
+    const luckCur=Object.fromEntries((F.luck_current||[]).map(x=>[x.fr,x]));
+    h+=`<section id="season"><div class="chap"><h2>${cur.season} on Sleeper</h2><span class="no">Through week ${cur.through_week} · playoffs from week ${cur.playoff_start}</span></div>
+    <div class="grid2">
+      <div><h3>Ladder</h3><div class="tbl"><table><thead><tr><th>#</th><th>Team</th><th class="r">W-L</th><th class="r">PF</th><th class="r">PA</th><th class="r" title="Wins minus all-play expected wins">Luck</th><th>Streak</th></tr></thead><tbody>
+      ${st.map(s=>{const L=luckCur[s.franchise];const sk=F.profiles[s.franchise]?.streak||"";
+        return `<tr><td class="num">${s.seed}</td><td><b>${esc(s.name)}</b>${s.name!==s.franchise?`<span class="sub">${esc(s.franchise)}</span>`:""}</td>
+        <td class="r num">${s.w}-${s.l}${s.t?"-"+s.t:""}</td><td class="r num">${f2(s.pf)}</td><td class="r num">${f2(s.pa)}</td>
+        <td class="r num">${L?sgn(L.luck):"–"}</td><td><span class="pill ${sk[0]==="W"?"w":"l"}">${esc(sk)}</span></td></tr>`}).join("")}
+      </tbody></table></div>
+      <p class="kicker" style="margin-top:8px">Luck = actual wins minus the wins you'd have if you played every team every week.</p></div>
+      <div class="grid2" style="grid-template-columns:1fr;gap:28px">
+        ${g?`<div><h3>The Guillotine</h3><div class="blade">${g.cuts.map(c=>`<div class="cutrow"><span class="wk">Wk ${c.w}</span><span class="gone">${esc(names[c.fr]||c.fr)}</span><span class="num">${f2(c.pts)}</span></div>`).join("")}</div>
+          <p class="kicker" style="margin-top:12px">Still standing</p><div class="alive">${g.alive.map(a=>`<span>${esc(names[a]||a)}</span>`).join("")}</div></div>`:""}
+        ${last.length?`<div><h3>Week ${cur.through_week} results</h3><ul class="results">${last.map(x=>{const aw=x.win===x.a;return `<li><span><b>${esc(aw?x.an:x.bn)}</b> def. ${esc(aw?x.bn:x.an)}</span><span class="big">${f2(aw?x.ap:x.bp)}–${f2(aw?x.bp:x.ap)}</span></li>`}).join("")}</ul></div>`:""}
+      </div>
+    </div></section>`;
+  }
+
+  /* ---------- honours */
+  const tally={};champs.forEach(c=>tally[c.champion]=(tally[c.champion]||0)+1);
+  h+=`<section id="honours"><div class="chap"><h2>Honours</h2><span class="no">${champs.length} titles</span></div>
+  <div class="board"><h3>Premiers</h3><div class="rows">
+  ${champs.map(c=>`<div class="row"><span class="yr">${c.season}</span><span><span class="ch">${esc(c.champion)}</span><span class="ru">def. ${esc(c.runner_up||"")}${c.score&&c.score!=="score not captured"?" · "+esc(c.score):""}</span></span></div>`).join("")}
+  </div><div class="tally">${Object.entries(tally).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<span><b>${v}</b> ${esc(k)}</span>`).join("")}</div></div>
+  <div class="grid2" style="margin-top:28px">
+    <div><h3>Title droughts</h3><div class="tbl"><table><thead><tr><th>Franchise</th><th class="r">Last title</th><th class="r">Seasons since</th></tr></thead><tbody>
+    ${F.droughts.map(([fr,y])=>`<tr><td>${label(fr)}</td><td class="r num">${y??"Never"}</td><td class="r num">${y?(cur?cur.season:seasons[0])-y:"–"}</td></tr>`).join("")}</tbody></table></div></div>
+    <div><h3>The top-seed curse</h3><p class="intro" style="margin:0 0 10px">The regular season's best team went on to win it ${F.top_seeds.filter(x=>x.place===1).length} times in ${F.top_seeds.length} seasons.</p>
+    <div class="tbl"><table><thead><tr><th>Season</th><th>No. 1 seed</th><th class="r">Finished</th><th>Champion (seed)</th></tr></thead><tbody>
+    ${F.top_seeds.slice().reverse().map(x=>`<tr><td class="num">${x.s}</td><td>${esc(x.seed1)}</td><td class="r">${x.place===1?'<span class="pill y">Won it</span>':ordinal(x.place)}</td><td>${esc(x.champ)} <span class="num">(${x.champ_seed})</span></td></tr>`).join("")}</tbody></table></div></div>
+  </div></section>`;
+
+  /* ---------- rivals */
+  h+=`<section id="rivals"><div class="chap"><h2>Arch rivals</h2><span class="no">10+ meetings</span></div>
+  <p class="intro">Ranked by how often they've met, how close the ledger is, and how many times it mattered in the playoffs.</p>
+  <div class="rivals">${F.arch_rivals.map(r=>{const tot=r.aw+r.bw||1;return `<div class="rival">
+    <div class="vs"><span>${esc(r.a)}</span><em>vs</em><span>${esc(r.b)}</span></div>
+    <div class="score"><span>${r.aw}</span><span>${r.bw}</span></div>
+    <div class="split"><i style="width:${r.aw/tot*100}%"></i><i style="width:${r.bw/tot*100}%"></i></div>
+    <div class="meta"><span>${r.games} games · ${r.po} in playoffs</span><span>avg margin ${f2(r.avg_margin)}</span></div></div>`}).join("")}</div>
+  </section>`;
+
+  /* ---------- franchise profile */
+  h+=`<section id="franchise"><div class="chap"><h2>Franchise files</h2></div>
+  <div class="pickers"><label class="kicker" for="pf">Franchise</label><select id="pf">${d.franchises.map(f=>`<option>${esc(f)}</option>`).join("")}</select></div>
+  <div id="profile"></div></section>`;
+
+  /* ---------- h2h */
+  h+=`<section id="h2h"><div class="chap"><h2>Head to head</h2></div>
+  <div class="pickers"><select id="ha" aria-label="First franchise">${d.franchises.map(f=>`<option>${esc(f)}</option>`).join("")}</select><span class="kicker">vs</span>
+  <select id="hb" aria-label="Second franchise">${d.franchises.map(f=>`<option>${esc(f)}</option>`).join("")}</select></div>
+  <div id="h2hout" class="panel"></div></section>`;
+
+  /* ---------- records */
+  const glist=(arr,val,txt)=>`<ol class="games">${arr.map(x=>`<li><span>${txt(x)}<span class="when">${wk(x.s,x.w,x.st)}</span></span><span class="big">${val(x)}</span></li>`).join("")}</ol>`;
+  h+=`<section id="records"><div class="chap"><h2>Records</h2><span class="no">Scored games only</span></div>
+  <div class="grid2">
+    <div><h3>Biggest blowouts</h3>${glist(F.blowouts.slice(0,8),x=>"+"+f2(x.pts-x.op),x=>`<b>${esc(x.fr)}</b> ${f2(x.pts)} def. ${esc(x.opp)} ${f2(x.op)}`)}</div>
+    <div><h3>Nail-biters</h3>${glist(F.nail_biters.slice(0,8),x=>"+"+f2(x.pts-x.op),x=>`<b>${esc(x.fr)}</b> ${f2(x.pts)} def. ${esc(x.opp)} ${f2(x.op)}`)}</div>
+    <div><h3>Heartbreaks</h3><p class="intro" style="margin:0 0 6px">Highest scores that still lost.</p>${glist(F.heartbreaks.slice(0,6),x=>f2(x.pts),x=>`<b>${esc(x.fr)}</b> lost to ${esc(x.opp)} (${f2(x.op)})`)}</div>
+    <div><h3>Daylight robbery</h3><p class="intro" style="margin:0 0 6px">Lowest scores that still won.</p>${glist(F.robberies.slice(0,6),x=>f2(x.pts),x=>`<b>${esc(x.fr)}</b> beat ${esc(x.opp)} (${f2(x.op)})`)}</div>
+    <div><h3>Highest scores</h3>${glist(F.high_scores.slice(0,6),x=>f2(x.pts),x=>`<b>${esc(x.fr)}</b> vs ${esc(x.opp)}`)}</div>
+    <div><h3>Lowest scores</h3>${glist(F.low_scores.slice(0,6),x=>f2(x.pts),x=>`<b>${esc(x.fr)}</b> vs ${esc(x.opp)}`)}</div>
+  </div>
+  <div class="grid2" style="margin-top:28px">
+    <div><h3>Top dog weeks</h3><p class="intro" style="margin:0 0 10px">Times with the league's highest score of the week (regular season).</p>${bars(F.top_dog,"pos")}</div>
+    <div><h3>Wooden spoons</h3><p class="intro" style="margin:0 0 10px">Times with the league's lowest score of the week.</p>${bars(F.wooden_spoon,"neg")}</div>
+  </div>
+  <div class="grid2" style="margin-top:28px">
+    <div><h3>Streaks and seasons</h3><div class="tbl"><table><tbody>${d.book.filter(b=>/#1$|Most-played|lopsided|Tightest/.test(b.record)&&/Streaks|Season|Rivalries/.test(b.category)).map(b=>`<tr><td>${esc(b.record.replace(/ #1$/,""))}</td><td class="r num"><b>${esc(b.value)}</b></td><td>${esc(b.detail)}</td></tr>`).join("")}</tbody></table></div></div>
+    <div><h3>Rename kings</h3><div class="tbl"><table><tbody>${F.rename_kings.map(([fr,ns])=>`<tr><td><b>${esc(fr)}</b><span class="sub">${ns.length} names</span></td><td>${ns.map(esc).join(" · ")}</td></tr>`).join("")}</tbody></table></div>
+    <p class="kicker" style="margin-top:12px">League's best week: ${F.league_weeks.best.s} wk ${F.league_weeks.best.w}, avg ${f2(F.league_weeks.best.avg)} · worst: ${F.league_weeks.worst.s} wk ${F.league_weeks.worst.w}, avg ${f2(F.league_weeks.worst.avg)}</p></div>
+  </div></section>`;
+
+  /* ---------- luck */
+  const lmax=Math.max(...F.career_luck.map(x=>Math.abs(x[1])));
+  h+=`<section id="luck"><div class="chap"><h2>Luck</h2><span class="no">All-play expected wins</span></div>
+  <p class="intro">Each week, every score is compared against every other team's. That gives the wins a team "should" have had. Luck is the gap between that and the real record.</p>
+  <div class="grid2">
+    <div><h3>Career luck</h3><div class="bars">${F.career_luck.map(([fr,v])=>{const w=Math.abs(v)/lmax*50;return `<div class="bar"><span class="n">${esc(fr)}</span><span class="t"><span class="mid"></span><i class="${v>=0?"pos":"neg"}" style="${v>=0?`left:50%;width:${w}%`:`left:${50-w}%;width:${w}%`}"></i></span><span class="v num">${sgn(v)}</span></div>`}).join("")}</div></div>
+    <div><h3>Luckiest seasons</h3><div class="tbl"><table><thead><tr><th>Season</th><th>Team</th><th class="r">Won</th><th class="r">Should've</th><th class="r">Luck</th></tr></thead><tbody>
+      ${F.luckiest.slice(0,5).map(lrow).join("")}</tbody></table></div>
+      <h3 style="margin-top:22px">Unluckiest seasons</h3><div class="tbl"><table><thead><tr><th>Season</th><th>Team</th><th class="r">Won</th><th class="r">Should've</th><th class="r">Luck</th></tr></thead><tbody>
+      ${F.unluckiest.slice(0,5).map(lrow).join("")}</tbody></table></div></div>
+  </div></section>`;
+
+  /* ---------- guillotine history */
+  h+=`<section id="guillotine"><div class="chap"><h2>Guillotine history</h2><span class="no">Replayed from weekly scores</span></div>
+  <p class="intro">The guillotine is new for ${cur?cur.season:"Sleeper"}, but every season's scores are here, so it can be run backwards. Lowest score among the survivors is cut each week.</p>
+  <div class="grid2">
+    <div><h3>Would have survived</h3>${bars(F.guillotine_survivors,"pos")}</div>
+    <div><h3>First head on the block</h3>${bars(F.guillotine_first_cut,"neg")}</div>
+  </div>
+  <div class="tbl" style="margin-top:22px"><table><thead><tr><th>Season</th><th>Last one standing</th><th>First cut</th><th class="r">Cuts made</th></tr></thead><tbody>
+  ${F.guillotine.slice().reverse().map(g=>`<tr><td class="num">${g.s}</td><td>${g.complete?`<b>${esc(g.alive[0])}</b>`:`${g.alive.length} still alive`}</td><td>${g.cuts[0]?esc(g.cuts[0].fr)+` <span class="num">(${f2(g.cuts[0].pts)})</span>`:"–"}</td><td class="r num">${g.cuts.length}</td></tr>`).join("")}
+  </tbody></table></div></section>`;
+
+  /* ---------- all-time table */
+  h+=`<section id="table"><div class="chap"><h2>All-time table</h2><span class="no">Ranked by titles, then win %</span></div>
+  <div class="tbl"><table><thead><tr><th>#</th><th>Franchise</th><th class="r">Titles</th><th class="r">Finals</th><th class="r">Seasons</th><th class="r">Record</th><th class="r">Win %</th><th class="r">Playoffs</th><th class="r">PPG</th><th class="r">Avg finish</th><th>Best</th><th>Worst</th></tr></thead><tbody>
+  ${d.leaderboard.map(r=>`<tr><td class="num">${r.rank}</td><td><b>${esc(r.franchise)}</b><span class="sub">${r.from}–${r.to}</span></td><td class="r num">${r.titles}</td><td class="r num">${r.finals}</td><td class="r num">${r.seasons}</td><td class="r num">${esc(r.record)}</td><td class="r num">${pct(r.win_pct)}</td><td class="r num">${esc(r.po)}</td><td class="r num">${f2(r.ppg)}</td><td class="r num">${r.avg_finish??"–"}</td><td>${esc(r.best)}</td><td>${esc(r.worst)}</td></tr>`).join("")}
+  </tbody></table></div></section>`;
+
+  $("#main").innerHTML=h;
+  $("#foot").innerHTML=`Sources: NFL.com (2012–2025 week 14), ESPN (2025 final placings), Sleeper (2026 onward). 2025 week 15 and playoff scores were never captured, so those games count in records but not in points. Updated weekly. Data as of ${d.generated}.`;
+
+  /* profile */
+  const pf=$("#pf");
+  try{const s=localStorage.getItem("alm-pf");if(s&&d.franchises.includes(s))pf.value=s}catch(e){}
+  if(!pf.value)pf.value="Mebs Militia";
+  pf.onchange=()=>{try{localStorage.setItem("alm-pf",pf.value)}catch(e){}drawProfile()};
+  function drawProfile(){
+    const fr=pf.value,p=F.profiles[fr],lb=d.leaderboard.find(r=>r.franchise===fr)||{};
+    const nm=d.names.filter(n=>n.franchise===fr).map(n=>n.name);
+    const card=(k,t,s)=>`<div class="panel"><span class="kicker">${k}</span><h4>${t}</h4><p>${s}</p></div>`;
+    const rec=o=>`${o.w}-${o.l}${o.t?"-"+o.t:""} in ${o.games} games`;
+    $("#profile").innerHTML=`<div class="statline" style="justify-content:flex-start"><span>Record <b>${esc(lb.record)}</b></span><span>Titles <b>${lb.titles}</b></span><span>Playoffs <b>${esc(lb.po)}</b></span><span>PPG <b>${f2(lb.ppg)}</b></span><span>Current streak <b>${esc(p.streak)}</b></span></div>
+    <div class="profile">
+      ${card("Arch rival",esc(p.arch.opp),rec(p.arch)+(p.arch.po?` · ${p.arch.po} playoff`:""))}
+      ${card("Nemesis",esc(p.nemesis.opp),rec(p.nemesis))}
+      ${card("Favourite victim",esc(p.victim.opp),rec(p.victim))}
+      ${card("Trophy cabinet",p.titles.length?p.titles.join(", "):"Empty",p.titles.length?`Last title ${p.drought} season${p.drought===1?"":"s"} ago`:"Still waiting")}
+      ${p.best_score?card("Best ever score",f2(p.best_score.pts),`vs ${esc(p.best_score.opp)}, ${p.best_score.s} wk ${p.best_score.w}`):""}
+      ${card("Best and worst",esc(lb.best||"–"),"Worst: "+esc(lb.worst||"–"))}
+      ${card("Also known as",nm.length,nm.map(esc).join(" · "))}
+    </div>`;
+  }
+  drawProfile();
+
+  /* h2h */
+  const ha=$("#ha"),hb=$("#hb");
+  ha.value="The Brotherhood";hb.value="Woody";
+  ha.onchange=hb.onchange=drawH2H;
+  function drawH2H(){
+    const A=ha.value,B=hb.value,o=$("#h2hout");
+    if(A===B){o.innerHTML=`<p>Pick two different franchises.</p>`;return}
+    const gs=d.games.filter(g=>(g.a===A&&g.b===B)||(g.a===B&&g.b===A)).sort((x,y)=>y.s-x.s||y.w-x.w);
+    if(!gs.length){o.innerHTML=`<p>${esc(A)} and ${esc(B)} have never met.</p>`;return}
+    let aw=0,bw=0,t=0,ap=0,bp=0,po=0,ns=0;
+    gs.forEach(g=>{if(g.win===A)aw++;else if(g.win===B)bw++;else t++;if(g.st==="P")po++;
+      if(g.sc){ns++;ap+=g.a===A?g.ap:g.bp;bp+=g.a===A?g.bp:g.ap}});
+    o.innerHTML=`<div class="h2hhead"><div><div class="big">${aw}</div><div class="nm">${esc(A)}</div></div><span class="kicker">${t?t+" tie"+(t>1?"s":""):"vs"}</span><div><div class="big">${bw}</div><div class="nm">${esc(B)}</div></div></div>
+    <div class="split" style="margin-bottom:14px"><i style="width:${aw/(aw+bw||1)*100}%"></i><i style="width:${bw/(aw+bw||1)*100}%"></i></div>
+    <div class="statline"><span>Meetings <b>${gs.length}</b></span><span>Playoff meetings <b>${po}</b></span><span>Points <b>${f2(ap)}–${f2(bp)}</b></span><span>First met <b>${gs[gs.length-1].s}</b></span></div>
+    <div class="tbl"><table><thead><tr><th>When</th><th>Winner</th><th class="r">Score</th></tr></thead><tbody>
+    ${gs.slice(0,10).map(g=>{const w=g.win;const wsc=w===g.a?g.ap:g.bp,lsc=w===g.a?g.bp:g.ap;
+      return `<tr><td class="num">${g.s} wk ${g.w}${g.st==="P"?' <span class="pill y">PO</span>':""}</td><td>${w?esc(w):"Tie"}</td><td class="r num">${g.sc?f2(wsc)+"–"+f2(lsc):"not captured"}</td></tr>`}).join("")}
+    </tbody></table></div>${gs.length>10?`<p class="kicker" style="margin-top:8px">Last 10 of ${gs.length} meetings</p>`:""}`;
+  }
+  drawH2H();
+
+  if(location.hash){const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView()}
+
+  function bars(arr,cls){const m=Math.max(...arr.map(x=>x[1]),1);
+    return `<div class="bars">${arr.map(([k,v])=>`<div class="bar"><span class="n">${esc(k)}</span><span class="t"><i class="${cls}" style="left:0;width:${v/m*100}%"></i></span><span class="v num">${v}</span></div>`).join("")}</div>`}
+  function lrow(x){return `<tr><td class="num">${x.s}</td><td>${esc(x.fr)}</td><td class="r num">${x.actual}</td><td class="r num">${f2(x.expected)}</td><td class="r num">${sgn(x.luck)}</td></tr>`}
+  function ordinal(n){if(n==null)return"–";const s=["th","st","nd","rd"],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0])}
+}
+})();
+</script>
