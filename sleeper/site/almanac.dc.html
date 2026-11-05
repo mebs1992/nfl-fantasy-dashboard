@@ -51,6 +51,13 @@ a{color:#2346E8}a:hover{color:#1530B0}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}.lift,.lift:hover{transition:none;transform:none}}
 .ribbon{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:999px}
+.sort-btn{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:3px;width:100%;min-height:44px;padding:6px 8px;cursor:pointer;font-size:11px;line-height:1.2;text-transform:uppercase;letter-spacing:.05em;font-weight:700;white-space:normal;text-align:right}
+.stats-tbl td{padding:9px 8px}
+.stats-tbl th:first-child .sort-btn{text-align:left}
+.sort-btn:hover{color:#2346E8 !important}
+.sort-btn:focus-visible{outline:3px solid #FFC93C;outline-offset:-3px}
+.stats-tbl .stick{position:sticky;left:0;background:#FFFFFF;z-index:1;box-shadow:1px 0 0 #EEF1F6}
+.stats-tbl th:first-child{position:sticky;left:0;background:#FFFFFF;z-index:2}
 .slash{display:inline-block;width:36px;height:6px;background:#FFC93C;transform:skewX(-20deg);border-radius:2px}
 </style>
 </helmet>
@@ -417,6 +424,34 @@ a{color:#2346E8}a:hover{color:#1530B0}
           </div>
         </section>
       </div>
+    </sc-if>
+
+    <!-- ================= STATS ================= -->
+    <sc-if value="{{isStats}}" hint-placeholder-val="{{ false }}">
+      <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 32px; font-weight: 800; text-transform: uppercase; font-style: italic;">All-time stats</h2>
+          <span style="font-size: 13px; color: #5B6478;">Tap a column to sort. Tap again to flip it.</span>
+        </div>
+        <div class="tbl stats-tbl"><table>
+          <thead><tr>
+            <sc-for list="{{stats.cols}}" as="c" hint-placeholder-count="12">
+              <th class="{{c.cls}}" aria-sort="{{c.aria}}" style="padding: 0;"><button class="sort-btn" onClick="{{c.pick}}" style="color: {{c.color}}; justify-content: {{c.justify}};">{{c.label}}<span aria-hidden="true" style="opacity: {{c.arrowOp}};">{{c.arrow}}</span></button></th>
+            </sc-for>
+          </tr></thead>
+          <tbody>
+            <sc-for list="{{stats.rows}}" as="r" hint-placeholder-count="14">
+              <tr>
+                <td class="stick"><span style="display: inline-flex; align-items: center; gap: 8px;"><span class="num" style="width: 18px; color: #8E99B3; font-weight: 700; font-size: 12px;">{{r.rank}}</span><span class="mono" style="width: 28px; height: 28px; font-size: 11px; border-radius: 8px; background: {{r.badge.bg}}; color: {{r.badge.fg}};">{{r.badge.init}}</span><b>{{r.fr}}</b></span></td>
+                <sc-for list="{{r.cells}}" as="c" hint-placeholder-count="11">
+                  <td class="r num" style="background: {{c.bg}}; font-weight: {{c.weight}};">{{c.v}}</td>
+                </sc-for>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table></div>
+        <p style="margin: 0; font-size: 12px; color: #5B6478;">Wins, losses and win % include playoff games. Super Bowls are title games reached. Spoons are last-place regular-season finishes. Points cover every game with a recorded score.</p>
+      </section>
     </sc-if>
 
     <!-- ================= THIS WEEK ================= -->
@@ -940,12 +975,12 @@ class Component extends DCLogic {
       return { init: (w.length > 1 ? w[0][0] + w[1][0] : w[0].slice(0, 2)).toUpperCase(), bg: '#5B6478', fg: '#FFFFFF' };
     };
     var NOB = { init: '', bg: '#EEF1F6', fg: '#0D1526' };
-    var TABS = [['home', 'Home'], ['week', 'This week'], ['matchups', 'Matchups'], ['h2h', 'Head to head'], ['teams', 'Teams'], ['seasons', 'Seasons'], ['moves', 'Moves'], ['character', 'Character'], ['records', 'Records'], ['honours', 'Legacy']];
+    var TABS = [['home', 'Home'], ['stats', 'Stats'], ['week', 'This week'], ['matchups', 'Matchups'], ['h2h', 'Head to head'], ['teams', 'Teams'], ['seasons', 'Seasons'], ['moves', 'Moves'], ['character', 'Character'], ['records', 'Records'], ['honours', 'Legacy']];
     var base = {
       loaded: !!d, loading: !d && !st.failed, failed: st.failed,
       tabs: TABS.map(function (t) { return { label: t[1], cls: st.tab === t[0] ? 'on' : '', pick: function () { self.setState({ tab: t[0] }); } }; }),
       isHome: false, isMatch: false, isH2H: false, isTeams: false, isRecords: false, isHonours: false,
-      isWeek: false, isSeasons: false, isMoves: false, isChar: false,
+      isWeek: false, isSeasons: false, isMoves: false, isChar: false, isStats: false, stats: { cols: [], rows: [] },
       aw: { cards: [] }, up: { games: [] }, hasUp: false, hasOdds: false, odds: { rows: [], guill: [] }, cabinet: [],
       raceChips: [], race: { yTicks: [], xTicks: [], lines: [], chips: [] }, recap: { facts: [], badge: NOB },
       hasMoves: false, noMoves: false, mv: { lineups: [], blunders: [], trades: [], adds: [], addTeams: [], draft: [] },
@@ -965,7 +1000,7 @@ class Component extends DCLogic {
     var v = Object.assign(base, {
       isHome: st.tab === 'home', isMatch: st.tab === 'matchups', isH2H: st.tab === 'h2h',
       isTeams: st.tab === 'teams', isRecords: st.tab === 'records', isHonours: st.tab === 'honours',
-      isWeek: st.tab === 'week', isSeasons: st.tab === 'seasons', isMoves: st.tab === 'moves', isChar: st.tab === 'character',
+      isStats: st.tab === 'stats', isWeek: st.tab === 'week', isSeasons: st.tab === 'seasons', isMoves: st.tab === 'moves', isChar: st.tab === 'character',
       curSeason: curSeason,
       statusLine: cur.complete ? curSeason + ' season complete' : curSeason + ' · through week ' + cur.through_week,
       footer: 'Every result since 2012, matched by franchise through every team rename. A few 2025 late-season and playoff scores were never recorded, so those games show the winner only. Updated ' + d.generated + '.'
@@ -1145,6 +1180,46 @@ class Component extends DCLogic {
     v.droughts = F.droughts.map(function (x) { return { fr: x[0], text: x[1] ? (curSeason - x[1]) + ((curSeason - x[1]) === 1 ? ' season' : ' seasons') + ' (last ' + x[1] + ')' : 'Never won', color: x[1] ? '#0D1526' : '#B4481A' }; });
     var won = F.top_seeds.filter(function (x) { return x.place === 1; }).length;
     v.seedLine = 'The regular season’s No. 1 seed has gone on to win the title ' + won + ' times in ' + F.top_seeds.length + ' seasons. ' + (F.top_seeds.length ? 'Last year ' + F.top_seeds[F.top_seeds.length - 1].champ + ' won it from seed ' + F.top_seeds[F.top_seeds.length - 1].champ_seed + '.' : '');
+    // ---------- stats (one sortable table)
+    var lastSeed = {};
+    var doneSeasons = {};
+    champs.forEach(function (c) { doneSeasons[c.season] = true; });
+    d.standings.forEach(function (r) { if (doneSeasons[r.season] && (!lastSeed[r.season] || r.seed > lastSeed[r.season].seed)) lastSeed[r.season] = r; });
+    var spoons = {};
+    Object.keys(lastSeed).forEach(function (k) { var f = lastSeed[k].franchise; spoons[f] = (spoons[f] || 0) + 1; });
+    var COLS = [
+      ['fr', 'Team', 'text'], ['seasons', 'Seasons'], ['w', 'Wins'], ['l', 'Losses'], ['pct', 'Win %'],
+      ['poApps', 'Playoff apps'], ['poW', 'Playoff wins'], ['sb', 'Super Bowls'], ['sbW', 'SB wins'],
+      ['pf', 'Points for'], ['pa', 'Points against'], ['spoons', 'Spoons']
+    ];
+    var srows = d.leaderboard.map(function (r) {
+      var all = String(r.record).split('-').map(Number), po = String(r.po).split('-').map(Number);
+      return { fr: r.franchise, seasons: r.seasons, w: all[0], l: all[1], pct: r.win_pct, poApps: r.playoff_seasons, poW: po[0],
+        sb: r.finals, sbW: r.titles, pf: r.pf, pa: r.pa, spoons: spoons[r.franchise] || 0 };
+    });
+    var sk = st.sortKey || 'sbW', sd = st.sortDir || (sk === 'fr' ? 1 : -1);
+    srows.sort(function (a, b) {
+      var x = a[sk], y = b[sk];
+      if (sk === 'fr') return sd * String(x).localeCompare(String(y));
+      return sd * (x - y) || (b.sbW - a.sbW) || (b.pct - a.pct);
+    });
+    var fmt = { pct: function (x) { return (x * 100).toFixed(1) + '%'; }, pf: function (x) { return Math.round(x).toLocaleString(); }, pa: function (x) { return Math.round(x).toLocaleString(); } };
+    v.stats = {
+      cols: COLS.map(function (c) {
+        var on = c[0] === sk;
+        return { label: c[1], cls: c[2] ? '' : 'r', justify: c[2] ? 'flex-start' : 'flex-end', color: on ? '#2346E8' : '#5B6478',
+          arrow: on ? (sd > 0 ? ' \u25B2' : ' \u25BC') : ' \u25BC', arrowOp: on ? 1 : 0.25,
+          aria: on ? (sd > 0 ? 'ascending' : 'descending') : 'none',
+          pick: function () { self.setState({ sortKey: c[0], sortDir: on ? -sd : (c[0] === 'fr' ? 1 : -1) }); } };
+      }),
+      rows: srows.map(function (r, i) {
+        return { rank: i + 1, fr: r.fr, badge: badge(r.fr), cells: COLS.slice(1).map(function (c) {
+          var on = c[0] === sk, val = r[c[0]];
+          return { v: fmt[c[0]] ? fmt[c[0]](val) : val, bg: on ? '#F0F3FF' : 'transparent', weight: on ? 700 : 400 };
+        }) };
+      })
+    };
+
     var X = d.x || {};
     var pc = function (x) { return x == null ? '–' : Math.round(x * 100) + '%'; };
     var rec = function (w, l, t) { return w + '-' + l + (t ? '-' + t : ''); };
