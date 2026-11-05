@@ -14,6 +14,7 @@ import json
 import sys
 import time
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 API = "https://api.sleeper.app/v1"
@@ -93,7 +94,23 @@ def main():
                 for m in data
             ]
             save(out / f"matchups_wk{wk:02d}.json", slim)
-    print(f"Pulled {league.get('name')} {season}: weeks 1-{upto}, status {league.get('status')}")
+    # Which weeks are finished? Sleeper only updates win/loss records a day or so
+    # after Monday night. The Action runs Tuesday 4pm Sydney (all games done), so
+    # on a Tuesday/Wednesday (UTC) run the current week counts as final once every
+    # team has a score. Never go backwards from an earlier run.
+    rosters = json.loads((out / "rosters.json").read_text())
+    done = max(r["settings"]["wins"] + r["settings"]["losses"] + r["settings"]["ties"] for r in rosters)
+    meta_path = out / "meta.json"
+    prev = json.loads(meta_path.read_text()).get("final_through", 0) if meta_path.exists() else 0
+    final = max(done, prev)
+    wk_file = out / f"matchups_wk{current:02d}.json"
+    now = datetime.now(timezone.utc)
+    if current and wk_file.exists() and now.weekday() in (1, 2):
+        pts = [m["points"] or 0 for m in json.loads(wk_file.read_text())]
+        if pts and all(p > 0 for p in pts):
+            final = max(final, current)
+    save(meta_path, {"final_through": final})
+    print(f"Pulled {league.get('name')} {season}: weeks 1-{upto}, final through week {final}, status {league.get('status')}")
 
 
 if __name__ == "__main__":

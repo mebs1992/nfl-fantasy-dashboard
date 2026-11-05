@@ -117,6 +117,9 @@ def load_sleeper(fmap):
             franchise[r["roster_id"]] = fr
             name[r["roster_id"]] = tname
         done_reg = max(r["settings"]["wins"] + r["settings"]["losses"] + r["settings"]["ties"] for r in rosters)
+        meta = d / "meta.json"
+        if meta.exists():
+            done_reg = max(done_reg, json.loads(meta.read_text()).get("final_through", 0))
         games, weekly = [], {}
         for f in sorted(d.glob("matchups_wk*.json")):
             wk = int(f.stem[-2:])
@@ -142,7 +145,10 @@ def load_sleeper(fmap):
                     br = next((b for b in wb_br if b.get("r") == rnd and {b.get("t1"), b.get("t2")} == {x["roster_id"], y["roster_id"]}), None)
                     if br is None:
                         continue  # consolation game, not part of the title race
-                    status = "Final" if br.get("w") else ("In progress" if (x["points"] or 0) > 0 else "Not played")
+                    if br.get("w") or (wk <= done_reg and (x["points"] or 0) > 0 and (y["points"] or 0) > 0):
+                        status = "Final"
+                    else:
+                        status = "In progress" if (x["points"] or 0) > 0 else "Not played"
                     if br.get("w"):
                         winner = franchise[br["w"]]
                 if status == "Final" and winner is None and x["points"] != y["points"]:
@@ -446,7 +452,7 @@ def write_workbook(wb, games, standings, champions, res, sleeper, generated):
         for k in (0, 1):
             rd.cell(src + k, 2)._style = copy(rd.cell(src - 1, 2)._style)
             rd.row_dimensions[src + k].height = rd.row_dimensions[src - 1].height
-        rd.cell(src, 2).value = (marker + " pulled every Thursday morning (Sydney time) by a GitHub Action in "
+        rd.cell(src, 2).value = (marker + " pulled every Tuesday at 4pm Sydney time by a GitHub Action in "
                                  "mebs1992/nfl-fantasy-dashboard. Sleeper teams are matched to franchises by manager "
                                  "account (sleeper/franchise_map.csv), so renames follow the franchise.")
         rd.cell(src + 1, 2).value = ("• Sleeper playoffs: only championship-bracket games count as Playoff games; "

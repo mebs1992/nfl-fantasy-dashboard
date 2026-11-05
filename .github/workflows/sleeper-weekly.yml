@@ -1,10 +1,11 @@
 name: Sleeper weekly pull
 
-# Wednesday 18:00 UTC = Thursday 5am Sydney (AEDT), after Monday/Tuesday night
-# games have been scored. Also runs on demand and when the scripts change.
+# Tuesday 05:00 UTC = Tuesday 4pm Sydney (AEDT; 3pm in September before
+# daylight saving), once Monday night games are done. Also runs on demand and
+# when the scripts change.
 on:
   schedule:
-    - cron: "0 18 * * 3"
+    - cron: "0 5 * * 2"
   workflow_dispatch:
   push:
     branches: [main]
