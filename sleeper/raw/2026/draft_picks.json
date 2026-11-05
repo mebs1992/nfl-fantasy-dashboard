@@ -1,0 +1,1406 @@
+[
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 1,
+  "picked_by": "76480424951824384",
+  "player_id": "9221",
+  "roster_id": 5,
+  "round": 1
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 2,
+  "picked_by": "872850452037963776",
+  "player_id": "9509",
+  "roster_id": 11,
+  "round": 1
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 3,
+  "picked_by": "865760245614526464",
+  "player_id": "7564",
+  "roster_id": 10,
+  "round": 1
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 4,
+  "picked_by": "583202684786487296",
+  "player_id": "9493",
+  "roster_id": 4,
+  "round": 1
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 5,
+  "picked_by": "467141808728567808",
+  "player_id": "4034",
+  "roster_id": 6,
+  "round": 1
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 6,
+  "picked_by": "732969670163963904",
+  "player_id": "9488",
+  "roster_id": 9,
+  "round": 1
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 7,
+  "picked_by": "848138559574622208",
+  "player_id": "8138",
+  "roster_id": 3,
+  "round": 1
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 8,
+  "picked_by": "1223965132258816000",
+  "player_id": "7547",
+  "roster_id": 1,
+  "round": 1
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 9,
+  "picked_by": "606795970881085440",
+  "player_id": "6813",
+  "roster_id": 8,
+  "round": 1
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 10,
+  "picked_by": "76510469883838464",
+  "player_id": "6794",
+  "roster_id": 7,
+  "round": 1
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 11,
+  "picked_by": "872801821977206784",
+  "player_id": "6786",
+  "roster_id": 12,
+  "round": 1
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 12,
+  "picked_by": "466552399696228352",
+  "player_id": "4866",
+  "roster_id": 2,
+  "round": 1
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 13,
+  "picked_by": "466552399696228352",
+  "player_id": "5859",
+  "roster_id": 2,
+  "round": 2
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 14,
+  "picked_by": "872801821977206784",
+  "player_id": "8112",
+  "roster_id": 12,
+  "round": 2
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 15,
+  "picked_by": "76510469883838464",
+  "player_id": "12507",
+  "roster_id": 7,
+  "round": 2
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 16,
+  "picked_by": "606795970881085440",
+  "player_id": "9224",
+  "roster_id": 8,
+  "round": 2
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 17,
+  "picked_by": "1223965132258816000",
+  "player_id": "9226",
+  "roster_id": 1,
+  "round": 2
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 18,
+  "picked_by": "848138559574622208",
+  "player_id": "3198",
+  "roster_id": 3,
+  "round": 2
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 19,
+  "picked_by": "732969670163963904",
+  "player_id": "8151",
+  "roster_id": 9,
+  "round": 2
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 20,
+  "picked_by": "467141808728567808",
+  "player_id": "11632",
+  "roster_id": 6,
+  "round": 2
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 21,
+  "picked_by": "583202684786487296",
+  "player_id": "11604",
+  "roster_id": 4,
+  "round": 2
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 22,
+  "picked_by": "865760245614526464",
+  "player_id": "13287",
+  "roster_id": 10,
+  "round": 2
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 23,
+  "picked_by": "872850452037963776",
+  "player_id": "10229",
+  "roster_id": 11,
+  "round": 2
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 24,
+  "picked_by": "76480424951824384",
+  "player_id": "12527",
+  "roster_id": 5,
+  "round": 2
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 25,
+  "picked_by": "76480424951824384",
+  "player_id": "8130",
+  "roster_id": 5,
+  "round": 3
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 26,
+  "picked_by": "872850452037963776",
+  "player_id": "7569",
+  "roster_id": 11,
+  "round": 3
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 27,
+  "picked_by": "865760245614526464",
+  "player_id": "8146",
+  "roster_id": 10,
+  "round": 3
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 28,
+  "picked_by": "583202684786487296",
+  "player_id": "4984",
+  "roster_id": 4,
+  "round": 3
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 29,
+  "picked_by": "467141808728567808",
+  "player_id": "8155",
+  "roster_id": 6,
+  "round": 3
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 30,
+  "picked_by": "732969670163963904",
+  "player_id": "8137",
+  "roster_id": 9,
+  "round": 3
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 31,
+  "picked_by": "848138559574622208",
+  "player_id": "11635",
+  "roster_id": 3,
+  "round": 3
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 32,
+  "picked_by": "1223965132258816000",
+  "player_id": "8150",
+  "roster_id": 1,
+  "round": 3
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 33,
+  "picked_by": "606795970881085440",
+  "player_id": "8144",
+  "roster_id": 8,
+  "round": 3
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 34,
+  "picked_by": "76510469883838464",
+  "player_id": "12517",
+  "roster_id": 7,
+  "round": 3
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 35,
+  "picked_by": "872801821977206784",
+  "player_id": "12514",
+  "roster_id": 12,
+  "round": 3
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 36,
+  "picked_by": "466552399696228352",
+  "player_id": "7588",
+  "roster_id": 2,
+  "round": 3
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 37,
+  "picked_by": "466552399696228352",
+  "player_id": "6801",
+  "roster_id": 2,
+  "round": 4
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 38,
+  "picked_by": "872801821977206784",
+  "player_id": "12518",
+  "roster_id": 12,
+  "round": 4
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 39,
+  "picked_by": "76510469883838464",
+  "player_id": "7525",
+  "roster_id": 7,
+  "round": 4
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 40,
+  "picked_by": "606795970881085440",
+  "player_id": "9997",
+  "roster_id": 8,
+  "round": 4
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 41,
+  "picked_by": "1223965132258816000",
+  "player_id": "7543",
+  "roster_id": 1,
+  "round": 4
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 42,
+  "picked_by": "848138559574622208",
+  "player_id": "12490",
+  "roster_id": 3,
+  "round": 4
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 43,
+  "picked_by": "732969670163963904",
+  "player_id": "12526",
+  "roster_id": 9,
+  "round": 4
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 44,
+  "picked_by": "467141808728567808",
+  "player_id": "7526",
+  "roster_id": 6,
+  "round": 4
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 45,
+  "picked_by": "583202684786487296",
+  "player_id": "5850",
+  "roster_id": 4,
+  "round": 4
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 46,
+  "picked_by": "865760245614526464",
+  "player_id": "12481",
+  "roster_id": 10,
+  "round": 4
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 47,
+  "picked_by": "872850452037963776",
+  "player_id": "12512",
+  "roster_id": 11,
+  "round": 4
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 48,
+  "picked_by": "76480424951824384",
+  "player_id": "12519",
+  "roster_id": 5,
+  "round": 4
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 49,
+  "picked_by": "76480424951824384",
+  "player_id": "4983",
+  "roster_id": 5,
+  "round": 5
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 50,
+  "picked_by": "872850452037963776",
+  "player_id": "11620",
+  "roster_id": 11,
+  "round": 5
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 51,
+  "picked_by": "865760245614526464",
+  "player_id": "6790",
+  "roster_id": 10,
+  "round": 5
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 52,
+  "picked_by": "583202684786487296",
+  "player_id": "13286",
+  "roster_id": 4,
+  "round": 5
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 53,
+  "picked_by": "467141808728567808",
+  "player_id": "5892",
+  "roster_id": 6,
+  "round": 5
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 54,
+  "picked_by": "732969670163963904",
+  "player_id": "5927",
+  "roster_id": 9,
+  "round": 5
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 55,
+  "picked_by": "848138559574622208",
+  "player_id": "2133",
+  "roster_id": 3,
+  "round": 5
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 56,
+  "picked_by": "1223965132258816000",
+  "player_id": "4881",
+  "roster_id": 1,
+  "round": 5
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 57,
+  "picked_by": "606795970881085440",
+  "player_id": "8148",
+  "roster_id": 8,
+  "round": 5
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 58,
+  "picked_by": "76510469883838464",
+  "player_id": "13279",
+  "roster_id": 7,
+  "round": 5
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 59,
+  "picked_by": "872801821977206784",
+  "player_id": "12529",
+  "roster_id": 12,
+  "round": 5
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 60,
+  "picked_by": "466552399696228352",
+  "player_id": "8167",
+  "roster_id": 2,
+  "round": 5
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 61,
+  "picked_by": "466552399696228352",
+  "player_id": "9487",
+  "roster_id": 2,
+  "round": 6
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 62,
+  "picked_by": "872801821977206784",
+  "player_id": "11584",
+  "roster_id": 12,
+  "round": 6
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 63,
+  "picked_by": "76510469883838464",
+  "player_id": "11560",
+  "roster_id": 7,
+  "round": 6
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 64,
+  "picked_by": "606795970881085440",
+  "player_id": "11564",
+  "roster_id": 8,
+  "round": 6
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 65,
+  "picked_by": "1223965132258816000",
+  "player_id": "10232",
+  "roster_id": 1,
+  "round": 6
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 66,
+  "picked_by": "848138559574622208",
+  "player_id": "6797",
+  "roster_id": 3,
+  "round": 6
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 67,
+  "picked_by": "732969670163963904",
+  "player_id": "8228",
+  "roster_id": 9,
+  "round": 6
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 68,
+  "picked_by": "467141808728567808",
+  "player_id": "2216",
+  "roster_id": 6,
+  "round": 6
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 69,
+  "picked_by": "583202684786487296",
+  "player_id": "11628",
+  "roster_id": 4,
+  "round": 6
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 70,
+  "picked_by": "865760245614526464",
+  "player_id": "6770",
+  "roster_id": 10,
+  "round": 6
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 71,
+  "picked_by": "872850452037963776",
+  "player_id": "6904",
+  "roster_id": 11,
+  "round": 6
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 72,
+  "picked_by": "76480424951824384",
+  "player_id": "9500",
+  "roster_id": 5,
+  "round": 6
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 73,
+  "picked_by": "76480424951824384",
+  "player_id": "4037",
+  "roster_id": 5,
+  "round": 7
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 74,
+  "picked_by": "872850452037963776",
+  "player_id": "8142",
+  "roster_id": 11,
+  "round": 7
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 75,
+  "picked_by": "865760245614526464",
+  "player_id": "7021",
+  "roster_id": 10,
+  "round": 7
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 76,
+  "picked_by": "583202684786487296",
+  "player_id": "11631",
+  "roster_id": 4,
+  "round": 7
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 77,
+  "picked_by": "467141808728567808",
+  "player_id": "11583",
+  "roster_id": 6,
+  "round": 7
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 78,
+  "picked_by": "732969670163963904",
+  "player_id": "12506",
+  "roster_id": 9,
+  "round": 7
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 79,
+  "picked_by": "848138559574622208",
+  "player_id": "6819",
+  "roster_id": 3,
+  "round": 7
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 80,
+  "picked_by": "1223965132258816000",
+  "player_id": "12489",
+  "roster_id": 1,
+  "round": 7
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 81,
+  "picked_by": "606795970881085440",
+  "player_id": "9484",
+  "roster_id": 8,
+  "round": 7
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 82,
+  "picked_by": "76510469883838464",
+  "player_id": "7594",
+  "roster_id": 7,
+  "round": 7
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 83,
+  "picked_by": "872801821977206784",
+  "player_id": "6806",
+  "roster_id": 12,
+  "round": 7
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 84,
+  "picked_by": "466552399696228352",
+  "player_id": "7611",
+  "roster_id": 2,
+  "round": 7
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 85,
+  "picked_by": "466552399696228352",
+  "player_id": "9754",
+  "roster_id": 2,
+  "round": 8
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 86,
+  "picked_by": "872801821977206784",
+  "player_id": "12533",
+  "roster_id": 12,
+  "round": 8
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 87,
+  "picked_by": "76510469883838464",
+  "player_id": "5967",
+  "roster_id": 7,
+  "round": 8
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 88,
+  "picked_by": "606795970881085440",
+  "player_id": "8126",
+  "roster_id": 8,
+  "round": 8
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 89,
+  "picked_by": "1223965132258816000",
+  "player_id": "13294",
+  "roster_id": 1,
+  "round": 8
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 90,
+  "picked_by": "848138559574622208",
+  "player_id": "8121",
+  "roster_id": 3,
+  "round": 8
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 91,
+  "picked_by": "732969670163963904",
+  "player_id": "5846",
+  "roster_id": 9,
+  "round": 8
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 92,
+  "picked_by": "467141808728567808",
+  "player_id": "10859",
+  "roster_id": 6,
+  "round": 8
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 93,
+  "picked_by": "583202684786487296",
+  "player_id": "10222",
+  "roster_id": 4,
+  "round": 8
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 94,
+  "picked_by": "865760245614526464",
+  "player_id": "13417",
+  "roster_id": 10,
+  "round": 8
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 95,
+  "picked_by": "872850452037963776",
+  "player_id": "7553",
+  "roster_id": 11,
+  "round": 8
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 96,
+  "picked_by": "76480424951824384",
+  "player_id": "11581",
+  "roster_id": 5,
+  "round": 8
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 97,
+  "picked_by": "76480424951824384",
+  "player_id": "12501",
+  "roster_id": 5,
+  "round": 9
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 98,
+  "picked_by": "872850452037963776",
+  "player_id": "11586",
+  "roster_id": 11,
+  "round": 9
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 99,
+  "picked_by": "865760245614526464",
+  "player_id": "8408",
+  "roster_id": 10,
+  "round": 9
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 100,
+  "picked_by": "583202684786487296",
+  "player_id": "5045",
+  "roster_id": 4,
+  "round": 9
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 101,
+  "picked_by": "467141808728567808",
+  "player_id": "11566",
+  "roster_id": 6,
+  "round": 9
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 102,
+  "picked_by": "732969670163963904",
+  "player_id": "3294",
+  "roster_id": 9,
+  "round": 9
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 103,
+  "picked_by": "848138559574622208",
+  "player_id": "7567",
+  "roster_id": 3,
+  "round": 9
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 104,
+  "picked_by": "1223965132258816000",
+  "player_id": "8132",
+  "roster_id": 1,
+  "round": 9
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 105,
+  "picked_by": "606795970881085440",
+  "player_id": "13298",
+  "roster_id": 8,
+  "round": 9
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 106,
+  "picked_by": "76510469883838464",
+  "player_id": "2449",
+  "roster_id": 7,
+  "round": 9
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 107,
+  "picked_by": "872801821977206784",
+  "player_id": "9502",
+  "roster_id": 12,
+  "round": 9
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 108,
+  "picked_by": "466552399696228352",
+  "player_id": "4217",
+  "roster_id": 2,
+  "round": 9
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 109,
+  "picked_by": "466552399696228352",
+  "player_id": "9756",
+  "roster_id": 2,
+  "round": 10
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 110,
+  "picked_by": "872801821977206784",
+  "player_id": "11624",
+  "roster_id": 12,
+  "round": 10
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 111,
+  "picked_by": "76510469883838464",
+  "player_id": "9753",
+  "roster_id": 7,
+  "round": 10
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 112,
+  "picked_by": "606795970881085440",
+  "player_id": "11646",
+  "roster_id": 8,
+  "round": 10
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 113,
+  "picked_by": "1223965132258816000",
+  "player_id": "10236",
+  "roster_id": 1,
+  "round": 10
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 114,
+  "picked_by": "848138559574622208",
+  "player_id": "11575",
+  "roster_id": 3,
+  "round": 10
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 115,
+  "picked_by": "732969670163963904",
+  "player_id": "12534",
+  "roster_id": 9,
+  "round": 10
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 116,
+  "picked_by": "467141808728567808",
+  "player_id": "5022",
+  "roster_id": 6,
+  "round": 10
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 117,
+  "picked_by": "583202684786487296",
+  "player_id": "9511",
+  "roster_id": 4,
+  "round": 10
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 118,
+  "picked_by": "865760245614526464",
+  "player_id": "13281",
+  "roster_id": 10,
+  "round": 10
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 119,
+  "picked_by": "872850452037963776",
+  "player_id": "4035",
+  "roster_id": 11,
+  "round": 10
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 120,
+  "picked_by": "76480424951824384",
+  "player_id": "9508",
+  "roster_id": 5,
+  "round": 10
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 121,
+  "picked_by": "76480424951824384",
+  "player_id": "10213",
+  "roster_id": 5,
+  "round": 11
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 122,
+  "picked_by": "872850452037963776",
+  "player_id": "11625",
+  "roster_id": 11,
+  "round": 11
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 123,
+  "picked_by": "865760245614526464",
+  "player_id": "13293",
+  "roster_id": 10,
+  "round": 11
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 124,
+  "picked_by": "583202684786487296",
+  "player_id": "8134",
+  "roster_id": 4,
+  "round": 11
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 125,
+  "picked_by": "467141808728567808",
+  "player_id": "11610",
+  "roster_id": 6,
+  "round": 11
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 126,
+  "picked_by": "732969670163963904",
+  "player_id": "13345",
+  "roster_id": 9,
+  "round": 11
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 127,
+  "picked_by": "848138559574622208",
+  "player_id": "8136",
+  "roster_id": 3,
+  "round": 11
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 128,
+  "picked_by": "1223965132258816000",
+  "player_id": "5947",
+  "roster_id": 1,
+  "round": 11
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 129,
+  "picked_by": "606795970881085440",
+  "player_id": "4199",
+  "roster_id": 8,
+  "round": 11
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 130,
+  "picked_by": "76510469883838464",
+  "player_id": "8131",
+  "roster_id": 7,
+  "round": 11
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 131,
+  "picked_by": "872801821977206784",
+  "player_id": "11563",
+  "roster_id": 12,
+  "round": 11
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 132,
+  "picked_by": "466552399696228352",
+  "player_id": "13305",
+  "roster_id": 2,
+  "round": 11
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 133,
+  "picked_by": "466552399696228352",
+  "player_id": "421",
+  "roster_id": 2,
+  "round": 12
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 134,
+  "picked_by": "872801821977206784",
+  "player_id": "5872",
+  "roster_id": 12,
+  "round": 12
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 135,
+  "picked_by": "76510469883838464",
+  "player_id": "8205",
+  "roster_id": 7,
+  "round": 12
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 136,
+  "picked_by": "606795970881085440",
+  "player_id": "13346",
+  "roster_id": 8,
+  "round": 12
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 137,
+  "picked_by": "1223965132258816000",
+  "player_id": "1466",
+  "roster_id": 1,
+  "round": 12
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 138,
+  "picked_by": "848138559574622208",
+  "player_id": "5012",
+  "roster_id": 3,
+  "round": 12
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 139,
+  "picked_by": "732969670163963904",
+  "player_id": "11618",
+  "roster_id": 9,
+  "round": 12
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 140,
+  "picked_by": "467141808728567808",
+  "player_id": "8676",
+  "roster_id": 6,
+  "round": 12
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 141,
+  "picked_by": "583202684786487296",
+  "player_id": "11603",
+  "roster_id": 4,
+  "round": 12
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 142,
+  "picked_by": "865760245614526464",
+  "player_id": "7002",
+  "roster_id": 10,
+  "round": 12
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 143,
+  "picked_by": "872850452037963776",
+  "player_id": "9225",
+  "roster_id": 11,
+  "round": 12
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 144,
+  "picked_by": "76480424951824384",
+  "player_id": "13414",
+  "roster_id": 5,
+  "round": 12
+ },
+ {
+  "draft_slot": 1,
+  "is_keeper": null,
+  "pick_no": 145,
+  "picked_by": "76480424951824384",
+  "player_id": "12487",
+  "roster_id": 5,
+  "round": 13
+ },
+ {
+  "draft_slot": 2,
+  "is_keeper": null,
+  "pick_no": 146,
+  "picked_by": "872850452037963776",
+  "player_id": "11576",
+  "roster_id": 11,
+  "round": 13
+ },
+ {
+  "draft_slot": 3,
+  "is_keeper": null,
+  "pick_no": 147,
+  "picked_by": "865760245614526464",
+  "player_id": "13413",
+  "roster_id": 10,
+  "round": 13
+ },
+ {
+  "draft_slot": 4,
+  "is_keeper": null,
+  "pick_no": 148,
+  "picked_by": "583202684786487296",
+  "player_id": "11655",
+  "roster_id": 4,
+  "round": 13
+ },
+ {
+  "draft_slot": 5,
+  "is_keeper": null,
+  "pick_no": 149,
+  "picked_by": "467141808728567808",
+  "player_id": "13296",
+  "roster_id": 6,
+  "round": 13
+ },
+ {
+  "draft_slot": 6,
+  "is_keeper": null,
+  "pick_no": 150,
+  "picked_by": "732969670163963904",
+  "player_id": "13337",
+  "roster_id": 9,
+  "round": 13
+ },
+ {
+  "draft_slot": 7,
+  "is_keeper": null,
+  "pick_no": 151,
+  "picked_by": "848138559574622208",
+  "player_id": "10219",
+  "roster_id": 3,
+  "round": 13
+ },
+ {
+  "draft_slot": 8,
+  "is_keeper": null,
+  "pick_no": 152,
+  "picked_by": "1223965132258816000",
+  "player_id": "6783",
+  "roster_id": 1,
+  "round": 13
+ },
+ {
+  "draft_slot": 9,
+  "is_keeper": null,
+  "pick_no": 153,
+  "picked_by": "606795970881085440",
+  "player_id": "12471",
+  "roster_id": 8,
+  "round": 13
+ },
+ {
+  "draft_slot": 10,
+  "is_keeper": null,
+  "pick_no": 154,
+  "picked_by": "76510469883838464",
+  "player_id": "8180",
+  "roster_id": 7,
+  "round": 13
+ },
+ {
+  "draft_slot": 11,
+  "is_keeper": null,
+  "pick_no": 155,
+  "picked_by": "872801821977206784",
+  "player_id": "13320",
+  "roster_id": 12,
+  "round": 13
+ },
+ {
+  "draft_slot": 12,
+  "is_keeper": null,
+  "pick_no": 156,
+  "picked_by": "466552399696228352",
+  "player_id": "12469",
+  "roster_id": 2,
+  "round": 13
+ }
+]
