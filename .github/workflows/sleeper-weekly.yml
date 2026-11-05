@@ -1,0 +1,56 @@
+name: Sleeper weekly pull
+
+# Wednesday 18:00 UTC = Thursday 5am Sydney (AEDT), after Monday/Tuesday night
+# games have been scored. Also runs on demand and when the scripts change.
+on:
+  schedule:
+    - cron: "0 18 * * 3"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "sleeper/*.py"
+      - "sleeper/config.json"
+      - "sleeper/franchise_map.csv"
+      - ".github/workflows/sleeper-weekly.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sleeper-weekly
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pull Sleeper data
+        run: python sleeper/pull_sleeper.py
+
+      - name: Rebuild workbook and Almanac data
+        run: |
+          if [ -f sleeper/build.py ] && [ -f sleeper/franchise_map.csv ]; then
+            pip install --quiet openpyxl==3.1.5
+            python sleeper/build.py
+          else
+            echo "Build step not set up yet; raw data only."
+          fi
+
+      - name: Commit changes
+        run: |
+          git config user.name "sunday-club-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sleeper/
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Sleeper weekly pull $(date -u +%Y-%m-%d)"
+            git push
+          fi
