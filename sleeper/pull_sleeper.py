@@ -81,19 +81,59 @@ def main():
     save(out / "losers_bracket.json", get(f"/league/{league_id}/losers_bracket") or [])
 
     settings = league.get("settings", {})
+    pws = int(settings.get("playoff_week_start", 15))
     last_week = int(settings.get("last_scored_leg") or 0)
     current = int(state.get("week") or 0) if int(state.get("season", 0)) == season else 18
-    upto = max(last_week, current)
-    upto = min(upto, int(settings.get("playoff_week_start", 15)) + 3, 18)
+    # Pull every regular-season week (future weeks give the schedule) plus playoffs.
+    upto = min(max(last_week, current, pws - 1), pws + 3, 18)
+    player_ids = set()
     for wk in range(1, upto + 1):
         data = get(f"/league/{league_id}/matchups/{wk}")
         if data:
-            # Keep the file small: drop per-player points, keep team totals.
-            slim = [
-                {k: m.get(k) for k in ("roster_id", "matchup_id", "points", "custom_points")}
-                for m in data
-            ]
+            slim = []
+            for m in data:
+                row = {k: m.get(k) for k in ("roster_id", "matchup_id", "points", "custom_points",
+                                             "starters", "starters_points", "players_points")}
+                slim.append(row)
+                player_ids.update(p for p in (m.get("starters") or []) if p and p != "0")
+                player_ids.update((m.get("players_points") or {}).keys())
             save(out / f"matchups_wk{wk:02d}.json", slim)
+
+    # Trades, waiver claims and free-agent adds, by week.
+    txns = []
+    for wk in range(1, upto + 1):
+        for t in get(f"/league/{league_id}/transactions/{wk}") or []:
+            if t.get("status") != "complete":
+                continue
+            txns.append({k: t.get(k) for k in ("transaction_id", "type", "leg", "status_updated", "created",
+                                                "roster_ids", "adds", "drops", "draft_picks", "waiver_budget",
+                                                "settings")})
+            player_ids.update((t.get("adds") or {}).keys())
+            player_ids.update((t.get("drops") or {}).keys())
+    save(out / "transactions.json", sorted(txns, key=lambda t: (t["leg"] or 0, t["status_updated"] or 0)))
+
+    # The draft.
+    drafts = get(f"/league/{league_id}/drafts") or []
+    picks = []
+    for dr in drafts:
+        for p in get(f"/draft/{dr['draft_id']}/picks") or []:
+            picks.append({k: p.get(k) for k in ("round", "pick_no", "draft_slot", "roster_id", "picked_by", "player_id", "is_keeper")})
+            player_ids.add(p.get("player_id"))
+    save(out / "drafts.json", [{k: d.get(k) for k in ("draft_id", "type", "status", "season", "settings", "slot_to_roster_id")} for d in drafts])
+    save(out / "draft_picks.json", picks)
+
+    # Names and positions for every player we mention (the full list is ~15MB, so keep only ours).
+    allp = get("/players/nfl") or {}
+    players = {}
+    for pid in sorted(p for p in player_ids if p):
+        p = allp.get(pid)
+        if p:
+            name = p.get("full_name") or f"{p.get('first_name', '')} {p.get('last_name', '')}".strip()
+            if p.get("position") == "DEF":
+                name = f"{p.get('team')} D/ST"
+            players[pid] = {"name": name, "pos": p.get("position"), "team": p.get("team"),
+                            "fpos": p.get("fantasy_positions") or [p.get("position")]}
+    save(out / "players.json", players)
     # Which weeks are finished? Sleeper only updates win/loss records a day or so
     # after Monday night. The Action runs Tuesday 4pm Sydney (all games done), so
     # on a Tuesday/Wednesday (UTC) run the current week counts as final once every
