@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TGL Almanac</title>
+<meta name="description" content="The Greatest League: every game since 2012. Ladder, matchups, head to head, records and honours.">
+<meta property="og:title" content="TGL Almanac">
+<meta property="og:description" content="The Greatest League: every game since 2012. Ladder, matchups, head to head, records and honours.">
+<meta name="theme-color" content="#0D1526">
+<style>
+  html,body{margin:0;background:#EEF1F6;color-scheme:light}
+  #boot{font-family:system-ui,sans-serif;color:#5B6478;padding:48px 20px;text-align:center}
+  .site-foot{max-width:1200px;margin:0 auto;padding:0 20px 40px;font-family:Barlow,'Helvetica Neue',Arial,sans-serif;font-size:13px;color:#5B6478}
+  .site-foot a{color:#2346E8;font-weight:600}
+</style>
+</head>
+<body>
+<div id="app"><p id="boot">Loading the Almanac…</p></div>
+<div class="site-foot"><a href="TGL_League_History.xlsx">Download the full history (Excel)</a></div>
+<script>
+/*
+  Runs the Almanac design file (almanac.dc.html) as a normal web page.
+  A tiny renderer for the same template syntax the design uses:
+  {{holes}}, <sc-for>, <sc-if>, onClick/onChange handlers, and a
+  DCLogic base class with setState.
+*/
+(function () {
+  var app = document.getElementById('app');
+  var tpl, comp;
+
+  function DCLogic(props) { this.props = props || {}; this.state = {}; }
+  DCLogic.prototype.setState = function (p) {
+    Object.assign(this.state, typeof p === 'function' ? p(this.state, this.props) : p);
+    render();
+  };
+  DCLogic.prototype.forceUpdate = function () { render(); };
+
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g, ONE = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/;
+  function look(ctx, path) {
+    if (path === 'true') return true;
+    if (path === 'false') return false;
+    if (path === 'null') return null;
+    if (/^-?\d+(\.\d+)?$/.test(path)) return +path;
+    if (/^(['"]).*\1$/.test(path)) return path.slice(1, -1);
+    var parts = path.split('.'), v = ctx[parts[0]];
+    for (var i = 1; i < parts.length && v != null; i++) v = v[parts[i]];
+    return v;
+  }
+  function interp(s, ctx) {
+    return s.replace(HOLE, function (_, p) { var v = look(ctx, p); return v == null ? '' : String(v); });
+  }
+  function child(ctx, extra) { var c = Object.create(ctx); for (var k in extra) c[k] = extra[k]; return c; }
+
+  function build(nodes, ctx, out) {
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      if (n.nodeType === 3) { out.push(document.createTextNode(interp(n.nodeValue, ctx))); continue; }
+      if (n.nodeType !== 1) continue;
+      if (n.tagName === 'TEMPLATE' && n.hasAttribute('data-sc-for')) {
+        var m = ONE.exec(n.getAttribute('list') || ''), list = m ? look(ctx, m[1]) : null, as = n.getAttribute('as') || 'item';
+        (list || []).forEach(function (item, idx) { var e = {}; e[as] = item; e.$index = idx; build(n.content.childNodes, child(ctx, e), out); });
+        continue;
+      }
+      if (n.tagName === 'TEMPLATE' && n.hasAttribute('data-sc-if')) {
+        var mv = ONE.exec(n.getAttribute('value') || '');
+        if (mv && look(ctx, mv[1])) build(n.content.childNodes, ctx, out);
+        continue;
+      }
+      var el = n.cloneNode(false), selValue;
+      for (var a = n.attributes.length - 1; a >= 0; a--) {
+        var at = n.attributes[a], name = at.name, val = at.value;
+        if (/^hint-/.test(name)) { el.removeAttribute(name); continue; }
+        if (/^on[a-z]+$/i.test(name)) {
+          el.removeAttribute(name);
+          var fm = ONE.exec(val), fn = fm ? look(ctx, fm[1]) : null;
+          if (typeof fn === 'function') el.addEventListener(name.slice(2).toLowerCase(), fn);
+          continue;
+        }
+        if (val.indexOf('{{') < 0) continue;
+        var v = interp(val, ctx);
+        if (name === 'value' && n.tagName === 'SELECT') { selValue = v; el.removeAttribute(name); continue; }
+        el.setAttribute(name, v);
+      }
+      var kids = [];
+      build(n.tagName === 'TEMPLATE' ? n.content.childNodes : n.childNodes, ctx, kids);
+      kids.forEach(function (k) { el.appendChild(k); });
+      if (selValue !== undefined) el.value = selValue;
+      out.push(el);
+    }
+  }
+
+  function render() {
+    var vals = comp.renderVals(), out = [], y = window.scrollY;
+    var xs = Array.prototype.map.call(app.querySelectorAll('.scroller'), function (s) { return s.scrollLeft; });
+    build(tpl.childNodes, vals, out);
+    app.replaceChildren.apply(app, out);
+    Array.prototype.forEach.call(app.querySelectorAll('.scroller'), function (s, i) { if (xs[i]) s.scrollLeft = xs[i]; });
+    window.scrollTo(0, y);
+  }
+
+  fetch('almanac.dc.html').then(function (r) { return r.text(); }).then(function (src) {
+    // <template> survives inside <table>/<select>, so loop and branch tags become templates
+    src = src.replace(/<sc-for\b/g, '<template data-sc-for').replace(/<\/sc-for>/g, '</template>')
+             .replace(/<sc-if\b/g, '<template data-sc-if').replace(/<\/sc-if>/g, '</template>');
+    var doc = new DOMParser().parseFromString(src, 'text/html');
+    var x = doc.querySelector('x-dc');
+    var helmet = x.querySelector('helmet');
+    if (helmet) { Array.prototype.slice.call(helmet.children).forEach(function (h) { document.head.appendChild(document.importNode(h, true)); }); helmet.remove(); }
+    tpl = document.createElement('div');
+    Array.prototype.slice.call(x.childNodes).forEach(function (c) { tpl.appendChild(document.importNode(c, true)); });
+    var code = doc.querySelector('script[data-dc-script]').textContent;
+    var Component = new Function('DCLogic', code + '\n;return Component;')(DCLogic);
+    comp = new Component({ dataUrl: 'almanac.json' });
+    if (!comp.state) comp.state = {};
+    render();
+    if (comp.componentDidMount) comp.componentDidMount();
+  }).catch(function () {
+    app.innerHTML = '<p id="boot">The Almanac didn’t load. Refresh the page to try again.</p>';
+  });
+})();
+</script>
+</body>
+</html>

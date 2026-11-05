@@ -2,7 +2,7 @@ name: Sleeper weekly pull
 
 # Tuesday 05:00 UTC = Tuesday 4pm Sydney (AEDT; 3pm in September before
 # daylight saving), once Monday night games are done. Also runs on demand and
-# when the scripts change.
+# when the scripts or the site change. Publishes the Almanac to GitHub Pages.
 on:
   schedule:
     - cron: "0 5 * * 2"
@@ -13,10 +13,13 @@ on:
       - "sleeper/*.py"
       - "sleeper/config.json"
       - "sleeper/franchise_map.csv"
+      - "sleeper/site/**"
       - ".github/workflows/sleeper-weekly.yml"
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: sleeper-weekly
@@ -46,7 +49,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config user.name "sunday-club-bot"
+          git config user.name "tgl-almanac-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add sleeper/
           if git diff --cached --quiet; then
@@ -55,3 +58,25 @@ jobs:
             git commit -m "Sleeper weekly pull $(date -u +%Y-%m-%d)"
             git push
           fi
+
+      - name: Assemble the Almanac site
+        run: |
+          mkdir -p _site
+          cp sleeper/site/index.html sleeper/site/almanac.dc.html _site/
+          cp sleeper/output/almanac.json _site/
+          cp sleeper/output/Sunday_Club_League_History.xlsx _site/TGL_League_History.xlsx
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: pull
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
