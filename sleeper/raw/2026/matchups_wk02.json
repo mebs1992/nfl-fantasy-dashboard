@@ -1,0 +1,74 @@
+[
+ {
+  "custom_points": null,
+  "matchup_id": 2,
+  "points": 119.2,
+  "roster_id": 1
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 6,
+  "points": 82.96,
+  "roster_id": 2
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 6,
+  "points": 138.18,
+  "roster_id": 3
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 4,
+  "points": 64.42,
+  "roster_id": 4
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 5,
+  "points": 77.2,
+  "roster_id": 5
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 5,
+  "points": 108.44,
+  "roster_id": 6
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 3,
+  "points": 111.12,
+  "roster_id": 7
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 1,
+  "points": 108.92,
+  "roster_id": 8
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 1,
+  "points": 160.26,
+  "roster_id": 9
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 2,
+  "points": 124.58,
+  "roster_id": 10
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 4,
+  "points": 73.56,
+  "roster_id": 11
+ },
+ {
+  "custom_points": null,
+  "matchup_id": 3,
+  "points": 112.32,
+  "roster_id": 12
+ }
+]
