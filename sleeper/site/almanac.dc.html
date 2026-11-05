@@ -285,6 +285,22 @@ a{color:#2346E8}a:hover{color:#1530B0}
                 <span>Points <b class="num" style="color: #0D1526;">{{h2h.pts}}</b></span>
                 <span>Since <b style="color: #0D1526;">{{h2h.first}}</b></span>
               </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #5B6478; font-weight: 700;">Rivalry timeline · every meeting, oldest first</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px 14px;">
+                  <sc-for list="{{h2h.strip}}" as="y" hint-placeholder-count="8">
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                      <span class="num" style="font-size: 11px; font-weight: 700; color: #5B6478;">{{y.s}}</span>
+                      <div style="display: flex; gap: 3px;">
+                        <sc-for list="{{y.games}}" as="m" hint-placeholder-count="2">
+                          <span title="{{m.tip}}" style="width: 22px; height: 30px; border-radius: 5px; background: {{m.bg}}; color: {{m.fg}}; display: inline-flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 11px; outline: {{m.ring}}; outline-offset: 1px;">{{m.init}}</span>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+                <span style="font-size: 12px; color: #5B6478;">Each block is a game in the winner's colours. Ringed blocks are playoff games.</span>
+              </div>
               <div class="tbl"><table>
                 <thead><tr><th>Season</th><th>Week</th><th>Winner</th><th class="r">Score</th></tr></thead>
                 <tbody>
@@ -403,8 +419,440 @@ a{color:#2346E8}a:hover{color:#1530B0}
       </div>
     </sc-if>
 
-    <!-- ================= HONOURS ================= -->
+    <!-- ================= THIS WEEK ================= -->
+    <sc-if value="{{isWeek}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <section style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+            <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 34px; font-weight: 800; text-transform: uppercase; font-style: italic;">Week {{aw.w}} awards</h2>
+            <span style="font-size: 14px; color: #5B6478;">{{aw.s}} season</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: 12px;">
+            <sc-for list="{{aw.cards}}" as="c" hint-placeholder-count="4">
+              <div class="card lift" style="overflow: hidden; display: flex; flex-direction: column;">
+                <div style="background: {{c.bg}}; color: {{c.fg}}; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: .03em;">{{c.label}}</span>
+                  <span style="font-size: 12px; font-weight: 600; opacity: .85;">{{c.hint}}</span>
+                </div>
+                <div style="padding: 14px 16px; display: flex; align-items: center; gap: 12px;">
+                  <span class="mono" style="width: 44px; height: 44px; font-size: 17px; background: {{c.badge.bg}}; color: {{c.badge.fg}};">{{c.badge.init}}</span>
+                  <div style="flex: 1; min-width: 0;"><div style="font-weight: 700; font-size: 17px;">{{c.name}}</div><div style="font-size: 13px; color: #5B6478;">{{c.line}}</div></div>
+                  <span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 30px;">{{c.pts}}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+
+        <sc-if value="{{hasUp}}" hint-placeholder-val="{{ true }}">
+          <section style="display: flex; flex-direction: column; gap: 12px;">
+            <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 34px; font-weight: 800; text-transform: uppercase; font-style: italic;">Week {{up.week}} preview</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 14px;">
+              <sc-for list="{{up.games}}" as="g" hint-placeholder-count="6">
+                <article class="card lift" style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: 10px; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 10px; min-width: 0;"><span class="mono" style="width: 40px; height: 40px; font-size: 16px; background: {{g.aBadge.bg}}; color: {{g.aBadge.fg}};">{{g.aBadge.init}}</span><span style="font-weight: 700; font-size: 15px; min-width: 0;">{{g.an}}</span></div>
+                    <span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 13px; background: #FFC93C; color: #0D1526; border-radius: 999px; padding: 3px 8px; transform: rotate(-6deg);">VS</span>
+                    <div style="display: flex; align-items: center; gap: 10px; justify-content: flex-end; text-align: right; min-width: 0;"><span style="font-weight: 700; font-size: 15px; min-width: 0;">{{g.bn}}</span><span class="mono" style="width: 40px; height: 40px; font-size: 16px; background: {{g.bBadge.bg}}; color: {{g.bBadge.fg}};">{{g.bBadge.init}}</span></div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; justify-content: space-between; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 22px;"><span style="color: #2346E8;">{{g.aw}}</span><span style="font-family: Barlow, Arial, sans-serif; font-size: 12px; font-weight: 600; color: #5B6478; align-self: center;">{{g.recLine}}</span><span style="color: #D9622B;">{{g.bw}}</span></div>
+                    <div style="display: flex; height: 6px; border-radius: 999px; overflow: hidden; background: #EEF1F6;"><span style="width: {{g.aPct}}; background: #2346E8;"></span><span style="width: {{g.bPct}}; background: #D9622B;"></span></div>
+                    <span style="font-size: 13px; color: #5B6478;">{{g.lastLine}}</span>
+                  </div>
+                  <sc-if value="{{g.hasFlags}}" hint-placeholder-val="{{ false }}">
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                      <sc-for list="{{g.flags}}" as="f" hint-placeholder-count="1">
+                        <span style="display: flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 600; background: {{f.bg}}; color: {{f.fg}}; border-radius: 10px; padding: 7px 10px;"><span class="ribbon" style="background: {{f.tagBg}}; color: #FFFFFF; padding: 2px 8px;">{{f.tag}}</span>{{f.text}}</span>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                </article>
+              </sc-for>
+            </div>
+          </section>
+        </sc-if>
+
+        <sc-if value="{{hasOdds}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+            <section class="card" style="flex: 999 1 520px; min-width: 0; padding: 20px;">
+              <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 700;">Playoff odds</h2>
+              <p style="margin: 0 0 14px; font-size: 13px; color: #5B6478;">{{odds.note}}</p>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <sc-for list="{{odds.rows}}" as="o" hint-placeholder-count="12">
+                  <div style="display: grid; grid-template-columns: 34px minmax(0, 150px) 1fr 58px; gap: 10px; align-items: center; font-size: 14px;">
+                    <span class="mono" style="width: 30px; height: 30px; font-size: 12px; background: {{o.badge.bg}}; color: {{o.badge.fg}};">{{o.badge.init}}</span>
+                    <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><b>{{o.name}}</b> <span style="color: #5B6478; font-size: 12px;">{{o.rec}}</span></span>
+                    <span style="height: 14px; background: #EEF1F6; border-radius: 999px; overflow: hidden;"><span style="display: block; height: 100%; width: {{o.w}}; background: {{o.color}}; border-radius: 999px;"></span></span>
+                    <span class="num" style="text-align: right; font-weight: 700;">{{o.pct}}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+            <section style="flex: 1 1 320px; min-width: 0; padding: 20px; background: #0D1526; color: #FFFFFF; border-radius: 14px;">
+              <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 800; text-transform: uppercase; font-style: italic;">Who's next for the chop?</h2>
+              <p style="margin: 0 0 14px; font-size: 13px; color: #C9D2E6;">Chance of being cut next week, and of being the last one standing.</p>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <sc-for list="{{odds.guill}}" as="o" hint-placeholder-count="4">
+                  <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.1);">
+                    <div style="display: flex; align-items: center; gap: 10px;"><span class="mono" style="width: 30px; height: 30px; font-size: 12px; background: {{o.badge.bg}}; color: {{o.badge.fg}};">{{o.badge.init}}</span><span style="flex: 1; font-weight: 700;">{{o.name}}</span><span class="num" style="font-weight: 800; color: #FF9A66; font-size: 18px;">{{o.cut}}</span></div>
+                    <div style="display: flex; height: 8px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,.08);"><span style="width: {{o.cutW}}; background: #FF7A3D;"></span></div>
+                    <span style="font-size: 12px; color: #C9D2E6;">Last one standing: <b style="color: #FFC93C;">{{o.surv}}</b></span>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+          </div>
+        </sc-if>
+
+        <section class="card" style="padding: 20px;">
+          <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 700;">Trophy cabinet</h2>
+          <p style="margin: 0 0 12px; font-size: 13px; color: #5B6478;">Weekly awards won, all time. This season's count in brackets.</p>
+          <div class="tbl"><table>
+            <thead><tr><th>Team</th><th class="r">Manager of the Week</th><th class="r">Robbed</th><th class="r">Got Away With It</th><th class="r">Lowest Score Shame</th></tr></thead>
+            <tbody>
+              <sc-for list="{{cabinet}}" as="c" hint-placeholder-count="14">
+                <tr><td><span style="display: inline-flex; align-items: center; gap: 8px;"><span class="mono" style="width: 26px; height: 26px; font-size: 11px; border-radius: 7px; background: {{c.badge.bg}}; color: {{c.badge.fg}};">{{c.badge.init}}</span><b>{{c.fr}}</b></span></td><td class="r num">{{c.motw}}</td><td class="r num">{{c.robbed}}</td><td class="r num">{{c.lucky}}</td><td class="r num">{{c.shame}}</td></tr>
+              </sc-for>
+            </tbody>
+          </table></div>
+        </section>
+      </div>
+    </sc-if>
+
+    <!-- ================= SEASONS ================= -->
+    <sc-if value="{{isSeasons}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="scroller">
+          <sc-for list="{{raceChips}}" as="s" hint-placeholder-count="15">
+            <button class="chip {{s.cls}}" onClick="{{s.pick}}">{{s.label}}</button>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+          <section class="card" style="flex: 999 1 560px; min-width: 0; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+              <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic;">{{race.s}} ladder race</h2>
+              <span style="font-size: 13px; color: #5B6478;">Position after each week. Tap a team to follow it.</span>
+            </div>
+            <div style="overflow-x: auto; margin-top: 10px;">
+              <svg viewBox="0 0 760 380" width="100%" style="min-width: 520px; display: block;" role="img" aria-label="{{race.aria}}">
+                <sc-for list="{{race.yTicks}}" as="t" hint-placeholder-count="12">
+                  <line x1="34" x2="690" y1="{{t.y}}" y2="{{t.y}}" stroke="#EEF1F6" stroke-width="1"></line>
+                  <text x="22" y="{{t.ty}}" font-size="11" fill="#5B6478" text-anchor="end" font-family="Barlow, Arial, sans-serif">{{t.label}}</text>
+                </sc-for>
+                <sc-if value="{{race.hasCut}}" hint-placeholder-val="{{ true }}">
+                  <line x1="34" x2="690" y1="{{race.cutY}}" y2="{{race.cutY}}" stroke="#2346E8" stroke-width="1.5" stroke-dasharray="5 5"></line>
+                </sc-if>
+                <sc-for list="{{race.xTicks}}" as="t" hint-placeholder-count="14">
+                  <text x="{{t.x}}" y="370" font-size="11" fill="#5B6478" text-anchor="middle" font-family="Barlow, Arial, sans-serif">{{t.label}}</text>
+                </sc-for>
+                <sc-for list="{{race.lines}}" as="l" hint-placeholder-count="12">
+                  <polyline points="{{l.pts}}" fill="none" stroke="{{l.color}}" stroke-width="{{l.w}}" stroke-opacity="{{l.op}}" stroke-linejoin="round" stroke-linecap="round"></polyline>
+                  <circle cx="{{l.ex}}" cy="{{l.ey}}" r="{{l.r}}" fill="{{l.color}}" fill-opacity="{{l.op}}"></circle>
+                  <text x="{{l.lx}}" y="{{l.ly}}" font-size="12" font-weight="800" fill="{{l.color}}" fill-opacity="{{l.op}}" font-family="'Barlow Condensed', Arial, sans-serif">{{l.init}}</text>
+                </sc-for>
+              </svg>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px;">
+              <sc-for list="{{race.chips}}" as="c" hint-placeholder-count="12">
+                <button class="chip {{c.cls}}" onClick="{{c.pick}}" style="padding: 4px 10px 4px 4px; display: inline-flex; align-items: center; gap: 6px; min-height: 36px;"><span class="mono" style="width: 26px; height: 26px; border-radius: 50%; font-size: 11px; background: {{c.badge.bg}}; color: {{c.badge.fg}};">{{c.badge.init}}</span>{{c.label}}</button>
+              </sc-for>
+            </div>
+          </section>
+
+          <section style="flex: 1 1 320px; min-width: 0; background: #0D1526; color: #FFFFFF; border-radius: 14px; overflow: hidden;">
+            <div class="field" style="padding: 22px 22px 18px;">
+              <div style="font-size: 12px; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; color: #FFC93C;">Season recap</div>
+              <div style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 64px; line-height: .9; font-style: italic;">{{recap.s}}</div>
+              <div style="display: flex; align-items: center; gap: 12px; margin-top: 14px;">
+                <span class="mono" style="width: 48px; height: 48px; font-size: 19px; background: {{recap.badge.bg}}; color: {{recap.badge.fg}}; box-shadow: 3px 3px 0 #FFC93C;">{{recap.badge.init}}</span>
+                <div><div style="font-size: 12px; color: #C9D2E6; font-weight: 600;">{{recap.champLabel}}</div><div style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 28px; text-transform: uppercase; line-height: 1;">{{recap.champ}}</div></div>
+              </div>
+            </div>
+            <div style="padding: 18px 22px 22px; display: flex; flex-direction: column; gap: 14px;">
+              <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #E5EAF5;">{{recap.story}}</p>
+              <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+                <sc-for list="{{recap.facts}}" as="f" hint-placeholder-count="6">
+                  <div style="background: rgba(255,255,255,.06); border-radius: 10px; padding: 10px 12px;"><div style="font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #8E99B3; font-weight: 700;">{{f.label}}</div><div style="font-weight: 700; font-size: 15px;">{{f.value}}</div><div style="font-size: 12px; color: #C9D2E6;">{{f.sub}}</div></div>
+                </sc-for>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- ================= MOVES ================= -->
+    <sc-if value="{{isMoves}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <sc-if value="{{noMoves}}" hint-placeholder-val="{{ false }}">
+          <div class="card" style="padding: 28px; color: #5B6478;">Lineups, trades, waivers and the draft are tracked from 2026 onward.</div>
+        </sc-if>
+        <sc-if value="{{hasMoves}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+              <section class="card" style="flex: 999 1 520px; min-width: 0; padding: 20px;">
+                <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic;">Lineup IQ</h2>
+                <p style="margin: 0 0 14px; font-size: 13px; color: #5B6478;">{{mv.lineupNote}}</p>
+                <div class="tbl"><table>
+                  <thead><tr><th>Team</th><th>Score vs best lineup</th><th class="r">Left on bench</th><th class="r">Bench cost a win</th></tr></thead>
+                  <tbody>
+                    <sc-for list="{{mv.lineups}}" as="l" hint-placeholder-count="12">
+                      <tr>
+                        <td><span style="display: inline-flex; align-items: center; gap: 8px;"><span class="mono" style="width: 28px; height: 28px; font-size: 11px; border-radius: 8px; background: {{l.badge.bg}}; color: {{l.badge.fg}};">{{l.badge.init}}</span><b>{{l.fr}}</b></span></td>
+                        <td style="min-width: 130px; width: 40%;"><span style="display: flex; align-items: center; gap: 8px;"><span style="flex: 1; height: 10px; background: #EEF1F6; border-radius: 999px; overflow: hidden;"><span style="display: block; height: 100%; width: {{l.w}}; background: {{l.color}};"></span></span><span class="num" style="font-weight: 700; width: 46px; text-align: right;">{{l.eff}}</span></span></td>
+                        <td class="r num">{{l.left}}</td>
+                        <td class="r num" style="font-weight: 700; color: {{l.lostColor}};">{{l.lost}}</td>
+                      </tr>
+                    </sc-for>
+                  </tbody>
+                </table></div>
+              </section>
+              <section class="card" style="flex: 1 1 320px; min-width: 0; padding: 20px;">
+                <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 700;">Worst sit/start calls</h2>
+                <p style="margin: 0 0 10px; font-size: 13px; color: #5B6478;">The single biggest benching mistake in a week.</p>
+                <div style="display: flex; flex-direction: column;">
+                  <sc-for list="{{mv.blunders}}" as="b" hint-placeholder-count="8">
+                    <div style="display: flex; gap: 10px; padding: 10px 0; border-top: 1px solid #EEF1F6; align-items: flex-start;">
+                      <span class="mono" style="width: 30px; height: 30px; font-size: 12px; background: {{b.badge.bg}}; color: {{b.badge.fg}};">{{b.badge.init}}</span>
+                      <div style="flex: 1; min-width: 0; font-size: 14px;"><div><b>{{b.fr}}</b> <span style="color: #5B6478;">wk {{b.w}}</span></div><div style="color: #5B6478; font-size: 13px;">Started {{b.started}} ({{b.sp}}) over {{b.benched}} ({{b.bp}})</div>
+                        <sc-if value="{{b.lost}}" hint-placeholder-val="{{ false }}"><span class="ribbon" style="display: inline-block; margin-top: 4px; background: #FFE2D3; color: #9A3A12;">Cost them the game</span></sc-if></div>
+                      <span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 22px; color: #B4481A;">-{{b.diff}}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </section>
+            </div>
+
+            <section style="display: flex; flex-direction: column; gap: 12px;">
+              <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic;">Trade tracker</h2>
+              <p style="margin: 0; font-size: 13px; color: #5B6478;">Points each side got from its new players in their lineup after the trade.</p>
+              <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr)); gap: 14px;">
+                <sc-for list="{{mv.trades}}" as="t" hint-placeholder-count="4">
+                  <article class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;"><span style="font-size: 12px; font-weight: 700; color: #5B6478; text-transform: uppercase; letter-spacing: .08em;">Week {{t.w}} trade</span><span class="ribbon" style="background: #FFC93C; color: #0D1526;">{{t.verdict}}</span></div>
+                    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+                      <sc-for list="{{t.sides}}" as="s" hint-placeholder-count="2">
+                        <div style="background: {{s.bg}}; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; min-width: 0;">
+                          <div style="display: flex; align-items: center; gap: 8px;"><span class="mono" style="width: 30px; height: 30px; font-size: 12px; background: {{s.badge.bg}}; color: {{s.badge.fg}};">{{s.badge.init}}</span><b style="font-size: 14px;">{{s.fr}}</b></div>
+                          <span style="font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #5B6478; font-weight: 700;">Got</span>
+                          <sc-for list="{{s.got}}" as="p" hint-placeholder-count="2">
+                            <div style="display: flex; justify-content: space-between; gap: 6px; font-size: 13px;"><span>{{p.name}} <span style="color: #5B6478;">{{p.pos}}</span></span><span class="num" style="font-weight: 600;">{{p.pts}}</span></div>
+                          </sc-for>
+                          <div style="border-top: 1px solid #DCE1EA; padding-top: 6px; display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #5B6478;">In their lineup</span><span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 22px; color: {{s.color}};">{{s.started}}</span></div>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </article>
+                </sc-for>
+              </div>
+            </section>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+              <section class="card" style="flex: 999 1 520px; min-width: 0; padding: 20px;">
+                <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic;">Waiver wire wins</h2>
+                <p style="margin: 0 0 10px; font-size: 13px; color: #5B6478;">Best pickups, by points scored in the lineup since being added.</p>
+                <div style="display: flex; flex-direction: column;">
+                  <sc-for list="{{mv.adds}}" as="a" hint-placeholder-count="10">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid #EEF1F6;">
+                      <span class="num" style="width: 24px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 20px; color: #8E99B3; text-align: center;">{{a.rank}}</span>
+                      <span class="mono" style="width: 32px; height: 32px; font-size: 12px; background: {{a.badge.bg}}; color: {{a.badge.fg}};">{{a.badge.init}}</span>
+                      <div style="flex: 1; min-width: 0;"><div style="font-weight: 700; font-size: 15px;">{{a.player}} <span style="color: #5B6478; font-weight: 500; font-size: 13px;">{{a.pos}}</span></div><div style="font-size: 13px; color: #5B6478;">{{a.sub}}</div></div>
+                      <span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 24px;">{{a.started}}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </section>
+              <section class="card" style="flex: 1 1 320px; min-width: 0; padding: 20px;">
+                <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 700;">Busiest on the wire</h2>
+                <p style="margin: 0 0 10px; font-size: 13px; color: #5B6478;">Pickups made, and lineup points they've produced.</p>
+                <div style="display: flex; flex-direction: column;">
+                  <sc-for list="{{mv.addTeams}}" as="a" hint-placeholder-count="12">
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid #EEF1F6; font-size: 14px;">
+                      <span class="mono" style="width: 28px; height: 28px; font-size: 11px; border-radius: 8px; background: {{a.badge.bg}}; color: {{a.badge.fg}};">{{a.badge.init}}</span>
+                      <span style="flex: 1; font-weight: 600;">{{a.fr}}</span><span style="color: #5B6478;">{{a.moves}} adds</span><span class="num" style="font-weight: 700; width: 64px; text-align: right;">{{a.started}}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </section>
+            </div>
+
+            <sc-if value="{{mv.hasDraft}}" hint-placeholder-val="{{ true }}">
+              <section style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+                  <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic;">Draft report cards</h2>
+                  <span class="ribbon" style="background: {{mv.draftTagBg}}; color: {{mv.draftTagFg}};">{{mv.draftTag}}</span>
+                </div>
+                <p style="margin: 0; font-size: 13px; color: #5B6478;">Each pick is judged against the points a player taken at that spot should score. Value is the total above or below that.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 14px;">
+                  <sc-for list="{{mv.draft}}" as="r" hint-placeholder-count="12">
+                    <article class="card lift" style="padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                      <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="width: 58px; height: 58px; border-radius: 14px; background: {{r.gradeBg}}; color: {{r.gradeFg}}; display: inline-flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 32px; flex: none;">{{r.grade}}</span>
+                        <div style="flex: 1; min-width: 0;"><div style="font-weight: 700; font-size: 16px;">{{r.fr}}</div><div style="font-size: 13px; color: #5B6478;">Value <b class="num" style="color: {{r.valColor}};">{{r.value}}</b> · {{r.pts}} pts from picks</div></div>
+                      </div>
+                      <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px;">
+                        <div style="display: flex; gap: 8px;"><span class="ribbon" style="background: #E6EBFF; color: #1530B0; flex: none;">Steal</span><span>{{r.steal}}</span></div>
+                        <div style="display: flex; gap: 8px;"><span class="ribbon" style="background: #FFE2D3; color: #9A3A12; flex: none;">Bust</span><span>{{r.bust}}</span></div>
+                      </div>
+                    </article>
+                  </sc-for>
+                </div>
+              </section>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <!-- ================= CHARACTER ================= -->
+    <sc-if value="{{isChar}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+          <section class="card" style="flex: 999 1 520px; min-width: 0; padding: 20px;">
+            <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic;">Boom or bust</h2>
+            <p style="margin: 0 0 6px; font-size: 13px; color: #5B6478;">How much each team's weekly score swings, compared with the league that season. Further right means wilder.</p>
+            <div style="background: #FFF6DA; border-radius: 12px; padding: 12px 14px; margin: 8px 0 14px; font-size: 15px; font-weight: 600;">{{ch.verdict}}</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{ch.boom}}" as="b" hint-placeholder-count="14">
+                <div style="display: grid; grid-template-columns: 30px minmax(0, 150px) 1fr 70px; gap: 10px; align-items: center; font-size: 14px;">
+                  <span class="mono" style="width: 28px; height: 28px; font-size: 11px; border-radius: 8px; background: {{b.badge.bg}}; color: {{b.badge.fg}};">{{b.badge.init}}</span>
+                  <span style="font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{b.fr}}</span>
+                  <span style="position: relative; height: 14px; background: linear-gradient(90deg, #E6EBFF, #FFE2D3); border-radius: 999px;"><span style="position: absolute; top: -3px; left: {{b.x}}; width: 20px; height: 20px; margin-left: -10px; border-radius: 50%; background: {{b.badge.bg}}; border: 3px solid #FFFFFF; box-shadow: 0 1px 4px rgba(13,21,38,.3);"></span></span>
+                  <span class="num" style="font-size: 12px; color: #5B6478; text-align: right;">{{b.range}}</span>
+                </div>
+              </sc-for>
+              <div style="display: grid; grid-template-columns: 30px minmax(0, 150px) 1fr 70px; gap: 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #5B6478;"><span></span><span></span><span style="display: flex; justify-content: space-between;"><span>Steady</span><span>Wild</span></span><span style="text-align: right;">Best / worst</span></div>
+            </div>
+          </section>
+          <section class="card" style="flex: 1 1 320px; min-width: 0; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <h3 style="margin: 0 0 6px; font-size: 16px; font-weight: 700;">Wildest seasons</h3>
+              <sc-for list="{{ch.wild}}" as="x" hint-placeholder-count="5"><div style="display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-top: 1px solid #EEF1F6; font-size: 14px;"><span><b>{{x.fr}}</b> {{x.s}}</span><span class="num" style="color: #5B6478;">{{x.sub}}</span></div></sc-for>
+            </div>
+            <div>
+              <h3 style="margin: 0 0 6px; font-size: 16px; font-weight: 700;">Steadiest seasons</h3>
+              <sc-for list="{{ch.steady}}" as="x" hint-placeholder-count="5"><div style="display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-top: 1px solid #EEF1F6; font-size: 14px;"><span><b>{{x.fr}}</b> {{x.s}}</span><span class="num" style="color: #5B6478;">{{x.sub}}</span></div></sc-for>
+            </div>
+          </section>
+        </div>
+
+        <section class="card" style="padding: 20px;">
+          <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic;">Clutch or choke</h2>
+          <p style="margin: 0 0 12px; font-size: 13px; color: #5B6478;">Close games are decided by under 10 points. Playoff swing is playoff win % minus regular-season win %.</p>
+          <div class="tbl"><table>
+            <thead><tr><th>Team</th><th class="r">Close games</th><th class="r">Close win %</th><th class="r">Playoffs</th><th class="r">Regular season</th><th class="r">Playoff swing</th><th class="r">Finals</th><th>Verdict</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ch.clutch}}" as="c" hint-placeholder-count="14">
+                <tr><td><span style="display: inline-flex; align-items: center; gap: 8px;"><span class="mono" style="width: 26px; height: 26px; font-size: 11px; border-radius: 7px; background: {{c.badge.bg}}; color: {{c.badge.fg}};">{{c.badge.init}}</span><b>{{c.fr}}</b></span></td><td class="r num">{{c.close}}</td><td class="r num" style="font-weight: 700;">{{c.closePct}}</td><td class="r num">{{c.po}}</td><td class="r num">{{c.reg}}</td><td class="r num" style="font-weight: 700; color: {{c.swingColor}};">{{c.swing}}</td><td class="r num">{{c.finals}}</td><td><span class="ribbon" style="background: {{c.tagBg}}; color: {{c.tagFg}};">{{c.tag}}</span></td></tr>
+              </sc-for>
+            </tbody>
+          </table></div>
+        </section>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+          <section class="card" style="flex: 999 1 520px; min-width: 0; padding: 20px;">
+            <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic;">Fast starters, late bloomers</h2>
+            <p style="margin: 0 0 12px; font-size: 13px; color: #5B6478;">All-time record in weeks 1–6 against weeks 7–14.</p>
+            <div class="tbl"><table>
+              <thead><tr><th>Team</th><th class="r">Weeks 1–6</th><th class="r">Weeks 7–14</th><th>Shift</th></tr></thead>
+              <tbody>
+                <sc-for list="{{ch.hc}}" as="h" hint-placeholder-count="14">
+                  <tr><td><span style="display: inline-flex; align-items: center; gap: 8px;"><span class="mono" style="width: 26px; height: 26px; font-size: 11px; border-radius: 7px; background: {{h.badge.bg}}; color: {{h.badge.fg}};">{{h.badge.init}}</span><b>{{h.fr}}</b></span></td><td class="r num">{{h.early}}</td><td class="r num">{{h.late}}</td>
+                    <td style="min-width: 160px;"><span style="display: flex; align-items: center; gap: 8px;"><span style="position: relative; flex: 1; height: 10px; background: #EEF1F6; border-radius: 999px;"><span style="position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: #8E99B3;"></span><span style="position: absolute; top: 0; bottom: 0; left: {{h.left}}; width: {{h.width}}; background: {{h.color}}; border-radius: 999px;"></span></span><span class="num" style="font-weight: 700; color: {{h.color}}; width: 50px; text-align: right;">{{h.swing}}</span></span></td></tr>
+                </sc-for>
+              </tbody>
+            </table></div>
+          </section>
+          <section class="card" style="flex: 1 1 320px; min-width: 0; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <h3 style="margin: 0 0 6px; font-size: 16px; font-weight: 700;">Biggest collapses</h3>
+              <sc-for list="{{ch.collapses}}" as="x" hint-placeholder-count="5"><div style="display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-top: 1px solid #EEF1F6; font-size: 14px;"><span><b>{{x.fr}}</b> {{x.s}}</span><span class="num" style="color: #B4481A;">{{x.sub}}</span></div></sc-for>
+            </div>
+            <div>
+              <h3 style="margin: 0 0 6px; font-size: 16px; font-weight: 700;">Biggest surges</h3>
+              <sc-for list="{{ch.surges}}" as="x" hint-placeholder-count="5"><div style="display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-top: 1px solid #EEF1F6; font-size: 14px;"><span><b>{{x.fr}}</b> {{x.s}}</span><span class="num" style="color: #1530B0;">{{x.sub}}</span></div></sc-for>
+            </div>
+          </section>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+          <section class="card" style="flex: 999 1 520px; min-width: 0; padding: 20px;">
+            <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic;">The sob story</h2>
+            <p style="margin: 0 0 12px; font-size: 13px; color: #5B6478;">Times an opponent put up their best score of the season against you, and how far above the league average opponents scored against you.</p>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{ch.sob}}" as="s" hint-placeholder-count="14">
+                <div style="display: grid; grid-template-columns: 30px minmax(0, 150px) 1fr 90px; gap: 10px; align-items: center; font-size: 14px;">
+                  <span class="mono" style="width: 28px; height: 28px; font-size: 11px; border-radius: 8px; background: {{s.badge.bg}}; color: {{s.badge.fg}};">{{s.badge.init}}</span>
+                  <span style="font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{s.fr}}</span>
+                  <span style="height: 12px; background: #EEF1F6; border-radius: 999px; overflow: hidden;"><span style="display: block; height: 100%; width: {{s.w}}; background: #D9622B;"></span></span>
+                  <span class="num" style="text-align: right; font-size: 13px;"><b>{{s.highs}}</b> <span style="color: #5B6478;">{{s.tough}}</span></span>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+          <section class="card" style="flex: 1 1 320px; min-width: 0; padding: 20px;">
+            <h3 style="margin: 0 0 6px; font-size: 16px; font-weight: 700;">Toughest schedules in a season</h3>
+            <sc-for list="{{ch.toughest}}" as="x" hint-placeholder-count="8"><div style="display: flex; justify-content: space-between; gap: 8px; padding: 7px 0; border-top: 1px solid #EEF1F6; font-size: 14px;"><span><b>{{x.fr}}</b> {{x.s}}</span><span class="num" style="color: #B4481A;">{{x.sub}}</span></div></sc-for>
+          </section>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- ================= LEGACY (was HONOURS) ================= -->
     <sc-if value="{{isHonours}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+      <section class="card" style="padding: 20px;">
+        <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 32px; font-weight: 800; text-transform: uppercase; font-style: italic;">Dynasty rankings</h2>
+        <p style="margin: 0 0 14px; font-size: 13px; color: #5B6478;">Who's the greatest in The Greatest League. Titles count most, then finals, playoff runs, all-time win % and seasons played. Scaled so the top franchise is 100.</p>
+        <div style="display: flex; flex-direction: column;">
+          <sc-for list="{{dyn}}" as="d" hint-placeholder-count="14">
+            <div style="display: grid; grid-template-columns: 34px 44px minmax(0, 1fr) 64px; gap: 12px; align-items: center; padding: 10px 0; border-top: 1px solid #EEF1F6;">
+              <span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 24px; color: {{d.rankColor}}; text-align: center; font-style: italic;">{{d.rank}}</span>
+              <span class="mono" style="width: 40px; height: 40px; font-size: 15px; background: {{d.badge.bg}}; color: {{d.badge.fg}};">{{d.badge.init}}</span>
+              <div style="min-width: 0; display: flex; flex-direction: column; gap: 5px;">
+                <div style="display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap;"><b style="font-size: 15px;">{{d.fr}}</b><span style="font-size: 12px; color: #5B6478;">{{d.sub}}</span></div>
+                <div style="display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: #EEF1F6;">
+                  <span style="width: {{d.wT}}; background: #FFC93C;"></span><span style="width: {{d.wF}}; background: #2346E8;"></span><span style="width: {{d.wP}}; background: #8FA6FF;"></span><span style="width: {{d.wW}}; background: #3DB37A;"></span>
+                </div>
+              </div>
+              <span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 32px; text-align: right;">{{d.score}}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 12px; color: #5B6478;">
+          <span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; border-radius: 3px; background: #FFC93C;"></span>Titles</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; border-radius: 3px; background: #2346E8;"></span>Lost finals</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; border-radius: 3px; background: #8FA6FF;"></span>Playoff seasons</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; border-radius: 3px; background: #3DB37A;"></span>Winning record</span>
+        </div>
+      </section>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+        <section style="flex: 1 1 360px; min-width: 0; padding: 20px; background: #0D1526; color: #FFFFFF; border-radius: 14px;">
+          <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic; color: #FFC93C;">Hall of Fame seasons</h2>
+          <p style="margin: 0 0 10px; font-size: 13px; color: #C9D2E6;">Best single seasons, on record, scoring against that year's league, and finish.</p>
+          <sc-for list="{{fame}}" as="x" hint-placeholder-count="10">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.08);">
+              <span class="num" style="width: 22px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 18px; color: #FFC93C;">{{x.rank}}</span>
+              <span class="mono" style="width: 32px; height: 32px; font-size: 12px; background: {{x.badge.bg}}; color: {{x.badge.fg}};">{{x.badge.init}}</span>
+              <div style="flex: 1; min-width: 0;"><div style="font-weight: 700;">{{x.name}} <span style="color: #8E99B3; font-weight: 600;">{{x.s}}</span></div><div style="font-size: 12px; color: #C9D2E6;">{{x.sub}}</div></div>
+            </div>
+          </sc-for>
+        </section>
+        <section class="card" style="flex: 1 1 360px; min-width: 0; padding: 20px;">
+          <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; font-style: italic; color: #B4481A;">Hall of Shame seasons</h2>
+          <p style="margin: 0 0 10px; font-size: 13px; color: #5B6478;">The worst single seasons, by the same measure.</p>
+          <sc-for list="{{shame}}" as="x" hint-placeholder-count="10">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 9px 0; border-top: 1px solid #EEF1F6;">
+              <span class="num" style="width: 22px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 18px; color: #B4481A;">{{x.rank}}</span>
+              <span class="mono" style="width: 32px; height: 32px; font-size: 12px; background: {{x.badge.bg}}; color: {{x.badge.fg}};">{{x.badge.init}}</span>
+              <div style="flex: 1; min-width: 0;"><div style="font-weight: 700;">{{x.name}} <span style="color: #5B6478; font-weight: 600;">{{x.s}}</span></div><div style="font-size: 12px; color: #5B6478;">{{x.sub}}</div></div>
+            </div>
+          </sc-for>
+        </section>
+      </div>
+
       <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
         <section class="card" style="flex: 999 1 520px; min-width: 0; padding: 20px;">
           <h2 style="margin: 0 0 12px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; font-weight: 700;">Champions</h2>
@@ -452,6 +900,7 @@ a{color:#2346E8}a:hover{color:#1530B0}
           </section>
         </div>
       </div>
+      </div>
     </sc-if>
 
     <sc-if value="{{loaded}}" hint-placeholder-val="{{ true }}">
@@ -491,11 +940,17 @@ class Component extends DCLogic {
       return { init: (w.length > 1 ? w[0][0] + w[1][0] : w[0].slice(0, 2)).toUpperCase(), bg: '#5B6478', fg: '#FFFFFF' };
     };
     var NOB = { init: '', bg: '#EEF1F6', fg: '#0D1526' };
-    var TABS = [['home', 'Home'], ['matchups', 'Matchups'], ['h2h', 'Head to head'], ['teams', 'Teams'], ['records', 'Records'], ['honours', 'Honours']];
+    var TABS = [['home', 'Home'], ['week', 'This week'], ['matchups', 'Matchups'], ['h2h', 'Head to head'], ['teams', 'Teams'], ['seasons', 'Seasons'], ['moves', 'Moves'], ['character', 'Character'], ['records', 'Records'], ['honours', 'Legacy']];
     var base = {
       loaded: !!d, loading: !d && !st.failed, failed: st.failed,
       tabs: TABS.map(function (t) { return { label: t[1], cls: st.tab === t[0] ? 'on' : '', pick: function () { self.setState({ tab: t[0] }); } }; }),
       isHome: false, isMatch: false, isH2H: false, isTeams: false, isRecords: false, isHonours: false,
+      isWeek: false, isSeasons: false, isMoves: false, isChar: false,
+      aw: { cards: [] }, up: { games: [] }, hasUp: false, hasOdds: false, odds: { rows: [], guill: [] }, cabinet: [],
+      raceChips: [], race: { yTicks: [], xTicks: [], lines: [], chips: [] }, recap: { facts: [], badge: NOB },
+      hasMoves: false, noMoves: false, mv: { lineups: [], blunders: [], trades: [], adds: [], addTeams: [], draft: [] },
+      ch: { boom: [], wild: [], steady: [], clutch: [], hc: [], collapses: [], surges: [], sob: [], toughest: [] },
+      dyn: [], fame: [], shame: [],
       statusLine: '', facts: [], ladder: [], alive: [], cuts: [], lastResults: [], seasonChips: [], weekChips: [], matchGames: [],
       frOptions: [], rivals: [], teamChips: [], recChips: [], champs: [], tally: [], droughts: [],
       h2h: { rows: [], aBadge: NOB, bBadge: NOB }, team: { stats: [], cards: [], seasons: [], badge: NOB }, rec: { rows: [], hasTop: false, top: { badge: NOB } },
@@ -510,6 +965,7 @@ class Component extends DCLogic {
     var v = Object.assign(base, {
       isHome: st.tab === 'home', isMatch: st.tab === 'matchups', isH2H: st.tab === 'h2h',
       isTeams: st.tab === 'teams', isRecords: st.tab === 'records', isHonours: st.tab === 'honours',
+      isWeek: st.tab === 'week', isSeasons: st.tab === 'seasons', isMoves: st.tab === 'moves', isChar: st.tab === 'character',
       curSeason: curSeason,
       statusLine: cur.complete ? curSeason + ' season complete' : curSeason + ' · through week ' + cur.through_week,
       footer: 'Every result since 2012, matched by franchise through every team rename. A few 2025 late-season and playoff scores were never recorded, so those games show the winner only. Updated ' + d.generated + '.'
@@ -604,6 +1060,18 @@ class Component extends DCLogic {
       var tot = aw + bw || 1;
       v.h2h = { aw: aw, bw: bw, mid: t ? t + (t > 1 ? ' ties' : ' tie') : '', games: meet.length,
         aBadge: badge(A), bBadge: badge(B), leader: aw === bw ? 'All square' : (aw > bw ? A : B) + ' lead', po: po, pts: f2(ap) + ' – ' + f2(bp),
+        strip: (function () {
+          var bySeason = [];
+          meet.slice().reverse().forEach(function (g) {
+            var last = bySeason[bySeason.length - 1];
+            if (!last || last.s !== g.s) { last = { s: g.s, games: [] }; bySeason.push(last); }
+            var b = g.win ? badge(g.win) : { init: '=', bg: '#DCE1EA', fg: '#0D1526' };
+            var ws = g.win === g.a ? g.ap : g.bp, ls = g.win === g.a ? g.bp : g.ap;
+            last.games.push({ init: b.init, bg: b.bg, fg: b.fg, ring: g.st === 'P' ? '2px solid #FFC93C' : 'none',
+              tip: g.s + ' wk ' + g.w + ': ' + (g.win || 'Tie') + (g.sc ? ' ' + f2(ws) + '–' + f2(ls) : '') });
+          });
+          return bySeason;
+        })(),
         first: meet[meet.length - 1].s, aPct: (aw / tot * 100) + '%', bPct: (bw / tot * 100) + '%',
         rows: meet.slice(0, 12).map(function (g) {
           var w = g.win, ws = w === g.a ? g.ap : g.bp, ls = w === g.a ? g.bp : g.ap;
@@ -674,9 +1142,186 @@ class Component extends DCLogic {
     var tally = {}; champs.forEach(function (c) { tally[c.champion] = (tally[c.champion] || 0) + 1; });
     var tmax = Math.max.apply(null, Object.values(tally));
     v.tally = Object.keys(tally).sort(function (a, b) { return tally[b] - tally[a] || a.localeCompare(b); }).map(function (k) { var cups = []; for (var i = 0; i < tally[k]; i++) cups.push(i); return { fr: k, n: tally[k], cups: cups, w: (tally[k] / tmax * 100) + '%' }; });
-    v.droughts = F.droughts.map(function (x) { return { fr: x[0], text: x[1] ? (curSeason - x[1]) + ' seasons (last ' + x[1] + ')' : 'Never won', color: x[1] ? '#0D1526' : '#B4481A' }; });
+    v.droughts = F.droughts.map(function (x) { return { fr: x[0], text: x[1] ? (curSeason - x[1]) + ((curSeason - x[1]) === 1 ? ' season' : ' seasons') + ' (last ' + x[1] + ')' : 'Never won', color: x[1] ? '#0D1526' : '#B4481A' }; });
     var won = F.top_seeds.filter(function (x) { return x.place === 1; }).length;
     v.seedLine = 'The regular season’s No. 1 seed has gone on to win the title ' + won + ' times in ' + F.top_seeds.length + ' seasons. ' + (F.top_seeds.length ? 'Last year ' + F.top_seeds[F.top_seeds.length - 1].champ + ' won it from seed ' + F.top_seeds[F.top_seeds.length - 1].champ_seed + '.' : '');
+    var X = d.x || {};
+    var pc = function (x) { return x == null ? '–' : Math.round(x * 100) + '%'; };
+    var rec = function (w, l, t) { return w + '-' + l + (t ? '-' + t : ''); };
+
+    // ---------- this week
+    var awList = X.awards || [];
+    var lastAw = awList[awList.length - 1];
+    if (lastAw) {
+      var mk = function (label, hint, bg, fg, o, line) { return o ? { label: label, hint: hint, bg: bg, fg: fg, badge: badge(o.fr), name: o.name || o.fr, pts: f2(o.pts), line: line } : null; };
+      v.aw = { s: lastAw.s, w: lastAw.w, cards: [
+        mk('Manager of the Week', 'Top score', '#FFC93C', '#0D1526', lastAw.motw, lastAw.motw && 'vs ' + lastAw.motw.opp),
+        mk('Robbed', 'Best score in a loss', '#2346E8', '#FFFFFF', lastAw.robbed, lastAw.robbed && 'Lost to ' + lastAw.robbed.opp + ' (' + f2(lastAw.robbed.op) + ')'),
+        mk('Got Away With It', 'Worst score in a win', '#3DB37A', '#FFFFFF', lastAw.lucky, lastAw.lucky && 'Beat ' + lastAw.lucky.opp + ' (' + f2(lastAw.lucky.op) + ')'),
+        mk('Lowest Score Shame', 'Bottom of the week', '#D9622B', '#FFFFFF', lastAw.shame, lastAw.shame && 'vs ' + lastAw.shame.opp)
+      ].filter(Boolean) };
+    }
+    var U = X.upcoming;
+    v.hasUp = !!(U && U.games && U.games.length);
+    if (v.hasUp) {
+      v.up = { week: U.week, games: U.games.map(function (g) {
+        var tot = g.aw + g.bw || 1;
+        return { an: g.an, bn: g.bn, aBadge: badge(g.a), bBadge: badge(g.b), aw: g.aw, bw: g.bw,
+          aPct: (g.games ? g.aw / tot * 100 : 50) + '%', bPct: (g.games ? g.bw / tot * 100 : 50) + '%',
+          recLine: g.games ? g.games + ' meetings' + (g.t ? ', ' + g.t + ' tied' : '') : 'First ever meeting',
+          lastLine: g.last ? 'Last met ' + g.last.s + ' wk ' + g.last.w + ': ' + (g.last.winner ? latestName(g.last.winner) + ' won' : 'tied') + (g.last.score ? ' ' + g.last.score : '') : 'Never met before',
+          hasFlags: g.flags.length > 0,
+          flags: g.flags.map(function (f) { var bog = f.kind === 'bogey'; return { tag: bog ? 'Bogey team' : 'Revenge watch', text: f.text, bg: bog ? '#E6EBFF' : '#FFE2D3', fg: bog ? '#1530B0' : '#9A3A12', tagBg: bog ? '#2346E8' : '#D9622B' }; }) };
+      }) };
+    }
+    var O = X.odds;
+    v.hasOdds = !!O;
+    if (O) {
+      v.odds = {
+        note: 'From ' + O.sims.toLocaleString() + ' simulations of the last ' + O.weeks_left + ' regular-season weeks, using each team’s scoring so far. Top ' + O.playoff_teams + ' make the playoffs.',
+        rows: O.table.map(function (o) { return { badge: badge(o.fr), name: latestName(o.fr), rec: o.w + ' wins', pct: o.playoffs >= 99.95 ? 'In' : (o.playoffs < 0.05 ? 'Out' : o.playoffs.toFixed(1) + '%'), w: o.playoffs + '%', color: o.playoffs >= 50 ? '#2346E8' : '#D9622B' }; }),
+        guill: O.guillotine.map(function (o) { return { badge: badge(o.fr), name: latestName(o.fr), cut: o.next_cut.toFixed(1) + '%', cutW: o.next_cut + '%', surv: o.survive.toFixed(1) + '%' }; })
+      };
+    }
+    var seasonCab = {};
+    awList.filter(function (a) { return a.s === curSeason; }).forEach(function (a) {
+      [['motw', a.motw], ['robbed', a.robbed], ['lucky', a.lucky], ['shame', a.shame]].forEach(function (p) {
+        if (!p[1]) return; var c = seasonCab[p[1].fr] = seasonCab[p[1].fr] || {}; c[p[0]] = (c[p[0]] || 0) + 1; });
+    });
+    v.cabinet = (X.cabinet || []).map(function (c) {
+      var sc = seasonCab[c.fr] || {};
+      var cell = function (k) { return c[k] + (sc[k] ? ' (' + sc[k] + ')' : ''); };
+      return { fr: c.fr, badge: badge(c.fr), motw: cell('motw'), robbed: cell('robbed'), lucky: cell('lucky'), shame: cell('shame') };
+    });
+
+    // ---------- seasons: ladder race + recap
+    var races = X.race || [];
+    var rs = st.rs || (races.length ? races[races.length - 1].s : null);
+    v.raceChips = races.slice().reverse().map(function (r) { return { label: String(r.s), cls: r.s === rs ? 'on' : '', pick: function () { self.setState({ rs: r.s, rt: null }); } }; });
+    var R = races.find(function (r) { return r.s === rs; });
+    if (R) {
+      var n = R.teams.length, W = R.weeks.length;
+      var X0 = 40, X1 = 640, Y0 = 20, Y1 = 345;
+      var xp = function (i) { return W > 1 ? X0 + i * (X1 - X0) / (W - 1) : X0; };
+      var yp = function (p) { return n > 1 ? Y0 + (p - 1) * (Y1 - Y0) / (n - 1) : Y0; };
+      var finalOrder = R.teams.slice().sort(function (a, b) { return a.pos[a.pos.length - 1] - b.pos[b.pos.length - 1]; });
+      var focus = st.rt && R.teams.some(function (t) { return t.fr === st.rt; }) ? st.rt : null;
+      var lines = R.teams.map(function (t) {
+        var b = badge(t.fr), on = !focus || t.fr === focus, last = t.pos[t.pos.length - 1];
+        return { fr: t.fr, init: b.init, color: b.bg === '#FFC93C' ? '#C99700' : b.bg,
+          pts: t.pos.map(function (p, i) { return xp(i).toFixed(1) + ',' + yp(p).toFixed(1); }).join(' '),
+          w: focus ? (on ? 5 : 2) : 3, op: on ? 1 : 0.15, r: on ? 5 : 3,
+          ex: xp(W - 1), ey: yp(last), lx: xp(W - 1) + 10, ly: yp(last) + 4 };
+      });
+      lines.sort(function (a, b) { return (a.fr === focus) - (b.fr === focus); });
+      var pt = 4;
+      v.race = { s: R.s, lines: lines, hasCut: R.s === curSeason && n > pt, cutY: ((yp(pt) + yp(pt + 1)) / 2).toFixed(1),
+        aria: R.s + ' ladder positions by week',
+        yTicks: R.teams.map(function (_, i) { return { y: yp(i + 1).toFixed(1), ty: (yp(i + 1) + 4).toFixed(1), label: i + 1 }; }),
+        xTicks: R.weeks.map(function (w, i) { return { x: xp(i).toFixed(1), label: (W > 10 && i % 2 && i !== W - 1) ? '' : 'Wk ' + w }; }),
+        chips: finalOrder.map(function (t) { return { badge: badge(t.fr), label: t.fr, cls: t.fr === focus ? 'on' : '', pick: function () { self.setState({ rt: focus === t.fr ? null : t.fr }); } }; }) };
+    }
+    var RC = (X.recaps || []).find(function (r) { return r.s === rs; });
+    if (RC) {
+      var lk = (F.luckiest || []).concat(F.unluckiest || []).filter(function (x) { return x.s === RC.s; });
+      var unl = (F.unluckiest || []).filter(function (x) { return x.s === RC.s; })[0];
+      var gs = F.guillotine.find(function (g) { return g.s === RC.s; });
+      var story = RC.champ
+        ? RC.champ + ' won the title' + (RC.seed ? ' from seed ' + RC.seed : '') + ', beating ' + RC.runner + ' in the final' + (RC.title_score && RC.title_score.indexOf('-') > 0 ? ' ' + RC.title_score.replace(' - ', '–') : '') + '. '
+        : 'The season is still running. ';
+      story += RC.first.fr + ' ' + (RC.champ ? 'finished' : 'sit') + ' top of the ladder at ' + RC.first.rec + ', while ' + RC.last.fr + ' ' + (RC.champ ? 'propped it up' : 'prop it up') + ' at ' + RC.last.rec + '. ';
+      story += RC.top_pf.fr + ' scored the most points (' + f2(RC.top_pf.pf) + ').';
+      if (unl) story += ' ' + unl.fr + ' was the unluckiest team, winning ' + unl.actual + (unl.actual === 1 ? ' game' : ' games') + ' when their points deserved ' + f2(unl.expected) + '.';
+      v.recap = { s: RC.s, badge: RC.champ ? badge(RC.champ) : badge(RC.first.fr), champLabel: RC.champ ? 'Champion' : 'Leading the ladder', champ: RC.champ || RC.first.fr, story: story,
+        facts: [
+          { label: 'Runner-up', value: RC.runner || '–', sub: RC.champ ? 'Lost the final' : 'Final not played yet' },
+          { label: 'Most points', value: RC.top_pf.fr, sub: f2(RC.top_pf.pf) + ' for the season' },
+          { label: 'Highest score', value: RC.high ? RC.high.fr : '–', sub: RC.high ? f2(RC.high.pts) + ' in week ' + RC.high.w : '' },
+          { label: 'Biggest blowout', value: RC.blowout ? RC.blowout.fr : '–', sub: RC.blowout ? 'by ' + f2(RC.blowout.m) + ' over ' + RC.blowout.opp : '' },
+          { label: 'Wooden spoon', value: RC.last.fr, sub: RC.last.rec },
+          { label: 'Guillotine survivor', value: gs && gs.complete ? gs.alive[0] : (gs ? gs.alive.length + ' still alive' : '–'), sub: RC.s === curSeason ? 'Live' : 'Replayed from scores' }
+        ] };
+    }
+
+    // ---------- moves (lineups, trades, waivers, draft)
+    var SL = (X.sleeper || []).find(function (s) { return s.season === curSeason; }) || (X.sleeper || [])[0];
+    v.hasMoves = !!SL; v.noMoves = !SL;
+    if (SL) {
+      var effMin = Math.min.apply(null, SL.lineups.map(function (l) { return l.eff || 100; }).concat([85]));
+      v.mv = {
+        lineupNote: SL.season + ', weeks 1–' + SL.through + '. Your actual score as a share of the best lineup you could have set from your roster.',
+        lineups: SL.lineups.map(function (l) { return { fr: l.fr, badge: badge(l.fr), eff: l.eff.toFixed(1) + '%', w: Math.max(4, (l.eff - effMin + 2) / (100 - effMin + 2) * 100) + '%',
+          color: l.eff >= 92 ? '#2346E8' : (l.eff >= 88 ? '#8FA6FF' : '#D9622B'), left: f2(l.left), lost: l.lost, lostColor: l.lost ? '#B4481A' : '#5B6478' }; }),
+        blunders: SL.blunders.slice(0, 8).map(function (b) { return { fr: b.fr, badge: badge(b.fr), w: b.w, started: b.started, sp: f2(b.started_pts), benched: b.benched, bp: f2(b.benched_pts), diff: f2(b.diff), lost: b.lost }; }),
+        trades: SL.trades.map(function (t) {
+          return { w: t.w, verdict: t.winner ? t.winner + ' won by ' + f2(t.margin) : 'Dead even',
+            sides: t.sides.map(function (s) { var won = s.fr === t.winner; return { fr: s.fr, badge: badge(s.fr), bg: won ? '#FFF6DA' : '#F5F7FB', color: won ? '#8A5A00' : '#0D1526', started: f2(s.started),
+              got: s.got.map(function (p) { return { name: p.name, pos: p.pos, pts: f2(p.pts) }; }).concat(s.picks.map(function (pk) { return { name: pk + ' pick', pos: '', pts: '' }; })) }; }) };
+        }),
+        adds: SL.adds.slice(0, 10).map(function (a, i) { return { rank: i + 1, badge: badge(a.fr), player: a.player, pos: a.pos, started: f2(a.started),
+          sub: a.fr + ' · ' + (a.kind === 'waiver' ? 'waiver claim' + (a.bid ? ' ($' + a.bid + ')' : '') : 'free agent') + ' · week ' + a.w }; }),
+        addTeams: SL.add_teams.map(function (a) { return { fr: a.fr, badge: badge(a.fr), moves: a.moves, started: f2(a.started) }; }),
+        hasDraft: !!SL.draft,
+        draftTag: SL.draft && SL.draft.final ? 'Final' : 'Provisional until the season ends',
+        draftTagBg: SL.draft && SL.draft.final ? '#3DB37A' : '#FFC93C', draftTagFg: SL.draft && SL.draft.final ? '#FFFFFF' : '#0D1526',
+        draft: SL.draft ? SL.draft.report.map(function (r) {
+          var g = r.grade.charAt(0);
+          var gb = { A: '#2346E8', B: '#8FA6FF', C: '#FFC93C', D: '#FFB088', F: '#D9622B' }[g];
+          return { fr: r.fr, grade: r.grade, gradeBg: gb, gradeFg: (g === 'A' || g === 'F') ? '#FFFFFF' : '#0D1526',
+            value: (r.value > 0 ? '+' : '') + f2(r.value), valColor: r.value >= 0 ? '#1530B0' : '#B4481A', pts: f2(r.pts),
+            steal: r.steal.player + ' (rd ' + r.steal.rnd + ', ' + f2(r.steal.pts) + ' pts)', bust: r.bust.player + ' (rd ' + r.bust.rnd + ', ' + f2(r.bust.pts) + ' pts)' };
+        }) : []
+      };
+    }
+
+    // ---------- character
+    var C2 = X.character || {};
+    if (C2.boom) {
+      var vs = C2.boom.map(function (b) { return b.vol; }), vmin = Math.min.apply(null, vs), vmax = Math.max.apply(null, vs);
+      var BV = C2.boom_verdict;
+      v.ch = {
+        verdict: BV.wild_titles + ' of ' + BV.champs_total + ' titles went to a team having a wilder-than-usual season. Wild seasons finish ' + f2(BV.wild_avg_finish) + ' on average, steady ones ' + f2(BV.steady_avg_finish) + '.',
+        boom: C2.boom.map(function (b) { return { fr: b.fr, badge: badge(b.fr), x: (vmax > vmin ? 6 + (b.vol - vmin) / (vmax - vmin) * 88 : 50) + '%', range: f2(b.best) + ' / ' + f2(b.worst) }; }),
+        wild: C2.boom_wild.slice(0, 5).map(function (x) { return { fr: x.fr, s: x.s, sub: f2(x.hi) + ' high, ' + f2(x.lo) + ' low' }; }),
+        steady: C2.boom_steady.slice(0, 5).map(function (x) { return { fr: x.fr, s: x.s, sub: f2(x.hi) + ' high, ' + f2(x.lo) + ' low' }; }),
+        clutch: C2.clutch.map(function (c) {
+          var tag = '', tb = '#EEF1F6', tf = '#5B6478';
+          if (c.close_n >= 10 && c.close_pct >= 0.55) { tag = 'Ice cold'; tb = '#E6EBFF'; tf = '#1530B0'; }
+          else if (c.close_n >= 10 && c.close_pct <= 0.42) { tag = 'Choker'; tb = '#FFE2D3'; tf = '#9A3A12'; }
+          if (c.swing != null && c.swing >= 0.1) { tag = 'Big-game player'; tb = '#FFC93C'; tf = '#0D1526'; }
+          else if (c.swing != null && c.swing <= -0.15 && !tag) { tag = 'Playoff flop'; tb = '#FFE2D3'; tf = '#9A3A12'; }
+          return { fr: c.fr, badge: badge(c.fr), close: c.close, closePct: pc(c.close_pct), po: c.po, reg: pc(c.reg_pct),
+            swing: c.swing == null ? '–' : (c.swing > 0 ? '+' : '') + Math.round(c.swing * 100) + ' pts', swingColor: c.swing == null ? '#5B6478' : (c.swing >= 0 ? '#1530B0' : '#B4481A'),
+            finals: c.finals, tag: tag || 'Steady', tagBg: tb, tagFg: tf };
+        }),
+        hc: C2.hotcold.map(function (h) {
+          var sw = h.swing, wv = Math.min(Math.abs(sw) / 0.25, 1) * 50;
+          return { fr: h.fr, badge: badge(h.fr), early: h.early_rec + ' (' + pc(h.early) + ')', late: h.late_rec + ' (' + pc(h.late) + ')',
+            swing: (sw > 0 ? '+' : '') + Math.round(sw * 100) + '%', color: sw >= 0 ? '#2346E8' : '#D9622B',
+            left: (sw >= 0 ? 50 : 50 - wv) + '%', width: wv + '%' };
+        }),
+        collapses: C2.collapses.slice(0, 5).map(function (x) { return { fr: x.fr, s: x.s, sub: x.early + ' then ' + x.late }; }),
+        surges: C2.surges.slice(0, 5).map(function (x) { return { fr: x.fr, s: x.s, sub: x.early + ' then ' + x.late }; }),
+        sob: (function () { var a = (X.sob || {}).alltime || []; var m = Math.max.apply(null, a.map(function (s) { return s.highs; }).concat([1]));
+          return a.map(function (s) { return { fr: s.fr, badge: badge(s.fr), highs: s.highs, w: (s.highs / m * 100) + '%', tough: (s.tough > 0 ? '+' : '') + f2(s.tough) }; }); })(),
+        toughest: ((X.sob || {}).toughest || []).slice(0, 8).map(function (x) { return { fr: x.fr, s: x.s, sub: '+' + f2(x.tough) + ' a week' }; })
+      };
+    }
+
+    // ---------- legacy
+    var LG = X.legacy || {};
+    if (LG.dynasty) {
+      var maxRaw = Math.max.apply(null, LG.dynasty.map(function (d2) { var p = d2.parts; return p.titles + p.finals + p.playoffs + Math.max(0, p.winning); }));
+      v.dyn = LG.dynasty.map(function (d2, i) {
+        var p = d2.parts, sc = function (x) { return Math.max(0, x) / maxRaw * 100 + '%'; };
+        return { rank: i + 1, rankColor: i < 3 ? '#C99700' : '#8E99B3', fr: d2.fr, badge: badge(d2.fr), score: d2.score,
+          sub: d2.titles + ' titles · ' + d2.finals + ' finals · ' + d2.po_seasons + ' playoff seasons · ' + (d2.win_pct * 100).toFixed(1) + '% wins',
+          wT: sc(p.titles), wF: sc(p.finals), wP: sc(p.playoffs), wW: sc(p.winning) };
+      });
+      var fameRow = function (x, i) { return { rank: i + 1, badge: badge(x.fr), name: x.name, s: x.s, sub: x.rec + ' · ' + f2(x.ppg) + ' per game · finished ' + ord(x.place) + ' of ' + x.n }; };
+      v.fame = LG.fame.map(fameRow);
+      v.shame = LG.shame.map(fameRow);
+    }
     return v;
   }
 }

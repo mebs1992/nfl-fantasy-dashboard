@@ -168,7 +168,8 @@ def load_sleeper(fmap):
         complete = league.get("status") == "complete" and 1 in placing.values()
         seasons.append(dict(season=season, league=league, games=games, weekly=weekly, done_reg=done_reg,
                             complete=complete, placing=placing, names={franchise[k]: v for k, v in name.items()},
-                            teams=len(rosters), pws=pws))
+                            teams=len(rosters), pws=pws, dir=d, roster_fr=dict(franchise),
+                            playoff_teams=int(st.get("playoff_teams", 4))))
     return seasons
 
 
@@ -472,6 +473,7 @@ def write_workbook(wb, games, standings, champions, res, sleeper, generated):
 # ---------------------------------------------------------------- almanac data
 def almanac(games, standings, champions, res, sleeper, generated):
     from almanac_stats import fun_stats  # noqa: E402  (kept separate for readability)
+    from features import extra_stats  # noqa: E402
     return dict(
         generated=generated,
         franchises=res["frs"],
@@ -488,6 +490,7 @@ def almanac(games, standings, champions, res, sleeper, generated):
         games=[dict(s=g["season"], w=g["week"], st=g["stage"][0], a=g["a"], an=g["a_name"], ap=g["a_pts"], b=g["b"], bn=g["b_name"],
                     bp=g["b_pts"], win=g["winner"], sc=scored(g)) for g in games if decided(g)],
         fun=fun_stats(games, standings, champions, res, sleeper),
+        x=extra_stats(games, standings, champions, res, sleeper),
     )
 
 

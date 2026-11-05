@@ -57,14 +57,15 @@
       var n = nodes[i];
       if (n.nodeType === 3) { out.push(document.createTextNode(interp(n.nodeValue, ctx))); continue; }
       if (n.nodeType !== 1) continue;
-      if (n.tagName === 'TEMPLATE' && n.hasAttribute('data-sc-for')) {
+      var isT = n.localName === 'template', kidsOf = function (t) { return t.content ? t.content.childNodes : t.childNodes; };
+      if (isT && n.hasAttribute('data-sc-for')) {
         var m = ONE.exec(n.getAttribute('list') || ''), list = m ? look(ctx, m[1]) : null, as = n.getAttribute('as') || 'item';
-        (list || []).forEach(function (item, idx) { var e = {}; e[as] = item; e.$index = idx; build(n.content.childNodes, child(ctx, e), out); });
+        (list || []).forEach(function (item, idx) { var e = {}; e[as] = item; e.$index = idx; build(kidsOf(n), child(ctx, e), out); });
         continue;
       }
-      if (n.tagName === 'TEMPLATE' && n.hasAttribute('data-sc-if')) {
+      if (isT && n.hasAttribute('data-sc-if')) {
         var mv = ONE.exec(n.getAttribute('value') || '');
-        if (mv && look(ctx, mv[1])) build(n.content.childNodes, ctx, out);
+        if (mv && look(ctx, mv[1])) build(kidsOf(n), ctx, out);
         continue;
       }
       var el = n.cloneNode(false), selValue;
@@ -83,7 +84,7 @@
         el.setAttribute(name, v);
       }
       var kids = [];
-      build(n.tagName === 'TEMPLATE' ? n.content.childNodes : n.childNodes, ctx, kids);
+      build(isT ? kidsOf(n) : n.childNodes, ctx, kids);
       kids.forEach(function (k) { el.appendChild(k); });
       if (selValue !== undefined) el.value = selValue;
       out.push(el);
