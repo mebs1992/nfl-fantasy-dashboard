@@ -447,8 +447,14 @@ a{color:#2346E8}a:hover{color:#1530B0}
       <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px;">
         <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
           <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 32px; font-weight: 800; text-transform: uppercase; font-style: italic;">All-time stats</h2>
-          <span style="font-size: 13px; color: #5B6478;">Tap a column to sort. Tap again to flip it.</span>
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <span style="font-size: 13px; color: #5B6478;">Tap a column to sort. Tap again to flip it.</span>
+            <button class="chip {{stats.normCls}}" onClick="{{stats.toggle}}" aria-pressed="{{stats.pressed}}" style="display: inline-flex; align-items: center; gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M6 12h12"></path><path d="M9 18h6"></path></svg>{{stats.normLabel}}</button>
+          </div>
         </div>
+        <sc-if value="{{stats.norm}}" hint-placeholder-val="{{ false }}">
+          <div style="background: #E6EBFF; color: #1530B0; border-radius: 12px; padding: 12px 14px; font-size: 14px; line-height: 1.5;">{{stats.normNote}}</div>
+        </sc-if>
         <div class="tbl stats-tbl"><table>
           <thead><tr>
             <sc-for list="{{stats.cols}}" as="c" hint-placeholder-count="12">
@@ -466,7 +472,7 @@ a{color:#2346E8}a:hover{color:#1530B0}
             </sc-for>
           </tbody>
         </table></div>
-        <p style="margin: 0; font-size: 12px; color: #5B6478;">Wins, losses and win % include every game. Playoff apps are seasons finishing in the 4-team title bracket, and playoff wins only count games in that bracket. Super Bowls are title games reached. Spoons are last-place regular-season finishes. Points cover every game with a recorded score.</p>
+        <p style="margin: 0; font-size: 12px; color: #5B6478;">{{stats.normFoot}}Wins, losses and win % include every game. Playoff apps are seasons finishing in the 4-team title bracket, and playoff wins only count games in that bracket. Super Bowls are title games reached. Spoons are last-place regular-season finishes. Points cover every game with a recorded score.</p>
       </section>
     </sc-if>
 
@@ -1283,10 +1289,42 @@ class Component extends DCLogic {
       ['poApps', 'Playoff apps'], ['poW', 'Playoff wins'], ['sb', 'Super Bowls'], ['sbW', 'SB wins'],
       ['pf', 'Points for'], ['pa', 'Points against'], ['spoons', 'Spoons']
     ];
+    var NORM = !!st.norm;
+    if (NORM) {
+      var SHORT = { poApps: 'PO apps', poW: 'PO wins', sb: 'SBs', pf: 'PF', pa: 'PA', seasons: 'Yrs' };
+      COLS = COLS.map(function (c) { return SHORT[c[0]] ? [c[0], SHORT[c[0]], c[2]] : c; }).concat([['pfRel', 'PF vs avg'], ['paRel', 'PA vs avg']]);
+    }
+    // league average score per team per game, by season (scored games only)
+    var sAvg = {}, sN = {};
+    d.games.forEach(function (g) { if (g.sc) { sAvg[g.s] = (sAvg[g.s] || 0) + g.ap + g.bp; sN[g.s] = (sN[g.s] || 0) + 2; } });
+    Object.keys(sAvg).forEach(function (k) { sAvg[k] = sAvg[k] / sN[k]; });
+    var rel = {};
+    d.games.forEach(function (g) {
+      if (!g.sc) return;
+      [[g.a, g.ap, g.bp], [g.b, g.bp, g.ap]].forEach(function (x) {
+        var r = rel[x[0]] = rel[x[0]] || { f: 0, a: 0, n: 0 };
+        r.f += x[1] - sAvg[g.s]; r.a += x[2] - sAvg[g.s]; r.n++;
+      });
+    });
+    var doneBy = {};
+    d.standings.forEach(function (r) { if (r.place != null) doneBy[r.franchise] = (doneBy[r.franchise] || 0) + 1; });
+    var maxS = Math.max.apply(null, d.leaderboard.map(function (r) { return r.seasons; }));
+    var maxG = Math.max.apply(null, d.leaderboard.map(function (r) { return r.games; }));
+    var maxGS = Math.max.apply(null, d.leaderboard.map(function (r) { return r.games_scored; }));
+    var maxDone = Math.max.apply(null, Object.keys(doneBy).map(function (k) { return doneBy[k]; }));
     var srows = d.leaderboard.map(function (r) {
       var all = String(r.record).split('-').map(Number), po = String(r.po).split('-').map(Number);
-      return { fr: r.franchise, seasons: r.seasons, w: all[0], l: all[1], pct: r.win_pct, poApps: r.playoff_seasons, poW: po[0],
+      var o = { fr: r.franchise, seasons: r.seasons, w: all[0], l: all[1], pct: r.win_pct, poApps: r.playoff_seasons, poW: po[0],
         sb: r.finals, sbW: r.titles, pf: r.pf, pa: r.pa, spoons: spoons[r.franchise] || 0 };
+      if (NORM) {
+        var done = doneBy[r.franchise] || 0, perDone = function (x) { return done ? x / done * maxDone : 0; };
+        o.w = all[0] / r.games * maxG; o.l = all[1] / r.games * maxG;
+        o.poApps = perDone(o.poApps); o.poW = perDone(o.poW); o.sb = perDone(o.sb); o.sbW = perDone(o.sbW); o.spoons = perDone(o.spoons);
+        o.pf = r.pf / r.games_scored * maxGS; o.pa = r.pa / r.games_scored * maxGS;
+        var rr = rel[r.franchise] || { f: 0, a: 0, n: 1 };
+        o.pfRel = rr.f / rr.n; o.paRel = rr.a / rr.n;
+      }
+      return o;
     });
     var sk = st.sortKey || 'sbW', sd = st.sortDir || (sk === 'fr' ? 1 : -1);
     srows.sort(function (a, b) {
@@ -1294,8 +1332,16 @@ class Component extends DCLogic {
       if (sk === 'fr') return sd * String(x).localeCompare(String(y));
       return sd * (x - y) || (b.sbW - a.sbW) || (b.pct - a.pct);
     });
+    var one = function (x) { return (Math.round(x * 10) / 10).toFixed(1); };
+    var signed = function (x) { return (x > 0 ? '+' : '') + x.toFixed(2); };
     var fmt = { pct: function (x) { return (x * 100).toFixed(1) + '%'; }, pf: function (x) { return Math.round(x).toLocaleString(); }, pa: function (x) { return Math.round(x).toLocaleString(); } };
+    if (NORM) ['w', 'l', 'poApps', 'poW', 'sb', 'sbW', 'spoons'].forEach(function (k) { fmt[k] = one; });
+    fmt.pfRel = signed; fmt.paRel = signed;
     v.stats = {
+      norm: NORM, normCls: NORM ? 'on' : '', pressed: NORM ? 'true' : 'false', normLabel: NORM ? 'Normalised' : 'Normalise',
+      toggle: function () { self.setState({ norm: !NORM }); },
+      normNote: 'Every team scaled to a full ' + maxS + '-season career. Wins and losses are per game, scaled to ' + maxG + ' games. Playoff apps, playoff wins, Super Bowls, SB wins and spoons are per finished season, scaled to ' + maxDone + '. Points are per scored game, scaled to ' + maxGS + ' games. Win % doesn\u2019t change. PF vs avg and PA vs avg compare each team\u2019s weekly points with the league average in the seasons they played, which takes out the rise in scoring since 2012.',
+      normFoot: NORM ? 'Normalised view. ' : '',
       cols: COLS.map(function (c) {
         var on = c[0] === sk;
         return { label: c[1], cls: c[2] ? '' : 'r', justify: c[2] ? 'flex-start' : 'flex-end', color: on ? '#2346E8' : '#5B6478',
