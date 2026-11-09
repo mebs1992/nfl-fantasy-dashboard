@@ -965,7 +965,7 @@
   ],
   "name": "Jacoby Brissett",
   "pos": "QB",
-  "team": "ARI"
+  "team": "BAL"
  },
  "3271": {
   "fpos": [
@@ -974,6 +974,14 @@
   "name": "Tyler Higbee",
   "pos": "TE",
   "team": "LAR"
+ },
+ "3286": {
+  "fpos": [
+   "WR"
+  ],
+  "name": "Demarcus Robinson",
+  "pos": "WR",
+  "team": "SF"
  },
  "3294": {
   "fpos": [
@@ -1359,6 +1367,14 @@
   "pos": "WR",
   "team": "CIN"
  },
+ "6803": {
+  "fpos": [
+   "WR"
+  ],
+  "name": "Brandon Aiyuk",
+  "pos": "WR",
+  "team": "SF"
+ },
  "6804": {
   "fpos": [
    "QB"
@@ -1583,6 +1599,14 @@
   "pos": "RB",
   "team": "GB"
  },
+ "8119": {
+  "fpos": [
+   "WR"
+  ],
+  "name": "Jahan Dotson",
+  "pos": "WR",
+  "team": "ATL"
+ },
  "8121": {
   "fpos": [
    "WR"
@@ -1613,7 +1637,7 @@
   ],
   "name": "Dameon Pierce",
   "pos": "RB",
-  "team": "PHI"
+  "team": null
  },
  "8130": {
   "fpos": [
@@ -1758,6 +1782,14 @@
   "name": "Christian Watson",
   "pos": "WR",
   "team": "GB"
+ },
+ "8172": {
+  "fpos": [
+   "TE"
+  ],
+  "name": "Greg Dulcich",
+  "pos": "TE",
+  "team": "MIA"
  },
  "8180": {
   "fpos": [
@@ -2005,7 +2037,7 @@
   ],
   "name": "Kendre Miller",
   "pos": "RB",
-  "team": "NO"
+  "team": null
  },
  "9758": {
   "fpos": [
