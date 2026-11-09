@@ -67,7 +67,12 @@ a{color:#2346E8}a:hover{color:#1530B0}
     <span class="ghost" aria-hidden="true">TGL</span>
     <div style="max-width: 1200px; margin: 0 auto; padding: 24px 20px 12px; display: flex; flex-direction: column; gap: 18px; position: relative;">
       <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-        <div style="width: 60px; height: 60px; border-radius: 14px; background: #FFC93C; color: #0D1526; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 25px; letter-spacing: .02em; transform: rotate(-4deg); box-shadow: 4px 4px 0 #2346E8;">TGL</div>
+        <sc-if value="{{hasLeagueImg}}" hint-placeholder-val="{{ false }}">
+          <img src="{{leagueImg}}" alt="The Greatest League" style="width: 76px; height: 76px; border-radius: 18px; object-fit: cover; transform: rotate(-4deg); box-shadow: 4px 4px 0 #FFC93C; border: 3px solid #FFFFFF; background: #FFFFFF;">
+        </sc-if>
+        <sc-if value="{{noLeagueImg}}" hint-placeholder-val="{{ true }}">
+          <div style="width: 60px; height: 60px; border-radius: 14px; background: #FFC93C; color: #0D1526; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 25px; letter-spacing: .02em; transform: rotate(-4deg); box-shadow: 4px 4px 0 #2346E8;">TGL</div>
+        </sc-if>
         <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 220px;">
           <div style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 40px; line-height: .95; letter-spacing: .01em; text-transform: uppercase; font-style: italic;">The Almanac</div>
           <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #C9D2E6;"><span class="slash"></span>The Greatest League · every game since 2012</div>
@@ -347,9 +352,9 @@ a{color:#2346E8}a:hover{color:#1530B0}
           </sc-for>
         </div>
         <section class="card" style="overflow: hidden; display: flex; flex-direction: column;">
-          <div style="background: {{team.badge.bg}}; color: {{team.badge.fg}}; padding: 22px; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; position: relative; overflow: hidden;">
-            <span aria-hidden="true" style="position: absolute; right: -6px; bottom: -40px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 180px; line-height: 1; opacity: .14; font-style: italic;">{{team.badge.init}}</span>
-            <span class="mono" style="width: 72px; height: 72px; font-size: 30px; border-radius: 18px; background: rgba(255,255,255,.18); color: {{team.badge.fg}}; border: 2px solid rgba(255,255,255,.4);">{{team.badge.init}}</span>
+          <div style="background: {{team.color}}; color: {{team.fg}}; padding: 22px; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; position: relative; overflow: hidden;">
+            <span aria-hidden="true" style="position: absolute; right: -6px; bottom: -40px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 180px; line-height: 1; opacity: .14; font-style: italic;">{{team.monoText}}</span>
+            <span class="mono" style="width: 88px; height: 88px; font-size: 30px; border-radius: 20px; background: {{team.badge.bg}}; color: {{team.badge.fg}}; border: 3px solid rgba(255,255,255,.6); box-shadow: 0 6px 18px rgba(13,21,38,.3);">{{team.badge.init}}</span>
             <div style="flex: 1 1 240px; position: relative;">
               <div style="font-size: 13px; font-weight: 600; opacity: .85;">{{team.span}}</div>
               <h2 style="margin: 2px 0 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 48px; font-weight: 800; line-height: 1; text-transform: uppercase; font-style: italic;">{{team.fr}}</h2>
@@ -968,11 +973,16 @@ class Component extends DCLogic {
       'cheeseheads': ['CH', '#FFC93C', '#0D1526'], 'The Generous': ['GN', '#C2410C'], 'DirtyBirds': ['DB', '#7F1D1D'],
       'Freshie Vice': ['FV', '#0E7C86'], 'MEGATRON': ['MG', '#3F3F46']
     };
+    var IMG = (d && d.images && d.images.teams) || {};
     var badge = function (fr) {
-      var b = BADGES[fr];
-      if (b) return { init: b[0], bg: b[1], fg: b[2] || '#FFFFFF' };
-      var w = String(fr || '?').replace(/^The /, '').split(/\s+/);
-      return { init: (w.length > 1 ? w[0][0] + w[1][0] : w[0].slice(0, 2)).toUpperCase(), bg: '#5B6478', fg: '#FFFFFF' };
+      var b = BADGES[fr], out;
+      if (b) out = { init: b[0], bg: b[1], fg: b[2] || '#FFFFFF', color: b[1] };
+      else {
+        var w = String(fr || '?').replace(/^The /, '').split(/\s+/);
+        out = { init: (w.length > 1 ? w[0][0] + w[1][0] : w[0].slice(0, 2)).toUpperCase(), bg: '#5B6478', fg: '#FFFFFF', color: '#5B6478' };
+      }
+      if (IMG[fr]) { out.bg = "url('" + IMG[fr] + "') center / cover no-repeat, " + out.color; out.init = ''; out.photo = true; }
+      return out;
     };
     var NOB = { init: '', bg: '#EEF1F6', fg: '#0D1526' };
     var TABS = [['home', 'Home'], ['stats', 'Stats'], ['week', 'This week'], ['matchups', 'Matchups'], ['h2h', 'Head to head'], ['teams', 'Teams'], ['seasons', 'Seasons'], ['moves', 'Moves'], ['character', 'Character'], ['records', 'Records'], ['honours', 'Legacy']];
@@ -989,7 +999,8 @@ class Component extends DCLogic {
       statusLine: '', facts: [], ladder: [], alive: [], cuts: [], lastResults: [], seasonChips: [], weekChips: [], matchGames: [],
       frOptions: [], rivals: [], teamChips: [], recChips: [], champs: [], tally: [], droughts: [],
       h2h: { rows: [], aBadge: NOB, bBadge: NOB }, team: { stats: [], cards: [], seasons: [], badge: NOB }, rec: { rows: [], hasTop: false, top: { badge: NOB } },
-      champ: {}, ticker: [], hasTicker: false, aliveCount: 0
+      champ: {}, ticker: [], hasTicker: false, aliveCount: 0,
+      hasLeagueImg: !!(d && d.images && d.images.league), noLeagueImg: !(d && d.images && d.images.league), leagueImg: d && d.images ? d.images.league : ''
     };
     if (!d) return base;
     var F = d.fun, cur = F.current || {}, names = cur.names || {};
@@ -1129,7 +1140,7 @@ class Component extends DCLogic {
     var recd = function (o) { return o.w + '-' + o.l + (o.t ? '-' + o.t : '') + ' in ' + o.games + ' games'; };
     var aka = d.names.filter(function (n) { return n.franchise === T; }).map(function (n) { return n.name; });
     v.team = {
-      fr: T, badge: badge(T), span: lb.from + '–' + lb.to + ' · ' + lb.seasons + ' seasons',
+      fr: T, badge: badge(T), color: badge(T).color, fg: badge(T).color === '#FFC93C' ? '#0D1526' : '#FFFFFF', monoText: (BADGES[T] || [''])[0], span: lb.from + '–' + lb.to + ' · ' + lb.seasons + ' seasons',
       stats: [{ label: 'Titles', value: String(lb.titles) }, { label: 'Record', value: lb.record }, { label: 'Win %', value: (lb.win_pct * 100).toFixed(1) + '%' }, { label: 'Playoffs', value: lb.po }, { label: 'Form', value: p.streak || '–' }],
       cards: [
         { label: 'Arch rival', value: p.arch ? p.arch.opp : '–', sub: p.arch ? recd(p.arch) : '' },
@@ -1284,7 +1295,8 @@ class Component extends DCLogic {
       var focus = st.rt && R.teams.some(function (t) { return t.fr === st.rt; }) ? st.rt : null;
       var lines = R.teams.map(function (t) {
         var b = badge(t.fr), on = !focus || t.fr === focus, last = t.pos[t.pos.length - 1];
-        return { fr: t.fr, init: b.init, color: b.bg === '#FFC93C' ? '#C99700' : b.bg,
+        var initials = (BADGES[t.fr] || [String(t.fr).slice(0, 2).toUpperCase()])[0];
+        return { fr: t.fr, init: initials, color: b.color === '#FFC93C' ? '#C99700' : b.color,
           pts: t.pos.map(function (p, i) { return xp(i).toFixed(1) + ',' + yp(p).toFixed(1); }).join(' '),
           w: focus ? (on ? 5 : 2) : 3, op: on ? 1 : 0.15, r: on ? 5 : 3,
           ex: xp(W - 1), ey: yp(last), lx: xp(W - 1) + 10, ly: yp(last) + 4 };

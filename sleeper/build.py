@@ -505,6 +505,37 @@ def almanac(games, standings, champions, res, sleeper, generated):
     )
 
 
+def copy_images(sleeper, fmap):
+    """League image and team photos from the latest Sleeper season, keyed by franchise."""
+    import shutil
+    out = {"league": None, "teams": {}}
+    if not sleeper:
+        return out
+    d = sleeper[-1]["dir"]
+    meta = d / "images.json"
+    if not meta.exists():
+        return out
+    imgs = json.loads(meta.read_text())
+    dest = OUT / "img"
+    if dest.exists():
+        shutil.rmtree(dest)
+    (dest / "teams").mkdir(parents=True)
+    if imgs.get("league") and (d / "img" / imgs["league"]).exists():
+        name = "league" + Path(imgs["league"]).suffix
+        shutil.copy(d / "img" / imgs["league"], dest / name)
+        out["league"] = f"img/{name}"
+    for uid, fname in imgs.get("users", {}).items():
+        fr = fmap.get(uid)
+        src = d / "img" / fname
+        if not fr or not src.exists():
+            continue
+        slug = "".join(ch if ch.isalnum() else "-" for ch in fr.lower()).strip("-")
+        name = slug + src.suffix
+        shutil.copy(src, dest / "teams" / name)
+        out["teams"][fr] = f"img/teams/{name}"
+    return out
+
+
 def main():
     fmap = {}
     with open(HERE / "franchise_map.csv", newline="") as f:
@@ -534,6 +565,7 @@ def main():
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     path = write_workbook(wb, games, standings, champions, res, sleeper, generated)
     data = almanac(games, standings, champions, res, sleeper, generated)
+    data["images"] = copy_images(sleeper, fmap)
     (OUT / "almanac.json").write_text(json.dumps(data, separators=(",", ":")), encoding="utf-8")
     print(f"Wrote {path} and almanac.json ({sum(decided(g) for g in games)} decided games)")
 

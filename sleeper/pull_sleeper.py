@@ -35,6 +35,34 @@ def get(path, retries=3):
             time.sleep(2 * (attempt + 1))
 
 
+def fetch_image(url, stem: Path):
+    """Download an image; returns the saved file name, or None."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "tgl-almanac"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            data = r.read()
+            ctype = r.headers.get("Content-Type", "")
+    except Exception as e:  # noqa: BLE001
+        print(f"Image {url} failed: {e}")
+        return None
+    if data[:3] == b"\xff\xd8\xff" or "jpeg" in ctype:
+        ext = "jpg"
+    elif data[:8] == b"\x89PNG\r\n\x1a\n" or "png" in ctype:
+        ext = "png"
+    elif data[:4] == b"RIFF" and data[8:12] == b"WEBP" or "webp" in ctype:
+        ext = "webp"
+    elif data[:3] == b"GIF":
+        ext = "gif"
+    else:
+        print(f"Image {url}: not a recognised image ({ctype})")
+        return None
+    for old in stem.parent.glob(stem.name + ".*"):
+        old.unlink()
+    path = stem.with_suffix("." + ext)
+    path.write_bytes(data)
+    return path.name
+
+
 def save(path: Path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=1, sort_keys=True) + "\n", encoding="utf-8")
@@ -134,6 +162,25 @@ def main():
             players[pid] = {"name": name, "pos": p.get("position"), "team": p.get("team"),
                             "fpos": p.get("fantasy_positions") or [p.get("position")]}
     save(out / "players.json", players)
+
+    # League image and team photos (team photo first, then the manager's own avatar).
+    img_dir = out / "img"
+    img_dir.mkdir(exist_ok=True)
+    images = {"league": None, "users": {}}
+    if league.get("avatar"):
+        images["league"] = fetch_image(f"https://sleepercdn.com/avatars/{league['avatar']}", img_dir / "league")
+    for u in json.loads((out / "users.json").read_text()):
+        team_img = (u.get("metadata") or {}).get("avatar")
+        av = u.get("avatar")
+        urls = [team_img] if team_img else []
+        if av and not str(av).startswith("nfl_"):
+            urls.append(f"https://sleepercdn.com/avatars/{av}")
+        for url in urls:
+            got = fetch_image(url, img_dir / f"user_{u['user_id']}")
+            if got:
+                images["users"][u["user_id"]] = got
+                break
+    save(out / "images.json", images)
     # Which weeks are finished? Sleeper only updates win/loss records a day or so
     # after Monday night. The Action runs Tuesday 4pm Sydney (all games done), so
     # on a Tuesday/Wednesday (UTC) run the current week counts as final once every

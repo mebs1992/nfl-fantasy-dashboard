@@ -64,6 +64,7 @@ jobs:
           mkdir -p _site
           cp sleeper/site/index.html sleeper/site/almanac.dc.html _site/
           cp sleeper/output/almanac.json _site/
+          if [ -d sleeper/output/img ]; then cp -r sleeper/output/img _site/img; fi
           cp sleeper/output/Sunday_Club_League_History.xlsx _site/TGL_League_History.xlsx
           touch _site/.nojekyll
 
