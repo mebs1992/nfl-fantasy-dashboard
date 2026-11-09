@@ -100,7 +100,7 @@
     window.scrollTo(0, y);
   }
 
-  fetch('almanac.dc.html').then(function (r) { return r.text(); }).then(function (src) {
+  fetch('almanac.dc.html', { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (src) {
     // <template> survives inside <table>/<select>, so loop and branch tags become templates
     src = src.replace(/<sc-for\b/g, '<template data-sc-for').replace(/<\/sc-for>/g, '</template>')
              .replace(/<sc-if\b/g, '<template data-sc-if').replace(/<\/sc-if>/g, '</template>');
@@ -112,8 +112,8 @@
     Array.prototype.slice.call(x.childNodes).forEach(function (c) { tpl.appendChild(document.importNode(c, true)); });
     var code = doc.querySelector('script[data-dc-script]').textContent;
     var Component = new Function('DCLogic', code + '\n;return Component;')(DCLogic);
-    comp = new Component({ dataUrl: 'almanac.json' });
-    fetch('almanac.json').then(function (r) { return r.json(); }).then(function (d) {
+    comp = new Component({ dataUrl: 'almanac.json?t=' + Date.now() });
+    fetch('almanac.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
       if (d.images && d.images.league) {
         var l = document.createElement('link'); l.rel = 'icon'; l.href = d.images.league; document.head.appendChild(l);
         var a = document.createElement('link'); a.rel = 'apple-touch-icon'; a.href = d.images.league; document.head.appendChild(a);

@@ -1,11 +1,14 @@
 name: Sleeper weekly pull
 
 # Tuesday 05:00 UTC = Tuesday 4pm Sydney (AEDT; 3pm in September before
-# daylight saving), once Monday night games are done. Also runs on demand and
-# when the scripts or the site change. Publishes the Almanac to GitHub Pages.
+# daylight saving), once Monday night games are done: the week becomes final.
+# Monday 05:30 UTC = Monday 4:30pm Sydney, after the Sunday games and before
+# Monday night: a live snapshot with projections for the players still to play.
+# Also runs on demand and when the scripts or the site change.
 on:
   schedule:
     - cron: "0 5 * * 2"
+    - cron: "30 5 * * 1"
   workflow_dispatch:
   push:
     branches: [main]

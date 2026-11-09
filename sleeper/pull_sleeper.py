@@ -22,8 +22,8 @@ HERE = Path(__file__).resolve().parent
 CONFIG = HERE / "config.json"
 
 
-def get(path, retries=3):
-    url = f"{API}{path}"
+def get(path, retries=3, base=None):
+    url = f"{base or API}{path}"
     for attempt in range(retries):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "sunday-club-almanac"})
@@ -162,6 +162,31 @@ def main():
             players[pid] = {"name": name, "pos": p.get("position"), "team": p.get("team"),
                             "fpos": p.get("fantasy_positions") or [p.get("position")]}
     save(out / "players.json", players)
+
+    # Live week: projections for players still to play (used by the Monday snapshot).
+    live_wk = current if int(state.get("season", 0)) == season and state.get("season_type") == "regular" else 0
+    for old in out.glob("projections_wk*.json"):
+        old.unlink()
+    if live_wk:
+        sc = league.get("scoring_settings") or {}
+        rec = sc.get("rec", 1)
+        key = "pts_ppr" if rec >= 1 else ("pts_half_ppr" if rec >= 0.5 else "pts_std")
+        proj = {}
+        try:
+            data = get(f"/projections/nfl/{season}/{live_wk}?season_type=regular"
+                       "&position[]=QB&position[]=RB&position[]=WR&position[]=TE&position[]=K&position[]=DEF",
+                       base="https://api.sleeper.app")
+            rows = data if isinstance(data, list) else [dict(player_id=k, stats=v) for k, v in (data or {}).items()]
+            for r in rows:
+                st = r.get("stats") or {}
+                if r.get("player_id") and st.get(key) is not None:
+                    proj[str(r["player_id"])] = round(float(st[key]), 2)
+        except Exception as e:  # noqa: BLE001
+            print(f"Projections unavailable: {e}")
+        if proj:
+            save(out / f"projections_wk{live_wk:02d}.json", {"week": live_wk, "scoring": key, "proj": proj,
+                                                             "pulled_at": datetime.now(timezone.utc).isoformat()})
+            print(f"Saved {len(proj)} projections for week {live_wk}")
 
     # League image and team photos (team photo first, then the manager's own avatar).
     img_dir = out / "img"
