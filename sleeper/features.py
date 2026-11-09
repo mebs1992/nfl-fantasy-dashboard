@@ -608,6 +608,99 @@ def sleeper_extras(sl):
                 trades=trades, adds=adds[:15], add_teams=add_teams, draft=draft)
 
 
+
+# ====================================================================== live week (Monday snapshot)
+def live_week(sl, standings):
+    """Current scores, projections for players still to play, win chances and a predicted ladder."""
+    d = sl["dir"]
+    wk = sl["done_reg"] + 1
+    pf = d / f"projections_wk{wk:02d}.json"
+    mf = d / f"matchups_wk{wk:02d}.json"
+    if sl["complete"] or wk >= sl["pws"] or not pf.exists() or not mf.exists():
+        return None
+    P = json.loads(pf.read_text())
+    ms = json.loads(mf.read_text())
+    if not any((m.get("points") or 0) > 0 for m in ms):
+        return None
+    players = json.loads((d / "players.json").read_text()) if (d / "players.json").exists() else {}
+    played = set(P.get("played") or [])
+    fr = sl["roster_fr"]
+    names = sl["names"]
+    proj = P.get("proj", {})
+    teams = {}
+    for m in ms:
+        rem = []
+        for pid, pts in zip(m.get("starters") or [], m.get("starters_points") or []):
+            if not pid or pid == "0":
+                continue
+            pr = proj.get(pid)
+            if pr and pid not in played and not pts:
+                info = players.get(pid, {})
+                g = (P.get("games") or {}).get(pid, {})
+                rem.append(dict(name=info.get("name", pid), pos=info.get("pos"), team=info.get("team") or g.get("team"),
+                                opp=g.get("opponent"), proj=pr))
+        cur = m.get("points") or 0
+        teams[m["roster_id"]] = dict(fr=fr[m["roster_id"]], name=names.get(fr[m["roster_id"]]), cur=round(cur, 2),
+                                    rem=rem, proj=round(cur + sum(r["proj"] for r in rem), 2), mid=m.get("matchup_id"))
+    rng = random.Random(wk)
+    sims = 20000
+    def draw(t):
+        return t["cur"] + sum(max(0.0, rng.gauss(r["proj"], max(3.0, 0.5 * r["proj"]))) for r in t["rem"])
+    pairs = defaultdict(list)
+    for rid, t in teams.items():
+        if t["mid"] is not None:
+            pairs[t["mid"]].append(rid)
+    games = []
+    win_ct = defaultdict(int)
+    low_ct = defaultdict(int)
+    alive = set()
+    # guillotine survivors this season come from the replay of completed weeks
+    weekly = sl["weekly"]
+    alive = {t["fr"] for t in teams.values()}
+    for w in sorted(weekly):
+        sc = {f: p for f, p in weekly[w].items() if f in alive}
+        if len(alive) > 1 and sc:
+            alive.discard(min(sc, key=sc.get))
+    for _ in range(sims):
+        sc = {rid: draw(t) for rid, t in teams.items()}
+        for mid, (a, b) in ((k, v) for k, v in pairs.items() if len(v) == 2):
+            win_ct[a if sc[a] > sc[b] else b] += 1
+        al = [rid for rid, t in teams.items() if t["fr"] in alive]
+        if len(al) > 1:
+            low_ct[min(al, key=lambda r: sc[r])] += 1
+    for mid, ids in sorted(pairs.items()):
+        if len(ids) != 2:
+            continue
+        a, b = (teams[i] for i in ids)
+        a_id, b_id = ids
+        done = not a["rem"] and not b["rem"]
+        pa = 100.0 if done and a["cur"] > b["cur"] else 0.0 if done else round(100 * win_ct[a_id] / sims, 1)
+        games.append(dict(a=a, b=b, a_win=pa, b_win=round(100 - pa, 1) if done else round(100 * win_ct[b_id] / sims, 1),
+                          final=done, to_play=len(a["rem"]) + len(b["rem"])))
+    games.sort(key=lambda g: (g["final"], -g["to_play"]))
+    # predicted ladder
+    cur_rows = {r[2]: r for r in standings if r[0] == sl["season"]}
+    pred = []
+    for rid, t in teams.items():
+        r = cur_rows.get(t["fr"])
+        if not r:
+            continue
+        opp = next((teams[o] for o in pairs.get(t["mid"], []) if o != rid), None)
+        win = opp is not None and t["proj"] > opp["proj"]
+        pred.append(dict(fr=t["fr"], name=t["name"], seed=r[1], w=r[6] + (1 if win else 0), l=r[7] + (0 if win or opp is None else 1),
+                         t=r[8], pf=round(r[10] + t["proj"], 2), pa=round(r[11] + (opp["proj"] if opp else 0), 2),
+                         res="W" if win else "L", locked=not t["rem"] and (opp is None or not opp["rem"]),
+                         win_pct=round(100 * win_ct[rid] / sims, 1)))
+    pred.sort(key=lambda x: (-(x["w"] + 0.5 * x["t"]), -x["pf"]))
+    for i, x in enumerate(pred, 1):
+        x["pos"] = i
+        x["move"] = x["seed"] - i
+    danger = sorted(([teams[r]["fr"], round(100 * c / sims, 1)] for r, c in low_ct.items()), key=lambda kv: -kv[1])
+    return dict(week=wk, pulled_at=P.get("pulled_at"), games=games, ladder=pred,
+                guillotine=[dict(fr=f, name=next((t["name"] for t in teams.values() if t["fr"] == f), f), pct=p,
+                                 proj=next((t["proj"] for t in teams.values() if t["fr"] == f), None)) for f, p in danger],
+                remaining=sum(len(t["rem"]) for t in teams.values()))
+
 # ====================================================================== entry
 def extra_stats(games, standings, champions, res, sleeper):
     rows = team_rows(games)
@@ -637,4 +730,5 @@ def extra_stats(games, standings, champions, res, sleeper):
         upcoming=upcoming(rows, games, cur_info),
         odds=odds(cur_info, games, rows),
         sleeper=[x for x in (sleeper_extras(s) for s in sleeper) if x],
+        live=live_week(cur, standings) if cur else None,
     )

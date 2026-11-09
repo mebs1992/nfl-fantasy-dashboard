@@ -58,6 +58,9 @@ a{color:#2346E8}a:hover{color:#1530B0}
 .sort-btn:focus-visible{outline:3px solid #FFC93C;outline-offset:-3px}
 .stats-tbl .stick{position:sticky;left:0;background:#FFFFFF;z-index:1;box-shadow:1px 0 0 #EEF1F6}
 .stats-tbl th:first-child{position:sticky;left:0;background:#FFFFFF;z-index:2}
+.pulse{animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}}
 .slash{display:inline-block;width:36px;height:6px;background:#FFC93C;transform:skewX(-20deg);border-radius:2px}
 </style>
 </helmet>
@@ -113,6 +116,14 @@ a{color:#2346E8}a:hover{color:#1530B0}
     <!-- ================= HOME ================= -->
     <sc-if value="{{isHome}}" hint-placeholder-val="{{ true }}">
       <div style="display: flex; flex-direction: column; gap: 20px;">
+        <sc-if value="{{hasLive}}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{openLive}}" class="lift" style="all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: #D9622B; color: #FFFFFF; border-radius: 14px; padding: 14px 18px;">
+            <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: .1em; font-size: 13px;"><span class="pulse" style="width: 9px; height: 9px; border-radius: 50%; background: #FFFFFF;"></span>LIVE</span>
+            <span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 24px; text-transform: uppercase; font-style: italic;">Week {{live.week}} {{live.phase}}</span>
+            <span style="flex: 1 1 200px; font-size: 14px; font-weight: 600;">{{live.banner}}</span>
+            <span style="font-weight: 700; font-size: 14px;">See the projections →</span>
+          </button>
+        </sc-if>
         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
           <div class="lift" style="flex: 2 1 340px; min-width: 0; background: #FFC93C; border-radius: 14px; padding: 18px 20px; display: flex; align-items: center; gap: 16px; position: relative; overflow: hidden;">
             <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0D1526" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"></path><path d="M17 5h3v2a3 3 0 0 1-3 3"></path><path d="M7 5H4v2a3 3 0 0 0 3 3"></path></svg>
@@ -462,6 +473,74 @@ a{color:#2346E8}a:hover{color:#1530B0}
     <!-- ================= THIS WEEK ================= -->
     <sc-if value="{{isWeek}}" hint-placeholder-val="{{ false }}">
       <div style="display: flex; flex-direction: column; gap: 24px;">
+        <sc-if value="{{hasLive}}" hint-placeholder-val="{{ false }}">
+          <section style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+              <span style="display: inline-flex; align-items: center; gap: 8px; background: #D9622B; color: #FFFFFF; font-weight: 800; font-size: 13px; letter-spacing: .1em; padding: 5px 12px; border-radius: 999px;"><span class="pulse" style="width: 8px; height: 8px; border-radius: 50%; background: #FFFFFF;"></span>LIVE</span>
+              <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 34px; font-weight: 800; text-transform: uppercase; font-style: italic;">Week {{live.week}}, {{live.phase}}</h2>
+            </div>
+            <p style="margin: -4px 0 0; font-size: 14px; color: #5B6478;">{{live.note}}</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 14px;">
+              <sc-for list="{{live.games}}" as="g" hint-placeholder-count="6">
+                <article class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 10px; border-color: {{g.border}};">
+                  <div style="display: flex; justify-content: space-between; align-items: center;"><span class="ribbon" style="background: {{g.tagBg}}; color: {{g.tagFg}};">{{g.tag}}</span><span style="font-size: 12px; color: #5B6478; font-weight: 600;">Current · projected</span></div>
+                  <sc-for list="{{g.sides}}" as="t" hint-placeholder-count="2">
+                    <div style="display: flex; flex-direction: column; gap: 4px; padding: 8px; border-radius: 10px; background: {{t.bg}};">
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="mono" style="width: 36px; height: 36px; font-size: 14px; background: {{t.badge.bg}}; color: {{t.badge.fg}};">{{t.badge.init}}</span>
+                        <span style="flex: 1; min-width: 0; font-weight: 700; font-size: 16px;">{{t.name}}</span>
+                        <span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 28px;">{{t.cur}}</span>
+                        <span class="num" style="font-size: 13px; color: #5B6478; width: 62px; text-align: right;">{{t.proj}}</span>
+                      </div>
+                      <sc-if value="{{t.hasRem}}" hint-placeholder-val="{{ false }}">
+                        <div style="display: flex; flex-wrap: wrap; gap: 6px; padding-left: 46px;">
+                          <sc-for list="{{t.rem}}" as="r" hint-placeholder-count="1">
+                            <span style="font-size: 12px; font-weight: 600; background: #FFFFFF; border: 1px dashed #8E99B3; border-radius: 999px; padding: 3px 9px;">{{r.text}}</span>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                  <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <div style="display: flex; height: 8px; border-radius: 999px; overflow: hidden; background: #EEF1F6;"><span style="width: {{g.aW}}; background: #2346E8;"></span><span style="width: {{g.bW}}; background: #D9622B;"></span></div>
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700;"><span style="color: #1530B0;">{{g.aPct}}</span><span style="color: #5B6478; font-weight: 600;">chance to win</span><span style="color: #B4481A;">{{g.bPct}}</span></div>
+                  </div>
+                </article>
+              </sc-for>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+              <section class="card" style="flex: 999 1 520px; min-width: 0; padding: 20px;">
+                <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 700;">Predicted ladder after week {{live.week}}</h2>
+                <p style="margin: 0 0 12px; font-size: 13px; color: #5B6478;">If every game finishes as projected. Arrows show the move from the current ladder.</p>
+                <div class="tbl"><table>
+                  <thead><tr><th>#</th><th>Team</th><th class="r">W-L</th><th class="r">PF</th><th class="r hide-sm">PA</th><th class="r">This week</th></tr></thead>
+                  <tbody>
+                    <sc-for list="{{live.ladder}}" as="r" hint-placeholder-count="12">
+                      <tr style="box-shadow: {{r.cutLine}};">
+                        <td class="num"><span style="display: inline-flex; align-items: center; gap: 6px;"><b style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 20px; color: {{r.seedColor}};">{{r.pos}}</b><span style="font-size: 12px; font-weight: 700; color: {{r.moveColor}};">{{r.move}}</span></span></td>
+                        <td><span style="display: inline-flex; align-items: center; gap: 8px;"><span class="mono" style="width: 28px; height: 28px; font-size: 11px; border-radius: 8px; background: {{r.badge.bg}}; color: {{r.badge.fg}};">{{r.badge.init}}</span><b>{{r.name}}</b></span></td>
+                        <td class="r num" style="font-weight: 700;">{{r.wl}}</td><td class="r num">{{r.pf}}</td><td class="r num hide-sm">{{r.pa}}</td>
+                        <td class="r"><span class="num" style="font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: {{r.resBg}}; color: {{r.resFg}};">{{r.res}}</span></td>
+                      </tr>
+                    </sc-for>
+                  </tbody>
+                </table></div>
+              </section>
+              <section style="flex: 1 1 320px; min-width: 0; padding: 20px; background: #0D1526; color: #FFFFFF; border-radius: 14px;">
+                <h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 800; text-transform: uppercase; font-style: italic;">On the chopping block</h2>
+                <p style="margin: 0 0 14px; font-size: 13px; color: #C9D2E6;">Chance of the lowest score among the teams still in the guillotine this week.</p>
+                <sc-for list="{{live.guill}}" as="o" hint-placeholder-count="4">
+                  <div style="display: flex; flex-direction: column; gap: 6px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.1);">
+                    <div style="display: flex; align-items: center; gap: 10px;"><span class="mono" style="width: 30px; height: 30px; font-size: 12px; background: {{o.badge.bg}}; color: {{o.badge.fg}};">{{o.badge.init}}</span><span style="flex: 1; font-weight: 700;">{{o.name}}</span><span class="num" style="font-weight: 800; color: #FF9A66; font-size: 18px;">{{o.pct}}</span></div>
+                    <div style="display: flex; height: 8px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,.08);"><span style="width: {{o.w}}; background: #FF7A3D;"></span></div>
+                    <span style="font-size: 12px; color: #C9D2E6;">Projected {{o.proj}}</span>
+                  </div>
+                </sc-for>
+              </section>
+            </div>
+          </section>
+        </sc-if>
+
         <section style="display: flex; flex-direction: column; gap: 12px;">
           <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
             <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 34px; font-weight: 800; text-transform: uppercase; font-style: italic;">Week {{aw.w}} awards</h2>
@@ -995,7 +1074,7 @@ class Component extends DCLogic {
       raceChips: [], race: { yTicks: [], xTicks: [], lines: [], chips: [] }, recap: { facts: [], badge: NOB },
       hasMoves: false, noMoves: false, mv: { lineups: [], blunders: [], trades: [], adds: [], addTeams: [], draft: [] },
       ch: { boom: [], wild: [], steady: [], clutch: [], hc: [], collapses: [], surges: [], sob: [], toughest: [] },
-      dyn: [], fame: [], shame: [],
+      dyn: [], fame: [], shame: [], hasLive: false, live: { games: [], ladder: [], guill: [] },
       statusLine: '', facts: [], ladder: [], alive: [], cuts: [], lastResults: [], seasonChips: [], weekChips: [], matchGames: [],
       frOptions: [], rivals: [], teamChips: [], recChips: [], champs: [], tally: [], droughts: [],
       h2h: { rows: [], aBadge: NOB, bBadge: NOB }, team: { stats: [], cards: [], seasons: [], badge: NOB }, rec: { rows: [], hasTop: false, top: { badge: NOB } },
@@ -1280,6 +1359,49 @@ class Component extends DCLogic {
       var cell = function (k) { return c[k] + (sc[k] ? ' (' + sc[k] + ')' : ''); };
       return { fr: c.fr, badge: badge(c.fr), motw: cell('motw'), robbed: cell('robbed'), lucky: cell('lucky'), shame: cell('shame') };
     });
+
+    // ---------- live week (Monday snapshot)
+    var LV = X.live;
+    v.hasLive = !!LV;
+    if (LV) {
+      var when = '';
+      try { when = new Date(LV.pulled_at).toLocaleString('en-AU', { weekday: 'short', hour: 'numeric', minute: '2-digit', timeZone: 'Australia/Sydney' }); } catch (e) {}
+      var rk = function (p) { return p >= 99.95 ? 'Locked' : (p <= 0.05 ? '0%' : Math.round(p) + '%'); };
+      var isMon = false;
+      try { isMon = new Date(LV.pulled_at).toLocaleDateString('en-AU', { weekday: 'short', timeZone: 'Australia/Sydney' }).indexOf('Mon') === 0; } catch (e) {}
+      v.statusLine = curSeason + ' · week ' + LV.week + ' live';
+      v.live = {
+        week: LV.week, phase: isMon ? 'heading into Monday night' : 'in progress',
+        note: 'Snapshot taken ' + when + ' Sydney time. ' + LV.remaining + ' starters still to play. Projections are Sleeper\u2019s, and win chances come from simulating the players left.',
+        banner: LV.remaining + ' starters still to play. Who wins, who moves up the ladder, and who gets chopped.',
+        games: LV.games.map(function (g) {
+          var sides = [g.a, g.b].map(function (t, i) {
+            var pct = i === 0 ? g.a_win : g.b_win;
+            return { name: t.name, badge: badge(t.fr), cur: f2(t.cur), proj: t.rem.length ? '→ ' + f2(t.proj) : 'done', bg: pct >= 50 ? '#F0F3FF' : 'transparent',
+              hasRem: t.rem.length > 0, rem: t.rem.map(function (r) { return { text: r.name + ' ' + (r.pos || '') + (r.team ? ' · ' + r.team : '') + ' · ' + f2(r.proj) }; }) };
+          });
+          var close = !g.final && g.a_win > 20 && g.a_win < 80;
+          return { sides: sides, aW: g.a_win + '%', bW: g.b_win + '%', aPct: g.final ? (g.a_win ? 'Won' : 'Lost') : rk(g.a_win), bPct: g.final ? (g.b_win ? 'Won' : 'Lost') : rk(g.b_win),
+            tag: g.final ? 'Final' : (close ? 'Up for grabs · ' + g.to_play + ' to play' : g.to_play + ' still to play'),
+            tagBg: g.final ? '#EEF1F6' : (close ? '#D9622B' : '#FFC93C'), tagFg: g.final ? '#5B6478' : (close ? '#FFFFFF' : '#0D1526'),
+            border: close ? '#D9622B' : '#DCE1EA' };
+        }),
+        ladder: LV.ladder.map(function (r) {
+          return { pos: r.pos, badge: badge(r.fr), name: r.name, wl: r.w + '-' + r.l + (r.t ? '-' + r.t : ''), pf: f2(r.pf), pa: f2(r.pa),
+            move: r.move > 0 ? '▲' + r.move : (r.move < 0 ? '▼' + (-r.move) : ''), moveColor: r.move > 0 ? '#1530B0' : '#B4481A',
+            seedColor: r.pos <= 4 ? '#2346E8' : '#8E99B3', cutLine: r.pos === 4 ? 'inset 0 -2px 0 #2346E8' : 'none',
+            res: (r.locked ? (r.res === 'W' ? 'Won' : 'Lost') : (r.res === 'W' ? 'W ' : 'L ') + Math.round(r.res === 'W' ? r.win_pct : 100 - r.win_pct) + '%'),
+            resBg: r.res === 'W' ? '#E6EBFF' : '#FDE7DC', resFg: r.res === 'W' ? '#1530B0' : '#9A3A12' };
+        }),
+        guill: LV.guillotine.map(function (o) { return { badge: badge(o.fr), name: o.name, pct: o.pct >= 99.95 ? 'Gone' : o.pct.toFixed(1) + '%', w: o.pct + '%', proj: f2(o.proj) }; })
+      };
+      v.openLive = function () { self.setState({ tab: 'week' }); };
+      if (v.hasUp && v.up.week === LV.week) v.hasUp = false;
+      v.ticker = LV.games.filter(function (g) { return !g.final; }).map(function (g) {
+        return { tag: 'LIVE WK ' + LV.week, text: g.a.name + ' ' + f2(g.a.cur) + ' (proj ' + f2(g.a.proj) + ') v ' + g.b.name + ' ' + f2(g.b.cur) + ' (proj ' + f2(g.b.proj) + ')' };
+      }).concat(v.ticker);
+      v.hasTicker = v.ticker.length > 0;
+    }
 
     // ---------- seasons: ladder race + recap
     var races = X.race || [];
