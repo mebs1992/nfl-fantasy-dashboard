@@ -177,14 +177,31 @@ def main():
                        "&position[]=QB&position[]=RB&position[]=WR&position[]=TE&position[]=K&position[]=DEF",
                        base="https://api.sleeper.app")
             rows = data if isinstance(data, list) else [dict(player_id=k, stats=v) for k, v in (data or {}).items()]
+            games_info = {}
             for r in rows:
                 st = r.get("stats") or {}
                 if r.get("player_id") and st.get(key) is not None:
                     proj[str(r["player_id"])] = round(float(st[key]), 2)
+                    if r.get("game_id") or r.get("date") or r.get("opponent"):
+                        games_info[str(r["player_id"])] = {k: r.get(k) for k in ("game_id", "date", "opponent", "team")}
         except Exception as e:  # noqa: BLE001
             print(f"Projections unavailable: {e}")
+            games_info = {}
+        # who has already played this week (any recorded game stats)
+        played = []
+        try:
+            data = get(f"/stats/nfl/{season}/{live_wk}?season_type=regular", base="https://api.sleeper.app")
+            rows = data if isinstance(data, list) else [dict(player_id=k, stats=v) for k, v in (data or {}).items()]
+            for r in rows:
+                st = r.get("stats") or {}
+                if r.get("player_id") and (st.get("gp") or st.get("gms_active") or st.get("off_snp") or st.get(key)):
+                    played.append(str(r["player_id"]))
+        except Exception as e:  # noqa: BLE001
+            print(f"Week stats unavailable: {e}")
+            played = None
         if proj:
             save(out / f"projections_wk{live_wk:02d}.json", {"week": live_wk, "scoring": key, "proj": proj,
+                                                             "games": games_info, "played": played,
                                                              "pulled_at": datetime.now(timezone.utc).isoformat()})
             print(f"Saved {len(proj)} projections for week {live_wk}")
 
