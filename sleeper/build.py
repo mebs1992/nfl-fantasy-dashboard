@@ -31,6 +31,7 @@ RAW = HERE / "raw"
 OUT = HERE / "output"
 BASE_LAST = 2025
 HEADER_ROW = 5
+TITLE_BRACKET = 4  # teams in the championship bracket each season
 FIRST = 6
 
 
@@ -91,6 +92,14 @@ def load_base():
                           a_pts=r[6], b=r[7], b_name=r[8], b_pts=r[9], winner=r[10], source="NFL.com"))
     standings = [r[:17] for r in table_rows(wb["Season Standings"])]
     champions = [r[:9] for r in table_rows(wb["Champions"])]
+    # NFL.com ran two brackets in the playoff weeks: the 4-team title bracket and
+    # a placing bracket for 5th-8th. Only title-bracket games are playoff games.
+    place = {(r[0], r[2]): r[15] for r in standings}
+    for g in games:
+        if g["stage"] == "Playoff":
+            pa, pb = place.get((g["season"], g["a"])), place.get((g["season"], g["b"]))
+            if not (pa and pb and pa <= TITLE_BRACKET and pb <= TITLE_BRACKET):
+                g["stage"] = "Consolation"
     return wb, games, standings, champions
 
 
@@ -252,8 +261,8 @@ def compute(games, standings, champions, current):
         srows = [r for r in standings if r[2] == fr]
         yrs = [r[0] for r in srows]
         places = [r[15] for r in srows if r[15] is not None]
-        po_seasons = len({r["g"]["season"] for r in mine if r["g"]["stage"] == "Playoff"} |
-                         {g["season"] for g in games if g["stage"] == "Playoff" and g["status"] == "Not played" and fr in (g["a"], g["b"])})
+        # a playoff appearance = finishing in the title bracket (top 4)
+        po_seasons = len({r[0] for r in srows if r[15] is not None and r[15] <= TITLE_BRACKET})
         done = [r for r in srows if r[0] in complete_seasons]
         best = max(done, key=lambda r: (r[9], r[10]), default=None)
         worst = min(done, key=lambda r: (r[9], r[10]), default=None)
@@ -456,7 +465,9 @@ def write_workbook(wb, games, standings, champions, res, sleeper, generated):
         rd.cell(src, 2).value = (marker + " pulled every Tuesday at 4pm Sydney time by a GitHub Action in "
                                  "mebs1992/nfl-fantasy-dashboard. Sleeper teams are matched to franchises by manager "
                                  "account (sleeper/franchise_map.csv), so renames follow the franchise.")
-        rd.cell(src + 1, 2).value = ("• Sleeper playoffs: only championship-bracket games count as Playoff games; "
+        rd.cell(src + 1, 2).value = ("• Playoffs: only the 4-team title bracket counts. NFL.com also played a 5th-8th placing bracket "
+                                     "in the playoff weeks; those games are labelled Consolation and count in no playoff stat. "
+                                     "A playoff appearance means finishing 1st-4th. "
                                      "consolation games are left out, matching the NFL.com era.")
     for r in range(1, rd.max_row + 1):
         v = rd.cell(r, 2).value

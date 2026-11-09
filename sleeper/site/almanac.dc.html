@@ -450,7 +450,7 @@ a{color:#2346E8}a:hover{color:#1530B0}
             </sc-for>
           </tbody>
         </table></div>
-        <p style="margin: 0; font-size: 12px; color: #5B6478;">Wins, losses and win % include playoff games. Super Bowls are title games reached. Spoons are last-place regular-season finishes. Points cover every game with a recorded score.</p>
+        <p style="margin: 0; font-size: 12px; color: #5B6478;">Wins, losses and win % include every game. Playoff apps are seasons finishing in the 4-team title bracket, and playoff wins only count games in that bracket. Super Bowls are title games reached. Spoons are last-place regular-season finishes. Points cover every game with a recorded score.</p>
       </section>
     </sc-if>
 
@@ -1052,7 +1052,7 @@ class Component extends DCLogic {
     });
     var wg = sg.filter(function (g) { return g.w === selW; });
     var isPO = wg.some(function (g) { return g.st === 'P'; });
-    v.matchTitle = selS + ' · Week ' + selW + (isPO ? ' · Playoffs' : '');
+    v.matchTitle = selS + ' · Week ' + selW + (isPO ? ' · Playoffs' : (wg.some(function (g) { return g.st === 'C'; }) ? ' · Placing games' : ''));
     var top = wg.filter(function (g) { return g.sc; }).reduce(function (m, g) { var hi = Math.max(g.ap, g.bp); return hi > m.v ? { v: hi, fr: g.ap > g.bp ? g.an : g.bn } : m; }, { v: -1 });
     v.matchNote = wg.length + ' games' + (top.v > 0 ? ' · top score ' + top.fr + ' ' + f2(top.v) : '');
     var scored = wg.filter(function (g) { return g.sc && g.win != null; });
@@ -1065,6 +1065,7 @@ class Component extends DCLogic {
       if (g === closest) { ribbon = 'Game of the week'; rbg = '#2346E8'; rfg = '#FFFFFF'; }
       else if (g === widest) { ribbon = 'Beatdown of the week'; rbg = '#FFE2D3'; rfg = '#9A3A12'; }
       if (g.st === 'P') { ribbon = ribbon ? 'Playoff · ' + ribbon : 'Playoff'; if (!rbg) { rbg = '#FFC93C'; rfg = '#0D1526'; } }
+      if (g.st === 'C') { ribbon = ribbon ? 'Placing game · ' + ribbon : 'Placing game (5th–8th)'; if (!rbg) { rbg = '#EEF1F6'; rfg = '#5B6478'; } }
       return { a: g.a, an: g.an, aShow: g.an !== g.a, b: g.b, bn: g.bn, bShow: g.bn !== g.b,
         aBadge: badge(g.a), bBadge: badge(g.b), aBg: !tie && g.win === g.a ? '#F0F3FF' : 'transparent', bBg: !tie && g.win === g.b ? '#F0F3FF' : 'transparent',
         hasRibbon: !!ribbon, ribbon: ribbon, ribbonBg: rbg, ribbonFg: rfg, border: g === closest ? '#2346E8' : '#DCE1EA',
