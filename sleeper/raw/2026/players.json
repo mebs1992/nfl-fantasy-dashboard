@@ -7,6 +7,14 @@
   "pos": "WR",
   "team": "LV"
  },
+ "10218": {
+  "fpos": [
+   "WR"
+  ],
+  "name": "Xavier Hutchinson",
+  "pos": "WR",
+  "team": "HOU"
+ },
  "10219": {
   "fpos": [
    "RB"
@@ -479,6 +487,22 @@
   "pos": "RB",
   "team": "MIA"
  },
+ "12496": {
+  "fpos": [
+   "WR"
+  ],
+  "name": "Tai Felton",
+  "pos": "WR",
+  "team": "MIN"
+ },
+ "12498": {
+  "fpos": [
+   "TE"
+  ],
+  "name": "Mason Taylor",
+  "pos": "TE",
+  "team": "NYJ"
+ },
  "12499": {
   "fpos": [
    "WR"
@@ -494,6 +518,14 @@
   "name": "Matthew Golden",
   "pos": "WR",
   "team": "GB"
+ },
+ "12502": {
+  "fpos": [
+   "TE"
+  ],
+  "name": "Gunnar Helm",
+  "pos": "TE",
+  "team": "TEN"
  },
  "12504": {
   "fpos": [
@@ -574,6 +606,14 @@
   "name": "Luther Burden III",
   "pos": "WR",
   "team": "CHI"
+ },
+ "12522": {
+  "fpos": [
+   "QB"
+  ],
+  "name": "Cam Ward",
+  "pos": "QB",
+  "team": "TEN"
  },
  "12526": {
   "fpos": [
@@ -678,6 +718,14 @@
   "name": "Konata Mumpfield",
   "pos": "WR",
   "team": "LAR"
+ },
+ "13075": {
+  "fpos": [
+   "WR"
+  ],
+  "name": "Myles Price",
+  "pos": "WR",
+  "team": "MIN"
  },
  "13150": {
   "fpos": [
@@ -941,7 +989,7 @@
   ],
   "name": "Brandin Cooks",
   "pos": "WR",
-  "team": "SF"
+  "team": null
  },
  "2216": {
   "fpos": [
