@@ -4,7 +4,8 @@ Writes raw API responses to sleeper/raw/<season>/ so the build step (and
 anyone else) can work offline from what Sleeper returned.
 
 Stdlib only, so the GitHub Action needs no installs for this step.
-To refresh on demand: use "Run workflow" on the Actions tab, or push any change to sleeper/*.py.
+To refresh on demand: use "Run workflow" on the Actions tab, or push any change to sleeper/*.py
+(for example, edit this line).
 
 Season rollover: Sleeper gives each new season a new league ID. If
 config.json has no league for the current NFL season, this script looks
