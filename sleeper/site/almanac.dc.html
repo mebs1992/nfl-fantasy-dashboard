@@ -442,6 +442,141 @@ a{color:#2346E8}a:hover{color:#1530B0}
       </div>
     </sc-if>
 
+    <!-- ================= PLAYOFFS (Playoff Machine) ================= -->
+    <sc-if value="{{isPO}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <sc-if value="{{pm.none}}" hint-placeholder-val="{{ false }}">
+          <div class="card" style="padding: 28px; color: #5B6478;">The Playoff Machine runs during the regular season. It's back next year.</div>
+        </sc-if>
+        <sc-if value="{{pm.on}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <section class="field" style="color: #FFFFFF; border-radius: 16px; padding: 22px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;">
+              <div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 320px; position: relative;">
+                <div style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 42px; line-height: .95; text-transform: uppercase; font-style: italic;">The Playoff Machine</div>
+                <div style="font-size: 14px; color: #C9D2E6;">Tap a team to make them win. Odds update instantly from {{pm.sims}} simulated finishes. Top {{pm.nteams}} make the playoffs; ties on wins go to points for.</div>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; position: relative;">
+                <span style="display: inline-flex; align-items: center; background: rgba(255,255,255,.1); border-radius: 999px; padding: 8px 14px; font-weight: 600; font-size: 14px;">{{pm.pickCount}}</span>
+                <button class="chip" onClick="{{pm.reset}}" style="background: rgba(255,255,255,.12); color: #FFFFFF; border-color: rgba(255,255,255,.25);">Reset picks</button>
+                <button class="chip" onClick="{{pm.share}}" style="background: #FFC93C; color: #0D1526; border-color: #FFC93C;">{{pm.shareLabel}}</button>
+              </div>
+            </section>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+              <!-- left: my path + odds -->
+              <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+                <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                  <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                    <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 800; text-transform: uppercase; font-style: italic;">My path</h2>
+                    <label for="pm-team" style="position: absolute; left: -9999px;">Team</label>
+                    <select id="pm-team" class="select" value="{{pm.team}}" onChange="{{pm.setTeam}}">
+                      <sc-for list="{{pm.teamOpts}}" as="o" hint-placeholder-count="12"><option value="{{o.fr}}">{{o.label}}</option></sc-for>
+                    </select>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                    <span class="mono" style="width: 64px; height: 64px; font-size: 24px; border-radius: 16px; background: {{pm.me.badge.bg}}; color: {{pm.me.badge.fg}};">{{pm.me.badge.init}}</span>
+                    <div style="display: flex; flex-direction: column;">
+                      <span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 64px; line-height: .9; color: {{pm.me.color}}; font-style: italic;">{{pm.me.pct}}</span>
+                      <span style="font-size: 13px; color: #5B6478; font-weight: 600;">chance to make the playoffs{{pm.me.delta}}</span>
+                    </div>
+                    <span class="ribbon" style="background: {{pm.me.statusBg}}; color: {{pm.me.statusFg}}; font-size: 13px;">{{pm.me.status}}</span>
+                  </div>
+                  <div style="background: #FFF6DA; border-radius: 12px; padding: 12px 14px; font-size: 15px; font-weight: 600;">{{pm.me.magic}}</div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <sc-for list="{{pm.me.byWins}}" as="k" hint-placeholder-count="4">
+                      <div style="flex: 1 1 90px; background: #F5F7FB; border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px;">
+                        <span style="font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #5B6478; font-weight: 700;">{{k.label}}</span>
+                        <span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 22px; color: {{k.color}};">{{k.pct}}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="chip" onClick="{{pm.best}}" style="border-color: #2346E8; color: #1530B0;">Best case</button>
+                    <button class="chip" onClick="{{pm.worst}}" style="border-color: #D9622B; color: #9A3A12;">Worst case</button>
+                    <button class="chip" onClick="{{pm.winOut}}">Win out</button>
+                  </div>
+                  <sc-if value="{{pm.me.hasRoot}}" hint-placeholder-val="{{ true }}">
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                      <span style="font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #5B6478; font-weight: 700;">Who to root for</span>
+                      <sc-for list="{{pm.me.root}}" as="r" hint-placeholder-count="5">
+                        <button class="chip" onClick="{{r.pick}}" style="display: flex; align-items: center; gap: 10px; justify-content: space-between; border-radius: 12px; text-align: left; white-space: normal; height: auto; padding: 8px 12px;">
+                          <span style="display: inline-flex; align-items: center; gap: 8px; min-width: 0;"><span class="mono" style="width: 26px; height: 26px; font-size: 11px; border-radius: 7px; background: {{r.badge.bg}}; color: {{r.badge.fg}};">{{r.badge.init}}</span><span><b>{{r.team}}</b> <span style="color: #5B6478; font-weight: 500;">over {{r.other}} · wk {{r.wk}}</span></span></span>
+                          <span class="num" style="font-weight: 800; color: #1530B0; white-space: nowrap;">{{r.swing}}</span>
+                        </button>
+                      </sc-for>
+                      <span style="font-size: 12px; color: #5B6478;">Tap one to lock it in.</span>
+                    </div>
+                  </sc-if>
+                </section>
+
+                <section class="card" style="padding: 20px;">
+                  <h2 style="margin: 0 0 10px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 700;">Playoff odds</h2>
+                  <div style="display: flex; flex-direction: column;">
+                    <sc-for list="{{pm.rows}}" as="o" hint-placeholder-count="12">
+                      <button onClick="{{o.pick}}" style="all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 22px 30px minmax(0, 1fr) minmax(60px, 34%) 60px; gap: 10px; align-items: center; padding: 8px 6px; border-top: 1px solid #EEF1F6; border-radius: 8px; background: {{o.bg}}; box-shadow: {{o.cut}};">
+                        <span class="num" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 18px; color: {{o.rankColor}};">{{o.rank}}</span>
+                        <span class="mono" style="width: 30px; height: 30px; font-size: 12px; background: {{o.badge.bg}}; color: {{o.badge.fg}};">{{o.badge.init}}</span>
+                        <span style="min-width: 0;"><span style="display: block; font-weight: 700; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{o.name}}</span><span style="font-size: 12px; color: #5B6478;">{{o.rec}} · <span style="color: {{o.statusFg}}; font-weight: 700;">{{o.status}}</span></span></span>
+                        <span style="height: 12px; background: #EEF1F6; border-radius: 999px; overflow: hidden;"><span style="display: block; height: 100%; width: {{o.w}}; background: {{o.color}}; border-radius: 999px;"></span></span>
+                        <span style="display: flex; flex-direction: column; align-items: flex-end;"><span class="num" style="font-weight: 800; font-size: 15px;">{{o.pct}}</span><span class="num" style="font-size: 11px; font-weight: 700; color: {{o.deltaColor}};">{{o.delta}}</span></span>
+                      </button>
+                    </sc-for>
+                  </div>
+                  <p style="margin: 10px 0 0; font-size: 12px; color: #5B6478;">Record is through week {{pm.through}}. Average final wins in brackets. "Clinched" and "Eliminated" are mathematical, from the picks you've made. Tap a team to follow their path.</p>
+                </section>
+              </div>
+
+              <!-- right: game picker -->
+              <section class="card" style="flex: 1 1 460px; min-width: 0; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 800; text-transform: uppercase; font-style: italic;">Pick the winners</h2>
+                <sc-for list="{{pm.weeks}}" as="wk" hint-placeholder-count="5">
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px;"><span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 20px;">Week {{wk.wk}}</span><sc-if value="{{wk.live}}" hint-placeholder-val="{{ false }}"><span class="ribbon" style="background: #D9622B; color: #FFFFFF;">Live</span></sc-if></div>
+                    <sc-for list="{{wk.games}}" as="g" hint-placeholder-count="6">
+                      <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 6px; align-items: stretch;">
+                        <button onClick="{{g.pickA}}" aria-pressed="{{g.aPressed}}" style="all: unset; box-sizing: border-box; cursor: {{g.cursor}}; display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 12px; border: 2px solid {{g.aBorder}}; background: {{g.aBg}}; color: {{g.aFg}}; min-height: 52px; min-width: 0; opacity: {{g.aOp}};">
+                          <span class="mono" style="width: 30px; height: 30px; font-size: 12px; background: {{g.aBadge.bg}}; color: {{g.aBadge.fg}};">{{g.aBadge.init}}</span>
+                          <span style="display: flex; flex-direction: column; min-width: 0;"><span style="font-weight: 700; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{g.aName}}</span><span class="num" style="font-size: 11px; font-weight: 600; opacity: .8;">{{g.aSub}}</span></span>
+                        </button>
+                        <span style="align-self: center; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 12px; color: #8E99B3;">VS</span>
+                        <button onClick="{{g.pickB}}" aria-pressed="{{g.bPressed}}" style="all: unset; box-sizing: border-box; cursor: {{g.cursor}}; display: flex; align-items: center; gap: 8px; justify-content: flex-end; text-align: right; padding: 8px 10px; border-radius: 12px; border: 2px solid {{g.bBorder}}; background: {{g.bBg}}; color: {{g.bFg}}; min-height: 52px; min-width: 0; opacity: {{g.bOp}};">
+                          <span style="display: flex; flex-direction: column; min-width: 0;"><span style="font-weight: 700; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{g.bName}}</span><span class="num" style="font-size: 11px; font-weight: 600; opacity: .8;">{{g.bSub}}</span></span>
+                          <span class="mono" style="width: 30px; height: 30px; font-size: 12px; background: {{g.bBadge.bg}}; color: {{g.bBadge.fg}};">{{g.bBadge.init}}</span>
+                        </button>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-for>
+              </section>
+            </div>
+
+            <section class="card" style="padding: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+                <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; font-weight: 800; text-transform: uppercase; font-style: italic;">Bubble watch</h2>
+                <span style="font-size: 13px; color: #5B6478;">Playoff odds after each week. "Now" uses your picks.</span>
+              </div>
+              <div style="overflow-x: auto; margin-top: 10px;">
+                <svg viewBox="0 0 760 300" width="100%" style="min-width: 520px; display: block;" role="img" aria-label="Playoff odds by week">
+                  <sc-for list="{{pm.chart.y}}" as="t" hint-placeholder-count="5">
+                    <line x1="44" x2="690" y1="{{t.y}}" y2="{{t.y}}" stroke="#EEF1F6" stroke-width="1"></line>
+                    <text x="36" y="{{t.ty}}" font-size="11" fill="#5B6478" text-anchor="end" font-family="Barlow, Arial, sans-serif">{{t.label}}</text>
+                  </sc-for>
+                  <sc-for list="{{pm.chart.x}}" as="t" hint-placeholder-count="9">
+                    <text x="{{t.x}}" y="292" font-size="11" fill="#5B6478" text-anchor="middle" font-family="Barlow, Arial, sans-serif">{{t.label}}</text>
+                  </sc-for>
+                  <sc-for list="{{pm.chart.lines}}" as="l" hint-placeholder-count="6">
+                    <polyline points="{{l.pts}}" fill="none" stroke="{{l.color}}" stroke-width="{{l.w}}" stroke-opacity="{{l.op}}" stroke-linejoin="round" stroke-linecap="round"></polyline>
+                    <circle cx="{{l.ex}}" cy="{{l.ey}}" r="4" fill="{{l.color}}" fill-opacity="{{l.op}}"></circle>
+                    <text x="{{l.lx}}" y="{{l.ly}}" font-size="12" font-weight="800" fill="{{l.color}}" fill-opacity="{{l.op}}" font-family="'Barlow Condensed', Arial, sans-serif">{{l.label}}</text>
+                  </sc-for>
+                </svg>
+              </div>
+            </section>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
     <!-- ================= STATS ================= -->
     <sc-if value="{{isStats}}" hint-placeholder-val="{{ false }}">
       <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px;">
@@ -1043,8 +1178,21 @@ class Component extends DCLogic {
   componentDidMount() {
     var url = this.props.dataUrl || '/_blob/1cd2de9ab4dd04790d7dc838d6634e1e';
     fetch(url).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then((d) => this.setState({ d: d }))
+      .then((d) => this.setState(Object.assign({ d: d }, this.fromLink(d))))
       .catch(() => this.setState({ failed: true }));
+  }
+  fromLink(d) {
+    try {
+      var h = (typeof location !== 'undefined' && location.hash) || '';
+      var m = /^#pm=(\d+)\.([ab-]+)$/.exec(h);
+      var PM = d && d.x && d.x.machine;
+      if (!m || !PM) return {};
+      var games = PM.live.map(function (g) { return g.wk + ':' + g.a + ':' + g.b; }).concat(PM.sched.map(function (g) { return g.wk + ':' + g.a + ':' + g.b; }));
+      var picks = {};
+      m[2].split('').forEach(function (c, i) { if ((c === 'a' || c === 'b') && games[i]) picks[games[i]] = c; });
+      var team = PM.teams[+m[1]];
+      return { tab: 'playoffs', pmPicks: picks, pmTeam: team ? team.fr : null };
+    } catch (e) { return {}; }
   }
   renderVals() {
     var self = this, st = this.state, d = st.d;
@@ -1070,12 +1218,12 @@ class Component extends DCLogic {
       return out;
     };
     var NOB = { init: '', bg: '#EEF1F6', fg: '#0D1526' };
-    var TABS = [['home', 'Home'], ['stats', 'Stats'], ['week', 'This week'], ['matchups', 'Matchups'], ['h2h', 'Head to head'], ['teams', 'Teams'], ['seasons', 'Seasons'], ['moves', 'Moves'], ['character', 'Character'], ['records', 'Records'], ['honours', 'Legacy']];
+    var TABS = [['home', 'Home'], ['stats', 'Stats'], ['week', 'This week'], ['playoffs', 'Playoffs'], ['matchups', 'Matchups'], ['h2h', 'Head to head'], ['teams', 'Teams'], ['seasons', 'Seasons'], ['moves', 'Moves'], ['character', 'Character'], ['records', 'Records'], ['honours', 'Legacy']];
     var base = {
       loaded: !!d, loading: !d && !st.failed, failed: st.failed,
       tabs: TABS.map(function (t) { return { label: t[1], cls: st.tab === t[0] ? 'on' : '', pick: function () { self.setState({ tab: t[0] }); } }; }),
       isHome: false, isMatch: false, isH2H: false, isTeams: false, isRecords: false, isHonours: false,
-      isWeek: false, isSeasons: false, isMoves: false, isChar: false, isStats: false, stats: { cols: [], rows: [] },
+      isWeek: false, isSeasons: false, isMoves: false, isChar: false, isStats: false, isPO: false, pm: { on: false, none: false, rows: [], weeks: [], teamOpts: [], me: { badge: NOB, byWins: [], root: [] }, chart: { x: [], y: [], lines: [] } }, stats: { cols: [], rows: [] },
       aw: { cards: [] }, up: { games: [] }, hasUp: false, hasOdds: false, odds: { rows: [], guill: [] }, cabinet: [],
       raceChips: [], race: { yTicks: [], xTicks: [], lines: [], chips: [] }, recap: { facts: [], badge: NOB },
       hasMoves: false, noMoves: false, mv: { lineups: [], blunders: [], trades: [], adds: [], addTeams: [], draft: [] },
@@ -1096,7 +1244,7 @@ class Component extends DCLogic {
     var v = Object.assign(base, {
       isHome: st.tab === 'home', isMatch: st.tab === 'matchups', isH2H: st.tab === 'h2h',
       isTeams: st.tab === 'teams', isRecords: st.tab === 'records', isHonours: st.tab === 'honours',
-      isStats: st.tab === 'stats', isWeek: st.tab === 'week', isSeasons: st.tab === 'seasons', isMoves: st.tab === 'moves', isChar: st.tab === 'character',
+      isStats: st.tab === 'stats', isPO: st.tab === 'playoffs', isWeek: st.tab === 'week', isSeasons: st.tab === 'seasons', isMoves: st.tab === 'moves', isChar: st.tab === 'character',
       curSeason: curSeason,
       statusLine: cur.complete ? curSeason + ' season complete' : curSeason + ' · through week ' + cur.through_week,
       footer: 'Every result since 2012, matched by franchise through every team rename. A few 2025 late-season and playoff scores were never recorded, so those games show the winner only. Updated ' + d.generated + '.'
@@ -1405,6 +1553,208 @@ class Component extends DCLogic {
       var cell = function (k) { return c[k] + (sc[k] ? ' (' + sc[k] + ')' : ''); };
       return { fr: c.fr, badge: badge(c.fr), motw: cell('motw'), robbed: cell('robbed'), lucky: cell('lucky'), shame: cell('shame') };
     });
+
+    // ---------- playoff machine
+    var PM = X.machine;
+    v.pm = { on: false, none: true, rows: [], weeks: [], teamOpts: [], me: { badge: NOB, byWins: [], root: [] }, chart: { x: [], y: [], lines: [] } };
+    if (PM && st.tab === 'playoffs') (function () {
+      v.pm.on = true; v.pm.none = false;
+      var picks = st.pmPicks || {};
+      var games = PM.live.map(function (g) {
+          // a live game is settled once the team behind has nobody left to play
+          var lock = g.final ? (g.ac > g.bc ? 'a' : 'b') : (!g.ar.length && g.ac < g.bc ? 'b' : (!g.br.length && g.bc < g.ac ? 'a' : null));
+          return { key: g.wk + ':' + g.a + ':' + g.b, wk: g.wk, a: g.a, b: g.b, live: true, ac: g.ac, bc: g.bc, ar: g.ar, br: g.br, final: !!lock, lock: lock };
+        })
+        .concat(PM.sched.map(function (g) { return { key: g.wk + ':' + g.a + ':' + g.b, wk: g.wk, a: g.a, b: g.b }; }));
+      var TM = PM.teams.map(function (t) { return t.fr; });
+      var tIdx = {}; TM.forEach(function (f, i) { tIdx[f] = i; });
+      var base = PM.teams.map(function (t) { return { w: t.w + 0.5 * t.t, pf: t.pf, mu: t.mu }; });
+      var focus = st.pmTeam && tIdx[st.pmTeam] != null ? st.pmTeam : null;
+      if (!focus) {
+        // default: the team whose odds are closest to a coin flip
+        var bo = (X.odds && X.odds.table) || [];
+        focus = (bo.slice().sort(function (a, b) { return Math.abs(a.playoffs - 50) - Math.abs(b.playoffs - 50); })[0] || {}).fr || TM[0];
+      }
+      var SIMS = 6000, NT = PM.playoff_teams, SD = PM.sd;
+      var gauss = function () { var u = 1 - Math.random(), w2 = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * w2); };
+      var runSims = function (pk, fcs) {
+        var n = TM.length, G = games.length, fi = tIdx[fcs];
+        var po = new Array(n).fill(0), top = new Array(n).fill(0), wsum = new Array(n).fill(0);
+        var gA = new Array(G).fill(0), fA = new Array(G).fill(0), fAN = new Array(G).fill(0), fB = new Array(G).fill(0), fBN = new Array(G).fill(0);
+        var own = games.map(function (g, j) { return (g.a === fcs || g.b === fcs) && !pk[g.key] && !g.live ? j : -1; }).filter(function (j) { return j >= 0; });
+        var byK = []; for (var k = 0; k <= own.length; k++) byK.push({ n: 0, in: 0 });
+        var ord = TM.map(function (_, i) { return i; }), outA = new Array(G);
+        for (var s = 0; s < SIMS; s++) {
+          var w = base.map(function (b) { return b.w; }), pf = base.map(function (b) { return b.pf; });
+          for (var j = 0; j < G; j++) {
+            var g = games[j], ai = tIdx[g.a], bi = tIdx[g.b], sa, sb;
+            if (g.live) {
+              sa = g.ac; sb = g.bc;
+              if (!g.final) {
+                g.ar.forEach(function (p) { sa += Math.max(0, p + gauss() * Math.max(3, 0.5 * p)); });
+                g.br.forEach(function (p) { sb += Math.max(0, p + gauss() * Math.max(3, 0.5 * p)); });
+              }
+            } else { sa = base[ai].mu + gauss() * SD; sb = base[bi].mu + gauss() * SD; }
+            var p2 = g.lock || pk[g.key];
+            if ((p2 === 'a' && sa < sb) || (p2 === 'b' && sb < sa)) { var tmp = sa; sa = sb; sb = tmp; }
+            pf[ai] += sa; pf[bi] += sb;
+            if (sa > sb) { w[ai]++; outA[j] = true; gA[j]++; } else { w[bi]++; outA[j] = false; }
+          }
+          ord.sort(function (x, y) { return (w[y] - w[x]) || (pf[y] - pf[x]); });
+          var inF = 0;
+          for (var r = 0; r < NT; r++) { po[ord[r]]++; if (ord[r] === fi) inF = 1; }
+          top[ord[0]]++;
+          for (var q = 0; q < n; q++) wsum[q] += w[q];
+          for (var j2 = 0; j2 < G; j2++) { if (outA[j2]) { fA[j2] += inF; fAN[j2]++; } else { fB[j2] += inF; fBN[j2]++; } }
+          var kk = 0; own.forEach(function (j3) { var g3 = games[j3]; if ((g3.a === fcs) === outA[j3]) kk++; });
+          byK[kk].n++; byK[kk].in += inF;
+        }
+        return { po: po, top: top, wsum: wsum, gA: gA, fA: fA, fAN: fAN, fB: fB, fBN: fBN, own: own, byK: byK };
+      };
+      var key = JSON.stringify(picks) + '|' + focus;
+      if (!this._pmCache || this._pmCache.key !== key) this._pmCache = { key: key, r: runSims(picks, focus) };
+      if (!this._pmBase || this._pmBase.focus !== focus) this._pmBase = { focus: focus, r: runSims({}, focus) };
+      var R0 = this._pmCache.r, RB = this._pmBase.r;
+      var nPicked = Object.keys(picks).length;
+      var setPicks = function (p) { self.setState({ pmPicks: p, pmCopied: false }); };
+
+      // mathematical clinch / elimination from records + picks
+      var minW = base.map(function (b) { return b.w; }), maxW = base.map(function (b) { return b.w; });
+      games.forEach(function (g) {
+        var ai = tIdx[g.a], bi = tIdx[g.b], p3 = picks[g.key];
+        if (g.final) { if (g.lock === 'a') { minW[ai]++; maxW[ai]++; } else { minW[bi]++; maxW[bi]++; } return; }
+        if (p3 === 'a') { minW[ai]++; maxW[ai]++; } else if (p3 === 'b') { minW[bi]++; maxW[bi]++; } else { maxW[ai]++; maxW[bi]++; }
+      });
+      var status = function (i) {
+        var above = 0, threat = 0;
+        TM.forEach(function (_, j) { if (j === i) return; if (minW[j] > maxW[i]) above++; if (maxW[j] >= minW[i]) threat++; });
+        if (above >= NT) return 'Eliminated';
+        if (threat < NT) return 'Clinched';
+        return 'Alive';
+      };
+      var pctS = function (x) { return x >= 99.95 ? '100%' : (x > 0 && x < 0.5 ? '<1%' : Math.round(x) + '%'); };
+      var dS = function (d2) { return Math.abs(d2) < 0.5 ? '' : (d2 > 0 ? '▲' : '▼') + Math.round(Math.abs(d2)); };
+
+      // odds table
+      var order = TM.map(function (f, i) { return i; }).sort(function (a, b) { return (R0.po[b] - R0.po[a]) || (R0.wsum[b] - R0.wsum[a]); });
+      v.pm.rows = order.map(function (i, k) {
+        var f = TM[i], p = 100 * R0.po[i] / SIMS, d2 = p - 100 * RB.po[i] / SIMS, stt = status(i);
+        var t = PM.teams[i];
+        return { rank: k + 1, rankColor: k < NT ? '#2346E8' : '#8E99B3', badge: badge(f), name: latestName(f),
+          rec: t.w + '-' + t.l + (t.t ? '-' + t.t : '') + ' (' + (R0.wsum[i] / SIMS).toFixed(1) + ')',
+          status: stt, statusFg: stt === 'Clinched' ? '#1F7A4D' : (stt === 'Eliminated' ? '#B4481A' : '#5B6478'),
+          pct: pctS(p), w: p + '%', color: p >= 50 ? '#2346E8' : '#D9622B',
+          delta: nPicked ? dS(d2) : '', deltaColor: d2 >= 0 ? '#1530B0' : '#B4481A',
+          bg: f === focus ? '#FFF6DA' : 'transparent', cut: k === NT - 1 ? 'inset 0 -2px 0 #2346E8' : 'none',
+          pick: function () { self.setState({ pmTeam: f }); } };
+      });
+
+      // game picker
+      var byWk = {};
+      games.forEach(function (g, j) {
+        var wkList = byWk[g.wk] = byWk[g.wk] || { wk: g.wk, live: !!g.live, games: [] };
+        var pa = 100 * R0.gA[j] / SIMS, p4 = picks[g.key];
+        var side = function (isA) {
+          var me2 = isA ? 'a' : 'b', chosen = p4 === me2, other = p4 && !chosen;
+          var fr = isA ? g.a : g.b, won = g.final && ((isA && g.lock === 'a') || (!isA && g.lock === 'b'));
+          var sub;
+          if (g.final) sub = (won ? 'Won · ' : 'Lost · ') + f2(isA ? g.ac : g.bc) + ((isA ? g.ar : g.br || []).length ? ' · locked' : '');
+          else if (g.live) sub = f2(isA ? g.ac : g.bc) + ' · ' + (isA ? g.ar : g.br).length + ' to play · ' + pctS(isA ? pa : 100 - pa);
+          else sub = pctS(isA ? pa : 100 - pa) + ' to win';
+          return { name: latestName(fr), badge: badge(fr), sub: sub,
+            bg: chosen || won ? '#2346E8' : '#FFFFFF', fg: chosen || won ? '#FFFFFF' : '#0D1526',
+            border: chosen || won ? '#2346E8' : '#DCE1EA', op: other || (g.final && !won) ? 0.45 : 1, pressed: chosen ? 'true' : 'false' };
+        };
+        var A = side(true), B = side(false);
+        var toggle = function (s2) { return function () { if (g.final) return; var np = Object.assign({}, picks); if (np[g.key] === s2) delete np[g.key]; else np[g.key] = s2; setPicks(np); }; };
+        wkList.games.push({ aName: A.name, aBadge: A.badge, aSub: A.sub, aBg: A.bg, aFg: A.fg, aBorder: A.border, aOp: A.op, aPressed: A.pressed,
+          bName: B.name, bBadge: B.badge, bSub: B.sub, bBg: B.bg, bFg: B.fg, bBorder: B.border, bOp: B.op, bPressed: B.pressed,
+          cursor: g.final ? 'default' : 'pointer', pickA: toggle('a'), pickB: toggle('b') });
+      });
+      v.pm.weeks = Object.keys(byWk).sort(function (a, b) { return a - b; }).map(function (k) { return byWk[k]; });
+
+      // my path
+      var fi = tIdx[focus], myP = 100 * R0.po[fi] / SIMS, myB = 100 * RB.po[fi] / SIMS, mySt = status(fi);
+      var own = R0.own, nOwn = own.length;
+      var magic;
+      if (mySt === 'Clinched') magic = latestName(focus) + ' are in, whatever happens.';
+      else if (mySt === 'Eliminated') magic = latestName(focus) + ' can no longer make the top ' + NT + '.';
+      else {
+        var need = null;
+        for (var k2 = 0; k2 <= nOwn; k2++) { var bk = R0.byK[k2]; if (bk.n && bk.in / bk.n >= 0.99) { need = k2; break; } }
+        var top2 = R0.byK[nOwn];
+        if (need === 0) magic = 'In 99%+ of finishes, whatever ' + latestName(focus) + ' do from week ' + (PM.live_week ? PM.live_week + 1 : PM.through + 1) + '.';
+        else if (need != null) magic = 'Win ' + need + ' of ' + nOwn + ' and ' + latestName(focus) + ' are in (99%+). Fewer, and it depends on other results.';
+        else if (top2 && top2.n && top2.in / top2.n >= 0.9) magic = 'Win all ' + nOwn + ' and ' + latestName(focus) + ' are almost certainly in (' + pctS(100 * top2.in / top2.n) + '). Drop one and it depends on other results.';
+        else if (top2 && top2.n) magic = 'Even winning all ' + nOwn + ' only gets ' + latestName(focus) + ' in ' + pctS(100 * top2.in / top2.n) + ' of the time. They need help.';
+        else magic = 'No games left to pick for ' + latestName(focus) + '.';
+      }
+      var byWins = R0.byK.map(function (bk, k3) { return bk.n ? { label: 'Win ' + k3 + ' of ' + nOwn + ' left', pct: pctS(100 * bk.in / bk.n), color: bk.in / bk.n >= 0.5 ? '#2346E8' : '#D9622B' } : null; }).filter(Boolean);
+      var swings = [];
+      games.forEach(function (g, j) {
+        if (g.final || picks[g.key] || g.a === focus || g.b === focus) return;
+        if (!R0.fAN[j] || !R0.fBN[j]) return;
+        var ra = 100 * R0.fA[j] / R0.fAN[j], rb = 100 * R0.fB[j] / R0.fBN[j];
+        if (Math.abs(ra - rb) < 1) return;
+        var good = ra > rb ? 'a' : 'b';
+        swings.push({ wk: g.wk, team: latestName(good === 'a' ? g.a : g.b), other: latestName(good === 'a' ? g.b : g.a), badge: badge(good === 'a' ? g.a : g.b),
+          swing: '+' + Math.round(Math.abs(ra - rb)) + ' pts', size: Math.abs(ra - rb), key: g.key, side: good });
+      });
+      swings.sort(function (a, b) { return b.size - a.size; });
+      var help = {}; swings.forEach(function (s3) { help[s3.key] = s3.side; });
+      v.pm.me = { badge: badge(focus), pct: pctS(myP), color: myP >= 50 ? '#2346E8' : '#D9622B',
+        delta: nPicked && Math.abs(myP - myB) >= 0.5 ? ' (' + (myP > myB ? '+' : '') + Math.round(myP - myB) + ' from your picks)' : '',
+        status: mySt, statusBg: mySt === 'Clinched' ? '#3DB37A' : (mySt === 'Eliminated' ? '#D9622B' : '#EEF1F6'), statusFg: mySt === 'Alive' ? '#0D1526' : '#FFFFFF',
+        magic: magic, byWins: byWins, hasRoot: swings.length > 0,
+        root: swings.slice(0, 5).map(function (s4) { return Object.assign({}, s4, { pick: function () { var np = Object.assign({}, picks); np[s4.key] = s4.side; setPicks(np); } }); }) };
+      var scenario = function (mine, helpful) {
+        var np = Object.assign({}, picks);
+        games.forEach(function (g) {
+          if (g.final) return;
+          if (g.a === focus) np[g.key] = mine ? 'a' : 'b';
+          else if (g.b === focus) np[g.key] = mine ? 'b' : 'a';
+          else if (helpful != null && help[g.key]) np[g.key] = helpful ? help[g.key] : (help[g.key] === 'a' ? 'b' : 'a');
+        });
+        return np;
+      };
+      v.pm.best = function () { setPicks(scenario(true, true)); };
+      v.pm.worst = function () { setPicks(scenario(false, false)); };
+      v.pm.winOut = function () { setPicks(scenario(true, null)); };
+      v.pm.reset = function () { setPicks({}); };
+      v.pm.team = focus;
+      v.pm.setTeam = function (e) { self.setState({ pmTeam: e.target.value }); };
+      v.pm.teamOpts = TM.map(function (f) { return { fr: f, label: latestName(f) }; }).sort(function (a, b) { return a.label.localeCompare(b.label); });
+      v.pm.sims = SIMS.toLocaleString(); v.pm.nteams = NT; v.pm.through = PM.through;
+      var openN = games.filter(function (g) { return !g.final; }).length;
+      v.pm.pickCount = nPicked + ' of ' + openN + ' games picked';
+      v.pm.shareLabel = st.pmCopied ? 'Link copied' : 'Share this scenario';
+      v.pm.share = function () {
+        var code = TM.indexOf(focus) + '.' + games.map(function (g) { return picks[g.key] || '-'; }).join('');
+        var url = location.href.split('#')[0] + '#pm=' + code;
+        try { history.replaceState(null, '', '#pm=' + code); } catch (e) {}
+        var done2 = function () { self.setState({ pmCopied: true }); };
+        try { navigator.clipboard.writeText(url).then(done2, function () { window.prompt ? done2() : done2(); }); } catch (e) { done2(); }
+      };
+
+      // bubble watch: history + now
+      var H = PM.history, hw = H.weeks.concat(['Now']), nx = hw.length;
+      var X0 = 50, X1 = 640, Y0 = 16, Y1 = 270;
+      var xp = function (i) { return nx > 1 ? X0 + i * (X1 - X0) / (nx - 1) : X0; };
+      var yp = function (p) { return Y1 - (p / 100) * (Y1 - Y0); };
+      var watch = TM.filter(function (f) { var hs = H.odds[f] || []; var nowP = 100 * R0.po[tIdx[f]] / SIMS; return Math.max.apply(null, hs.concat([nowP])) >= 15 && nowP < 99.9 || f === focus; });
+      v.pm.chart = {
+        y: [0, 25, 50, 75, 100].map(function (p) { return { y: yp(p).toFixed(1), ty: (yp(p) + 4).toFixed(1), label: p + '%' }; }),
+        x: hw.map(function (w, i) { return { x: xp(i).toFixed(1), label: w === 'Now' ? 'Now' : 'Wk ' + w }; }),
+        lines: watch.map(function (f) {
+          var vals = (H.odds[f] || []).concat([100 * R0.po[tIdx[f]] / SIMS]), b2 = badge(f), last = vals[vals.length - 1];
+          var on = f === focus;
+          return { color: b2.color === '#FFC93C' ? '#C99700' : b2.color, w: on ? 5 : 2.5, op: on ? 1 : 0.55,
+            pts: vals.map(function (p, i) { return xp(i).toFixed(1) + ',' + yp(p).toFixed(1); }).join(' '),
+            ex: xp(vals.length - 1), ey: yp(last), lx: xp(vals.length - 1) + 10, ly: yp(last) + 4,
+            label: (BADGES[f] || [f.slice(0, 2)])[0] + ' ' + pctS(last) };
+        }).sort(function (a, b) { return a.w - b.w; })
+      };
+    }).call(this);
 
     // ---------- live week (Monday snapshot)
     var LV = X.live;

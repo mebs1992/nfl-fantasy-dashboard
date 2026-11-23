@@ -701,6 +701,93 @@ def live_week(sl, standings):
                                  proj=next((t["proj"] for t in teams.values() if t["fr"] == f), None)) for f, p in danger],
                 remaining=sum(len(t["rem"]) for t in teams.values()))
 
+
+# ====================================================================== playoff machine
+def playoff_machine(cur, games, live):
+    """Everything the in-browser Playoff Machine needs: records, scoring model,
+    remaining schedule (live week included) and each team's odds week by week."""
+    if not cur or cur["complete"]:
+        return None
+    s, done, pws, nteams = cur["season"], cur["done_reg"], cur["pws"], cur["playoff_teams"]
+    reg = [g for g in games if g["season"] == s and g["stage"] == "Regular"]
+    final = [g for g in reg if g["status"] == "Final" and g["week"] <= done]
+    teams = sorted({x for g in reg for x in (g["a"], g["b"])})
+    if not final or not teams:
+        return None
+
+    def model(upto):
+        sc = defaultdict(list)
+        for g in final:
+            if g["week"] <= upto:
+                sc[g["a"]].append(g["a_pts"])
+                sc[g["b"]].append(g["b_pts"])
+        allp = [p for v in sc.values() for p in v]
+        lm = stats.mean(allp)
+        resid = [p - stats.mean(sc[f]) for f in teams for p in sc[f]]
+        sd = stats.pstdev(resid) or 25.0
+        mu = {f: (len(sc[f]) * stats.mean(sc[f]) + 4 * lm) / (len(sc[f]) + 4) if sc[f] else lm for f in teams}
+        return mu, sd
+
+    def record(upto):
+        w, l, t, pf = defaultdict(int), defaultdict(int), defaultdict(int), defaultdict(float)
+        for g in final:
+            if g["week"] > upto:
+                continue
+            pf[g["a"]] += g["a_pts"]
+            pf[g["b"]] += g["b_pts"]
+            if g["winner"] is None:
+                t[g["a"]] += 1
+                t[g["b"]] += 1
+            else:
+                w[g["winner"]] += 1
+                l[g["b"] if g["winner"] == g["a"] else g["a"]] += 1
+        return w, l, t, pf
+
+    mu, sd = model(done)
+    w, l, t, pf = record(done)
+    live_wk = live["week"] if live else None
+    sched = []
+    for g in sorted(reg, key=lambda g: (g["week"], g["a"])):
+        if g["week"] <= done or g["week"] == live_wk:
+            continue
+        sched.append(dict(wk=g["week"], a=g["a"], b=g["b"]))
+    live_games = []
+    if live:
+        for g in live["games"]:
+            live_games.append(dict(wk=live_wk, a=g["a"]["fr"], b=g["b"]["fr"],
+                                   ac=g["a"]["cur"], bc=g["b"]["cur"],
+                                   ar=[r["proj"] for r in g["a"]["rem"]], br=[r["proj"] for r in g["b"]["rem"]],
+                                   an=[r["name"] for r in g["a"]["rem"]], bn=[r["name"] for r in g["b"]["rem"]],
+                                   final=g["final"]))
+
+    # odds history: what the odds were after each completed week
+    rng = random.Random(77)
+    history = defaultdict(list)
+    hist_weeks = list(range(3, done + 1))
+    for k in hist_weeks:
+        mk, sdk = model(k)
+        wk_, _, tk, pfk = record(k)
+        rem = [(g["a"], g["b"]) for g in reg if k < g["week"] < pws]
+        ct = defaultdict(int)
+        n = 3000
+        for _ in range(n):
+            ww = {f: wk_[f] + 0.5 * tk[f] for f in teams}
+            pp = dict((f, pfk[f]) for f in teams)
+            for a, b in rem:
+                sa, sb = rng.gauss(mk[a], sdk), rng.gauss(mk[b], sdk)
+                pp[a] += sa
+                pp[b] += sb
+                ww[a if sa > sb else b] += 1
+            for f in sorted(teams, key=lambda f: (-ww[f], -pp[f]))[:nteams]:
+                ct[f] += 1
+        for f in teams:
+            history[f].append(round(100 * ct[f] / n, 1))
+
+    return dict(season=s, through=done, pws=pws, playoff_teams=nteams, sd=round(sd, 3),
+                teams=[dict(fr=f, w=w[f], l=l[f], t=t[f], pf=round(pf[f], 2), mu=round(mu[f], 3)) for f in teams],
+                live=live_games, live_week=live_wk, sched=sched,
+                history=dict(weeks=hist_weeks, odds=dict(history)))
+
 # ====================================================================== entry
 def extra_stats(games, standings, champions, res, sleeper):
     rows = team_rows(games)
@@ -730,5 +817,6 @@ def extra_stats(games, standings, champions, res, sleeper):
         upcoming=upcoming(rows, games, cur_info),
         odds=odds(cur_info, games, rows),
         sleeper=[x for x in (sleeper_extras(s) for s in sleeper) if x],
-        live=live_week(cur, standings) if cur else None,
+        live=(lv := live_week(cur, standings) if cur else None),
+        machine=playoff_machine(cur_info, games, lv),
     )
