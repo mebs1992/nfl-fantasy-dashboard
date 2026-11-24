@@ -235,7 +235,8 @@ def main():
     final = max(done, prev)
     wk_file = out / f"matchups_wk{current:02d}.json"
     now = datetime.now(timezone.utc)
-    if current and wk_file.exists() and now.weekday() in (1, 2):
+    # Monday night games finish by about 04:30 UTC Tuesday, so only then.
+    if current and wk_file.exists() and ((now.weekday() == 1 and now.hour >= 5) or now.weekday() == 2):
         pts = [m["points"] or 0 for m in json.loads(wk_file.read_text())]
         if pts and all(p > 0 for p in pts):
             final = max(final, current)

@@ -1,14 +1,22 @@
 name: Sleeper weekly pull
 
-# Tuesday 05:00 UTC = Tuesday 4pm Sydney (AEDT; 3pm in September before
-# daylight saving), once Monday night games are done: the week becomes final.
-# Monday 05:30 UTC = Monday 4:30pm Sydney, after the Sunday games and before
-# Monday night: a live snapshot with projections for the players still to play.
+# Schedule (UTC; Sydney is UTC+11 in season). GitHub often starts scheduled
+# runs hours late, so each slot has backups; extra runs just refresh the data.
+#   Monday snapshot (Sunday games done, Monday night still to come):
+#     05:37 UTC = 4:37pm Mon Sydney, backup 07:52 UTC
+#   Week final (Monday night game done):
+#     Tue 05:17, 07:47, 11:23, 16:41 UTC and Wed 01:13 UTC
+#     = Tue 4:17pm, 6:47pm, 10:23pm, Wed 3:41am, 12:13pm Sydney
 # Also runs on demand and when the scripts or the site change.
 on:
   schedule:
-    - cron: "0 5 * * 2"
-    - cron: "30 5 * * 1"
+    - cron: "37 5 * * 1"
+    - cron: "52 7 * * 1"
+    - cron: "17 5 * * 2"
+    - cron: "47 7 * * 2"
+    - cron: "23 11 * * 2"
+    - cron: "41 16 * * 2"
+    - cron: "13 1 * * 3"
   workflow_dispatch:
   push:
     branches: [main]
